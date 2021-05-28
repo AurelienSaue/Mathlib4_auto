@@ -6,7 +6,7 @@ Author: Mario Carneiro
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.int.basic
 import Mathlib.Lean3Lib.init.data.nat.bitwise
-import Mathlib.PostPort
+ 
 
 namespace Mathlib
 

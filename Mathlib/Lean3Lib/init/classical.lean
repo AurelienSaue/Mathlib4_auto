@@ -6,7 +6,7 @@ Authors: Leonardo de Moura, Jeremy Avigad, Mario Carneiro
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.subtype.basic
 import Mathlib.Lean3Lib.init.funext
-import Mathlib.PostPort
+ 
 
 universes u v 
 

@@ -6,7 +6,7 @@ Authors: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.meta.name
 import Mathlib.Lean3Lib.init.meta.format
-import Mathlib.PostPort
+ 
 
 namespace Mathlib
 

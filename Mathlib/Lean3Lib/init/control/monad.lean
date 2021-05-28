@@ -5,7 +5,7 @@ Authors: Leonardo de Moura, Luke Nelson, Jared Roesch, Sebastian Ullrich
 -/
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.control.applicative
-import Mathlib.PostPort
+ 
 
 universes u v l 
 

@@ -5,7 +5,7 @@ Authors: Leonardo de Moura, Jeremy Avigad, Floris van Doorn
 -/
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.core
-import Mathlib.PostPort
+ 
 
 universes u v w l u_1 r s 
 

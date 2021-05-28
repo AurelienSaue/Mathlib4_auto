@@ -7,7 +7,7 @@ Helper tactic for constructing a has_reflect instance.
 -/
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.meta.rec_util
-import Mathlib.PostPort
+ 
 
 namespace Mathlib
 

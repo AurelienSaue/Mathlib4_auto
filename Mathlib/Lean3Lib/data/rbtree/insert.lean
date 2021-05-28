@@ -6,7 +6,7 @@ Authors: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.default
 import Mathlib.Lean3Lib.data.rbtree.find
-import Mathlib.PostPort
+ 
 
 universes u v 
 

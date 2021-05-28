@@ -6,7 +6,7 @@ Authors: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.sigma.basic
 import Mathlib.Lean3Lib.init.data.sigma.lex
-import Mathlib.PostPort
+ 
 
 namespace Mathlib
 

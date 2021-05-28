@@ -6,7 +6,7 @@ Authors: Leonardo de Moura
 notation, basic datatypes and type classes
 -/
 import Mathlib.PrePort
-import Mathlib.PostPort
+ 
 
 universes u l v w u_1 u_2 u₁ u₂ u₃ 
 

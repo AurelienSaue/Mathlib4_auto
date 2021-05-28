@@ -6,7 +6,7 @@ Authors: Leonardo de Moura
 -/
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.logic
-import Mathlib.PostPort
+ 
 
 universes u l 
 

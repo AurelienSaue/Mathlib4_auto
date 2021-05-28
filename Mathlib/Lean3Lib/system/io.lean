@@ -6,7 +6,7 @@ Authors: Luke Nelson, Jared Roesch and Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.default
 import Mathlib.Lean3Lib.system.io_interface
-import Mathlib.PostPort
+ 
 
 universes u_1 
 

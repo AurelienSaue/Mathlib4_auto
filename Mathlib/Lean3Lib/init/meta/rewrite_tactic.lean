@@ -6,7 +6,7 @@ Authors: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.meta.relation_tactics
 import Mathlib.Lean3Lib.init.meta.occurrences
-import Mathlib.PostPort
+ 
 
 universes l 
 

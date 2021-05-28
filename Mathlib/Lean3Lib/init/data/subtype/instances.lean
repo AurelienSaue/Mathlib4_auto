@@ -6,7 +6,7 @@ Author: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.meta.mk_dec_eq_instance
 import Mathlib.Lean3Lib.init.data.subtype.basic
-import Mathlib.PostPort
+ 
 
 universes u 
 
