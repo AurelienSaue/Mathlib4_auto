@@ -6,7 +6,6 @@ Authors: Leonardo de Moura
 notation, basic datatypes and type classes
 -/
 import Mathlib.PrePort
- 
 
 universes u l v w u_1 u_2 u₁ u₂ u₃ 
 
@@ -60,7 +59,7 @@ def out_param (α : Sort u)  :=
 def id_rhs (α : Sort u) (a : α) : α :=
   a
 
-not found/-- An abbreviation for `punit.{0}`, its most common instantiation.
+/-- An abbreviation for `punit.{0}`, its most common instantiation.
     This type should be preferred over `punit` where possible to avoid
     unnecessary universe parameters. -/
 def unit  :=
@@ -81,7 +80,7 @@ an application
 def thunk (α : Type u)  :=
   Unit → α
 
-not foundnot foundinductive empty 
+inductive empty 
 where
 
 /--
@@ -100,7 +99,7 @@ def not (a : Prop)  :=
 
 prefix:40 "¬" => Mathlib.not
 
-not found/-
+/-
 Initialize the quotient module, which effectively adds the following definitions:
 
 constant quot {α : Sort u} (r : α → α → Prop) : Sort u
@@ -131,9 +130,9 @@ if something has gone wrong already.
 If you really do need to follow this route, 
 you may find the lemmas `eq_rec_heq` and `eq_mpr_heq` useful.
 -/
-not foundnot found/-- Similar to `prod`, but α and β can be propositions.
+/-- Similar to `prod`, but α and β can be propositions.
    We use this type internally to automatically generate the brec_on recursor. -/
-not found/--
+/--
 Logical and.
 
 `and P Q`, with notation `P ∧ Q`, is the `Prop` which is true precisely when `P` and `Q` are
@@ -146,7 +145,7 @@ Given a hypothesis `h : P ∧ Q`, you can use the tactic `cases h with hP hQ`
 to obtain two new hypotheses `hP : P` and `hQ : Q`. See also the `obtain` or `rcases` tactics in
 mathlib.
 -/
-not founddef and.elim_left {a : Prop} {b : Prop} (h : a ∧ b) : a :=
+def and.elim_left {a : Prop} {b : Prop} (h : a ∧ b) : a :=
   and.left h
 
 def and.elim_right {a : Prop} {b : Prop} (h : a ∧ b) : b :=
@@ -220,7 +219,7 @@ Given a hypothesis `h : P ∨ Q` and goal `⊢ R`,
 the tactic `cases h` will give you two copies of the goal `⊢ R`,
 with the hypothesis `h : P` in the first, and the hypothesis `h : Q` in the second.
 -/
-not founddef or.intro_left {a : Prop} (b : Prop) (ha : a) : a ∨ b :=
+def or.intro_left {a : Prop} (b : Prop) (ha : a) : a ∨ b :=
   Or.inl ha
 
 def or.intro_right (a : Prop) {b : Prop} (hb : b) : a ∨ b :=
@@ -236,9 +235,9 @@ where
   fst : α
   snd : β fst
 
-not found/- Remark: subtype must take a Sort instead of Type because of the axiom strong_indefinite_description. -/
+/- Remark: subtype must take a Sort instead of Type because of the axiom strong_indefinite_description. -/
 
-not foundnot founddef decidable_pred {α : Sort u} (r : α → Prop)  :=
+def decidable_pred {α : Sort u} (r : α → Prop)  :=
   (a : α) → Decidable (r a)
 
 def decidable_rel {α : Sort u} (r : α → α → Prop)  :=
@@ -247,9 +246,9 @@ def decidable_rel {α : Sort u} (r : α → α → Prop)  :=
 def decidable_eq (α : Sort u)  :=
   DecidableRel Eq
 
-not foundnot foundinfixr:67 " :: " => Mathlib.list.cons
+infixr:67 " :: " => Mathlib.list.cons
 
-not foundstructure unification_constraint 
+structure unification_constraint 
 where
   α : Type u
   lhs : α
@@ -266,15 +265,15 @@ where
 
 /- Declare builtin and reserved notation -/
 
-not foundnot foundnot foundnot foundclass has_inv (α : Type u) 
+class has_inv (α : Type u) 
 where
   inv : α → α
 
-not foundnot foundnot foundclass has_dvd (α : Type u) 
+class has_dvd (α : Type u) 
 where
   dvd : α → α → Prop
 
-not foundnot foundnot foundnot foundclass has_andthen (α : Type u) (β : Type v) (σ : outParam (Type w)) 
+class has_andthen (α : Type u) (β : Type v) (σ : outParam (Type w)) 
 where
   andthen : α → β → σ
 
@@ -499,7 +498,7 @@ infixr:35 " × " => Mathlib.prod
 
 /- sizeof -/
 
-not founddef sizeof {α : Sort u} [s : SizeOf α] : α → Nat :=
+def sizeof {α : Sort u} [s : SizeOf α] : α → Nat :=
   has_sizeof.sizeof
 
 /-

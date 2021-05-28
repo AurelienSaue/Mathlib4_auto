@@ -8,7 +8,7 @@ Definitions and properties of gcd, lcm, and coprime.
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.nat.lemmas
 import Mathlib.Lean3Lib.init.meta.well_founded_tactics
- 
+import PostPort
 
 namespace Mathlib
 

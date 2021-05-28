@@ -8,7 +8,7 @@ Helper tactic for constructing has_sizeof instance.
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.meta.rec_util
 import Mathlib.Lean3Lib.init.meta.constructor_tactic
- 
+import PostPort
 
 namespace Mathlib
 

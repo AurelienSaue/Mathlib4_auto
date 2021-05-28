@@ -8,7 +8,7 @@ Helper tactic for showing that a type has decidable equality.
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.meta.tactic
 import Mathlib.Lean3Lib.init.data.option.basic
- 
+import PostPort
 
 namespace Mathlib
 

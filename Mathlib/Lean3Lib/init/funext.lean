@@ -8,7 +8,7 @@ Extensional equality for functions, and a proof of function extensionality from 
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.quot
 import Mathlib.Lean3Lib.init.logic
- 
+import PostPort
 
 universes u v 
 
