@@ -158,7 +158,7 @@ def map {R : Type u_1} {Γ₀ : Type u_2} [linear_ordered_comm_group_with_zero �
   mk (⇑f ∘ ⇑v) sorry sorry sorry sorry
 
 /-- Two valuations on R are defined to be equivalent if they induce the same preorder on R. -/
-def is_equiv {R : Type u_1} {Γ₀ : Type u_2} [linear_ordered_comm_group_with_zero Γ₀] {Γ'₀ : Type u_3} [linear_ordered_comm_group_with_zero Γ'₀] [ring R] (v₁ : valuation R Γ₀) (v₂ : valuation R Γ'₀)  :=
+def is_equiv {R : Type u_1} {Γ₀ : Type u_2} [linear_ordered_comm_group_with_zero Γ₀] {Γ'₀ : Type u_3} [linear_ordered_comm_group_with_zero Γ'₀] [ring R] (v₁ : valuation R Γ₀) (v₂ : valuation R Γ'₀) :=
   ∀ (r s : R), coe_fn v₁ r ≤ coe_fn v₁ s ↔ coe_fn v₂ r ≤ coe_fn v₂ s
 
 namespace is_equiv

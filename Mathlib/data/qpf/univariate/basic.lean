@@ -142,7 +142,7 @@ def W_setoid {F : Type u → Type u} [Functor F] [q : qpf F] : setoid (pfunctor.
   setoid.mk Wequiv sorry
 
 /-- inductive type defined as initial algebra of a Quotient of Polynomial Functor -/
-def fix (F : Type u → Type u) [Functor F] [q : qpf F]  :=
+def fix (F : Type u → Type u) [Functor F] [q : qpf F] :=
   quotient W_setoid
 
 /-- recursor of a type defined by a qpf -/
@@ -194,7 +194,7 @@ theorem corecF_eq {F : Type u → Type u} [Functor F] [q : qpf F] {α : Type u} 
 /- Equivalence -/
 
 /-- A pre-congruence on q.P.M *viewed as an F-coalgebra*. Not necessarily symmetric. -/
-def is_precongr {F : Type u → Type u} [Functor F] [q : qpf F] (r : pfunctor.M (P F) → pfunctor.M (P F) → Prop)  :=
+def is_precongr {F : Type u → Type u} [Functor F] [q : qpf F] (r : pfunctor.M (P F) → pfunctor.M (P F) → Prop) :=
   ∀ {x y : pfunctor.M (P F)}, r x y → abs (Quot.mk r <$> pfunctor.M.dest x) = abs (Quot.mk r <$> pfunctor.M.dest y)
 
 /-- The maximal congruence on q.P.M -/
@@ -202,7 +202,7 @@ def Mcongr {F : Type u → Type u} [Functor F] [q : qpf F] : pfunctor.M (P F) �
   fun (x y : pfunctor.M (P F)) => ∃ (r : pfunctor.M (P F) → pfunctor.M (P F) → Prop), is_precongr r ∧ r x y
 
 /-- coinductive type defined as the final coalgebra of a qpf -/
-def cofix (F : Type u → Type u) [Functor F] [q : qpf F]  :=
+def cofix (F : Type u → Type u) [Functor F] [q : qpf F] :=
   Quot Mcongr
 
 protected instance cofix.inhabited {F : Type u → Type u} [Functor F] [q : qpf F] [Inhabited (pfunctor.A (P F))] : Inhabited (cofix F) :=
@@ -314,16 +314,16 @@ theorem has_good_supp_iff {F : Type u → Type u} [Functor F] [q : qpf F] {α : 
 
 /-- A qpf is said to be uniform if every polynomial functor
 representing a single value all have the same range. -/
-def is_uniform {F : Type u → Type u} [Functor F] (q : qpf F)  :=
+def is_uniform {F : Type u → Type u} [Functor F] (q : qpf F) :=
   ∀ {α : Type u} (a a' : pfunctor.A (P F)) (f : pfunctor.B (P F) a → α) (f' : pfunctor.B (P F) a' → α),
     abs (sigma.mk a f) = abs (sigma.mk a' f') → f '' set.univ = f' '' set.univ
 
 /-- does `abs` preserve `liftp`? -/
-def liftp_preservation {F : Type u → Type u} [Functor F] (q : qpf F)  :=
+def liftp_preservation {F : Type u → Type u} [Functor F] (q : qpf F) :=
   ∀ {α : Type u} (p : α → Prop) (x : pfunctor.obj (P F) α), functor.liftp p (abs x) ↔ functor.liftp p x
 
 /-- does `abs` preserve `supp`? -/
-def supp_preservation {F : Type u → Type u} [Functor F] (q : qpf F)  :=
+def supp_preservation {F : Type u → Type u} [Functor F] (q : qpf F) :=
   ∀ {α : Type u} (x : pfunctor.obj (P F) α), functor.supp (abs x) = functor.supp x
 
 theorem supp_eq_of_is_uniform {F : Type u → Type u} [Functor F] [q : qpf F] (h : is_uniform q) {α : Type u} (a : pfunctor.A (P F)) (f : pfunctor.B (P F) a → α) : functor.supp (abs (sigma.mk a f)) = f '' set.univ := sorry

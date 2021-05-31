@@ -24,7 +24,7 @@ def commutator (G : Type u) [group G] : subgroup G :=
   subgroup.normal_closure (set_of fun (x : G) => ∃ (p : G), ∃ (q : G), p * q * (p⁻¹) * (q⁻¹) = x)
 
 /-- The abelianization of G is the quotient of G by its commutator subgroup -/
-def abelianization (G : Type u) [group G]  :=
+def abelianization (G : Type u) [group G] :=
   quotient_group.quotient (commutator G)
 
 namespace abelianization

@@ -15,7 +15,7 @@ namespace Mathlib
 /-! # Category of linearly ordered types -/
 
 /-- The category of linearly ordered types. -/
-def LinearOrder  :=
+def LinearOrder :=
   category_theory.bundled linear_order
 
 namespace LinearOrder

@@ -80,7 +80,7 @@ theorem eq_one_of_lt_two {n : ℕ+} : n < bit0 1 → n = 1 :=
 /-! ### Prime numbers -/
 
 /-- Primality predicate for `ℕ+`, defined in terms of `nat.prime`. -/
-def prime (p : ℕ+)  :=
+def prime (p : ℕ+) :=
   nat.prime ↑p
 
 theorem prime.one_lt {p : ℕ+} : prime p → 1 < p :=
@@ -104,7 +104,7 @@ theorem exists_prime_and_dvd {n : ℕ+} : bit0 1 ≤ n → ∃ (p : ℕ+), prime
 /-! ### Coprime numbers and gcd -/
 
 /-- Two pnats are coprime if their gcd is 1. -/
-def coprime (m : ℕ+) (n : ℕ+)  :=
+def coprime (m : ℕ+) (n : ℕ+) :=
   gcd m n = 1
 
 @[simp] theorem coprime_coe {m : ℕ+} {n : ℕ+} : nat.coprime ↑m ↑n ↔ coprime m n := sorry

@@ -92,7 +92,7 @@ if `∥f x - f y - f' (x - y)∥ ≤ c * ∥x - y∥` whenever `x, y ∈ s`.
 This predicate is defined to facilitate the splitting of the inverse function theorem into small
 lemmas. Some of these lemmas can be useful, e.g., to prove that the inverse function is defined
 on a specific set. -/
-def approximates_linear_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (s : set E) (c : nnreal)  :=
+def approximates_linear_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (s : set E) (c : nnreal) :=
   ∀ (x : E), x ∈ s → ∀ (y : E), y ∈ s → norm (f x - f y - coe_fn f' (x - y)) ≤ ↑c * norm (x - y)
 
 namespace approximates_linear_on

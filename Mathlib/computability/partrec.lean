@@ -134,16 +134,16 @@ end partrec
 end nat
 
 
-def partrec {α : Type u_1} {σ : Type u_2} [primcodable α] [primcodable σ] (f : α →. σ)  :=
+def partrec {α : Type u_1} {σ : Type u_2} [primcodable α] [primcodable σ] (f : α →. σ) :=
   nat.partrec fun (n : ℕ) => roption.bind ↑(encodable.decode α n) fun (a : α) => roption.map encodable.encode (f a)
 
-def partrec₂ {α : Type u_1} {β : Type u_2} {σ : Type u_3} [primcodable α] [primcodable β] [primcodable σ] (f : α → β →. σ)  :=
+def partrec₂ {α : Type u_1} {β : Type u_2} {σ : Type u_3} [primcodable α] [primcodable β] [primcodable σ] (f : α → β →. σ) :=
   partrec fun (p : α × β) => f (prod.fst p) (prod.snd p)
 
-def computable {α : Type u_1} {σ : Type u_2} [primcodable α] [primcodable σ] (f : α → σ)  :=
+def computable {α : Type u_1} {σ : Type u_2} [primcodable α] [primcodable σ] (f : α → σ) :=
   partrec ↑f
 
-def computable₂ {α : Type u_1} {β : Type u_2} {σ : Type u_3} [primcodable α] [primcodable β] [primcodable σ] (f : α → β → σ)  :=
+def computable₂ {α : Type u_1} {β : Type u_2} {σ : Type u_3} [primcodable α] [primcodable β] [primcodable σ] (f : α → β → σ) :=
   computable fun (p : α × β) => f (prod.fst p) (prod.snd p)
 
 theorem primrec.to_comp {α : Type u_1} {σ : Type u_2} [primcodable α] [primcodable σ] {f : α → σ} (hf : primrec f) : computable f := sorry

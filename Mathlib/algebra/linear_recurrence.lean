@@ -58,7 +58,7 @@ namespace linear_recurrence
 
 /-- We say that a sequence `u` is solution of `linear_recurrence order coeffs` when we have
   `u (n + order) = ∑ i : fin order, coeffs i * u (n + i)` for any `n`. -/
-def is_solution {α : Type u_1} [comm_semiring α] (E : linear_recurrence α) (u : ℕ → α)  :=
+def is_solution {α : Type u_1} [comm_semiring α] (E : linear_recurrence α) (u : ℕ → α) :=
   ∀ (n : ℕ), u (n + order E) = finset.sum finset.univ fun (i : fin (order E)) => coeffs E i * u (n + ↑i)
 
 /-- A solution of a `linear_recurrence` which satisfies certain initial conditions.

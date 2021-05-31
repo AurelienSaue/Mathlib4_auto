@@ -76,7 +76,7 @@ We also add wrappers around structures which already exist. Here are the main on
 -/
 
 /-- The type `Compactum` of Compacta, defined as algebras for the ultrafilter monad. -/
-def Compactum  :=
+def Compactum :=
   category_theory.monad.algebra (category_theory.of_type_functor ultrafilter)
 
 namespace Compactum

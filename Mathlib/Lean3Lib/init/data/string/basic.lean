@@ -22,7 +22,7 @@ structure string_imp
 where
   data : List char
 
-def string  :=
+def string :=
   string_imp
 
 def list.as_string (s : List char) : string :=
@@ -79,7 +79,7 @@ where
   fst : List char
   snd : List char
 
-def iterator  :=
+def iterator :=
   iterator_imp
 
 def mk_iterator : string → iterator :=

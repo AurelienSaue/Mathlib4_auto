@@ -436,7 +436,7 @@ namespace monoid
 
 
 /-- The monoid of endomorphisms. -/
-protected def End (M : Type u_1) [monoid M]  :=
+protected def End (M : Type u_1) [monoid M] :=
   M →* M
 
 namespace End
@@ -467,7 +467,7 @@ namespace add_monoid
 
 
 /-- The monoid of endomorphisms. -/
-protected def End (A : Type u_6) [add_monoid A]  :=
+protected def End (A : Type u_6) [add_monoid A] :=
   A →+ A
 
 namespace End

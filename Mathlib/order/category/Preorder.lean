@@ -17,7 +17,7 @@ namespace Mathlib
 /-! # Category of preorders -/
 
 /-- The category of preorders. -/
-def Preorder  :=
+def Preorder :=
   category_theory.bundled preorder
 
 namespace Preorder

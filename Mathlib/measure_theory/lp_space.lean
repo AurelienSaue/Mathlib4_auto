@@ -64,7 +64,7 @@ theorem snorm_eq_snorm' {α : Type u_1} {F : Type u_3} [measurable_space α] {μ
 @[simp] theorem snorm_exponent_top {α : Type u_1} {F : Type u_3} [measurable_space α] {μ : measure α} [normed_group F] {f : α → F} : snorm f ⊤ μ = snorm_ess_sup f μ := sorry
 
 /-- The property that `f:α→E` is ae_measurable and `(∫ ∥f a∥^p ∂μ)^(1/p)` is finite -/
-def mem_ℒp {α : Type u_1} {E : Type u_2} [measurable_space α] [measurable_space E] [normed_group E] (f : α → E) (p : ennreal) (μ : measure α)  :=
+def mem_ℒp {α : Type u_1} {E : Type u_2} [measurable_space α] [measurable_space E] [normed_group E] (f : α → E) (p : ennreal) (μ : measure α) :=
   ae_measurable f ∧ snorm f p μ < ⊤
 
 theorem lintegral_rpow_nnnorm_eq_rpow_snorm' {α : Type u_1} {F : Type u_3} [measurable_space α] {μ : measure α} [normed_group F] {p : ℝ} {f : α → F} (hp0_lt : 0 < p) : (lintegral μ fun (a : α) => ↑(nnnorm (f a)) ^ p) = snorm' f p μ ^ p := sorry

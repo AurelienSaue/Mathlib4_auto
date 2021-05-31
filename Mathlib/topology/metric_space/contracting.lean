@@ -35,7 +35,7 @@ contracting map, fixed point, Banach fixed point theorem
 -/
 
 /-- A map is said to be `contracting_with K`, if `K < 1` and `f` is `lipschitz_with K`. -/
-def contracting_with {α : Type u_1} [emetric_space α] (K : nnreal) (f : α → α)  :=
+def contracting_with {α : Type u_1} [emetric_space α] (K : nnreal) (f : α → α) :=
   K < 1 ∧ lipschitz_with K f
 
 namespace contracting_with

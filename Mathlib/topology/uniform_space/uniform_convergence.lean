@@ -63,13 +63,13 @@ We define uniform convergence and locally uniform convergence, on a set or in th
 /-- A sequence of functions `Fₙ` converges uniformly on a set `s` to a limiting function `f` with
 respect to the filter `p` if, for any entourage of the diagonal `u`, one has `p`-eventually
 `(f x, Fₙ x) ∈ u` for all `x ∈ s`. -/
-def tendsto_uniformly_on {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] (F : ι → α → β) (f : α → β) (p : filter ι) (s : set α)  :=
+def tendsto_uniformly_on {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] (F : ι → α → β) (f : α → β) (p : filter ι) (s : set α) :=
   ∀ (u : set (β × β)), u ∈ uniformity β → filter.eventually (fun (n : ι) => ∀ (x : α), x ∈ s → (f x, F n x) ∈ u) p
 
 /-- A sequence of functions `Fₙ` converges uniformly to a limiting function `f` with respect to a
 filter `p` if, for any entourage of the diagonal `u`, one has `p`-eventually
 `(f x, Fₙ x) ∈ u` for all `x`. -/
-def tendsto_uniformly {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] (F : ι → α → β) (f : α → β) (p : filter ι)  :=
+def tendsto_uniformly {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] (F : ι → α → β) (f : α → β) (p : filter ι) :=
   ∀ (u : set (β × β)), u ∈ uniformity β → filter.eventually (fun (n : ι) => ∀ (x : α), (f x, F n x) ∈ u) p
 
 theorem tendsto_uniformly_on_univ {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] {F : ι → α → β} {f : α → β} {p : filter ι} : tendsto_uniformly_on F f p set.univ ↔ tendsto_uniformly F f p := sorry
@@ -94,14 +94,14 @@ theorem tendsto_uniformly.comp {α : Type u} {β : Type v} {γ : Type w} {ι : T
 /-- A sequence of functions `Fₙ` converges locally uniformly on a set `s` to a limiting function
 `f` with respect to a filter `p` if, for any entourage of the diagonal `u`, for any `x ∈ s`, one
 has `p`-eventually `(f x, Fₙ x) ∈ u` for all `y` in a neighborhood of `x` in `s`. -/
-def tendsto_locally_uniformly_on {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] [topological_space α] (F : ι → α → β) (f : α → β) (p : filter ι) (s : set α)  :=
+def tendsto_locally_uniformly_on {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] [topological_space α] (F : ι → α → β) (f : α → β) (p : filter ι) (s : set α) :=
   ∀ (u : set (β × β)) (H : u ∈ uniformity β) (x : α) (H : x ∈ s),
     ∃ (t : set α), ∃ (H : t ∈ nhds_within x s), filter.eventually (fun (n : ι) => ∀ (y : α), y ∈ t → (f y, F n y) ∈ u) p
 
 /-- A sequence of functions `Fₙ` converges locally uniformly to a limiting function `f` with respect
 to a filter `p` if, for any entourage of the diagonal `u`, for any `x`, one has `p`-eventually
 `(f x, Fₙ x) ∈ u` for all `y` in a neighborhood of `x`. -/
-def tendsto_locally_uniformly {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] [topological_space α] (F : ι → α → β) (f : α → β) (p : filter ι)  :=
+def tendsto_locally_uniformly {α : Type u} {β : Type v} {ι : Type u_1} [uniform_space β] [topological_space α] (F : ι → α → β) (f : α → β) (p : filter ι) :=
   ∀ (u : set (β × β)) (H : u ∈ uniformity β) (x : α),
     ∃ (t : set α), ∃ (H : t ∈ nhds x), filter.eventually (fun (n : ι) => ∀ (y : α), y ∈ t → (f y, F n y) ∈ u) p
 

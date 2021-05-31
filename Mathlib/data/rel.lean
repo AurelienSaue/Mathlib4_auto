@@ -15,7 +15,7 @@ universes u_1 u_2 u_3 u_4
 namespace Mathlib
 
 /-- A relation on `α` and `β`, aka a set-valued function, aka a partial multifunction --/
-def rel (α : Type u_1) (β : Type u_2)  :=
+def rel (α : Type u_1) (β : Type u_2) :=
   α → β → Prop
 
 namespace rel

@@ -248,7 +248,7 @@ theorem union_assoc {α : Type u} {β : α → Type v} [DecidableEq α] {s₁ : 
 /-! ### disjoint -/
 
 /-- Two associative lists are disjoint if they have no common keys. -/
-def disjoint {α : Type u} {β : α → Type v} (s₁ : alist β) (s₂ : alist β)  :=
+def disjoint {α : Type u} {β : α → Type v} (s₁ : alist β) (s₂ : alist β) :=
   ∀ (k : α), k ∈ keys s₁ → ¬k ∈ keys s₂
 
 theorem union_comm_of_disjoint {α : Type u} {β : α → Type v} [DecidableEq α] {s₁ : alist β} {s₂ : alist β} (h : disjoint s₁ s₂) : entries (s₁ ∪ s₂) ~ entries (s₂ ∪ s₁) := sorry

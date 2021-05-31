@@ -958,7 +958,7 @@ theorem square_sin_pi_div_three : sin (pi / bit1 1) ^ bit0 1 = bit1 1 / bit0 (bi
 @[simp] theorem sin_pi_div_three : sin (pi / bit1 1) = sqrt (bit1 1) / bit0 1 := sorry
 
 /-- The type of angles -/
-def angle  :=
+def angle :=
   quotient_add_group.quotient (add_subgroup.gmultiples (bit0 1 * pi))
 
 namespace angle

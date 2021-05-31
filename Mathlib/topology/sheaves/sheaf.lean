@@ -61,7 +61,7 @@ is the equalizer of the two morphisms
 
 -- However as it's a subsingleton the universe level doesn't matter much.
 
-def sheaf_condition {C : Type u} [category_theory.category C] [category_theory.limits.has_products C] {X : Top} (F : presheaf C X)  :=
+def sheaf_condition {C : Type u} [category_theory.category C] [category_theory.limits.has_products C] {X : Top} (F : presheaf C X) :=
   {ι : Type v} →
     (U : ι → topological_space.opens ↥X) → category_theory.limits.is_limit (sheaf_condition_equalizer_products.fork F U)
 

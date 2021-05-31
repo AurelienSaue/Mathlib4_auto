@@ -25,7 +25,7 @@ namespace mvqpf
 
 /-- Composition of an `n`-ary functor with `n` `m`-ary
 functors gives us one `m`-ary functor -/
-def comp {n : ℕ} {m : ℕ} (F : typevec n → Type u_1) (G : fin2 n → typevec m → Type u) (v : typevec m)  :=
+def comp {n : ℕ} {m : ℕ} (F : typevec n → Type u_1) (G : fin2 n → typevec m → Type u) (v : typevec m) :=
   F fun (i : fin2 n) => G i v
 
 namespace comp

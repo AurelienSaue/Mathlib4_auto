@@ -65,7 +65,7 @@ def matching.support {V : Type u} {G : simple_graph V} (M : matching G) : set V 
 A perfect matching `M` on graph `G` is a matching such that
   every vertex is contained in an edge of `M`.
 -/
-def matching.is_perfect {V : Type u} {G : simple_graph V} (M : matching G)  :=
+def matching.is_perfect {V : Type u} {G : simple_graph V} (M : matching G) :=
   matching.support M = set.univ
 
 theorem matching.is_perfect_iff {V : Type u} {G : simple_graph V} (M : matching G) : matching.is_perfect M ↔ ∀ (v : V), ∃ (e : sym2 V), ∃ (H : e ∈ matching.edges M), v ∈ e :=

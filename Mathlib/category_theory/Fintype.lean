@@ -30,7 +30,7 @@ We prove that `Fintype.skeleton` is a skeleton of `Fintype` in `Fintype.is_skele
 -/
 
 /-- The category of finite types. -/
-def Fintype  :=
+def Fintype :=
   category_theory.bundled fintype
 
 namespace Fintype
@@ -61,7 +61,7 @@ The "standard" skeleton for `Fintype`. This is the full subcategory of `Fintype`
 of the form `fin n` for `n : ℕ`. We parameterize the objects of `Fintype.skeleton` directly as `ℕ`,
 as the type `fin m ≃ fin n` is nonempty if and only if `n = m`.
 -/
-def skeleton  :=
+def skeleton :=
   ℕ
 
 namespace skeleton

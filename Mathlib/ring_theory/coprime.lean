@@ -30,7 +30,7 @@ e.g., the multivariate polynomials `x₁` and `x₂` are not coprime.
 /-- The proposition that `x` and `y` are coprime, defined to be the existence of `a` and `b` such
 that `a * x + b * y = 1`. Note that elements with no common divisors are not necessarily coprime,
 e.g., the multivariate polynomials `x₁` and `x₂` are not coprime. -/
-@[simp] def is_coprime {R : Type u} [comm_semiring R] (x : R) (y : R)  :=
+@[simp] def is_coprime {R : Type u} [comm_semiring R] (x : R) (y : R) :=
   ∃ (a : R), ∃ (b : R), a * x + b * y = 1
 
 theorem nat.is_coprime_iff_coprime {m : ℕ} {n : ℕ} : is_coprime ↑m ↑n ↔ nat.coprime m n := sorry

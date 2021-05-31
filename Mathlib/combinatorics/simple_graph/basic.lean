@@ -272,13 +272,13 @@ def incidence_finset {V : Type u} (G : simple_graph V) (v : V) [fintype ↥(neig
 /--
 A graph is locally finite if every vertex has a finite neighbor set.
 -/
-def locally_finite {V : Type u} (G : simple_graph V)  :=
+def locally_finite {V : Type u} (G : simple_graph V) :=
   (v : V) → fintype ↥(neighbor_set G v)
 
 /--
 A locally finite simple graph is regular of degree `d` if every vertex has degree `d`.
 -/
-def is_regular_of_degree {V : Type u} (G : simple_graph V) [locally_finite G] (d : ℕ)  :=
+def is_regular_of_degree {V : Type u} (G : simple_graph V) [locally_finite G] (d : ℕ) :=
   ∀ (v : V), degree G v = d
 
 theorem is_regular_of_degree_eq {V : Type u} (G : simple_graph V) [locally_finite G] {d : ℕ} (h : is_regular_of_degree G d) (v : V) : degree G v = d :=

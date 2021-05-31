@@ -15,7 +15,7 @@ namespace int
 
 
 /-- `a ≡ b [ZMOD n]` when `a % n = b % n`. -/
-def modeq (n : ℤ) (a : ℤ) (b : ℤ)  :=
+def modeq (n : ℤ) (a : ℤ) (b : ℤ) :=
   a % n = b % n
 
 namespace modeq

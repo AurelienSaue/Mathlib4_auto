@@ -103,7 +103,7 @@ instance colimit_setoid {J : Type v} [category_theory.small_category J] (F : J �
 /--
 The underlying type of the colimit of a diagram in `Mon`.
 -/
-def colimit_type {J : Type v} [category_theory.small_category J] (F : J ⥤ Mon)  :=
+def colimit_type {J : Type v} [category_theory.small_category J] (F : J ⥤ Mon) :=
   quotient (colimit_setoid F)
 
 protected instance monoid_colimit_type {J : Type v} [category_theory.small_category J] (F : J ⥤ Mon) : monoid (colimit_type F) :=

@@ -34,21 +34,21 @@ with differential in grading `b`.
 
 (We use the somewhat cumbersome `homological_complex` to avoid the name conflict with `ℂ`.)
 -/
-def homological_complex (V : Type u) [category_theory.category V] [category_theory.limits.has_zero_morphisms V] {β : Type} [add_comm_group β] (b : β)  :=
+def homological_complex (V : Type u) [category_theory.category V] [category_theory.limits.has_zero_morphisms V] {β : Type} [add_comm_group β] (b : β) :=
   category_theory.differential_object (category_theory.graded_object_with_shift b V)
 
 /--
 A chain complex in `V` is "just" a differential `ℤ`-graded object in `V`,
 with differential graded `-1`.
 -/
-def chain_complex (V : Type u) [category_theory.category V] [category_theory.limits.has_zero_morphisms V]  :=
+def chain_complex (V : Type u) [category_theory.category V] [category_theory.limits.has_zero_morphisms V] :=
   homological_complex V (-1)
 
 /--
 A cochain complex in `V` is "just" a differential `ℤ`-graded object in `V`,
 with differential graded `+1`.
 -/
-def cochain_complex (V : Type u) [category_theory.category V] [category_theory.limits.has_zero_morphisms V]  :=
+def cochain_complex (V : Type u) [category_theory.category V] [category_theory.limits.has_zero_morphisms V] :=
   homological_complex V 1
 
 -- The chain groups of a chain complex `C` are accessed as `C.X i`,

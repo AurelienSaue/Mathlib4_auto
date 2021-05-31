@@ -56,12 +56,12 @@ def eigenspace {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [modul
   linear_map.ker (f - coe_fn (algebra_map R (End R M)) μ)
 
 /-- A nonzero element of an eigenspace is an eigenvector. (Def 5.7 of [axler2015]) -/
-def has_eigenvector {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] (f : End R M) (μ : R) (x : M)  :=
+def has_eigenvector {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] (f : End R M) (μ : R) (x : M) :=
   x ≠ 0 ∧ x ∈ eigenspace f μ
 
 /-- A scalar `μ` is an eigenvalue for a linear map `f` if there are nonzero vectors `x`
     such that `f x = μ • x`. (Def 5.5 of [axler2015]) -/
-def has_eigenvalue {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] (f : End R M) (a : R)  :=
+def has_eigenvalue {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] (f : End R M) (a : R) :=
   eigenspace f a ≠ ⊥
 
 theorem mem_eigenspace_iff {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] {f : End R M} {μ : R} {x : M} : x ∈ eigenspace f μ ↔ coe_fn f x = μ • x := sorry
@@ -102,12 +102,12 @@ def generalized_eigenspace {R : Type v} {M : Type w} [comm_ring R] [add_comm_gro
 
 /-- A nonzero element of a generalized eigenspace is a generalized eigenvector.
     (Def 8.9 of [axler2015])-/
-def has_generalized_eigenvector {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] (f : End R M) (μ : R) (k : ℕ) (x : M)  :=
+def has_generalized_eigenvector {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] (f : End R M) (μ : R) (k : ℕ) (x : M) :=
   x ≠ 0 ∧ x ∈ generalized_eigenspace f μ k
 
 /-- A scalar `μ` is a generalized eigenvalue for a linear map `f` and an exponent `k ∈ ℕ` if there
     are generalized eigenvectors for `f`, `k`, and `μ`. -/
-def has_generalized_eigenvalue {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] (f : End R M) (μ : R) (k : ℕ)  :=
+def has_generalized_eigenvalue {R : Type v} {M : Type w} [comm_ring R] [add_comm_group M] [module R M] (f : End R M) (μ : R) (k : ℕ) :=
   generalized_eigenspace f μ k ≠ ⊥
 
 /-- The generalized eigenrange for a linear map `f`, a scalar `μ`, and an exponent `k ∈ ℕ` is the

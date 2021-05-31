@@ -30,11 +30,11 @@ the temporary metavariables. It then returns the outputs with the assigned varia
 
 The pattern for `list.cons h t` returning `h` and `t` would be
 ```
-{ target  := `(@list.cons ?x_0 ?x_1 ?x_2),
+{ target := `(@list.cons ?x_0 ?x_1 ?x_2),
   uoutput := [],
   moutput := [?x_1,?x_2],
-  nuvars  := 0,
-  nmvars  := 3
+  nuvars := 0,
+  nmvars := 3
 }
 ```
 

@@ -65,7 +65,7 @@ protected def hrec_on {α : Sort u} {r : α → α → Prop} {β : Quot r → So
 end quot
 
 
-def quotient {α : Sort u} (s : setoid α)  :=
+def quotient {α : Sort u} (s : setoid α) :=
   Quot setoid.r
 
 namespace quotient

@@ -11,7 +11,7 @@ universes u w u_1
 
 namespace Mathlib
 
-def buffer (α : Type u)  :=
+def buffer (α : Type u) :=
   sigma fun (n : ℕ) => array n α
 
 def mk_buffer {α : Type u} : buffer α :=
@@ -115,7 +115,7 @@ def drop {α : Type u} (b : buffer α) (n : ℕ) : buffer α :=
 def reverse {α : Type u} (b : buffer α) : buffer α :=
   sigma.mk (size b) (array.reverse (to_array b))
 
-protected def mem {α : Type u} (v : α) (a : buffer α)  :=
+protected def mem {α : Type u} (v : α) (a : buffer α) :=
   ∃ (i : fin (size a)), read a i = v
 
 protected instance has_mem {α : Type u} : has_mem α (buffer α) :=
@@ -133,7 +133,7 @@ end buffer
 def list.to_buffer {α : Type u} (l : List α) : buffer α :=
   buffer.append_list mk_buffer l
 
-def char_buffer  :=
+def char_buffer :=
   buffer char
 
 /-- Convert a format object into a character buffer with the provided

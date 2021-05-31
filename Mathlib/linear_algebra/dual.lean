@@ -41,7 +41,7 @@ namespace module
 
 
 /-- The dual space of an R-module M is the R-module of linear maps `M → R`. -/
-def dual (R : Type u_1) (M : Type u_2) [comm_ring R] [add_comm_group M] [module R M]  :=
+def dual (R : Type u_1) (M : Type u_2) [comm_ring R] [add_comm_group M] [module R M] :=
   linear_map R M R
 
 namespace dual

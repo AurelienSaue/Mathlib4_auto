@@ -35,7 +35,7 @@ theorem rmap_sets {α : Type u} {β : Type v} (r : rel α β) (f : filter α) : 
 @[simp] theorem rmap_compose {α : Type u} {β : Type v} {γ : Type w} (r : rel α β) (s : rel β γ) : rmap s ∘ rmap r = rmap (rel.comp r s) :=
   funext (rmap_rmap r s)
 
-def rtendsto {α : Type u} {β : Type v} (r : rel α β) (l₁ : filter α) (l₂ : filter β)  :=
+def rtendsto {α : Type u} {β : Type v} (r : rel α β) (l₁ : filter α) (l₂ : filter β) :=
   rmap r l₁ ≤ l₂
 
 theorem rtendsto_def {α : Type u} {β : Type v} (r : rel α β) (l₁ : filter α) (l₂ : filter β) : rtendsto r l₁ l₂ ↔ ∀ (s : set β), s ∈ l₂ → rel.core r s ∈ l₁ :=
@@ -74,7 +74,7 @@ theorem rcomap'_sets {α : Type u} {β : Type v} (r : rel α β) (f : filter β)
 @[simp] theorem rcomap'_compose {α : Type u} {β : Type v} {γ : Type w} (r : rel α β) (s : rel β γ) : rcomap' r ∘ rcomap' s = rcomap' (rel.comp r s) :=
   funext (rcomap'_rcomap' r s)
 
-def rtendsto' {α : Type u} {β : Type v} (r : rel α β) (l₁ : filter α) (l₂ : filter β)  :=
+def rtendsto' {α : Type u} {β : Type v} (r : rel α β) (l₁ : filter α) (l₂ : filter β) :=
   l₁ ≤ rcomap' r l₂
 
 theorem rtendsto'_def {α : Type u} {β : Type v} (r : rel α β) (l₁ : filter α) (l₂ : filter β) : rtendsto' r l₁ l₂ ↔ ∀ (s : set β), s ∈ l₂ → rel.preimage r s ∈ l₁ := sorry
@@ -93,7 +93,7 @@ def pmap {α : Type u} {β : Type v} (f : α →. β) (l : filter α) : filter �
 @[simp] theorem mem_pmap {α : Type u} {β : Type v} (f : α →. β) (l : filter α) (s : set β) : s ∈ pmap f l ↔ pfun.core f s ∈ l :=
   iff.rfl
 
-def ptendsto {α : Type u} {β : Type v} (f : α →. β) (l₁ : filter α) (l₂ : filter β)  :=
+def ptendsto {α : Type u} {β : Type v} (f : α →. β) (l₁ : filter α) (l₂ : filter β) :=
   pmap f l₁ ≤ l₂
 
 theorem ptendsto_def {α : Type u} {β : Type v} (f : α →. β) (l₁ : filter α) (l₂ : filter β) : ptendsto f l₁ l₂ ↔ ∀ (s : set β), s ∈ l₂ → pfun.core f s ∈ l₁ :=
@@ -111,7 +111,7 @@ theorem tendsto_iff_ptendsto_univ {α : Type u} {β : Type v} (l₁ : filter α)
 def pcomap' {α : Type u} {β : Type v} (f : α →. β) (l : filter β) : filter α :=
   rcomap' (pfun.graph' f) l
 
-def ptendsto' {α : Type u} {β : Type v} (f : α →. β) (l₁ : filter α) (l₂ : filter β)  :=
+def ptendsto' {α : Type u} {β : Type v} (f : α →. β) (l₁ : filter α) (l₂ : filter β) :=
   l₁ ≤ rcomap' (pfun.graph' f) l₂
 
 theorem ptendsto'_def {α : Type u} {β : Type v} (f : α →. β) (l₁ : filter α) (l₂ : filter β) : ptendsto' f l₁ l₂ ↔ ∀ (s : set β), s ∈ l₂ → pfun.preimage f s ∈ l₁ :=

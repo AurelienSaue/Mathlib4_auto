@@ -38,7 +38,7 @@ namespace category_theory
 
 
 /-- An object `A` is subterminal iff for any `Z`, there is at most one morphism `Z ⟶ A`. -/
-def is_subterminal {C : Type u₁} [category C] (A : C)  :=
+def is_subterminal {C : Type u₁} [category C] (A : C) :=
   ∀ {Z : C} (f g : Z ⟶ A), f = g
 
 theorem is_subterminal.def {C : Type u₁} [category C] {A : C} : is_subterminal A ↔ ∀ {Z : C} (f g : Z ⟶ A), f = g :=
@@ -105,7 +105,7 @@ TODO: If `C` is the category of sheaves on a topological space `X`, this categor
 to the lattice of open subsets of `X`. More generally, if `C` is a topos, this is the lattice of
 "external truth values".
 -/
-def subterminals (C : Type u₁) [category C]  :=
+def subterminals (C : Type u₁) [category C] :=
   Subtype fun (A : C) => is_subterminal A
 
 protected instance subterminals.inhabited (C : Type u₁) [category C] [limits.has_terminal C] : Inhabited (subterminals C) :=

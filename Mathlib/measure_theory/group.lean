@@ -29,14 +29,14 @@ namespace measure_theory
   if the measure of left translations of a set are equal to the measure of the set itself.
   To left translate sets we use preimage under left multiplication,
   since preimages are nicer to work with than images. -/
-def is_add_left_invariant {G : Type u_1} [measurable_space G] [Add G] (μ : set G → ennreal)  :=
+def is_add_left_invariant {G : Type u_1} [measurable_space G] [Add G] (μ : set G → ennreal) :=
   ∀ (g : G) {A : set G} (h : is_measurable A), μ ((fun (h : G) => g + h) ⁻¹' A) = μ A
 
 /-- A measure `μ` on a topological group is right invariant
   if the measure of right translations of a set are equal to the measure of the set itself.
   To right translate sets we use preimage under right multiplication,
   since preimages are nicer to work with than images. -/
-def is_add_right_invariant {G : Type u_1} [measurable_space G] [Add G] (μ : set G → ennreal)  :=
+def is_add_right_invariant {G : Type u_1} [measurable_space G] [Add G] (μ : set G → ennreal) :=
   ∀ (g : G) {A : set G} (h : is_measurable A), μ ((fun (h : G) => h + g) ⁻¹' A) = μ A
 
 namespace measure

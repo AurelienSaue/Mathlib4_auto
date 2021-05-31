@@ -16,7 +16,7 @@ namespace Mathlib
 namespace topological_space
 
 
-def open_nhds {X : Top} (x : ↥X)  :=
+def open_nhds {X : Top} (x : ↥X) :=
   Subtype fun (U : opens ↥X) => x ∈ U
 
 namespace open_nhds

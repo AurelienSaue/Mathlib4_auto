@@ -226,6 +226,6 @@ end submodule
 
 
 /-- Subspace of a vector space. Defined to equal `submodule`. -/
-def subspace (R : Type u) (M : Type v) [field R] [add_comm_group M] [vector_space R M]  :=
+def subspace (R : Type u) (M : Type v) [field R] [add_comm_group M] [vector_space R M] :=
   submodule R M
 

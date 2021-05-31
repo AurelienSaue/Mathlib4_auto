@@ -31,7 +31,7 @@ namespace category_theory
 
 
 /-- A category is skeletal if isomorphic objects are equal. -/
-def skeletal (C : Type u₁) [category C]  :=
+def skeletal (C : Type u₁) [category C] :=
   ∀ {X Y : C}, is_isomorphic X Y → X = Y
 
 /--
@@ -57,7 +57,7 @@ theorem functor_skeletal {C : Type u₁} [category C] {D : Type u₂} [category 
 Construct the skeleton category by taking the quotient of objects. This construction gives a
 preorder with nice definitional properties, but is only really appropriate for thin categories.
 -/
-def thin_skeleton (C : Type u₁) [category C]  :=
+def thin_skeleton (C : Type u₁) [category C] :=
   quotient (is_isomorphic_setoid C)
 
 protected instance inhabited_thin_skeleton (C : Type u₁) [category C] [Inhabited C] : Inhabited (thin_skeleton C) :=

@@ -483,7 +483,7 @@ theorem support_eq {α : Type u_1} {β : Type u_2} [measurable_space α] [HasZer
 
 /-- A `simple_func` has finite measure support if it is equal to `0` outside of a set of finite
 measure. -/
-protected def fin_meas_supp {α : Type u_1} {β : Type u_2} [measurable_space α] [HasZero β] (f : simple_func α β) (μ : measure α)  :=
+protected def fin_meas_supp {α : Type u_1} {β : Type u_2} [measurable_space α] [HasZero β] (f : simple_func α β) (μ : measure α) :=
   filter.eventually_eq (measure.cofinite μ) (⇑f) 0
 
 theorem fin_meas_supp_iff_support {α : Type u_1} {β : Type u_2} [measurable_space α] [HasZero β] {f : simple_func α β} {μ : measure α} : simple_func.fin_meas_supp f μ ↔ coe_fn μ (function.support ⇑f) < ⊤ :=

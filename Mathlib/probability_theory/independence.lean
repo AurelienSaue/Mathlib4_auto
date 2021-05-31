@@ -80,7 +80,7 @@ It will be used for families of pi_systems. -/
 def Indep_sets {α : Type u_1} {ι : Type u_2} [measurable_space α] (π : ι → set (set α)) (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   ∀ (s : finset ι) {f : ι → set α} (H : ∀ (i : ι), i ∈ s → f i ∈ π i),
     coe_fn μ (set.Inter fun (i : ι) => set.Inter fun (H : i ∈ s) => f i) = finset.prod s fun (i : ι) => coe_fn μ (f i)
 
@@ -89,7 +89,7 @@ def Indep_sets {α : Type u_1} {ι : Type u_2} [measurable_space α] (π : ι �
 def indep_sets {α : Type u_1} [measurable_space α] (s1 : set (set α)) (s2 : set (set α)) (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   ∀ (t1 t2 : set α), t1 ∈ s1 → t2 ∈ s2 → coe_fn μ (t1 ∩ t2) = coe_fn μ t1 * coe_fn μ t2
 
 /-- A family of measurable space structures (i.e. of σ-algebras) is independent with respect to a
@@ -100,7 +100,7 @@ for any finite set of indices `s = {i_1, ..., i_n}`, for any sets
 def Indep {α : Type u_1} {ι : Type u_2} (m : ι → measurable_space α) [measurable_space α] (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   Indep_sets fun (x : ι) => measurable_space.is_measurable' (m x)
 
 /-- Two measurable space structures (or σ-algebras) `m₁, m₂` are independent with respect to a
@@ -109,7 +109,7 @@ measure `μ` (defined on a third σ-algebra) if for any sets `t₁ ∈ m₁, t�
 def indep {α : Type u_1} (m₁ : measurable_space α) (m₂ : measurable_space α) [measurable_space α] (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   indep_sets (measurable_space.is_measurable' m₁) (measurable_space.is_measurable' m₂)
 
 /-- A family of sets is independent if the family of measurable space structures they generate is
@@ -117,7 +117,7 @@ independent. For a set `s`, the generated measurable space has measurable sets `
 def Indep_set {α : Type u_1} {ι : Type u_2} [measurable_space α] (s : ι → set α) (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   Indep fun (i : ι) => measurable_space.generate_from (singleton (s i))
 
 /-- Two sets are independent if the two measurable space structures they generate are independent.
@@ -125,7 +125,7 @@ For a set `s`, the generated measurable space structure has measurable sets `∅
 def indep_set {α : Type u_1} [measurable_space α] {s : set α} {t : set α} (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   indep (measurable_space.generate_from (singleton s)) (measurable_space.generate_from (singleton t))
 
 /-- A family of functions defined on the same space `α` and taking values in possibly different
@@ -135,7 +135,7 @@ space structure `m`, the generated measurable space structure is `measurable_spa
 def Indep_fun {α : Type u_1} {ι : Type u_2} [measurable_space α] {β : ι → Type u_3} (m : (x : ι) → measurable_space (β x)) (f : (x : ι) → α → β x) (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   Indep fun (x : ι) => measurable_space.comap (f x) (m x)
 
 /-- Two functions are independent if the two measurable space structures they generate are
@@ -144,7 +144,7 @@ measurable space structure is `measurable_space.comap f m`. -/
 def indep_fun {α : Type u_1} {β : Type u_2} {γ : Type u_3} [measurable_space α] (mβ : measurable_space β) (mγ : measurable_space γ) {f : α → β} {g : α → γ} (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   indep (measurable_space.comap f mβ) (measurable_space.comap g mγ)
 
 theorem indep_sets.symm {α : Type u_1} {s₁ : set (set α)} {s₂ : set (set α)} [measurable_space α] {μ : measure_theory.measure α} (h : indep_sets s₁ s₂) : indep_sets s₂ s₁ := sorry

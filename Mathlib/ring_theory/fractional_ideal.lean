@@ -75,7 +75,7 @@ namespace ring
 
 
 /-- A submodule `I` is a fractional ideal if `a I ⊆ R` for some `a ≠ 0`. -/
-def is_fractional {R : Type u_1} [comm_ring R] {S : submonoid R} {P : Type u_2} [comm_ring P] (f : localization_map S P) (I : submodule R (localization_map.codomain f))  :=
+def is_fractional {R : Type u_1} [comm_ring R] {S : submonoid R} {P : Type u_2} [comm_ring P] (f : localization_map S P) (I : submodule R (localization_map.codomain f)) :=
   ∃ (a : R), ∃ (H : a ∈ S), ∀ (b : P), b ∈ I → localization_map.is_integer f (coe_fn (localization_map.to_map f) a * b)
 
 /-- The fractional ideals of a domain `R` are ideals of `R` divided by some `a ∈ R`.
@@ -84,7 +84,7 @@ def is_fractional {R : Type u_1} [comm_ring R] {S : submonoid R} {P : Type u_2} 
   then a fractional ideal `I ⊆ P` is an `R`-submodule of `P`,
   such that there is a nonzero `a : R` with `a I ⊆ R`.
 -/
-def fractional_ideal {R : Type u_1} [comm_ring R] {S : submonoid R} {P : Type u_2} [comm_ring P] (f : localization_map S P)  :=
+def fractional_ideal {R : Type u_1} [comm_ring R] {S : submonoid R} {P : Type u_2} [comm_ring P] (f : localization_map S P) :=
   Subtype fun (I : submodule R (localization_map.codomain f)) => is_fractional f I
 
 namespace fractional_ideal

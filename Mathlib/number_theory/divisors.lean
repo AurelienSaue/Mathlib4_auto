@@ -111,7 +111,7 @@ theorem sum_divisors_eq_sum_proper_divisors_add_self {n : ℕ} : (finset.sum (di
 
 /-- `n : ℕ` is perfect if and only the sum of the proper divisors of `n` is `n` and `n`
   is positive. -/
-def perfect (n : ℕ)  :=
+def perfect (n : ℕ) :=
   (finset.sum (proper_divisors n) fun (i : ℕ) => i) = n ∧ 0 < n
 
 theorem perfect_iff_sum_proper_divisors {n : ℕ} (h : 0 < n) : perfect n ↔ (finset.sum (proper_divisors n) fun (i : ℕ) => i) = n :=

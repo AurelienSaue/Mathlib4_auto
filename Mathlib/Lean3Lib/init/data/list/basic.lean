@@ -240,7 +240,7 @@ protected instance has_lt {α : Type u} [HasLess α] : HasLess (List α) :=
 protected instance has_decidable_lt {α : Type u} [HasLess α] [h : DecidableRel Less] (l₁ : List α) (l₂ : List α) : Decidable (l₁ < l₂) :=
   sorry
 
-protected def le {α : Type u} [HasLess α] (a : List α) (b : List α)  :=
+protected def le {α : Type u} [HasLess α] (a : List α) (b : List α) :=
   ¬b < a
 
 protected instance has_le {α : Type u} [HasLess α] : HasLessEq (List α) :=

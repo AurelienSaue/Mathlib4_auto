@@ -762,7 +762,7 @@ def quotient_rel {R : Type u} {M : Type v} [ring R] [add_comm_group M] [semimodu
   setoid.mk (fun (x y : M) => x - y ∈ p) sorry
 
 /-- The quotient of a module `M` by a submodule `p ⊆ M`. -/
-def quotient {R : Type u} {M : Type v} [ring R] [add_comm_group M] [semimodule R M] (p : submodule R M)  :=
+def quotient {R : Type u} {M : Type v} [ring R] [add_comm_group M] [semimodule R M] (p : submodule R M) :=
   quotient (quotient_rel p)
 
 namespace quotient
@@ -1754,7 +1754,7 @@ protected instance automorphism_group.to_linear_map_is_monoid_hom (R : Type u) (
   is_monoid_hom.mk rfl
 
 /-- The group of invertible linear maps from `M` to itself -/
-def general_linear_group (R : Type u) (M : Type v) [semiring R] [add_comm_monoid M] [semimodule R M]  :=
+def general_linear_group (R : Type u) (M : Type v) [semiring R] [add_comm_monoid M] [semimodule R M] :=
   units (linear_map R M M)
 
 namespace general_linear_group

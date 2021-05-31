@@ -22,10 +22,10 @@ namespace category_theory.limits
 
 /-- A fan over `f : β → C` consists of a collection of maps from an object `P` to every `f b`. -/
 /-- A cofan over `f : β → C` consists of a collection of maps from every `f b` to an object `P`. -/
-def fan {β : Type v} {C : Type u} [category C] (f : β → C)  :=
+def fan {β : Type v} {C : Type u} [category C] (f : β → C) :=
   cone (discrete.functor f)
 
-def cofan {β : Type v} {C : Type u} [category C] (f : β → C)  :=
+def cofan {β : Type v} {C : Type u} [category C] (f : β → C) :=
   cocone (discrete.functor f)
 
 /-- A fan over `f : β → C` consists of a collection of maps from an object `P` to every `f b`. -/
@@ -37,19 +37,19 @@ def cofan {β : Type v} {C : Type u} [category C] (f : β → C)  :=
   Eq.refl (cocone.X (cofan.mk P p))
 
 /-- An abbreviation for `has_limit (discrete.functor f)`. -/
-def has_product {β : Type v} {C : Type u} [category C] (f : β → C)  :=
+def has_product {β : Type v} {C : Type u} [category C] (f : β → C) :=
   has_limit (discrete.functor f)
 
 /-- An abbreviation for `has_colimit (discrete.functor f)`. -/
-def has_coproduct {β : Type v} {C : Type u} [category C] (f : β → C)  :=
+def has_coproduct {β : Type v} {C : Type u} [category C] (f : β → C) :=
   has_colimit (discrete.functor f)
 
 /-- An abbreviation for `has_limits_of_shape (discrete f)`. -/
 /-- An abbreviation for `has_colimits_of_shape (discrete f)`. -/
-def has_products_of_shape (β : Type v) (C : Type u_1) [category C]  :=
+def has_products_of_shape (β : Type v) (C : Type u_1) [category C] :=
   has_limits_of_shape (discrete β)
 
-def has_coproducts_of_shape (β : Type v) (C : Type u_1) [category C]  :=
+def has_coproducts_of_shape (β : Type v) (C : Type u_1) [category C] :=
   has_colimits_of_shape (discrete β)
 
 /-- `pi_obj f` computes the product of a family of elements `f`. (It is defined as an abbreviation
@@ -139,9 +139,9 @@ def sigma_comparison {β : Type v} {C : Type u} [category C] {D : Type u₂} [ca
 
 /-- An abbreviation for `Π J, has_limits_of_shape (discrete J) C` -/
 /-- An abbreviation for `Π J, has_colimits_of_shape (discrete J) C` -/
-def has_products (C : Type u) [category C]  :=
+def has_products (C : Type u) [category C] :=
   ∀ (J : Type v), has_limits_of_shape (discrete J) C
 
-def has_coproducts (C : Type u) [category C]  :=
+def has_coproducts (C : Type u) [category C] :=
   ∀ (J : Type v), has_colimits_of_shape (discrete J) C
 

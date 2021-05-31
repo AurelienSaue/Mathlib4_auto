@@ -47,7 +47,7 @@ dedekind domain, dedekind ring
 -/
 
 /-- A ring `R` has Krull dimension at most one if all nonzero prime ideals are maximal. -/
-def ring.dimension_le_one (R : Type u_1) [comm_ring R]  :=
+def ring.dimension_le_one (R : Type u_1) [comm_ring R] :=
   ∀ (p : ideal R), p ≠ ⊥ → ideal.is_prime p → ideal.is_maximal p
 
 namespace ring

@@ -82,7 +82,7 @@ end pi_tensor_product
 
 /-- `pi_tensor_product R s` with `R` a commutative semiring and `s : ι → Type*` is the tensor
   product of all the `s i`'s. This is denoted by `⨂[R] i, s i`. -/
-def pi_tensor_product {ι : Type u_1} [DecidableEq ι] (R : Type u_2) [comm_semiring R] (s : ι → Type u_4) [(i : ι) → add_comm_monoid (s i)] [(i : ι) → semimodule R (s i)]  :=
+def pi_tensor_product {ι : Type u_1} [DecidableEq ι] (R : Type u_2) [comm_semiring R] (s : ι → Type u_4) [(i : ι) → add_comm_monoid (s i)] [(i : ι) → semimodule R (s i)] :=
   add_con.quotient (add_con_gen sorry)
 
 /- This enables the notation `⨂[R] i : ι, s i` for the pi tensor product, given `s : ι → Type*`. -/

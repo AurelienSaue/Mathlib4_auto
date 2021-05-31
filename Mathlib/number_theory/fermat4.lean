@@ -19,7 +19,7 @@ There are no non-zero integers `a`, `b` and `c` such that `a ^ 4 + b ^ 4 = c ^ 4
 /-- Shorthand for three non-zero integers `a`, `b`, and `c` satisfying `a ^ 4 + b ^ 4 = c ^ 2`.
 We will show that no integers satisfy this equation. Clearly Fermat's Last theorem for n = 4
 follows. -/
-def fermat_42 (a : ℤ) (b : ℤ) (c : ℤ)  :=
+def fermat_42 (a : ℤ) (b : ℤ) (c : ℤ) :=
   a ≠ 0 ∧ b ≠ 0 ∧ a ^ bit0 (bit0 1) + b ^ bit0 (bit0 1) = c ^ bit0 1
 
 namespace fermat_42
@@ -33,7 +33,7 @@ theorem ne_zero {a : ℤ} {b : ℤ} {c : ℤ} (h : fermat_42 a b c) : c ≠ 0 :=
 
 /-- We say a solution to `a ^ 4 + b ^ 4 = c ^ 2` is minimal if there is no other solution with
 a smaller `c` (in absolute value). -/
-def minimal (a : ℤ) (b : ℤ) (c : ℤ)  :=
+def minimal (a : ℤ) (b : ℤ) (c : ℤ) :=
   fermat_42 a b c ∧ ∀ (a1 b1 c1 : ℤ), fermat_42 a1 b1 c1 → int.nat_abs c ≤ int.nat_abs c1
 
 /-- if we have a solution to `a ^ 4 + b ^ 4 = c ^ 2` then there must be a minimal one. -/

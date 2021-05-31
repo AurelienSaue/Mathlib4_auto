@@ -76,7 +76,7 @@ def Mp {n : ℕ} (P : mvpfunctor (n + 1)) : mvpfunctor n :=
   mk (pfunctor.M (last P)) (M.path P)
 
 /-- `n`-ary M-type for `P` -/
-def M {n : ℕ} (P : mvpfunctor (n + 1)) (α : typevec n)  :=
+def M {n : ℕ} (P : mvpfunctor (n + 1)) (α : typevec n) :=
   obj (Mp P) α
 
 protected instance mvfunctor_M {n : ℕ} (P : mvpfunctor (n + 1)) : mvfunctor (M P) :=

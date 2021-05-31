@@ -39,10 +39,10 @@ where
   (monad_cont.call_cc fun (f : monad_cont.label α m β) => monad_cont.goto f x >>= dead f) = pure x
   call_cc_dummy : ∀ {α β : Type u} (dummy : m α), (monad_cont.call_cc fun (f : monad_cont.label α m β) => dummy) = dummy
 
-def cont_t (r : Type u) (m : Type u → Type v) (α : Type w)  :=
+def cont_t (r : Type u) (m : Type u → Type v) (α : Type w) :=
   (α → m r) → m r
 
-def cont (r : Type u) (α : Type w)  :=
+def cont (r : Type u) (α : Type w) :=
   cont_t r id α
 
 namespace cont_t

@@ -48,7 +48,7 @@ theorem subset_sequential_closure {α : Type u_1} [topological_space α] (M : se
 
 /-- A set `s` is sequentially closed if for any converging sequence `x n` of elements of `s`,
 the limit belongs to `s` as well. -/
-def is_seq_closed {α : Type u_1} [topological_space α] (s : set α)  :=
+def is_seq_closed {α : Type u_1} [topological_space α] (s : set α) :=
   s = sequential_closure s
 
 /-- A convenience lemma for showing that a set is sequentially closed. -/
@@ -88,7 +88,7 @@ theorem mem_closure_iff_seq_limit {α : Type u_1} [topological_space α] [sequen
 
 /-- A function between topological spaces is sequentially continuous if it commutes with limit of
  convergent sequences. -/
-def sequentially_continuous {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β)  :=
+def sequentially_continuous {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) :=
   ∀ (x : ℕ → α) {limit : α},
     filter.tendsto x filter.at_top (nhds limit) → filter.tendsto (f ∘ x) filter.at_top (nhds (f limit))
 
@@ -121,7 +121,7 @@ end topological_space
 
 /-- A set `s` is sequentially compact if every sequence taking values in `s` has a
 converging subsequence. -/
-def is_seq_compact {α : Type u_1} [topological_space α] (s : set α)  :=
+def is_seq_compact {α : Type u_1} [topological_space α] (s : set α) :=
   ∀ {u : ℕ → α},
     (∀ (n : ℕ), u n ∈ s) →
       ∃ (x : α), ∃ (H : x ∈ s), ∃ (φ : ℕ → ℕ), strict_mono φ ∧ filter.tendsto (u ∘ φ) filter.at_top (nhds x)

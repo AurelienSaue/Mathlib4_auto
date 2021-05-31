@@ -29,12 +29,12 @@ namespace Scott
 
 
 /--  -/
-def is_ωSup {α : Type u} [preorder α] (c : omega_complete_partial_order.chain α) (x : α)  :=
+def is_ωSup {α : Type u} [preorder α] (c : omega_complete_partial_order.chain α) (x : α) :=
   (∀ (i : ℕ), coe_fn c i ≤ x) ∧ ∀ (y : α), (∀ (i : ℕ), coe_fn c i ≤ y) → x ≤ y
 
 /-- The characteristic function of open sets is monotone and preserves
 the limits of chains. -/
-def is_open (α : Type u) [omega_complete_partial_order α] (s : set α)  :=
+def is_open (α : Type u) [omega_complete_partial_order α] (s : set α) :=
   omega_complete_partial_order.continuous' fun (x : α) => x ∈ s
 
 theorem is_open_univ (α : Type u) [omega_complete_partial_order α] : is_open α set.univ := sorry
@@ -49,7 +49,7 @@ end Scott
 /-- A Scott topological space is defined on preorders
 such that their open sets, seen as a function `α → Prop`,
 preserves the joins of ω-chains  -/
-def Scott (α : Type u)  :=
+def Scott (α : Type u) :=
   α
 
 protected instance Scott.topological_space (α : Type u) [omega_complete_partial_order α] : topological_space (Scott α) :=

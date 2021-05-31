@@ -248,7 +248,7 @@ protected theorem coe_int_mul {d : ℤ} (m : ℤ) (n : ℤ) : ↑(m * n) = ↑m 
 protected theorem coe_int_inj {d : ℤ} {m : ℤ} {n : ℤ} (h : ↑m = ↑n) : m = n := sorry
 
 /-- Read `sq_le a c b d` as `a √c ≤ b √d` -/
-def sq_le (a : ℕ) (c : ℕ) (b : ℕ) (d : ℕ)  :=
+def sq_le (a : ℕ) (c : ℕ) (b : ℕ) (d : ℕ) :=
   c * a * a ≤ d * b * b
 
 theorem sq_le_of_le {c : ℕ} {d : ℕ} {x : ℕ} {y : ℕ} {z : ℕ} {w : ℕ} (xz : z ≤ x) (yw : y ≤ w) (xy : sq_le x c y d) : sq_le z c w d :=
@@ -315,13 +315,13 @@ theorem norm_eq_one_iff {d : ℤ} {x : ℤ√d} : int.nat_abs (norm x) = 1 ↔ i
 def nonneg {d : ℕ} : ℤ√↑d → Prop :=
   sorry
 
-protected def le {d : ℕ} (a : ℤ√↑d) (b : ℤ√↑d)  :=
+protected def le {d : ℕ} (a : ℤ√↑d) (b : ℤ√↑d) :=
   nonneg (b - a)
 
 protected instance has_le {d : ℕ} : HasLessEq (ℤ√↑d) :=
   { LessEq := zsqrtd.le }
 
-protected def lt {d : ℕ} (a : ℤ√↑d) (b : ℤ√↑d)  :=
+protected def lt {d : ℕ} (a : ℤ√↑d) (b : ℤ√↑d) :=
   ¬b ≤ a
 
 protected instance has_lt {d : ℕ} : HasLess (ℤ√↑d) :=

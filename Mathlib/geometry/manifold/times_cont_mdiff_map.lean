@@ -27,7 +27,7 @@ where
   times_cont_mdiff_to_fun : times_cont_mdiff I I' n to_fun
 
 /-- Bundled smooth maps. -/
-def smooth_map {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {E' : Type u_3} [normed_group E'] [normed_space 𝕜 E'] {H : Type u_4} [topological_space H] {H' : Type u_5} [topological_space H'] (I : model_with_corners 𝕜 E H) (I' : model_with_corners 𝕜 E' H') (M : Type u_6) [topological_space M] [charted_space H M] [smooth_manifold_with_corners I M] (M' : Type u_7) [topological_space M'] [charted_space H' M'] [smooth_manifold_with_corners I' M']  :=
+def smooth_map {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {E' : Type u_3} [normed_group E'] [normed_space 𝕜 E'] {H : Type u_4} [topological_space H] {H' : Type u_5} [topological_space H'] (I : model_with_corners 𝕜 E H) (I' : model_with_corners 𝕜 E' H') (M : Type u_6) [topological_space M] [charted_space H M] [smooth_manifold_with_corners I M] (M' : Type u_7) [topological_space M'] [charted_space H' M'] [smooth_manifold_with_corners I' M'] :=
   times_cont_mdiff_map I I' M M' ⊤
 
 namespace times_cont_mdiff_map

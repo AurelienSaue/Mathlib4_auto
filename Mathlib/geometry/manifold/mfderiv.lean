@@ -111,11 +111,11 @@ We use the names `mdifferentiable` and `mfderiv`, where the prefix letter `m` me
 
 /-- Predicate ensuring that, at a point and within a set, a function can have at most one
 derivative. This is expressed using the preferred chart at the considered point. -/
-def unique_mdiff_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] (s : set M) (x : M)  :=
+def unique_mdiff_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] (s : set M) (x : M) :=
   unique_diff_within_at 𝕜 (⇑(local_equiv.symm (ext_chart_at I x)) ⁻¹' s ∩ set.range ⇑I) (coe_fn (ext_chart_at I x) x)
 
 /-- Predicate ensuring that, at all points of a set, a function can have at most one derivative. -/
-def unique_mdiff_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] (s : set M)  :=
+def unique_mdiff_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] (s : set M) :=
   ∀ (x : M), x ∈ s → unique_mdiff_within_at I s x
 
 /-- Conjugating a function to write it in the preferred charts around `x`. The manifold derivative
@@ -131,7 +131,7 @@ We require continuity in the definition, as otherwise points close to `x` in `s`
 `f` outside of the chart domain around `f x`. Then the chart could do anything to the image points,
 and in particular by coincidence `written_in_ext_chart_at I I' x f` could be differentiable, while
 this would not mean anything relevant. -/
-def mdifferentiable_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (s : set M) (x : M)  :=
+def mdifferentiable_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (s : set M) (x : M) :=
   continuous_within_at f s x ∧
     differentiable_within_at 𝕜 (written_in_ext_chart_at I I' x f)
       (⇑(local_equiv.symm (ext_chart_at I x)) ⁻¹' s ∩ set.range ⇑I) (coe_fn (ext_chart_at I x) x)
@@ -144,24 +144,24 @@ We require continuity in the definition, as otherwise points close to `x` could 
 `f` outside of the chart domain around `f x`. Then the chart could do anything to the image points,
 and in particular by coincidence `written_in_ext_chart_at I I' x f` could be differentiable, while
 this would not mean anything relevant. -/
-def mdifferentiable_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (x : M)  :=
+def mdifferentiable_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (x : M) :=
   continuous_at f x ∧
     differentiable_within_at 𝕜 (written_in_ext_chart_at I I' x f) (set.range ⇑I) (coe_fn (ext_chart_at I x) x)
 
 /-- `mdifferentiable_on I I' f s` indicates that the function `f` between manifolds
 has a derivative within `s` at all points of `s`.
 This is a generalization of `differentiable_on` to manifolds. -/
-def mdifferentiable_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (s : set M)  :=
+def mdifferentiable_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (s : set M) :=
   ∀ (x : M), x ∈ s → mdifferentiable_within_at I I' f s x
 
 /-- `mdifferentiable I I' f` indicates that the function `f` between manifolds
 has a derivative everywhere.
 This is a generalization of `differentiable` to manifolds. -/
-def mdifferentiable {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M')  :=
+def mdifferentiable {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') :=
   ∀ (x : M), mdifferentiable_at I I' f x
 
 /-- Prop registering if a local homeomorphism is a local diffeomorphism on its source -/
-def local_homeomorph.mdifferentiable {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : local_homeomorph M M')  :=
+def local_homeomorph.mdifferentiable {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : local_homeomorph M M') :=
   mdifferentiable_on I I' (⇑f) (local_equiv.source (local_homeomorph.to_local_equiv f)) ∧
     mdifferentiable_on I' I (⇑(local_homeomorph.symm f)) (local_equiv.target (local_homeomorph.to_local_equiv f))
 
@@ -176,7 +176,7 @@ We require continuity in the definition, as otherwise points close to `x` in `s`
 `f` outside of the chart domain around `f x`. Then the chart could do anything to the image points,
 and in particular by coincidence `written_in_ext_chart_at I I' x f` could be differentiable, while
 this would not mean anything relevant. -/
-def has_mfderiv_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] [smooth_manifold_with_corners I M] [smooth_manifold_with_corners I' M'] (f : M → M') (s : set M) (x : M) (f' : continuous_linear_map 𝕜 (tangent_space I x) (tangent_space I' (f x)))  :=
+def has_mfderiv_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] [smooth_manifold_with_corners I M] [smooth_manifold_with_corners I' M'] (f : M → M') (s : set M) (x : M) (f' : continuous_linear_map 𝕜 (tangent_space I x) (tangent_space I' (f x))) :=
   continuous_within_at f s x ∧
     has_fderiv_within_at (written_in_ext_chart_at I I' x f) f'
       (⇑(local_equiv.symm (ext_chart_at I x)) ⁻¹' s ∩ set.range ⇑I) (coe_fn (ext_chart_at I x) x)
@@ -189,7 +189,7 @@ We require continuity in the definition, as otherwise points close to `x` `s` co
 `f` outside of the chart domain around `f x`. Then the chart could do anything to the image points,
 and in particular by coincidence `written_in_ext_chart_at I I' x f` could be differentiable, while
 this would not mean anything relevant. -/
-def has_mfderiv_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] [smooth_manifold_with_corners I M] [smooth_manifold_with_corners I' M'] (f : M → M') (x : M) (f' : continuous_linear_map 𝕜 (tangent_space I x) (tangent_space I' (f x)))  :=
+def has_mfderiv_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] [smooth_manifold_with_corners I M] [smooth_manifold_with_corners I' M'] (f : M → M') (x : M) (f' : continuous_linear_map 𝕜 (tangent_space I x) (tangent_space I' (f x))) :=
   continuous_at f x ∧
     has_fderiv_within_at (written_in_ext_chart_at I I' x f) f' (set.range ⇑I) (coe_fn (ext_chart_at I x) x)
 

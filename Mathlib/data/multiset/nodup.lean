@@ -24,7 +24,7 @@ namespace multiset
 
 /-- `nodup s` means that `s` has no duplicates, i.e. the multiplicity of
   any element is at most 1. -/
-def nodup {α : Type u_1} (s : multiset α)  :=
+def nodup {α : Type u_1} (s : multiset α) :=
   quot.lift_on s list.nodup sorry
 
 @[simp] theorem coe_nodup {α : Type u_1} {l : List α} : nodup ↑l ↔ list.nodup l :=

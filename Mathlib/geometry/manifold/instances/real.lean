@@ -46,14 +46,14 @@ typeclass. We provide it as `[fact (x < y)]`.
 The half-space in `ℝ^n`, used to model manifolds with boundary. We only define it when
 `1 ≤ n`, as the definition only makes sense in this case.
 -/
-def euclidean_half_space (n : ℕ) [HasZero (fin n)]  :=
+def euclidean_half_space (n : ℕ) [HasZero (fin n)] :=
   Subtype fun (x : euclidean_space ℝ (fin n)) => 0 ≤ x 0
 
 /--
 The quadrant in `ℝ^n`, used to model manifolds with corners, made of all vectors with nonnegative
 coordinates.
 -/
-def euclidean_quadrant (n : ℕ)  :=
+def euclidean_quadrant (n : ℕ) :=
   Subtype fun (x : euclidean_space ℝ (fin n)) => ∀ (i : fin n), 0 ≤ x i
 
 /- Register class instances for euclidean half-space and quadrant, that can not be noticed

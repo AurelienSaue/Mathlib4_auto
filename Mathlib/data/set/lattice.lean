@@ -815,7 +815,7 @@ namespace set
 
 /-- A collection of sets is `pairwise_disjoint`, if any two different sets in this collection
 are disjoint.  -/
-def pairwise_disjoint {α : Type u} (s : set (set α))  :=
+def pairwise_disjoint {α : Type u} (s : set (set α)) :=
   pairwise_on s disjoint
 
 theorem pairwise_disjoint.subset {α : Type u} {s : set (set α)} {t : set (set α)} (h : s ⊆ t) (ht : pairwise_disjoint t) : pairwise_disjoint s :=

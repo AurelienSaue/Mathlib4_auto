@@ -68,7 +68,7 @@ theorem linear_order.ext {α : Type u_1} {A : linear_order α} {B : linear_order
   the preimage relation on `α` is defined by `x ≤ y ↔ f x ≤ f y`.
   It is the unique relation on `α` making `f` a `rel_embedding`
   (assuming `f` is injective). -/
-@[simp] def order.preimage {α : Sort u_1} {β : Sort u_2} (f : α → β) (s : β → β → Prop) (x : α) (y : α)  :=
+@[simp] def order.preimage {α : Sort u_1} {β : Sort u_2} (f : α → β) (s : β → β → Prop) (x : α) (y : α) :=
   s (f x) (f y)
 
 infixl:80 " ⁻¹'o " => Mathlib.order.preimage
@@ -79,7 +79,7 @@ protected instance order.preimage.decidable {α : Sort u_1} {β : Sort u_2} (f :
 
 /-- A function between preorders is monotone if
   `a ≤ b` implies `f a ≤ f b`. -/
-def monotone {α : Type u} {β : Type v} [preorder α] [preorder β] (f : α → β)  :=
+def monotone {α : Type u} {β : Type v} [preorder α] [preorder β] (f : α → β) :=
   ∀ {a b : α}, a ≤ b → f a ≤ f b
 
 theorem monotone_id {α : Type u} [preorder α] : monotone id :=
@@ -108,7 +108,7 @@ theorem monotone.ne_of_lt_of_lt_nat {α : Type u_1} [preorder α] {f : ℕ → �
 theorem monotone.ne_of_lt_of_lt_int {α : Type u_1} [preorder α] {f : ℤ → α} (hf : monotone f) (x : ℤ) (x' : ℤ) {y : α} (h1 : f x < y) (h2 : y < f (x + 1)) : f x' ≠ y := sorry
 
 /-- A function `f` is strictly monotone if `a < b` implies `f a < f b`. -/
-def strict_mono {α : Type u} {β : Type v} [HasLess α] [HasLess β] (f : α → β)  :=
+def strict_mono {α : Type u} {β : Type v} [HasLess α] [HasLess β] (f : α → β) :=
   ∀ {a b : α}, a < b → f a < f b
 
 theorem strict_mono_id {α : Type u} [HasLess α] : strict_mono id :=
@@ -116,16 +116,16 @@ theorem strict_mono_id {α : Type u} [HasLess α] : strict_mono id :=
 
 /-- A function `f` is strictly monotone increasing on `t` if `x < y` for `x,y ∈ t` implies
 `f x < f y`. -/
-def strict_mono_incr_on {α : Type u} {β : Type v} [HasLess α] [HasLess β] (f : α → β) (t : set α)  :=
+def strict_mono_incr_on {α : Type u} {β : Type v} [HasLess α] [HasLess β] (f : α → β) (t : set α) :=
   ∀ {x : α}, x ∈ t → ∀ {y : α}, y ∈ t → x < y → f x < f y
 
 /-- A function `f` is strictly monotone decreasing on `t` if `x < y` for `x,y ∈ t` implies
 `f y < f x`. -/
-def strict_mono_decr_on {α : Type u} {β : Type v} [HasLess α] [HasLess β] (f : α → β) (t : set α)  :=
+def strict_mono_decr_on {α : Type u} {β : Type v} [HasLess α] [HasLess β] (f : α → β) (t : set α) :=
   ∀ {x : α}, x ∈ t → ∀ {y : α}, y ∈ t → x < y → f y < f x
 
 /-- Type tag for a set with dual order: `≤` means `≥` and `<` means `>`. -/
-def order_dual (α : Type u_1)  :=
+def order_dual (α : Type u_1) :=
   α
 
 namespace order_dual
@@ -432,7 +432,7 @@ theorem dense_or_discrete {α : Type u} [linear_order α] (a₁ : α) (a₂ : α
 
 /-- Type synonym to create an instance of `linear_order` from a
 `partial_order` and `[is_total α (≤)]` -/
-def as_linear_order (α : Type u)  :=
+def as_linear_order (α : Type u) :=
   α
 
 protected instance as_linear_order.inhabited {α : Type u_1} [Inhabited α] : Inhabited (as_linear_order α) :=

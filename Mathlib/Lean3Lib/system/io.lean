@@ -28,7 +28,7 @@ protected instance io_core_is_monad_fail : monad_fail (io_core io.error) :=
 protected instance io_core_is_alternative : alternative (io_core io.error) :=
   Mathlib.monad_io_is_alternative io_core
 
-def io (α : Type)  :=
+def io (α : Type) :=
   io_core sorry α
 
 namespace io
@@ -77,7 +77,7 @@ def print {α : Type u_1} [has_to_string α] (s : α) : io Unit :=
 def print_ln {α : Type u_1} [has_to_string α] (s : α) : io Unit :=
   print s >> put_str (string.str string.empty (char.of_nat (bit0 (bit1 (bit0 1)))))
 
-def handle  :=
+def handle :=
   monad_io.handle io_core
 
 def mk_file_handle (s : string) (m : mode) (bin : optParam Bool false) : io handle :=
@@ -112,7 +112,7 @@ end env
 namespace net
 
 
-def socket  :=
+def socket :=
   monad_io_net_system.socket io_core
 
 def listen : string → ℕ → io socket :=
@@ -207,7 +207,7 @@ end fs
 namespace proc
 
 
-def child  :=
+def child :=
   monad_io_process.child io_core
 
 def child.stdin : child → handle :=

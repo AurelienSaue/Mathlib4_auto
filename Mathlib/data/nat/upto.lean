@@ -34,14 +34,14 @@ natural numbers, up to and including the first value satisfying `p`.
 
 We will be particularly interested in the case where there exists a value
 satisfying `p`, because in this case the `>` relation is well-founded.  -/
-def upto (p : ℕ → Prop)  :=
+def upto (p : ℕ → Prop) :=
   Subtype fun (i : ℕ) => ∀ (j : ℕ), j < i → ¬p j
 
 namespace upto
 
 
 /-- Lift the "greater than" relation on natural numbers to `nat.upto`. -/
-protected def gt (p : ℕ → Prop) (x : upto p) (y : upto p)  :=
+protected def gt (p : ℕ → Prop) (x : upto p) (y : upto p) :=
   subtype.val x > subtype.val y
 
 protected instance has_lt {p : ℕ → Prop} : HasLess (upto p) :=

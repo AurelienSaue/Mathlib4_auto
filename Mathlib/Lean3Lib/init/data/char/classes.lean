@@ -15,25 +15,25 @@ namespace Mathlib
 namespace char
 
 
-def is_whitespace (c : char)  :=
+def is_whitespace (c : char) :=
   c ∈ [of_nat (bit0 (bit0 (bit0 (bit0 (bit0 1))))), of_nat (bit1 (bit0 (bit0 1))), of_nat (bit0 (bit1 (bit0 1)))]
 
-def is_upper (c : char)  :=
+def is_upper (c : char) :=
   val c ≥ bit1 (bit0 (bit0 (bit0 (bit0 (bit0 1))))) ∧ val c ≤ bit0 (bit1 (bit0 (bit1 (bit1 (bit0 1)))))
 
-def is_lower (c : char)  :=
+def is_lower (c : char) :=
   val c ≥ bit1 (bit0 (bit0 (bit0 (bit0 (bit1 1))))) ∧ val c ≤ bit0 (bit1 (bit0 (bit1 (bit1 (bit1 1)))))
 
-def is_alpha (c : char)  :=
+def is_alpha (c : char) :=
   is_upper c ∨ is_lower c
 
-def is_digit (c : char)  :=
+def is_digit (c : char) :=
   val c ≥ bit0 (bit0 (bit0 (bit0 (bit1 1)))) ∧ val c ≤ bit1 (bit0 (bit0 (bit1 (bit1 1))))
 
-def is_alphanum (c : char)  :=
+def is_alphanum (c : char) :=
   is_alpha c ∨ is_digit c
 
-def is_punctuation (c : char)  :=
+def is_punctuation (c : char) :=
   c ∈
     [of_nat (bit0 (bit0 (bit0 (bit0 (bit0 1))))), of_nat (bit0 (bit0 (bit1 (bit1 (bit0 1))))),
       of_nat (bit0 (bit1 (bit1 (bit1 (bit0 1))))), of_nat (bit1 (bit1 (bit1 (bit1 (bit1 1))))),

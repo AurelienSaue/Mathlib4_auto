@@ -44,7 +44,7 @@ namespace category_theory
 
 
 /-- Type tag on `unit` used to define single-object categories and groupoids. -/
-def single_obj (α : Type u)  :=
+def single_obj (α : Type u) :=
   Unit
 
 namespace single_obj

@@ -49,7 +49,7 @@ def trailing_coeff {R : Type u} [semiring R] (p : polynomial R) : R :=
   coeff p (nat_trailing_degree p)
 
 /-- a polynomial is `monic_at` if its trailing coefficient is 1 -/
-def trailing_monic {R : Type u} [semiring R] (p : polynomial R)  :=
+def trailing_monic {R : Type u} [semiring R] (p : polynomial R) :=
   trailing_coeff p = 1
 
 theorem trailing_monic.def {R : Type u} [semiring R] {p : polynomial R} : trailing_monic p ↔ trailing_coeff p = 1 :=

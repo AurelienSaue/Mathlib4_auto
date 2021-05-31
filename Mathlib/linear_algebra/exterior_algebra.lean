@@ -68,7 +68,7 @@ end exterior_algebra
 /--
 The exterior algebra of an `R`-semimodule `M`.
 -/
-def exterior_algebra (R : Type u_1) [comm_semiring R] (M : Type u_2) [add_comm_monoid M] [semimodule R M]  :=
+def exterior_algebra (R : Type u_1) [comm_semiring R] (M : Type u_2) [add_comm_monoid M] [semimodule R M] :=
   ring_quot sorry
 
 namespace exterior_algebra

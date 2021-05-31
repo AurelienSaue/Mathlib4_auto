@@ -153,7 +153,7 @@ theorem comp_rel_assoc {α : Type u_1} {r : set (α × α)} {s : set (α × α)}
 theorem subset_comp_self {α : Type u_1} {s : set (α × α)} (h : id_rel ⊆ s) : s ⊆ comp_rel s s := sorry
 
 /-- The relation is invariant under swapping factors. -/
-def symmetric_rel {α : Type u_1} (V : set (α × α))  :=
+def symmetric_rel {α : Type u_1} (V : set (α × α)) :=
   prod.swap ⁻¹' V = V
 
 /-- The maximal symmetric relation contained in a given relation. -/
@@ -510,14 +510,14 @@ theorem uniform_space.has_seq_basis {α : Type u_1} [uniform_space α] (h : filt
 /-- A function `f : α → β` is *uniformly continuous* if `(f x, f y)` tends to the diagonal
 as `(x, y)` tends to the diagonal. In other words, if `x` is sufficiently close to `y`, then
 `f x` is close to `f y` no matter where `x` and `y` are located in `α`. -/
-def uniform_continuous {α : Type u_1} {β : Type u_2} [uniform_space α] [uniform_space β] (f : α → β)  :=
+def uniform_continuous {α : Type u_1} {β : Type u_2} [uniform_space α] [uniform_space β] (f : α → β) :=
   filter.tendsto (fun (x : α × α) => (f (prod.fst x), f (prod.snd x))) (uniformity α) (uniformity β)
 
 /-- A function `f : α → β` is *uniformly continuous* on `s : set α` if `(f x, f y)` tends to
 the diagonal as `(x, y)` tends to the diagonal while remaining in `s.prod s`.
 In other words, if `x` is sufficiently close to `y`, then `f x` is close to
 `f y` no matter where `x` and `y` are located in `s`.-/
-def uniform_continuous_on {α : Type u_1} {β : Type u_2} [uniform_space α] [uniform_space β] (f : α → β) (s : set α)  :=
+def uniform_continuous_on {α : Type u_1} {β : Type u_2} [uniform_space α] [uniform_space β] (f : α → β) (s : set α) :=
   filter.tendsto (fun (x : α × α) => (f (prod.fst x), f (prod.snd x))) (uniformity α ⊓ filter.principal (set.prod s s))
     (uniformity β)
 
@@ -728,7 +728,7 @@ theorem to_topological_space_prod {α : Type u_1} {β : Type u_2} [u : uniform_s
   rfl
 
 /-- Uniform continuity for functions of two variables. -/
-def uniform_continuous₂ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [uniform_space α] [uniform_space β] [uniform_space γ] (f : α → β → γ)  :=
+def uniform_continuous₂ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [uniform_space α] [uniform_space β] [uniform_space γ] (f : α → β → γ) :=
   uniform_continuous (function.uncurry f)
 
 theorem uniform_continuous₂_def {α : Type u_1} {β : Type u_2} {γ : Type u_3} [uniform_space α] [uniform_space β] [uniform_space γ] (f : α → β → γ) : uniform_continuous₂ f ↔ uniform_continuous (function.uncurry f) :=

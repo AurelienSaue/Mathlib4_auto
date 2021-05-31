@@ -75,7 +75,7 @@ def germ_setoid {α : Type u_1} (l : filter α) (β : Type u_2) : setoid (α →
   setoid.mk (eventually_eq l) sorry
 
 /-- The space of germs of functions `α → β` at a filter `l`. -/
-def germ {α : Type u_1} (l : filter α) (β : Type u_2)  :=
+def germ {α : Type u_1} (l : filter α) (β : Type u_2) :=
   quotient (germ_setoid l β)
 
 namespace germ
@@ -143,7 +143,7 @@ def map₂ {α : Type u_1} {β : Type u_2} {γ : Type u_3} {δ : Type u_4} {l : 
 
 /-- A germ at `l` of maps from `α` to `β` tends to `lb : filter β` if it is represented by a map
 which tends to `lb` along `l`. -/
-protected def tendsto {α : Type u_1} {β : Type u_2} {l : filter α} (f : germ l β) (lb : filter β)  :=
+protected def tendsto {α : Type u_1} {β : Type u_2} {l : filter α} (f : germ l β) (lb : filter β) :=
   lift_on f (fun (f : α → β) => tendsto f l lb) sorry
 
 @[simp] theorem coe_tendsto {α : Type u_1} {β : Type u_2} {l : filter α} {f : α → β} {lb : filter β} : germ.tendsto (↑f) lb ↔ tendsto f l lb :=
@@ -187,7 +187,7 @@ def comp_tendsto {α : Type u_1} {β : Type u_2} {γ : Type u_3} {l : filter α}
   induction_on g (fun (_x : γ → α) (_x_1 : germ.tendsto (↑_x) l) => rfl) hg
 
 /-- Lift a predicate on `β` to `germ l β`. -/
-def lift_pred {α : Type u_1} {β : Type u_2} {l : filter α} (p : β → Prop) (f : germ l β)  :=
+def lift_pred {α : Type u_1} {β : Type u_2} {l : filter α} (p : β → Prop) (f : germ l β) :=
   lift_on f (fun (f : α → β) => filter.eventually (fun (x : α) => p (f x)) l) sorry
 
 @[simp] theorem lift_pred_coe {α : Type u_1} {β : Type u_2} {l : filter α} {p : β → Prop} {f : α → β} : lift_pred p ↑f ↔ filter.eventually (fun (x : α) => p (f x)) l :=
@@ -200,7 +200,7 @@ theorem lift_pred_const {α : Type u_1} {β : Type u_2} {l : filter α} {p : β 
   eventually_const
 
 /-- Lift a relation `r : β → γ → Prop` to `germ l β → germ l γ → Prop`. -/
-def lift_rel {α : Type u_1} {β : Type u_2} {γ : Type u_3} {l : filter α} (r : β → γ → Prop) (f : germ l β) (g : germ l γ)  :=
+def lift_rel {α : Type u_1} {β : Type u_2} {γ : Type u_3} {l : filter α} (r : β → γ → Prop) (f : germ l β) (g : germ l γ) :=
   quotient.lift_on₂' f g (fun (f : α → β) (g : α → γ) => filter.eventually (fun (x : α) => r (f x) (g x)) l) sorry
 
 @[simp] theorem lift_rel_coe {α : Type u_1} {β : Type u_2} {γ : Type u_3} {l : filter α} {r : β → γ → Prop} {f : α → β} {g : α → γ} : lift_rel r ↑f ↑g ↔ filter.eventually (fun (x : α) => r (f x) (g x)) l :=

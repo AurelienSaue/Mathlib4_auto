@@ -38,7 +38,7 @@ def unsigned_sz : ℕ :=
                                                     (bit1
                                                       (bit1 (bit1 (bit1 (bit1 (bit1 (bit1 1)))))))))))))))))))))))))))))))
 
-def unsigned  :=
+def unsigned :=
   fin unsigned_sz
 
 namespace unsigned

@@ -39,7 +39,7 @@ homeomorphisms to the real line first.
 /-- We say that `g : β → α` is an order right adjoint function for `f : α → β` if it sends each `y`
 to a least upper bound for `{x | f x ≤ y}`. If `α` is a partial order, and `f : α → β` has
 a right adjoint, then this right adjoint is unique. -/
-def is_order_right_adjoint {α : Type u_1} {β : Type u_2} [preorder α] [preorder β] (f : α → β) (g : β → α)  :=
+def is_order_right_adjoint {α : Type u_1} {β : Type u_2} [preorder α] [preorder β] (f : α → β) (g : β → α) :=
   ∀ (y : β), is_lub (set_of fun (x : α) => f x ≤ y) (g y)
 
 theorem is_order_right_adjoint_Sup {α : Type u_1} {β : Type u_2} [complete_lattice α] [preorder β] (f : α → β) : is_order_right_adjoint f fun (y : β) => Sup (set_of fun (x : α) => f x ≤ y) :=

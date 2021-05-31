@@ -85,7 +85,7 @@ def measure.ae_eq_setoid {α : Type u_1} (β : Type u_2) [measurable_space α] [
 
 /-- The space of equivalence classes of measurable functions, where two measurable functions are
     equivalent if they agree almost everywhere, i.e., they differ on a set of measure `0`.  -/
-def ae_eq_fun (α : Type u_1) (β : Type u_2) [measurable_space α] [measurable_space β] (μ : measure α)  :=
+def ae_eq_fun (α : Type u_1) (β : Type u_2) [measurable_space α] [measurable_space β] (μ : measure α) :=
   quotient (measure.ae_eq_setoid β μ)
 
 namespace ae_eq_fun
@@ -203,12 +203,12 @@ theorem comp₂_to_germ {α : Type u_1} {β : Type u_2} {γ : Type u_3} {δ : Ty
 
 /-- Given a predicate `p` and an equivalence class `[f]`, return true if `p` holds of `f a`
     for almost all `a` -/
-def lift_pred {α : Type u_1} {β : Type u_2} [measurable_space α] {μ : measure α} [measurable_space β] (p : β → Prop) (f : ae_eq_fun α β μ)  :=
+def lift_pred {α : Type u_1} {β : Type u_2} [measurable_space α] {μ : measure α} [measurable_space β] (p : β → Prop) (f : ae_eq_fun α β μ) :=
   filter.germ.lift_pred p (to_germ f)
 
 /-- Given a relation `r` and equivalence class `[f]` and `[g]`, return true if `r` holds of
     `(f a, g a)` for almost all `a` -/
-def lift_rel {α : Type u_1} {β : Type u_2} {γ : Type u_3} [measurable_space α] {μ : measure α} [measurable_space β] [measurable_space γ] (r : β → γ → Prop) (f : ae_eq_fun α β μ) (g : ae_eq_fun α γ μ)  :=
+def lift_rel {α : Type u_1} {β : Type u_2} {γ : Type u_3} [measurable_space α] {μ : measure α} [measurable_space β] [measurable_space γ] (r : β → γ → Prop) (f : ae_eq_fun α β μ) (g : ae_eq_fun α γ μ) :=
   filter.germ.lift_rel r (to_germ f) (to_germ g)
 
 theorem lift_rel_mk_mk {α : Type u_1} {β : Type u_2} {γ : Type u_3} [measurable_space α] {μ : measure α} [measurable_space β] [measurable_space γ] {r : β → γ → Prop} {f : α → β} {g : α → γ} {hf : ae_measurable f} {hg : ae_measurable g} : lift_rel r (mk f hf) (mk g hg) ↔ filter.eventually (fun (a : α) => r (f a) (g a)) (measure.ae μ) :=

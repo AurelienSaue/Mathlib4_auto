@@ -28,7 +28,7 @@ does not have denominators, if the inequality `f.nat_degree ≤ N` holds.
 
 In the implementation, we also use provide an inverse in the existential.
 -/
-def denoms_clearable {R : Type u_1} {K : Type u_2} [semiring R] [comm_semiring K] (a : R) (b : R) (N : ℕ) (f : polynomial R) (i : R →+* K)  :=
+def denoms_clearable {R : Type u_1} {K : Type u_2} [semiring R] [comm_semiring K] (a : R) (b : R) (N : ℕ) (f : polynomial R) (i : R →+* K) :=
   ∃ (D : R),
     ∃ (bi : K), bi * coe_fn i b = 1 ∧ coe_fn i D = coe_fn i b ^ N * polynomial.eval (coe_fn i a * bi) (polynomial.map i f)
 

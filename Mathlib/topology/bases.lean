@@ -26,7 +26,7 @@ concrete basis itself. This allows us to declare these type classes as `Prop` to
 /-- A topological basis is one that satisfies the necessary conditions so that
   it suffices to take unions of the basis sets to get a topology (without taking
   finite intersections as well). -/
-def is_topological_basis {α : Type u} [t : topological_space α] (s : set (set α))  :=
+def is_topological_basis {α : Type u} [t : topological_space α] (s : set (set α)) :=
   (∀ (t₁ : set α) (H : t₁ ∈ s) (t₂ : set α) (H : t₂ ∈ s) (x : α) (H : x ∈ t₁ ∩ t₂),
       ∃ (t₃ : set α), ∃ (H : t₃ ∈ s), x ∈ t₃ ∧ t₃ ⊆ t₁ ∩ t₂) ∧
     ⋃₀s = set.univ ∧ t = generate_from s

@@ -22,7 +22,7 @@ The composition of two relations, yielding a new relation.  The result
 relates a term of `α` and a term of `γ` if there is an intermediate
 term of `β` related to both.
 -/
-def comp {α : Type u_1} {β : Type u_2} {γ : Type u_3} (r : α → β → Prop) (p : β → γ → Prop) (a : α) (c : γ)  :=
+def comp {α : Type u_1} {β : Type u_2} {γ : Type u_3} (r : α → β → Prop) (p : β → γ → Prop) (a : α) (c : γ) :=
   ∃ (b : β), r a b ∧ p b c
 
 theorem comp_eq {α : Type u_1} {β : Type u_2} {r : α → β → Prop} : comp r Eq = r := sorry

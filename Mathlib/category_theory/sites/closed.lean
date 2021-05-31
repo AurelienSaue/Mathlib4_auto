@@ -72,7 +72,7 @@ every open set which it covers.
 
 Note this has no relation to a closed subset of a topological space.
 -/
-def is_closed {C : Type u} [small_category C] (J₁ : grothendieck_topology C) {X : C} (S : sieve X)  :=
+def is_closed {C : Type u} [small_category C] (J₁ : grothendieck_topology C) {X : C} (S : sieve X) :=
   ∀ {Y : C} (f : Y ⟶ X), covers J₁ S f → coe_fn S Y f
 
 /-- If `S` is `J₁`-closed, then `S` covers exactly the arrows it contains. -/

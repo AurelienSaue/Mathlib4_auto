@@ -16,7 +16,7 @@ universes u_1 u v
 namespace Mathlib
 
 /-- A relation `p` holds pairwise if `p i j` for all `i ≠ j`. -/
-def pairwise {α : Type u_1} (p : α → α → Prop)  :=
+def pairwise {α : Type u_1} (p : α → α → Prop) :=
   ∀ (i j : α), i ≠ j → p i j
 
 theorem set.pairwise_on_univ {α : Type u} {r : α → α → Prop} : set.pairwise_on set.univ r ↔ pairwise r := sorry

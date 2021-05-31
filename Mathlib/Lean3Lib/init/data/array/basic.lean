@@ -96,7 +96,7 @@ end d_array
 
 
 /-- A non-dependent array (see `d_array`). Implemented in the VM as a persistent array.  -/
-def array (n : ℕ) (α : Type u)  :=
+def array (n : ℕ) (α : Type u) :=
   d_array n fun (_x : fin n) => α
 
 /-- `mk_array n v` creates a new array of length `n` where each element is `v`. Has builtin VM implementation. -/
@@ -167,7 +167,7 @@ def mmap {n : ℕ} {α : Type u} {β : Type v} {m : Type v → Type u_1} [Monad 
 def map {n : ℕ} {α : Type u} {β : Type v} (a : array n α) (f : α → β) : array n β :=
   d_array.map (fun (_x : fin n) => f) a
 
-protected def mem {n : ℕ} {α : Type u} (v : α) (a : array n α)  :=
+protected def mem {n : ℕ} {α : Type u} (v : α) (a : array n α) :=
   ∃ (i : fin n), read a i = v
 
 protected instance has_mem {n : ℕ} {α : Type u} : has_mem α (array n α) :=

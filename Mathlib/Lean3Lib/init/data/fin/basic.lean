@@ -12,7 +12,7 @@ universes u
 namespace Mathlib
 
 /-- `fin n` is the subtype of `ℕ` consisting of natural numbers strictly smaller than `n`. -/
-def fin (n : ℕ)  :=
+def fin (n : ℕ) :=
   Subtype fun (i : ℕ) => i < n
 
 namespace fin
@@ -22,10 +22,10 @@ namespace fin
 def mk {n : ℕ} (i : ℕ) (h : i < n) : fin n :=
   { val := i, property := h }
 
-protected def lt {n : ℕ} (a : fin n) (b : fin n)  :=
+protected def lt {n : ℕ} (a : fin n) (b : fin n) :=
   subtype.val a < subtype.val b
 
-protected def le {n : ℕ} (a : fin n) (b : fin n)  :=
+protected def le {n : ℕ} (a : fin n) (b : fin n) :=
   subtype.val a ≤ subtype.val b
 
 protected instance has_lt {n : ℕ} : HasLess (fin n) :=

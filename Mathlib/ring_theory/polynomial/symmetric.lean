@@ -49,7 +49,7 @@ namespace mv_polynomial
 
 /-- A mv_polynomial φ is symmetric if it is invariant under
 permutations of its variables by the  `rename` operation -/
-def is_symmetric {σ : Type u_1} {R : Type u_2} [comm_semiring R] (φ : mv_polynomial σ R)  :=
+def is_symmetric {σ : Type u_1} {R : Type u_2} [comm_semiring R] (φ : mv_polynomial σ R) :=
   ∀ (e : equiv.perm σ), coe_fn (rename ⇑e) φ = φ
 
 namespace is_symmetric

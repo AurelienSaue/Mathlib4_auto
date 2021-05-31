@@ -53,7 +53,7 @@ This is essentially the completion of a uniform space. The embeddings are the ne
 This space is not minimal, the separated uniform space (i.e. quotiented on the intersection of all
 entourages) is necessary for this.
 -/
-def Cauchy (α : Type u) [uniform_space α]  :=
+def Cauchy (α : Type u) [uniform_space α] :=
   Subtype fun (f : filter α) => cauchy f
 
 namespace Cauchy
@@ -143,7 +143,7 @@ protected instance complete_space_separation (α : Type u_1) [uniform_space α] 
           (filter.ne_bot.comap_of_surj (and.left hf) fun (b : quotient (separation_setoid α)) => quotient.exists_rep b))
 
 /-- Hausdorff completion of `α` -/
-def completion (α : Type u_1) [uniform_space α]  :=
+def completion (α : Type u_1) [uniform_space α] :=
   quotient (separation_setoid (Cauchy α))
 
 namespace completion

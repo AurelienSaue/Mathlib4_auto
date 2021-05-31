@@ -58,7 +58,7 @@ namespace asymptotics
 a type `α` and `l` is a filter on `α`, means that eventually for `l`, `∥f∥` is bounded by `C * ∥g∥`.
 In other words, `∥f∥ / ∥g∥` is eventually bounded by `C`, modulo division by zero issues that are
 avoided by this definition. Probably you want to use `is_O` instead of this relation. -/
-def is_O_with {α : Type u_1} {E : Type u_3} {F : Type u_4} [has_norm E] [has_norm F] (c : ℝ) (f : α → E) (g : α → F) (l : filter α)  :=
+def is_O_with {α : Type u_1} {E : Type u_3} {F : Type u_4} [has_norm E] [has_norm F] (c : ℝ) (f : α → E) (g : α → F) (l : filter α) :=
   filter.eventually (fun (x : α) => norm (f x) ≤ c * norm (g x)) l
 
 /-- Definition of `is_O_with`. We record it in a lemma as we will set `is_O_with` to be irreducible
@@ -73,7 +73,7 @@ theorem is_O_with.of_bound {α : Type u_1} {E : Type u_3} {F : Type u_4} [has_no
 a filter on `α`, means that eventually for `l`, `∥f∥` is bounded by a constant multiple of `∥g∥`.
 In other words, `∥f∥ / ∥g∥` is eventually bounded, modulo division by zero issues that are avoided
 by this definition. -/
-def is_O {α : Type u_1} {E : Type u_3} {F : Type u_4} [has_norm E] [has_norm F] (f : α → E) (g : α → F) (l : filter α)  :=
+def is_O {α : Type u_1} {E : Type u_3} {F : Type u_4} [has_norm E] [has_norm F] (f : α → E) (g : α → F) (l : filter α) :=
   ∃ (c : ℝ), is_O_with c f g l
 
 /-- Definition of `is_O` in terms of `is_O_with`. We record it in a lemma as we will set
@@ -93,7 +93,7 @@ theorem is_O.of_bound {α : Type u_1} {E : Type u_3} {F : Type u_4} [has_norm E]
 a filter on `α`, means that eventually for `l`, `∥f∥` is bounded by an arbitrarily small constant
 multiple of `∥g∥`. In other words, `∥f∥ / ∥g∥` tends to `0` along `l`, modulo division by zero
 issues that are avoided by this definition. -/
-def is_o {α : Type u_1} {E : Type u_3} {F : Type u_4} [has_norm E] [has_norm F] (f : α → E) (g : α → F) (l : filter α)  :=
+def is_o {α : Type u_1} {E : Type u_3} {F : Type u_4} [has_norm E] [has_norm F] (f : α → E) (g : α → F) (l : filter α) :=
   ∀ {c : ℝ}, 0 < c → is_O_with c f g l
 
 /-- Definition of `is_o` in terms of `is_O_with`. We record it in a lemma as we will set

@@ -20,7 +20,7 @@ This file was moved to mathlib from core Lean in the switch to Lean 3.20.0c. It 
 -/
 
 /-- `bitvec n` is a `vector` of `bool` with length `n`. -/
-def bitvec (n : ℕ)  :=
+def bitvec (n : ℕ) :=
   vector Bool n
 
 namespace bitvec
@@ -146,18 +146,18 @@ def uborrow {n : ℕ} (x : bitvec n) (y : bitvec n) : Bool :=
 
 /-- unsigned less-than proposition -/
 /-- unsigned greater-than proposition -/
-def ult {n : ℕ} (x : bitvec n) (y : bitvec n)  :=
+def ult {n : ℕ} (x : bitvec n) (y : bitvec n) :=
   ↥(uborrow x y)
 
-def ugt {n : ℕ} (x : bitvec n) (y : bitvec n)  :=
+def ugt {n : ℕ} (x : bitvec n) (y : bitvec n) :=
   ult y x
 
 /-- unsigned less-than-or-equal-to proposition -/
 /-- unsigned greater-than-or-equal-to proposition -/
-def ule {n : ℕ} (x : bitvec n) (y : bitvec n)  :=
+def ule {n : ℕ} (x : bitvec n) (y : bitvec n) :=
   ¬ult y x
 
-def uge {n : ℕ} (x : bitvec n) (y : bitvec n)  :=
+def uge {n : ℕ} (x : bitvec n) (y : bitvec n) :=
   ule y x
 
 /-- `sborrow x y` returns `tt` iff `x < y` as two's complement integers -/
@@ -166,18 +166,18 @@ def sborrow {n : ℕ} : bitvec n → bitvec n → Bool :=
 
 /-- signed less-than proposition -/
 /-- signed greater-than proposition -/
-def slt {n : ℕ} (x : bitvec n) (y : bitvec n)  :=
+def slt {n : ℕ} (x : bitvec n) (y : bitvec n) :=
   ↥(sborrow x y)
 
 /-- signed less-than-or-equal-to proposition -/
-def sgt {n : ℕ} (x : bitvec n) (y : bitvec n)  :=
+def sgt {n : ℕ} (x : bitvec n) (y : bitvec n) :=
   slt y x
 
 /-- signed greater-than-or-equal-to proposition -/
-def sle {n : ℕ} (x : bitvec n) (y : bitvec n)  :=
+def sle {n : ℕ} (x : bitvec n) (y : bitvec n) :=
   ¬slt y x
 
-def sge {n : ℕ} (x : bitvec n) (y : bitvec n)  :=
+def sge {n : ℕ} (x : bitvec n) (y : bitvec n) :=
   sle y x
 
 /-! ### Conversion to `nat` and `int` -/

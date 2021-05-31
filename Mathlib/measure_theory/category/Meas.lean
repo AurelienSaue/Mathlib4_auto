@@ -32,7 +32,7 @@ measurable space, giry monad, borel
 -/
 
 /-- The category of measurable spaces and measurable functions. -/
-def Meas  :=
+def Meas :=
   category_theory.bundled measurable_space
 
 namespace Meas

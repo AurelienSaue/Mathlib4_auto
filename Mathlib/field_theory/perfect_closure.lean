@@ -88,7 +88,7 @@ where
 | intro : ∀ (n : ℕ) (x : K), perfect_closure.r K p (n, x) (n + 1, coe_fn (frobenius K p) x)
 
 /-- The perfect closure is the smallest extension that makes frobenius surjective. -/
-def perfect_closure (K : Type u) [comm_ring K] (p : ℕ) [fact (nat.prime p)] [char_p K p]  :=
+def perfect_closure (K : Type u) [comm_ring K] (p : ℕ) [fact (nat.prime p)] [char_p K p] :=
   Quot sorry
 
 namespace perfect_closure

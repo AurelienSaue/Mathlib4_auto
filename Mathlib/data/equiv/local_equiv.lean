@@ -308,7 +308,7 @@ theorem restr_trans {α : Type u_1} {β : Type u_2} {γ : Type u_3} (e : local_e
 
 /-- `eq_on_source e e'` means that `e` and `e'` have the same source, and coincide there. Then `e`
 and `e'` should really be considered the same local equiv. -/
-def eq_on_source {α : Type u_1} {β : Type u_2} (e : local_equiv α β) (e' : local_equiv α β)  :=
+def eq_on_source {α : Type u_1} {β : Type u_2} (e : local_equiv α β) (e' : local_equiv α β) :=
   source e = source e' ∧ set.eq_on (⇑e) (⇑e') (source e)
 
 /-- `eq_on_source` is an equivalence relation -/

@@ -17,7 +17,7 @@ universes u u_1 v w
 
 namespace Mathlib
 
-def vector (α : Type u) (n : ℕ)  :=
+def vector (α : Type u) (n : ℕ) :=
   Subtype fun (l : List α) => list.length l = n
 
 namespace vector

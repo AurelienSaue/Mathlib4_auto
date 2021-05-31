@@ -40,7 +40,7 @@ namespace equiv.perm
 
 /-- A permutation is a cycle when any two nonfixed points of the permutation are related by repeated
   application of the permutation. -/
-def is_cycle {β : Type u_2} (f : perm β)  :=
+def is_cycle {β : Type u_2} (f : perm β) :=
   ∃ (x : β), coe_fn f x ≠ x ∧ ∀ (y : β), coe_fn f y ≠ y → ∃ (i : ℤ), coe_fn (f ^ i) x = y
 
 theorem is_cycle.swap {α : Type u_1} [DecidableEq α] {x : α} {y : α} (hxy : x ≠ y) : is_cycle (swap x y) := sorry
@@ -66,7 +66,7 @@ theorem is_cycle.sign {α : Type u_1} [DecidableEq α] [fintype α] {f : perm α
 -/
 
 /-- The equivalence relation indicating that two points are in the same cycle of a permutation. -/
-def same_cycle {β : Type u_2} (f : perm β) (x : β) (y : β)  :=
+def same_cycle {β : Type u_2} (f : perm β) (x : β) (y : β) :=
   ∃ (i : ℤ), coe_fn (f ^ i) x = y
 
 theorem same_cycle.refl {β : Type u_2} (f : perm β) (x : β) : same_cycle f x x :=

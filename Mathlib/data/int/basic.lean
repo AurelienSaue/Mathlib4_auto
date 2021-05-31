@@ -30,7 +30,7 @@ protected instance comm_ring : comm_ring ℤ :=
 
 /-! ### Extra instances to short-circuit type class resolution -/
 
--- instance : has_sub int            := by apply_instance -- This is in core
+-- instance : has_sub int           := by apply_instance -- This is in core
 
 protected instance add_comm_monoid : add_comm_monoid ℤ :=
   add_comm_group.to_add_comm_monoid ℤ

@@ -70,11 +70,11 @@ protected instance σ.inhabited (tm : fin_tm2) : Inhabited (σ tm) :=
   { default := initial_state tm }
 
 /-- The type of statements (functions) corresponding to this TM. -/
-def stmt (tm : fin_tm2)  :=
+def stmt (tm : fin_tm2) :=
   TM2.stmt (Γ tm) (Λ tm) (σ tm)
 
 /-- The type of configurations (functions) corresponding to this TM. -/
-def cfg (tm : fin_tm2)  :=
+def cfg (tm : fin_tm2) :=
   TM2.cfg (Γ tm) (Λ tm) (σ tm)
 
 protected instance inhabited_cfg (tm : fin_tm2) : Inhabited (cfg tm) :=
@@ -130,11 +130,11 @@ def evals_to_in_time.trans {σ : Type u_1} (f : σ → Option σ) (a : σ) (b : 
   evals_to_in_time.mk (evals_to.trans f a b c (evals_to_in_time.to_evals_to h₁) (evals_to_in_time.to_evals_to h₂)) sorry
 
 /-- A proof of tm outputting l' when given l. -/
-def tm2_outputs (tm : fin_tm2) (l : List (fin_tm2.Γ tm (fin_tm2.k₀ tm))) (l' : Option (List (fin_tm2.Γ tm (fin_tm2.k₁ tm))))  :=
+def tm2_outputs (tm : fin_tm2) (l : List (fin_tm2.Γ tm (fin_tm2.k₀ tm))) (l' : Option (List (fin_tm2.Γ tm (fin_tm2.k₁ tm)))) :=
   evals_to (fin_tm2.step tm) (init_list tm l) (option.map (halt_list tm) l')
 
 /-- A proof of tm outputting l' when given l in at most m steps. -/
-def tm2_outputs_in_time (tm : fin_tm2) (l : List (fin_tm2.Γ tm (fin_tm2.k₀ tm))) (l' : Option (List (fin_tm2.Γ tm (fin_tm2.k₁ tm)))) (m : ℕ)  :=
+def tm2_outputs_in_time (tm : fin_tm2) (l : List (fin_tm2.Γ tm (fin_tm2.k₀ tm))) (l' : Option (List (fin_tm2.Γ tm (fin_tm2.k₁ tm)))) (m : ℕ) :=
   evals_to_in_time (fin_tm2.step tm) (init_list tm l) (option.map (halt_list tm) l') m
 
 /-- The forgetful map, forgetting the upper bound on the number of steps. -/

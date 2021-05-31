@@ -19,7 +19,7 @@ namespace Mathlib
 namespace category_theory
 
 
-def Kleisli (m : Type u → Type v) [Monad m]  :=
+def Kleisli (m : Type u → Type v) [Monad m] :=
   Type u
 
 def Kleisli.mk (m : Type u → Type v) [Monad m] (α : Type u) : Kleisli m :=

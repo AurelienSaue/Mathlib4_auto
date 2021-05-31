@@ -28,7 +28,7 @@ we do not have a `posreal` type.
 
 /-- We say that `f : α → β` is `antilipschitz_with K` if for any two points `x`, `y` we have
 `K * edist x y ≤ edist (f x) (f y)`. -/
-def antilipschitz_with {α : Type u_1} {β : Type u_2} [emetric_space α] [emetric_space β] (K : nnreal) (f : α → β)  :=
+def antilipschitz_with {α : Type u_1} {β : Type u_2} [emetric_space α] [emetric_space β] (K : nnreal) (f : α → β) :=
   ∀ (x y : α), edist x y ≤ ↑K * edist (f x) (f y)
 
 theorem antilipschitz_with_iff_le_mul_dist {α : Type u_1} {β : Type u_2} [metric_space α] [metric_space β] {K : nnreal} {f : α → β} : antilipschitz_with K f ↔ ∀ (x y : α), dist x y ≤ ↑K * dist (f x) (f y) := sorry

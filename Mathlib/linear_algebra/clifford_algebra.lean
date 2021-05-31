@@ -70,7 +70,7 @@ end clifford_algebra
 /--
 The Clifford algebra of an `R`-module `M` equipped with a quadratic_form `Q`.
 -/
-def clifford_algebra {R : Type u_1} [comm_ring R] {M : Type u_2} [add_comm_group M] [module R M] (Q : quadratic_form R M)  :=
+def clifford_algebra {R : Type u_1} [comm_ring R] {M : Type u_2} [add_comm_group M] [module R M] (Q : quadratic_form R M) :=
   ring_quot sorry
 
 namespace clifford_algebra

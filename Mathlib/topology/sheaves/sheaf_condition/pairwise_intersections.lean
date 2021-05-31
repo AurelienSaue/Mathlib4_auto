@@ -47,7 +47,7 @@ An alternative formulation of the sheaf condition
 A presheaf is a sheaf if `F` sends the cone `(pairwise.cocone U).op` to a limit cone.
 (Recall `pairwise.cocone U`, has cone point `supr U`, mapping down to the `U i` and the `U i ⊓ U j`.)
 -/
-def sheaf_condition_pairwise_intersections {X : Top} {C : Type u} [category_theory.category C] (F : presheaf C X)  :=
+def sheaf_condition_pairwise_intersections {X : Top} {C : Type u} [category_theory.category C] (F : presheaf C X) :=
   {ι : Type v} →
     (U : ι → topological_space.opens ↥X) →
       category_theory.limits.is_limit
@@ -62,7 +62,7 @@ A presheaf is a sheaf if `F` preserves the limit of `pairwise.diagram U`.
 (Recall `pairwise.diagram U` is the diagram consisting of the pairwise intersections
 `U i ⊓ U j` mapping into the open sets `U i`. This diagram has limit `supr U`.)
 -/
-def sheaf_condition_preserves_limit_pairwise_intersections {X : Top} {C : Type u} [category_theory.category C] (F : presheaf C X)  :=
+def sheaf_condition_preserves_limit_pairwise_intersections {X : Top} {C : Type u} [category_theory.category C] (F : presheaf C X) :=
   {ι : Type v} →
     (U : ι → topological_space.opens ↥X) →
       category_theory.limits.preserves_limit (category_theory.functor.op (category_theory.pairwise.diagram U)) F

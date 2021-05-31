@@ -108,7 +108,7 @@ infixl:25 " ↪r " => Mathlib.rel_embedding
 
 /-- An order embedding is an embedding `f : α ↪ β` such that `a ≤ b ↔ (f a) ≤ (f b)`.
 This definition is an abbreviation of `rel_embedding (≤) (≤)`. -/
-def order_embedding (α : Type u_1) (β : Type u_2) [HasLessEq α] [HasLessEq β]  :=
+def order_embedding (α : Type u_1) (β : Type u_2) [HasLessEq α] [HasLessEq β] :=
   LessEq ↪r LessEq
 
 infixl:25 " ↪o " => Mathlib.order_embedding
@@ -319,7 +319,7 @@ infixl:25 " ≃r " => Mathlib.rel_iso
 
 /-- An order isomorphism is an equivalence such that `a ≤ b ↔ (f a) ≤ (f b)`.
 This definition is an abbreviation of `rel_iso (≤) (≤)`. -/
-def order_iso (α : Type u_1) (β : Type u_2) [HasLessEq α] [HasLessEq β]  :=
+def order_iso (α : Type u_1) (β : Type u_2) [HasLessEq α] [HasLessEq β] :=
   LessEq ≃r LessEq
 
 infixl:25 " ≃o " => Mathlib.order_iso

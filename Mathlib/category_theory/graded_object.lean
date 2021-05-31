@@ -36,7 +36,7 @@ namespace category_theory
 
 
 /-- A type synonym for `β → C`, used for `β`-graded objects in a category `C`. -/
-def graded_object (β : Type w) (C : Type u)  :=
+def graded_object (β : Type w) (C : Type u) :=
   β → C
 
 -- Satisfying the inhabited linter...
@@ -48,7 +48,7 @@ protected instance inhabited_graded_object (β : Type w) (C : Type u) [Inhabited
 A type synonym for `β → C`, used for `β`-graded objects in a category `C`
 with a shift functor given by translation by `s`.
 -/
-def graded_object_with_shift {β : Type w} [add_comm_group β] (s : β) (C : Type u)  :=
+def graded_object_with_shift {β : Type w} [add_comm_group β] (s : β) (C : Type u) :=
   graded_object β C
 
 namespace graded_object

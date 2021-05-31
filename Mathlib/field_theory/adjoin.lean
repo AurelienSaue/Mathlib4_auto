@@ -291,7 +291,7 @@ theorem card_alg_hom_adjoin_integral (F : Type u_1) [field F] {E : Type u_2} [fi
 
 /-- An intermediate field `S` is finitely generated if there exists `t : finset E` such that
 `intermediate_field.adjoin F t = S`. -/
-def fg {F : Type u_1} [field F] {E : Type u_2} [field E] [algebra F E] (S : intermediate_field F E)  :=
+def fg {F : Type u_1} [field F] {E : Type u_2} [field E] [algebra F E] (S : intermediate_field F E) :=
   ∃ (t : finset E), adjoin F ↑t = S
 
 theorem fg_adjoin_finset {F : Type u_1} [field F] {E : Type u_2} [field E] [algebra F E] (t : finset E) : fg (adjoin F ↑t) :=
@@ -318,7 +318,7 @@ theorem induction_on_adjoin {F : Type u_1} [field F] {E : Type u_2} [field E] [a
   induction_on_adjoin_fg P base ih K (fg_of_noetherian K)
 
 /-- Lifts `L → K` of `F → K` -/
-def lifts (F : Type u_1) (E : Type u_2) (K : Type u_3) [field F] [field E] [field K] [algebra F E] [algebra F K]  :=
+def lifts (F : Type u_1) (E : Type u_2) (K : Type u_3) [field F] [field E] [field K] [algebra F E] [algebra F K] :=
   sigma fun (L : intermediate_field F E) => alg_hom F (↥L) K
 
 protected instance lifts.order_bot {F : Type u_1} {E : Type u_2} {K : Type u_3} [field F] [field E] [field K] [algebra F E] [algebra F K] : order_bot (lifts F E K) :=

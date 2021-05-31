@@ -31,7 +31,7 @@ namespace topological_space
 
 
 /-- The type of open subsets of a topological space. -/
-def opens (α : Type u_1) [topological_space α]  :=
+def opens (α : Type u_1) [topological_space α] :=
   Subtype fun (s : set α) => is_open s
 
 namespace opens
@@ -207,7 +207,7 @@ theorem open_embedding_of_le {α : Type u_1} [topological_space α] {U : opens �
 
 def is_basis (B : set (opens α)) : Prop := is_topological_basis ((coe : _ → set α) '' B)
 
-def is_basis {α : Type u_1} [topological_space α] (B : set (opens α))  :=
+def is_basis {α : Type u_1} [topological_space α] (B : set (opens α)) :=
   is_topological_basis (coe '' B)
 
 lemma is_basis_iff_nbhd {B : set (opens α)} :
@@ -310,7 +310,7 @@ end opens
 
 
 /-- The open neighborhoods of a point. See also `opens` or `nhds`. -/
-def open_nhds_of {α : Type u_1} [topological_space α] (x : α)  :=
+def open_nhds_of {α : Type u_1} [topological_space α] (x : α) :=
   Subtype fun (s : set α) => is_open s ∧ x ∈ s
 
 protected instance open_nhds_of.inhabited {α : Type u_1} [topological_space α] (x : α) : Inhabited (open_nhds_of x) :=

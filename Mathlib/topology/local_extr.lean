@@ -39,27 +39,27 @@ Here is the list of statements specific to these two types of filters:
 -/
 
 /-- `is_local_min_on f s a` means that `f a ≤ f x` for all `x ∈ s` in some neighborhood of `a`. -/
-def is_local_min_on {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (s : set α) (a : α)  :=
+def is_local_min_on {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (s : set α) (a : α) :=
   is_min_filter f (nhds_within a s) a
 
 /-- `is_local_max_on f s a` means that `f x ≤ f a` for all `x ∈ s` in some neighborhood of `a`. -/
-def is_local_max_on {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (s : set α) (a : α)  :=
+def is_local_max_on {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (s : set α) (a : α) :=
   is_max_filter f (nhds_within a s) a
 
 /-- `is_local_extr_on f s a` means `is_local_min_on f s a ∨ is_local_max_on f s a`. -/
-def is_local_extr_on {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (s : set α) (a : α)  :=
+def is_local_extr_on {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (s : set α) (a : α) :=
   is_extr_filter f (nhds_within a s) a
 
 /-- `is_local_min f a` means that `f a ≤ f x` for all `x` in some neighborhood of `a`. -/
-def is_local_min {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (a : α)  :=
+def is_local_min {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (a : α) :=
   is_min_filter f (nhds a) a
 
 /-- `is_local_max f a` means that `f x ≤ f a` for all `x ∈ s` in some neighborhood of `a`. -/
-def is_local_max {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (a : α)  :=
+def is_local_max {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (a : α) :=
   is_max_filter f (nhds a) a
 
 /-- `is_local_extr_on f s a` means `is_local_min_on f s a ∨ is_local_max_on f s a`. -/
-def is_local_extr {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (a : α)  :=
+def is_local_extr {α : Type u} {β : Type v} [topological_space α] [preorder β] (f : α → β) (a : α) :=
   is_extr_filter f (nhds a) a
 
 theorem is_local_extr_on.elim {α : Type u} {β : Type v} [topological_space α] [preorder β] {f : α → β} {s : set α} {a : α} {p : Prop} : is_local_extr_on f s a → (is_local_min_on f s a → p) → (is_local_max_on f s a → p) → p :=

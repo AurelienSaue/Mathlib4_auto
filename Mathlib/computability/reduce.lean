@@ -36,7 +36,7 @@ computability, reducibility, reduction
 `p` is many-one reducible to `q` if there is a computable function translating questions about `p`
 to questions about `q`.
 -/
-def many_one_reducible {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (p : α → Prop) (q : β → Prop)  :=
+def many_one_reducible {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (p : α → Prop) (q : β → Prop) :=
   ∃ (f : α → β), computable f ∧ ∀ (a : α), p a ↔ q (f a)
 
 infixl:1000 " ≤₀ " => Mathlib.many_one_reducible
@@ -58,7 +58,7 @@ theorem transitive_many_one_reducible {α : Type u_1} [primcodable α] : transit
 `p` is one-one reducible to `q` if there is an injective computable function translating questions
 about `p` to questions about `q`.
 -/
-def one_one_reducible {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (p : α → Prop) (q : β → Prop)  :=
+def one_one_reducible {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (p : α → Prop) (q : β → Prop) :=
   ∃ (f : α → β), computable f ∧ function.injective f ∧ ∀ (a : α), p a ↔ q (f a)
 
 infixl:1000 " ≤₁ " => Mathlib.one_one_reducible
@@ -95,11 +95,11 @@ end computable_pred
 
 
 /-- `p` and `q` are many-one equivalent if each one is many-one reducible to the other. -/
-def many_one_equiv {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (p : α → Prop) (q : β → Prop)  :=
+def many_one_equiv {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (p : α → Prop) (q : β → Prop) :=
   p ≤₀ q ∧ q ≤₀ p
 
 /-- `p` and `q` are one-one equivalent if each one is one-one reducible to the other. -/
-def one_one_equiv {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (p : α → Prop) (q : β → Prop)  :=
+def one_one_equiv {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (p : α → Prop) (q : β → Prop) :=
   p ≤₁ q ∧ q ≤₁ p
 
 theorem many_one_equiv_refl {α : Type u_1} [primcodable α] (p : α → Prop) : many_one_equiv p p :=
@@ -131,7 +131,7 @@ theorem equivalence_of_one_one_equiv {α : Type u_1} [primcodable α] : equivale
 theorem one_one_equiv.to_many_one {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] {p : α → Prop} {q : β → Prop} : one_one_equiv p q → many_one_equiv p q := sorry
 
 /-- a computable bijection -/
-def equiv.computable {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (e : α ≃ β)  :=
+def equiv.computable {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (e : α ≃ β) :=
   computable ⇑e ∧ computable ⇑(equiv.symm e)
 
 theorem equiv.computable.symm {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] {e : α ≃ β} : equiv.computable e → equiv.computable (equiv.symm e) :=
@@ -217,7 +217,7 @@ def to_nat {α : Type u} [primcodable α] [Inhabited α] (p : set α) : set ℕ 
 @[simp] theorem many_one_equiv_to_nat {α : Type u} [primcodable α] [Inhabited α] {β : Type v} [primcodable β] [Inhabited β] (p : set α) (q : set β) : many_one_equiv (to_nat p) (to_nat q) ↔ many_one_equiv p q := sorry
 
 /-- A many-one degree is an equivalence class of sets up to many-one equivalence. -/
-def many_one_degree  :=
+def many_one_degree :=
   quotient (setoid.mk many_one_equiv sorry)
 
 namespace many_one_degree

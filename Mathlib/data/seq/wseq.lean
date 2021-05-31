@@ -31,7 +31,7 @@ coinductive wseq (α : Type u) : Type u
   This model is appropriate for Haskell style lazy lists, and is closed
   under most interesting computation patterns on infinite lists,
   but conversely it is difficult to extract elements from it. -/
-def wseq (α : Type u_1)  :=
+def wseq (α : Type u_1) :=
   seq (Option α)
 
 namespace wseq
@@ -81,7 +81,7 @@ def destruct {α : Type u} : wseq α → computation (Option (α × wseq α)) :=
 def cases_on {α : Type u} {C : wseq α → Sort v} (s : wseq α) (h1 : C nil) (h2 : (x : α) → (s : wseq α) → C (cons x s)) (h3 : (s : wseq α) → C (think s)) : C s :=
   seq.cases_on s h1 fun (o : Option α) => option.cases_on o h3 h2
 
-protected def mem {α : Type u} (a : α) (s : wseq α)  :=
+protected def mem {α : Type u} (a : α) (s : wseq α) :=
   seq.mem (some a) s
 
 protected instance has_mem {α : Type u} : has_mem α (wseq α) :=
@@ -124,7 +124,7 @@ def length {α : Type u} (s : wseq α) : computation ℕ :=
 
 /-- A weak sequence is finite if `to_list s` terminates. Equivalently,
   it is a finite number of `think` and `cons` applied to `nil`. -/
-def is_finite {α : Type u} (s : wseq α)  :=
+def is_finite {α : Type u} (s : wseq α) :=
   computation.terminates (to_list s)
 
 protected instance to_list_terminates {α : Type u} (s : wseq α) [h : is_finite s] : computation.terminates (to_list s) :=
@@ -137,7 +137,7 @@ def get {α : Type u} (s : wseq α) [is_finite s] : List α :=
 /-- A weak sequence is *productive* if it never stalls forever - there are
  always a finite number of `think`s between `cons` constructors.
  The sequence itself is allowed to be infinite though. -/
-def productive {α : Type u} (s : wseq α)  :=
+def productive {α : Type u} (s : wseq α) :=
   ∀ (n : ℕ), computation.terminates (nth s n)
 
 protected instance nth_terminates {α : Type u} (s : wseq α) [h : productive s] (n : ℕ) : computation.terminates (nth s n) :=
@@ -272,7 +272,7 @@ theorem bisim_o.imp {α : Type u} {R : wseq α → wseq α → Prop} {S : wseq �
 /-- Two weak sequences are `lift_rel R` related if they are either both empty,
   or they are both nonempty and the heads are `R` related and the tails are
   `lift_rel R` related. (This is a coinductive definition.) -/
-def lift_rel {α : Type u} {β : Type v} (R : α → β → Prop) (s : wseq α) (t : wseq β)  :=
+def lift_rel {α : Type u} {β : Type v} (R : α → β → Prop) (s : wseq α) (t : wseq β) :=
   ∃ (C : wseq α → wseq β → Prop),
     C s t ∧ ∀ {s : wseq α} {t : wseq β}, C s t → computation.lift_rel (lift_rel_o R C) (destruct s) (destruct t)
 

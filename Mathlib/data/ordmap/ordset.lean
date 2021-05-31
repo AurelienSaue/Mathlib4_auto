@@ -128,7 +128,7 @@ theorem dual_dual {α : Type u_1} (t : ordnode α) : dual (dual t) = t := sorry
 /-- The `balanced_sz l r` asserts that a hypothetical tree with children of sizes `l` and `r` is
 balanced: either `l ≤ δ * r` and `r ≤ δ * r`, or the tree is trivial with a singleton on one side
 and nothing on the other. -/
-def balanced_sz (l : ℕ) (r : ℕ)  :=
+def balanced_sz (l : ℕ) (r : ℕ) :=
   l + r ≤ 1 ∨ l ≤ delta * r ∧ r ≤ delta * l
 
 protected instance balanced_sz.dec : DecidableRel balanced_sz :=
@@ -366,7 +366,7 @@ theorem balance_eq_balance' {α : Type u_1} {l : ordnode α} {x : α} {r : ordno
 theorem balance_l_eq_balance {α : Type u_1} {l : ordnode α} {x : α} {r : ordnode α} (sl : sized l) (sr : sized r) (H1 : size l = 0 → size r ≤ 1) (H2 : 1 ≤ size l → 1 ≤ size r → size r ≤ delta * size l) : balance_l l x r = balance l x r := sorry
 
 /-- `raised n m` means `m` is either equal or one up from `n`. -/
-def raised (n : ℕ) (m : ℕ)  :=
+def raised (n : ℕ) (m : ℕ) :=
   m = n ∨ m = n + 1
 
 theorem raised_iff {n : ℕ} {m : ℕ} : raised n m ↔ n ≤ m ∧ m ≤ n + 1 := sorry
@@ -463,7 +463,7 @@ where
 /-- The validity predicate for an `ordnode` subtree. This asserts that the `size` fields are
 correct, the tree is balanced, and the elements of the tree are organized according to the
 ordering. -/
-def valid {α : Type u_1} [preorder α] (t : ordnode α)  :=
+def valid {α : Type u_1} [preorder α] (t : ordnode α) :=
   valid' ⊥ t ⊤
 
 theorem valid'.mono_left {α : Type u_1} [preorder α] {x : α} {y : α} (xy : x ≤ y) {t : ordnode α} {o : with_top α} (h : valid' (↑y) t o) : valid' (↑x) t o :=
@@ -640,7 +640,7 @@ end ordnode
 maintain that the tree is balanced and correctly stores subtree sizes at each level. The
 correctness property of the tree is baked into the type, so all operations on this type are correct
 by construction. -/
-def ordset (α : Type u_1) [preorder α]  :=
+def ordset (α : Type u_1) [preorder α] :=
   Subtype fun (t : ordnode α) => ordnode.valid t
 
 namespace ordset
@@ -668,7 +668,7 @@ protected instance has_singleton {α : Type u_1} [preorder α] : has_singleton �
   has_singleton.mk ordset.singleton
 
 /-- O(1). Is the set empty? -/
-def empty {α : Type u_1} [preorder α] (s : ordset α)  :=
+def empty {α : Type u_1} [preorder α] (s : ordset α) :=
   s = ∅
 
 theorem empty_iff {α : Type u_1} [preorder α] {s : ordset α} : s = ∅ ↔ ↥(ordnode.empty (subtype.val s)) := sorry

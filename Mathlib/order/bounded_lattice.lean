@@ -305,7 +305,7 @@ theorem subsingleton_iff_bot_eq_top {α : Type u_1} [bounded_lattice α] : ⊥ =
   { mp := subsingleton_of_bot_eq_top, mpr := fun (h : subsingleton α) => subsingleton.elim ⊥ ⊤ }
 
 /-- Attach `⊥` to a type. -/
-def with_bot (α : Type u_1)  :=
+def with_bot (α : Type u_1) :=
   Option α
 
 namespace with_bot
@@ -421,7 +421,7 @@ end with_bot
 --TODO(Mario): Construct using order dual on with_bot
 
 /-- Attach `⊤` to a type. -/
-def with_top (α : Type u_1)  :=
+def with_top (α : Type u_1) :=
   Option α
 
 namespace with_top
@@ -665,7 +665,7 @@ end prod
 
 /-- Two elements of a lattice are disjoint if their inf is the bottom element.
   (This generalizes disjoint sets, viewed as members of the subset lattice.) -/
-def disjoint {α : Type u} [semilattice_inf_bot α] (a : α) (b : α)  :=
+def disjoint {α : Type u} [semilattice_inf_bot α] (a : α) (b : α) :=
   a ⊓ b ≤ ⊥
 
 theorem disjoint.eq_bot {α : Type u} [semilattice_inf_bot α] {a : α} {b : α} (h : disjoint a b) : a ⊓ b = ⊥ :=

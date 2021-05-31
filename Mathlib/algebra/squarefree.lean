@@ -36,7 +36,7 @@ squarefree, multiplicity
 
 /-- An element of a monoid is squarefree if the only squares that
   divide it are the squares of units. -/
-def squarefree {R : Type u_1} [monoid R] (r : R)  :=
+def squarefree {R : Type u_1} [monoid R] (r : R) :=
   ∀ (x : R), x * x ∣ r → is_unit x
 
 @[simp] theorem is_unit.squarefree {R : Type u_1} [comm_monoid R] {x : R} (h : is_unit x) : squarefree x :=

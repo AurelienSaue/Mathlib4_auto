@@ -18,7 +18,7 @@ namespace Mathlib
 
 /-- The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational
 numbers. -/
-def real  :=
+def real :=
   cau_seq.completion.Cauchy
 
 notation:1024 "ℝ" => Mathlib.real
@@ -118,7 +118,7 @@ theorem mk_eq_mk {f : cau_seq ℚ abs} : cau_seq.completion.mk f = mk f :=
 @[simp] theorem mk_pos {f : cau_seq ℚ abs} : 0 < mk f ↔ cau_seq.pos f :=
   iff_of_eq (congr_arg cau_seq.pos (sub_zero f))
 
-protected def le (x : ℝ) (y : ℝ)  :=
+protected def le (x : ℝ) (y : ℝ) :=
   x < y ∨ x = y
 
 protected instance has_le : HasLessEq ℝ :=

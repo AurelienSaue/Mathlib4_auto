@@ -330,7 +330,7 @@ It asserts that `c` is semantically correct; that is, for any `k` and `v`,
 
 In particular, we can let `k = cont.halt`, and then this asserts that `step_normal c cont.halt v`
 evaluates to `cfg.halt (code.eval c v)`. -/
-def code.ok (c : code)  :=
+def code.ok (c : code) :=
   ∀ (k : cont) (v : List ℕ),
     eval step (step_normal c k v) =
       do 
@@ -520,10 +520,10 @@ protected instance Λ'.inhabited : Inhabited Λ' :=
 
 /-- The type of TM2 statements used by this machine. -/
 /-- The type of TM2 configurations used by this machine. -/
-def stmt'  :=
+def stmt' :=
   TM2.stmt (fun (_x : K') => Γ') Λ' (Option Γ')
 
-def cfg'  :=
+def cfg' :=
   TM2.cfg (fun (_x : K') => Γ') Λ' (Option Γ')
 
 /-- A predicate that detects the end of a natural number, either `Γ'.cons` or `Γ'.Cons` (or

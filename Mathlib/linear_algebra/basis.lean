@@ -57,7 +57,7 @@ basis, bases
 -/
 
 /-- A family of vectors is a basis if it is linearly independent and all vectors are in the span. -/
-def is_basis {ι : Type u_1} (R : Type u_3) {M : Type u_5} (v : ι → M) [ring R] [add_comm_group M] [module R M]  :=
+def is_basis {ι : Type u_1} (R : Type u_3) {M : Type u_5} (v : ι → M) [ring R] [add_comm_group M] [module R M] :=
   linear_independent R v ∧ submodule.span R (set.range v) = ⊤
 
 theorem is_basis.mem_span {ι : Type u_1} {R : Type u_3} {M : Type u_5} {v : ι → M} [ring R] [add_comm_group M] [module R M] (hv : is_basis R v) (x : M) : x ∈ submodule.span R (set.range v) :=

@@ -47,7 +47,7 @@ form of D. This is used to set up several algebraic categories like
 which provides a category structure so that the morphisms `X ⟶ Y` are the morphisms
 in `D` from `F X` to `F Y`.
 -/
-def induced_category {C : Type u₁} (D : Type u₂) [category D] (F : C → D)  :=
+def induced_category {C : Type u₁} (D : Type u₂) [category D] (F : C → D) :=
   C
 
 protected instance induced_category.has_coe_to_sort {C : Type u₁} {D : Type u₂} [category D] (F : C → D) [has_coe_to_sort D] : has_coe_to_sort (induced_category D F) :=

@@ -35,7 +35,7 @@ namespace category_theory
 
 
 /-- A set of arrows all with codomain `X`. -/
-def presieve {C : Type u} [category C] (X : C)  :=
+def presieve {C : Type u} [category C] (X : C) :=
   {Y : C} → set (Y ⟶ X)
 
 namespace presieve

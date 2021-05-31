@@ -24,7 +24,7 @@ represented as `0`, just like types and proofs.
   of `erased α` are erased in the VM in the same way as types
   and proofs. This can be used to track data without storing it
   literally. -/
-def erased (α : Sort u)  :=
+def erased (α : Sort u) :=
   psigma fun (s : α → Prop) => ∃ (a : α), (fun (b : α) => a = b) = s
 
 namespace erased
@@ -43,7 +43,7 @@ Extracts the erased value, if it is a type.
 
 Note: `(mk a).out_type` is not definitionally equal to `a`.
 -/
-def out_type (a : erased (Sort u))  :=
+def out_type (a : erased (Sort u)) :=
   out a
 
 /-- Extracts the erased value, if it is a proof. -/

@@ -81,7 +81,7 @@ namespace discrete_valuation_ring
 
 
 /-- Alternative characterisation of discrete valuation rings. -/
-def has_unit_mul_pow_irreducible_factorization (R : Type u_1) [integral_domain R]  :=
+def has_unit_mul_pow_irreducible_factorization (R : Type u_1) [integral_domain R] :=
   ∃ (p : R), irreducible p ∧ ∀ {x : R}, x ≠ 0 → ∃ (n : ℕ), associated (p ^ n) x
 
 namespace has_unit_mul_pow_irreducible_factorization

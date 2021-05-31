@@ -169,7 +169,7 @@ theorem pred_le {a : ordinal} {b : ordinal} : pred a ≤ b ↔ a ≤ succ b :=
 /-! ### Limit ordinals -/
 
 /-- A limit ordinal is an ordinal which is not zero and not a successor. -/
-def is_limit (o : ordinal)  :=
+def is_limit (o : ordinal) :=
   o ≠ 0 ∧ ∀ (a : ordinal), a < o → succ a < o
 
 theorem not_zero_is_limit : ¬is_limit 0 :=
@@ -232,7 +232,7 @@ theorem mk_initial_seg (o : ordinal) : cardinal.mk ↥(set_of fun (o' : ordinal)
 /-- A normal ordinal function is a strictly increasing function which is
   order-continuous, i.e., the image `f o` of a limit ordinal `o` is the sup of `f a` for
   `a < o`.  -/
-def is_normal (f : ordinal → ordinal)  :=
+def is_normal (f : ordinal → ordinal) :=
   (∀ (o : ordinal), f o < f (succ o)) ∧
     ∀ (o : ordinal), is_limit o → ∀ (a : ordinal), f o ≤ a ↔ ∀ (b : ordinal), b < o → f b ≤ a
 

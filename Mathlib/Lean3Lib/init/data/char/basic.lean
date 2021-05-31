@@ -11,7 +11,7 @@ universes l
 
 namespace Mathlib
 
-def is_valid_char (n : ℕ)  :=
+def is_valid_char (n : ℕ) :=
   n < bit0 (bit0 (bit0 (bit0 (bit0 (bit0 (bit0 (bit0 (bit0 (bit0 (bit0 (bit1 (bit1 (bit0 (bit1 1)))))))))))))) ∨
     bit1 (bit1 (bit1 (bit1 (bit1 (bit1 (bit1 (bit1 (bit1 (bit1 (bit1 (bit1 (bit1 (bit0 (bit1 1)))))))))))))) < n ∧
       n <
@@ -50,10 +50,10 @@ protected instance char.has_sizeof : SizeOf char :=
 namespace char
 
 
-protected def lt (a : char) (b : char)  :=
+protected def lt (a : char) (b : char) :=
   val a < val b
 
-protected def le (a : char) (b : char)  :=
+protected def le (a : char) (b : char) :=
   val a ≤ val b
 
 protected instance has_lt : HasLess char :=

@@ -231,7 +231,7 @@ namespace l1
 
 /-- `l1.simple_func` is a subspace of L1 consisting of equivalence classes of an integrable simple
     function. -/
-def simple_func (α : Type u_1) (E : Type u_2) [measurable_space α] [normed_group E] [topological_space.second_countable_topology E] [measurable_space E] [borel_space E] (μ : measure α)  :=
+def simple_func (α : Type u_1) (E : Type u_2) [measurable_space α] [normed_group E] [topological_space.second_countable_topology E] [measurable_space E] [borel_space E] (μ : measure α) :=
   ↥(add_subgroup.mk
       (set_of fun (f : l1 α E μ) => ∃ (s : simple_func α E), ae_eq_fun.mk (⇑s) (simple_func.ae_measurable s) = ↑f) sorry
       sorry sorry)

@@ -166,7 +166,7 @@ theorem eval_finset_sum {R : Type u} {ι : Type y} [semiring R] (s : finset ι) 
   eval₂_finset_sum (ring_hom.id R) s (fun (i : ι) => g i) x
 
 /-- `is_root p x` implies `x` is a root of `p`. The evaluation of `p` at `x` is zero -/
-def is_root {R : Type u} [semiring R] (p : polynomial R) (a : R)  :=
+def is_root {R : Type u} [semiring R] (p : polynomial R) (a : R) :=
   eval a p = 0
 
 protected instance is_root.decidable {R : Type u} {a : R} [semiring R] {p : polynomial R} [DecidableEq R] : Decidable (is_root p a) :=

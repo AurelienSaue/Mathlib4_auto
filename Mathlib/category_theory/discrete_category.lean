@@ -19,7 +19,7 @@ namespace category_theory
 A type synonym for promoting any type to a category,
 with the only morphisms being equalities.
 -/
-def discrete (α : Type u₁)  :=
+def discrete (α : Type u₁) :=
   α
 
 /--

@@ -62,7 +62,7 @@ hash map
 
 /-- `bucket_array α β` is the underlying data type for `hash_map α β`,
   an array of linked lists of key-value pairs. -/
-def bucket_array (α : Type u) (β : α → Type v) (n : ℕ+)  :=
+def bucket_array (α : Type u) (β : α → Type v) (n : ℕ+) :=
   array (↑n) (List (sigma fun (a : α) => β a))
 
 /-- Make a hash_map index from a `nat` hash value and a (positive) buffer size -/

@@ -181,7 +181,7 @@ end perfection_map
 
 
 /-- `O/(p)` for `O`, ring of integers of `K`. -/
-def mod_p (K : Type u₁) [field K] (v : valuation K nnreal) (O : Type u₂) [comm_ring O] [algebra O K] (hv : valuation.integers v O) (p : ℕ)  :=
+def mod_p (K : Type u₁) [field K] (v : valuation K nnreal) (O : Type u₂) [comm_ring O] [algebra O K] (hv : valuation.integers v O) (p : ℕ) :=
   ideal.quotient (ideal.span (singleton ↑p))
 
 namespace mod_p
@@ -272,7 +272,7 @@ end pre_tilt
 /-- The tilt of a field, as defined in Perfectoid Spaces by Peter Scholze, as in
 [scholze2011perfectoid]. Given a field `K` with valuation `K → ℝ≥0` and ring of integers `O`,
 this is implemented as the fraction field of the perfection of `O/(p)`. -/
-def tilt (K : Type u₁) [field K] (v : valuation K nnreal) (O : Type u₂) [comm_ring O] [algebra O K] (hv : valuation.integers v O) (p : ℕ) [hp : fact (nat.prime p)] [hvp : fact (coe_fn v ↑p ≠ 1)]  :=
+def tilt (K : Type u₁) [field K] (v : valuation K nnreal) (O : Type u₂) [comm_ring O] [algebra O K] (hv : valuation.integers v O) (p : ℕ) [hp : fact (nat.prime p)] [hvp : fact (coe_fn v ↑p ≠ 1)] :=
   fraction_ring ↥(pre_tilt K v O hv p)
 
 namespace tilt

@@ -16,7 +16,7 @@ namespace Mathlib
 
 /- the type, coercions, and notation -/
 
-not foundnotation:1024 "ℤ" => Mathlib.int
+notation:1024 "ℤ" => Mathlib.int
 
 protected instance int.has_coe : has_coe ℕ ℤ :=
   has_coe.mk Int.ofNat

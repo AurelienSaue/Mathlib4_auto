@@ -301,7 +301,7 @@ end quaternion_algebra
 
 /-- Space of quaternions over a type. Implemented as a structure with four fields:
 `re`, `im_i`, `im_j`, and `im_k`. -/
-def quaternion (R : Type u_1) [HasOne R] [Neg R]  :=
+def quaternion (R : Type u_1) [HasOne R] [Neg R] :=
   quaternion_algebra R (-1) (-1)
 
 namespace quaternion

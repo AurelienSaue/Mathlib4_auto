@@ -39,7 +39,7 @@ def shift_right : ℤ × ℤ ↪ ℤ × ℤ :=
   function.embedding.prod_map (function.embedding.mk (fun (n : ℤ) => n + 1) sorry) (function.embedding.refl ℤ)
 
 /-- A Domineering board is an arbitrary finite subset of `ℤ × ℤ`. -/
-def board  :=
+def board :=
   finset (ℤ × ℤ)
 
 /-- Left can play anywhere that a square and the square below it are open. -/

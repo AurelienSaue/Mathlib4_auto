@@ -142,7 +142,7 @@ instance colimit_setoid {J : Type v} [category_theory.small_category J] (F : J �
 /--
 The underlying type of the colimit of a diagram in `CommRing`.
 -/
-def colimit_type {J : Type v} [category_theory.small_category J] (F : J ⥤ CommRing)  :=
+def colimit_type {J : Type v} [category_theory.small_category J] (F : J ⥤ CommRing) :=
   quotient (colimit_setoid F)
 
 protected instance colimit_type.comm_ring {J : Type v} [category_theory.small_category J] (F : J ⥤ CommRing) : comm_ring (colimit_type F) :=

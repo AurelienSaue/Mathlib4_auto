@@ -32,7 +32,7 @@ namespace category_theory
 
 
 /-- Category of groupoids -/
-def Groupoid  :=
+def Groupoid :=
   bundled groupoid
 
 namespace Groupoid

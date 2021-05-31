@@ -31,7 +31,7 @@ def keys {α : Type u} {β : α → Type v} (s : multiset (sigma β)) : multiset
   rfl
 
 /-- `nodupkeys s` means that `s` has no duplicate keys. -/
-def nodupkeys {α : Type u} {β : α → Type v} (s : multiset (sigma β))  :=
+def nodupkeys {α : Type u} {β : α → Type v} (s : multiset (sigma β)) :=
   quot.lift_on s list.nodupkeys sorry
 
 @[simp] theorem coe_nodupkeys {α : Type u} {β : α → Type v} {l : List (sigma β)} : nodupkeys ↑l ↔ list.nodupkeys l :=
@@ -344,7 +344,7 @@ theorem erase_union_singleton {α : Type u} {β : α → Type v} [DecidableEq α
 /-! ### disjoint -/
 
 /-- `disjoint s₁ s₂` holds if `s₁` and `s₂` have no keys in common. -/
-def disjoint {α : Type u} {β : α → Type v} (s₁ : finmap β) (s₂ : finmap β)  :=
+def disjoint {α : Type u} {β : α → Type v} (s₁ : finmap β) (s₂ : finmap β) :=
   ∀ (x : α), x ∈ s₁ → ¬x ∈ s₂
 
 theorem disjoint_empty {α : Type u} {β : α → Type v} (x : finmap β) : disjoint ∅ x :=

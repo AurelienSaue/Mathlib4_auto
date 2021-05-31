@@ -123,7 +123,7 @@ theorem jacobson_bot_polynomial_le_Inf_map_maximal {R : Type u} [comm_ring R] : 
 theorem jacobson_bot_polynomial_of_jacobson_bot {R : Type u} [comm_ring R] (h : jacobson ⊥ = ⊥) : jacobson ⊥ = ⊥ := sorry
 
 /-- An ideal `I` is local iff its Jacobson radical is maximal. -/
-def is_local {R : Type u} [comm_ring R] (I : ideal R)  :=
+def is_local {R : Type u} [comm_ring R] (I : ideal R) :=
   is_maximal (jacobson I)
 
 theorem is_local_of_is_maximal_radical {R : Type u} [comm_ring R] {I : ideal R} (hi : is_maximal (radical I)) : is_local I := sorry

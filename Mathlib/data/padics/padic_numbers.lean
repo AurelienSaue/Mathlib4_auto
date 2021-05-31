@@ -62,7 +62,7 @@ p-adic, p adic, padic, norm, valuation, cauchy, completion, p-adic completion
 -/
 
 /-- The type of Cauchy sequences of rationals with respect to the p-adic norm. -/
-def padic_seq (p : ℕ)  :=
+def padic_seq (p : ℕ) :=
   cau_seq ℚ (padic_norm p)
 
 namespace padic_seq
@@ -169,7 +169,7 @@ end padic_seq
 
 
 /-- The p-adic numbers `Q_[p]` are the Cauchy completion of `ℚ` with respect to the p-adic norm. -/
-def padic (p : ℕ) [fact (nat.prime p)]  :=
+def padic (p : ℕ) [fact (nat.prime p)] :=
   cau_seq.completion.Cauchy
 
 namespace padic

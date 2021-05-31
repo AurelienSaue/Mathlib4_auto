@@ -138,7 +138,7 @@ The solution is to extend `semimodule` instead.
   This is the traditional generalization of spaces like `ℤ^n`, which have a natural
   addition operation and a way to multiply them by elements of a ring, but no multiplication
   operation between vectors. -/
-def module (R : Type u) (M : Type v) [ring R] [add_comm_group M]  :=
+def module (R : Type u) (M : Type v) [ring R] [add_comm_group M] :=
   semimodule R M
 
 /--
@@ -188,7 +188,7 @@ The solution is to extend `semimodule` instead.
   This is the traditional generalization of spaces like `ℝ^n`, which have a natural
   addition operation and a way to multiply them by real numbers, but no multiplication
   operation between vectors. -/
-def vector_space (R : Type u) (M : Type v) [field R] [add_comm_group M]  :=
+def vector_space (R : Type u) (M : Type v) [field R] [add_comm_group M] :=
   semimodule R M
 
 /-- The natural ℕ-semimodule structure on any `add_comm_monoid`. -/

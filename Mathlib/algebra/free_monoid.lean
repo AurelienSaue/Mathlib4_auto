@@ -27,7 +27,7 @@ namespace Mathlib
 -/
 
 /-- Free monoid over a given alphabet. -/
-def free_add_monoid (α : Type u_1)  :=
+def free_add_monoid (α : Type u_1) :=
   List α
 
 namespace free_monoid

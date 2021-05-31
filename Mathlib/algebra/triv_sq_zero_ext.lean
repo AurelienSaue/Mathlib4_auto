@@ -31,7 +31,7 @@ to be the `R`-algebra `R × M` with multiplication given by
 
 It is a square-zero extension because `M^2 = 0`.
 -/
-def triv_sq_zero_ext (R : Type u) (M : Type v)  :=
+def triv_sq_zero_ext (R : Type u) (M : Type v) :=
   R × M
 
 namespace triv_sq_zero_ext

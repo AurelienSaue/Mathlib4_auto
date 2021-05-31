@@ -46,11 +46,11 @@ This is based on Mario Carneiro's
 For the definition or many statements, `α` does not need to be a topological monoid. We only add
 this assumption later, for the lemmas where it is relevant.
 -/
-def has_sum {α : Type u_1} {β : Type u_2} [add_comm_monoid α] [topological_space α] (f : β → α) (a : α)  :=
+def has_sum {α : Type u_1} {β : Type u_2} [add_comm_monoid α] [topological_space α] (f : β → α) (a : α) :=
   filter.tendsto (fun (s : finset β) => finset.sum s fun (b : β) => f b) filter.at_top (nhds a)
 
 /-- `summable f` means that `f` has some (infinite) sum. Use `tsum` to get the value. -/
-def summable {α : Type u_1} {β : Type u_2} [add_comm_monoid α] [topological_space α] (f : β → α)  :=
+def summable {α : Type u_1} {β : Type u_2} [add_comm_monoid α] [topological_space α] (f : β → α) :=
   ∃ (a : α), has_sum f a
 
 /-- `∑' i, f i` is the sum of `f` it exists, or 0 otherwise -/

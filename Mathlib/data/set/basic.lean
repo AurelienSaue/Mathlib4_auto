@@ -268,7 +268,7 @@ theorem not_mem_empty {α : Type u} (x : α) : ¬x ∈ ∅ :=
 /-- The property `s.nonempty` expresses the fact that the set `s` is not empty. It should be used
 in theorem assumptions instead of `∃ x, x ∈ s` or `s ≠ ∅` as it gives access to a nice API thanks
 to the dot notation. -/
-protected def nonempty {α : Type u} (s : set α)  :=
+protected def nonempty {α : Type u} (s : set α) :=
   ∃ (x : α), x ∈ s
 
 theorem nonempty_def {α : Type u} {s : set α} : set.nonempty s ↔ ∃ (x : α), x ∈ s :=
@@ -1337,7 +1337,7 @@ theorem surjective_onto_image {α : Type u} {β : Type v} {f : α → β} {s : s
 /-! ### Subsingleton -/
 
 /-- A set `s` is a `subsingleton`, if it has at most one element. -/
-protected def subsingleton {α : Type u} (s : set α)  :=
+protected def subsingleton {α : Type u} (s : set α) :=
   ∀ {x : α}, x ∈ s → ∀ {y : α}, y ∈ s → x = y
 
 theorem subsingleton.mono {α : Type u} {s : set α} {t : set α} (ht : set.subsingleton t) (hst : s ⊆ t) : set.subsingleton s :=
@@ -1526,7 +1526,7 @@ theorem range_diff_image_subset {α : Type u} {β : Type v} (f : α → β) (s :
 theorem range_diff_image {α : Type u} {β : Type v} {f : α → β} (H : function.injective f) (s : set α) : range f \ f '' s = f '' (sᶜ) := sorry
 
 /-- The set `s` is pairwise `r` if `r x y` for all *distinct* `x y ∈ s`. -/
-def pairwise_on {α : Type u} (s : set α) (r : α → α → Prop)  :=
+def pairwise_on {α : Type u} (s : set α) (r : α → α → Prop) :=
   ∀ (x : α), x ∈ s → ∀ (y : α), y ∈ s → x ≠ y → r x y
 
 theorem pairwise_on.mono {α : Type u} {s : set α} {t : set α} {r : α → α → Prop} (h : t ⊆ s) (hp : pairwise_on s r) : pairwise_on t r :=

@@ -24,7 +24,7 @@ namespace Mathlib
 
 /-- `matrix m n` is the type of matrices whose rows are indexed by the fintype `m`
     and whose columns are indexed by the fintype `n`. -/
-def matrix (m : Type u) (n : Type u') [fintype m] [fintype n] (α : Type v)  :=
+def matrix (m : Type u) (n : Type u') [fintype m] [fintype n] (α : Type v) :=
   m → n → α
 
 namespace matrix

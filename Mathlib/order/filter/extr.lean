@@ -81,27 +81,27 @@ Similar predicates with `_on` suffix are particular cases for `l = 𝓟 s`.
 /-! ### Definitions -/
 
 /-- `is_min_filter f l a` means that `f a ≤ f x` in some `l`-neighborhood of `a` -/
-def is_min_filter {α : Type u} {β : Type v} [preorder β] (f : α → β) (l : filter α) (a : α)  :=
+def is_min_filter {α : Type u} {β : Type v} [preorder β] (f : α → β) (l : filter α) (a : α) :=
   filter.eventually (fun (x : α) => f a ≤ f x) l
 
 /-- `is_max_filter f l a` means that `f x ≤ f a` in some `l`-neighborhood of `a` -/
-def is_max_filter {α : Type u} {β : Type v} [preorder β] (f : α → β) (l : filter α) (a : α)  :=
+def is_max_filter {α : Type u} {β : Type v} [preorder β] (f : α → β) (l : filter α) (a : α) :=
   filter.eventually (fun (x : α) => f x ≤ f a) l
 
 /-- `is_extr_filter f l a` means `is_min_filter f l a` or `is_max_filter f l a` -/
-def is_extr_filter {α : Type u} {β : Type v} [preorder β] (f : α → β) (l : filter α) (a : α)  :=
+def is_extr_filter {α : Type u} {β : Type v} [preorder β] (f : α → β) (l : filter α) (a : α) :=
   is_min_filter f l a ∨ is_max_filter f l a
 
 /-- `is_min_on f s a` means that `f a ≤ f x` for all `x ∈ a`. Note that we do not assume `a ∈ s`. -/
-def is_min_on {α : Type u} {β : Type v} [preorder β] (f : α → β) (s : set α) (a : α)  :=
+def is_min_on {α : Type u} {β : Type v} [preorder β] (f : α → β) (s : set α) (a : α) :=
   is_min_filter f (filter.principal s) a
 
 /-- `is_max_on f s a` means that `f x ≤ f a` for all `x ∈ a`. Note that we do not assume `a ∈ s`. -/
-def is_max_on {α : Type u} {β : Type v} [preorder β] (f : α → β) (s : set α) (a : α)  :=
+def is_max_on {α : Type u} {β : Type v} [preorder β] (f : α → β) (s : set α) (a : α) :=
   is_max_filter f (filter.principal s) a
 
 /-- `is_extr_on f s a` means `is_min_on f s a` or `is_max_on f s a` -/
-def is_extr_on {α : Type u} {β : Type v} [preorder β] (f : α → β) (s : set α) (a : α)  :=
+def is_extr_on {α : Type u} {β : Type v} [preorder β] (f : α → β) (s : set α) (a : α) :=
   is_extr_filter f (filter.principal s) a
 
 theorem is_extr_on.elim {α : Type u} {β : Type v} [preorder β] {f : α → β} {s : set α} {a : α} {p : Prop} : is_extr_on f s a → (is_min_on f s a → p) → (is_max_on f s a → p) → p :=

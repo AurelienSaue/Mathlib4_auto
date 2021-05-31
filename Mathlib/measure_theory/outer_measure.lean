@@ -262,7 +262,7 @@ theorem le_bounded_by' {α : Type u_1} {m : set α → ennreal} {μ : outer_meas
 
 /-- A set `s` is Carathéodory-measurable for an outer measure `m` if for all sets `t` we have
   `m t = m (t ∩ s) + m (t \ s)`. -/
-def is_caratheodory {α : Type u} (m : outer_measure α) (s : set α)  :=
+def is_caratheodory {α : Type u} (m : outer_measure α) (s : set α) :=
   ∀ (t : set α), coe_fn m t = coe_fn m (t ∩ s) + coe_fn m (t \ s)
 
 theorem is_caratheodory_iff_le' {α : Type u} (m : outer_measure α) {s : set α} : is_caratheodory m s ↔ ∀ (t : set α), coe_fn m (t ∩ s) + coe_fn m (t \ s) ≤ coe_fn m t :=

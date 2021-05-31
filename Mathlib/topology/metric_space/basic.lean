@@ -861,7 +861,7 @@ namespace metric
 
 /-- Boundedness of a subset of a metric space. We formulate the definition to work
 even in the empty space. -/
-def bounded {α : Type u} [metric_space α] (s : set α)  :=
+def bounded {α : Type u} [metric_space α] (s : set α) :=
   ∃ (C : ℝ), ∀ (x y : α), x ∈ s → y ∈ s → dist x y ≤ C
 
 @[simp] theorem bounded_empty {α : Type u} [metric_space α] : bounded ∅ := sorry

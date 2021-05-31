@@ -89,7 +89,7 @@ theorem segment_translate_image {E : Type u} [add_comm_group E] [vector_space �
 /-! ### Convexity of sets -/
 
 /-- Convexity of sets. -/
-def convex {E : Type u} [add_comm_group E] [vector_space ℝ E] (s : set E)  :=
+def convex {E : Type u} [add_comm_group E] [vector_space ℝ E] (s : set E) :=
   ∀ {x y : E}, x ∈ s → y ∈ s → ∀ {a b : ℝ}, 0 ≤ a → 0 ≤ b → a + b = 1 → a • x + b • y ∈ s
 
 theorem convex_iff_forall_pos {E : Type u} [add_comm_group E] [vector_space ℝ E] {s : set E} : convex s ↔ ∀ {x y : E}, x ∈ s → y ∈ s → ∀ {a b : ℝ}, 0 < a → 0 < b → a + b = 1 → a • x + b • y ∈ s := sorry
@@ -291,11 +291,11 @@ theorem subspace.convex {E : Type u} [add_comm_group E] [vector_space ℝ E] (K 
 /-! ### Convex and concave functions -/
 
 /-- Convexity of functions -/
-def convex_on {E : Type u} [add_comm_group E] [vector_space ℝ E] {β : Type u_1} [ordered_add_comm_monoid β] [semimodule ℝ β] (s : set E) (f : E → β)  :=
+def convex_on {E : Type u} [add_comm_group E] [vector_space ℝ E] {β : Type u_1} [ordered_add_comm_monoid β] [semimodule ℝ β] (s : set E) (f : E → β) :=
   convex s ∧ ∀ {x y : E}, x ∈ s → y ∈ s → ∀ {a b : ℝ}, 0 ≤ a → 0 ≤ b → a + b = 1 → f (a • x + b • y) ≤ a • f x + b • f y
 
 /-- Concavity of functions -/
-def concave_on {E : Type u} [add_comm_group E] [vector_space ℝ E] {β : Type u_1} [ordered_add_comm_monoid β] [semimodule ℝ β] (s : set E) (f : E → β)  :=
+def concave_on {E : Type u} [add_comm_group E] [vector_space ℝ E] {β : Type u_1} [ordered_add_comm_monoid β] [semimodule ℝ β] (s : set E) (f : E → β) :=
   convex s ∧ ∀ {x y : E}, x ∈ s → y ∈ s → ∀ {a b : ℝ}, 0 ≤ a → 0 ≤ b → a + b = 1 → a • f x + b • f y ≤ f (a • x + b • y)
 
 /-- A function `f` is concave iff `-f` is convex. -/

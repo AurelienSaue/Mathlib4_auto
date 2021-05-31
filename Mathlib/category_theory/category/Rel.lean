@@ -21,7 +21,7 @@ namespace category_theory
 
 /-- A type synonym for `Type`, which carries the category instance for which
     morphisms are binary relations. -/
-def Rel  :=
+def Rel :=
   Type u
 
 protected instance Rel.inhabited : Inhabited Rel :=

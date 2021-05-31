@@ -21,7 +21,7 @@ namespace zorn
 
 /-- A chain is a subset `c` satisfying
   `x ≺ y ∨ x = y ∨ y ≺ x` for all `x y ∈ c`. -/
-def chain {α : Type u} (r : α → α → Prop) (c : set α)  :=
+def chain {α : Type u} (r : α → α → Prop) (c : set α) :=
   set.pairwise_on c fun (x y : α) => r x y ∨ r y x
 
 theorem chain.total_of_refl {α : Type u} {r : α → α → Prop} [is_refl α r] {c : set α} (H : chain r c) {x : α} {y : α} (hx : x ∈ c) (hy : y ∈ c) : r x y ∨ r y x :=
@@ -35,11 +35,11 @@ theorem chain.directed_on {α : Type u} {r : α → α → Prop} [is_refl α r] 
 theorem chain_insert {α : Type u} {r : α → α → Prop} {c : set α} {a : α} (hc : chain r c) (ha : ∀ (b : α), b ∈ c → b ≠ a → r a b ∨ r b a) : chain r (insert a c) := sorry
 
 /-- `super_chain c₁ c₂` means that `c₂ is a chain that strictly includes `c₁`. -/
-def super_chain {α : Type u} {r : α → α → Prop} (c₁ : set α) (c₂ : set α)  :=
+def super_chain {α : Type u} {r : α → α → Prop} (c₁ : set α) (c₂ : set α) :=
   chain r c₂ ∧ c₁ ⊂ c₂
 
 /-- A chain `c` is a maximal chain if there does not exists a chain strictly including `c`. -/
-def is_max_chain {α : Type u} {r : α → α → Prop} (c : set α)  :=
+def is_max_chain {α : Type u} {r : α → α → Prop} (c : set α) :=
   chain r c ∧ ¬∃ (c' : set α), super_chain c c'
 
 /-- Given a set `c`, if there exists a chain `c'` strictly including `c`, then `succ_chain c`

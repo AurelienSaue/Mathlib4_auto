@@ -115,7 +115,7 @@ protected instance stone_cech_setoid (α : Type u) [topological_space α] : seto
     sorry
 
 /-- The Stone-Čech compactification of a topological space. -/
-def stone_cech (α : Type u) [topological_space α]  :=
+def stone_cech (α : Type u) [topological_space α] :=
   quotient (Mathlib.stone_cech_setoid α)
 
 protected instance stone_cech.topological_space {α : Type u} [topological_space α] : topological_space (stone_cech α) :=

@@ -58,7 +58,7 @@ already endowed with the `L^∞` distance, we need the type synonym to avoid con
 resolution. Also, we let it depend on `p`, to get a whole family of type on which we can put
 different distances, and we provide the assumption `hp` in the definition, to make it available
 to typeclass resolution when it looks for a distance on `pi_Lp p hp α`. -/
-def pi_Lp {ι : Type u_1} (p : ℝ) (hp : 1 ≤ p) (α : ι → Type u_2)  :=
+def pi_Lp {ι : Type u_1} (p : ℝ) (hp : 1 ≤ p) (α : ι → Type u_2) :=
   (i : ι) → α i
 
 protected instance pi_Lp.inhabited {ι : Type u_1} (p : ℝ) (hp : 1 ≤ p) (α : ι → Type u_2) [(i : ι) → Inhabited (α i)] : Inhabited (pi_Lp p hp α) :=

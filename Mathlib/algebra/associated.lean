@@ -40,7 +40,7 @@ theorem dvd_and_not_dvd_iff {α : Type u_1} [comm_cancel_monoid_with_zero α] {x
 theorem pow_dvd_pow_iff {α : Type u_1} [comm_cancel_monoid_with_zero α] {x : α} {n : ℕ} {m : ℕ} (h0 : x ≠ 0) (h1 : ¬is_unit x) : x ^ n ∣ x ^ m ↔ n ≤ m := sorry
 
 /-- prime element of a `comm_monoid_with_zero` -/
-def prime {α : Type u_1} [comm_monoid_with_zero α] (p : α)  :=
+def prime {α : Type u_1} [comm_monoid_with_zero α] (p : α) :=
   p ≠ 0 ∧ ¬is_unit p ∧ ∀ (a b : α), p ∣ a * b → p ∣ a ∨ p ∣ b
 
 namespace prime
@@ -78,7 +78,7 @@ theorem left_dvd_or_dvd_right_of_dvd_prime_mul {α : Type u_1} [comm_cancel_mono
 We explicitly avoid stating that `p` is non-zero, this would require a semiring. Assuming only a
 monoid allows us to reuse irreducible for associated elements.
 -/
-def irreducible {α : Type u_1} [monoid α] (p : α)  :=
+def irreducible {α : Type u_1} [monoid α] (p : α) :=
   ¬is_unit p ∧ ∀ (a b : α), p = a * b → is_unit a ∨ is_unit b
 
 namespace irreducible
@@ -115,7 +115,7 @@ theorem dvd_symm_iff_of_irreducible {α : Type u_1} [monoid α] {p : α} {q : α
 
 /-- Two elements of a `monoid` are `associated` if one of them is another one
 multiplied by a unit on the right. -/
-def associated {α : Type u_1} [monoid α] (x : α) (y : α)  :=
+def associated {α : Type u_1} [monoid α] (x : α) (y : α) :=
   ∃ (u : units α), x * ↑u = y
 
 namespace associated
@@ -193,7 +193,7 @@ theorem associated_eq_eq {α : Type u_1} [monoid α] [unique (units α)] : assoc
 /-- The quotient of a monoid by the `associated` relation. Two elements `x` and `y`
   are associated iff there is a unit `u` such that `x * u = y`. There is a natural
   monoid structure on `associates α`. -/
-def associates (α : Type u_1) [monoid α]  :=
+def associates (α : Type u_1) [monoid α] :=
   quotient (associated.setoid α)
 
 namespace associates

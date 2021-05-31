@@ -42,7 +42,7 @@ namespace category_theory
 The type of objects for the category of elements of a functor `F : C ⥤ Type`
 is a pair `(X : C, x : F.obj X)`.
 -/
-def functor.elements {C : Type u} [category C] (F : C ⥤ Type w)  :=
+def functor.elements {C : Type u} [category C] (F : C ⥤ Type w) :=
   sigma fun (c : C) => functor.obj F c
 
 /-- The category structure on `F.elements`, for `F : C ⥤ Type`.

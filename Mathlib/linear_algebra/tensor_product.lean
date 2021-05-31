@@ -147,7 +147,7 @@ end tensor_product
 
 /-- The tensor product of two semimodules `M` and `N` over the same commutative semiring `R`.
 The localized notations are `M ⊗ N` and `M ⊗[R] N`, accessed by `open_locale tensor_product`. -/
-def tensor_product (R : Type u_1) [comm_semiring R] (M : Type u_3) (N : Type u_4) [add_comm_monoid M] [add_comm_monoid N] [semimodule R M] [semimodule R N]  :=
+def tensor_product (R : Type u_1) [comm_semiring R] (M : Type u_3) (N : Type u_4) [add_comm_monoid M] [add_comm_monoid N] [semimodule R M] [semimodule R N] :=
   add_con.quotient (add_con_gen sorry)
 
 namespace tensor_product

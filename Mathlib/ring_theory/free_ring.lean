@@ -35,7 +35,7 @@ free ring
 -/
 
 /-- The free ring over a type `α`. -/
-def free_ring (α : Type u)  :=
+def free_ring (α : Type u) :=
   free_abelian_group (free_monoid α)
 
 namespace free_ring

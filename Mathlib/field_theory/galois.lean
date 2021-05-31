@@ -39,7 +39,7 @@ Together, these two result prove the Galois correspondence
 -/
 
 /-- A field extension E/F is galois if it is both separable and normal -/
-def is_galois (F : Type u_1) [field F] (E : Type u_2) [field E] [algebra F E]  :=
+def is_galois (F : Type u_1) [field F] (E : Type u_2) [field E] [algebra F E] :=
   is_separable F E ∧ normal F E
 
 namespace is_galois

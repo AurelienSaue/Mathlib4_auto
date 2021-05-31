@@ -33,22 +33,22 @@ Let `R` be a `comm_ring` and let `A` be an R-algebra.
 
 /-- An element `x` of `A` is said to be integral over `R` with respect to `f`
 if it is a root of a monic polynomial `p : polynomial R` evaluated under `f` -/
-def ring_hom.is_integral_elem {R : Type u_1} {A : Type u_3} [comm_ring R] [ring A] (f : R →+* A) (x : A)  :=
+def ring_hom.is_integral_elem {R : Type u_1} {A : Type u_3} [comm_ring R] [ring A] (f : R →+* A) (x : A) :=
   ∃ (p : polynomial R), polynomial.monic p ∧ polynomial.eval₂ f x p = 0
 
 /-- A ring homomorphism `f : R →+* A` is said to be integral
 if every element `A` is integral with respect to the map `f` -/
-def ring_hom.is_integral {R : Type u_1} {A : Type u_3} [comm_ring R] [ring A] (f : R →+* A)  :=
+def ring_hom.is_integral {R : Type u_1} {A : Type u_3} [comm_ring R] [ring A] (f : R →+* A) :=
   ∀ (x : A), ring_hom.is_integral_elem f x
 
 /-- An element `x` of an algebra `A` over a commutative ring `R` is said to be *integral*,
 if it is a root of some monic polynomial `p : polynomial R`.
 Equivalently, the element is integral over `R` with respect to the induced `algebra_map` -/
-def is_integral (R : Type u_1) {A : Type u_3} [comm_ring R] [ring A] [algebra R A] (x : A)  :=
+def is_integral (R : Type u_1) {A : Type u_3} [comm_ring R] [ring A] [algebra R A] (x : A) :=
   ring_hom.is_integral_elem (algebra_map R A) x
 
 /-- An algebra is integral if every element of the extension is integral over the base ring -/
-def algebra.is_integral (R : Type u_1) (A : Type u_3) [comm_ring R] [ring A] [algebra R A]  :=
+def algebra.is_integral (R : Type u_1) (A : Type u_3) [comm_ring R] [ring A] [algebra R A] :=
   ring_hom.is_integral (algebra_map R A)
 
 theorem ring_hom.is_integral_map {R : Type u_1} {S : Type u_2} [comm_ring R] [ring S] (f : R →+* S) {x : R} : ring_hom.is_integral_elem f (coe_fn f x) := sorry

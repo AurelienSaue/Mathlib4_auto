@@ -36,7 +36,7 @@ namespace polynomial
 
 
 /-- A polynomial is separable iff it is coprime with its derivative. -/
-def separable {R : Type u} [comm_semiring R] (f : polynomial R)  :=
+def separable {R : Type u} [comm_semiring R] (f : polynomial R) :=
   is_coprime f (coe_fn derivative f)
 
 theorem separable_def {R : Type u} [comm_semiring R] (f : polynomial R) : separable f ↔ is_coprime f (coe_fn derivative f) :=
@@ -220,7 +220,7 @@ theorem irreducible.separable {F : Type u} [field F] [char_zero F] {f : polynomi
 
 /-- Typeclass for separable field extension: `K` is a separable field extension of `F` iff
 the minimal polynomial of every `x : K` is separable. -/
-def is_separable (F : Type u_1) (K : Type u_2) [field F] [field K] [algebra F K]  :=
+def is_separable (F : Type u_1) (K : Type u_2) [field F] [field K] [algebra F K] :=
   ∀ (x : K), is_integral F x ∧ polynomial.separable (minpoly F x)
 
 protected instance is_separable_self (F : Type u_1) [field F] : is_separable F F :=

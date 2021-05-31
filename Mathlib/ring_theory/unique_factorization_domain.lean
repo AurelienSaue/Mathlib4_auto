@@ -240,7 +240,7 @@ namespace associates
 representation of each element as a unique multisets (or the added ⊤ for 0), which has a complete
 lattice struture. Infimum is the greatest common divisor and supremum is the least common multiple.
 -/
-def factor_set (α : Type u) [comm_cancel_monoid_with_zero α]  :=
+def factor_set (α : Type u) [comm_cancel_monoid_with_zero α] :=
   with_top (multiset (Subtype fun (a : associates α) => irreducible a))
 
 theorem factor_set.coe_add {α : Type u_1} [comm_cancel_monoid_with_zero α] {a : multiset (Subtype fun (a : associates α) => irreducible a)} {b : multiset (Subtype fun (a : associates α) => irreducible a)} : ↑(a + b) = ↑a + ↑b := sorry
@@ -286,7 +286,7 @@ def bfactor_set_mem {α : Type u_1} [comm_cancel_monoid_with_zero α] : (Subtype
 /-- `factor_set_mem p s` is the predicate that the irreducible `p` is a member of `s : factor_set α`.
 
 If `p` is not irreducible, `p` is not a member of any `factor_set`. -/
-def factor_set_mem {α : Type u_1} [comm_cancel_monoid_with_zero α] [dec_irr : (p : associates α) → Decidable (irreducible p)] (p : associates α) (s : factor_set α)  :=
+def factor_set_mem {α : Type u_1} [comm_cancel_monoid_with_zero α] [dec_irr : (p : associates α) → Decidable (irreducible p)] (p : associates α) (s : factor_set α) :=
   dite (irreducible p) (fun (hp : irreducible p) => bfactor_set_mem { val := p, property := hp } s)
     fun (hp : ¬irreducible p) => False
 

@@ -107,7 +107,7 @@ This data is referred to as a `family` in [MM92], Chapter III, Section 4. It is 
 version of the elements of the middle object in https://stacks.math.columbia.edu/tag/00VM which is
 more useful for direct calculations. It is also used implicitly in Definition C2.1.2 in [Elephant].
 -/
-def family_of_elements {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) (R : presieve X)  :=
+def family_of_elements {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) (R : presieve X) :=
   {Y : C} → (f : Y ⟶ X) → R f → functor.obj P (opposite.op Y)
 
 protected instance family_of_elements.inhabited {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} : Inhabited (family_of_elements P ⊥) :=
@@ -132,7 +132,7 @@ In special cases, this condition can be simplified, see `pullback_compatible_iff
 This is referred to as a "compatible family" in Definition C2.1.2 of [Elephant], and on nlab:
 https://ncatlab.org/nlab/show/sheaf#GeneralDefinitionInComponents
 -/
-def family_of_elements.compatible {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {R : presieve X} (x : family_of_elements P R)  :=
+def family_of_elements.compatible {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {R : presieve X} (x : family_of_elements P R) :=
   ∀ {Y₁ Y₂ Z : C} (g₁ : Z ⟶ Y₁) (g₂ : Z ⟶ Y₂) {f₁ : Y₁ ⟶ X} {f₂ : Y₂ ⟶ X} (h₁ : R f₁) (h₂ : R f₂),
     g₁ ≫ f₁ = g₂ ≫ f₂ → functor.map P (has_hom.hom.op g₁) (x f₁ h₁) = functor.map P (has_hom.hom.op g₂) (x f₂ h₂)
 
@@ -148,7 +148,7 @@ Equation (5). Viewing the type `family_of_elements` as the middle object of the 
 https://stacks.math.columbia.edu/tag/00VM, this condition expresses that `pr₀* (x) = pr₁* (x)`,
 using the notation defined there.
 -/
-def family_of_elements.pullback_compatible {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {R : presieve X} (x : family_of_elements P R) [limits.has_pullbacks C]  :=
+def family_of_elements.pullback_compatible {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {R : presieve X} (x : family_of_elements P R) [limits.has_pullbacks C] :=
   ∀ {Y₁ Y₂ : C} {f₁ : Y₁ ⟶ X} {f₂ : Y₂ ⟶ X} (h₁ : R f₁) (h₂ : R f₂),
     functor.map P (has_hom.hom.op limits.pullback.fst) (x f₁ h₁) =
       functor.map P (has_hom.hom.op limits.pullback.snd) (x f₂ h₂)
@@ -189,7 +189,7 @@ This is the notion of "matching" given for families on sieves given in [MM92], C
 Section 4, Equation 1, and nlab: https://ncatlab.org/nlab/show/matching+family.
 See also the discussion before Lemma C2.1.4 of [Elephant].
 -/
-def family_of_elements.sieve_compatible {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {S : sieve X} (x : family_of_elements P ⇑S)  :=
+def family_of_elements.sieve_compatible {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {S : sieve X} (x : family_of_elements P ⇑S) :=
   ∀ {Y Z : C} (f : Y ⟶ X) (g : Z ⟶ Y) (hf : coe_fn S Y f),
     x (g ≫ f) (sieve.downward_closed S hf g) = functor.map P (has_hom.hom.op g) (x f hf)
 
@@ -218,7 +218,7 @@ This is the definition given in  https://ncatlab.org/nlab/show/sheaf#GeneralDefi
 and https://ncatlab.org/nlab/show/matching+family, as well as [MM92], Chapter III, Section 4,
 equation (2).
 -/
-def family_of_elements.is_amalgamation {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {R : presieve X} (x : family_of_elements P R) (t : functor.obj P (opposite.op X))  :=
+def family_of_elements.is_amalgamation {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {R : presieve X} (x : family_of_elements P R) (t : functor.obj P (opposite.op X)) :=
   ∀ {Y : C} (f : Y ⟶ X) (h : R f), functor.map P (has_hom.hom.op f) t = x f h
 
 theorem is_compatible_of_exists_amalgamation {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {R : presieve X} (x : family_of_elements P R) (h : ∃ (t : functor.obj P (opposite.op X)), family_of_elements.is_amalgamation x t) : family_of_elements.compatible x := sorry
@@ -229,7 +229,7 @@ theorem is_amalgamation_restrict {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type
 theorem is_amalgamation_sieve_extend {C : Type u} [category C] {P : Cᵒᵖ ⥤ Type v} {X : C} {R : presieve X} (x : family_of_elements P R) (t : functor.obj P (opposite.op X)) (ht : family_of_elements.is_amalgamation x t) : family_of_elements.is_amalgamation (family_of_elements.sieve_extend x) t := sorry
 
 /-- A presheaf is separated for a presieve if there is at most one amalgamation. -/
-def is_separated_for {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) (R : presieve X)  :=
+def is_separated_for {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) (R : presieve X) :=
   ∀ (x : family_of_elements P R) (t₁ t₂ : functor.obj P (opposite.op X)),
     family_of_elements.is_amalgamation x t₁ → family_of_elements.is_amalgamation x t₂ → t₁ = t₂
 
@@ -249,7 +249,7 @@ This is the definition of a sheaf for the given presieve given in C2.1.2 of [Ele
 https://ncatlab.org/nlab/show/sheaf#GeneralDefinitionInComponents. Using `compatible_iff_sieve_compatible`,
 this is equivalent to the definition of a sheaf in [MM92], Chapter III, Section 4.
 -/
-def is_sheaf_for {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) (R : presieve X)  :=
+def is_sheaf_for {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) (R : presieve X) :=
   ∀ (x : family_of_elements P R),
     family_of_elements.compatible x →
       exists_unique fun (t : functor.obj P (opposite.op X)) => family_of_elements.is_amalgamation x t
@@ -264,7 +264,7 @@ presheaves.
 See the discussion before Equation (3) of [MM92], Chapter III, Section 4. See also C2.1.4 of
 [Elephant]. This is also a direct reformulation of https://stacks.math.columbia.edu/tag/00Z8.
 -/
-def yoneda_sheaf_condition {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) (S : sieve X)  :=
+def yoneda_sheaf_condition {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) (S : sieve X) :=
   ∀ (f : sieve.functor S ⟶ P), exists_unique fun (g : functor.obj yoneda X ⟶ P) => sieve.functor_inclusion S ≫ g = f
 
 /--
@@ -404,7 +404,7 @@ This is closely related to [Elephant] C2.1.6.
 theorem is_sheaf_for_subsieve {C : Type u} [category C] {X : C} (P : Cᵒᵖ ⥤ Type v) {S : sieve X} {R : presieve X} (h : ⇑S ≤ R) (trans : ∀ {Y : C} (f : Y ⟶ X), is_sheaf_for P ⇑(sieve.pullback f S)) : is_sheaf_for P R := sorry
 
 /-- A presheaf is separated for a topology if it is separated for every sieve in the topology. -/
-def is_separated {C : Type u} [category C] (J : grothendieck_topology C) (P : Cᵒᵖ ⥤ Type v)  :=
+def is_separated {C : Type u} [category C] (J : grothendieck_topology C) (P : Cᵒᵖ ⥤ Type v) :=
   ∀ {X : C} (S : sieve X), S ∈ coe_fn J X → is_separated_for P ⇑S
 
 /--
@@ -413,7 +413,7 @@ A presheaf is a sheaf for a topology if it is a sheaf for every sieve in the top
 If the given topology is given by a pretopology, `is_sheaf_for_pretopology` shows it suffices to
 check the sheaf condition at presieves in the pretopology.
 -/
-def is_sheaf {C : Type u} [category C] (J : grothendieck_topology C) (P : Cᵒᵖ ⥤ Type v)  :=
+def is_sheaf {C : Type u} [category C] (J : grothendieck_topology C) (P : Cᵒᵖ ⥤ Type v) :=
   ∀ {X : C} (S : sieve X), S ∈ coe_fn J X → is_sheaf_for P ⇑S
 
 theorem is_sheaf.is_sheaf_for {C : Type u} [category C] {X : C} (J : grothendieck_topology C) {P : Cᵒᵖ ⥤ Type v} (hp : is_sheaf J P) (R : presieve X) (hr : sieve.generate R ∈ coe_fn J X) : is_sheaf_for P R :=
@@ -451,7 +451,7 @@ namespace equalizer
 The middle object of the fork diagram given in Equation (3) of [MM92], as well as the fork diagram
 of https://stacks.math.columbia.edu/tag/00VM.
 -/
-def first_obj {C : Type v} [small_category C] (P : Cᵒᵖ ⥤ Type v) {X : C} (R : presieve X)  :=
+def first_obj {C : Type v} [small_category C] (P : Cᵒᵖ ⥤ Type v) {X : C} (R : presieve X) :=
   ∏ fun (f : sigma fun (Y : C) => Subtype fun (f : Y ⟶ X) => R f) => functor.obj P (opposite.op (sigma.fst f))
 
 /-- Show that `first_obj` is isomorphic to `family_of_elements`. -/
@@ -489,7 +489,7 @@ namespace sieve
 The rightmost object of the fork diagram of Equation (3) [MM92], which contains the data used
 to check a family is compatible.
 -/
-def second_obj {C : Type v} [small_category C] (P : Cᵒᵖ ⥤ Type v) {X : C} (S : sieve X)  :=
+def second_obj {C : Type v} [small_category C] (P : Cᵒᵖ ⥤ Type v) {X : C} (S : sieve X) :=
   ∏
     fun
       (f :
@@ -550,7 +550,7 @@ namespace presieve
 The rightmost object of the fork diagram of https://stacks.math.columbia.edu/tag/00VM, which
 contains the data used to check a family of elements for a presieve is compatible.
 -/
-def second_obj {C : Type v} [small_category C] (P : Cᵒᵖ ⥤ Type v) {X : C} (R : presieve X) [limits.has_pullbacks C]  :=
+def second_obj {C : Type v} [small_category C] (P : Cᵒᵖ ⥤ Type v) {X : C} (R : presieve X) [limits.has_pullbacks C] :=
   ∏
     fun
       (fg :
@@ -604,7 +604,7 @@ end equalizer
 
 
 /-- The category of sheaves on a grothendieck topology. -/
-def SheafOfTypes {C : Type u} [category C] (J : grothendieck_topology C)  :=
+def SheafOfTypes {C : Type u} [category C] (J : grothendieck_topology C) :=
   Subtype fun (P : Cᵒᵖ ⥤ Type v) => presieve.is_sheaf J P
 
 /-- The inclusion functor from sheaves to presheaves. -/

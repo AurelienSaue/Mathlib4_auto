@@ -29,11 +29,11 @@ We also define instances `additive.*` and `multiplicative.*` that actually trans
 /-- If `α` carries some multiplicative structure, then `additive α` carries the corresponding
 additive structure. -/
 /-- If `α` carries some additive structure, then `multiplicative α` carries the corresponding
-def additive (α : Type u_1)  :=
+def additive (α : Type u_1) :=
   α
 
 multiplicative structure. -/
-def multiplicative (α : Type u_1)  :=
+def multiplicative (α : Type u_1) :=
   α
 
 namespace additive

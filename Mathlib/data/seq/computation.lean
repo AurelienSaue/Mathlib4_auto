@@ -24,7 +24,7 @@ coinductive computation (α : Type u) : Type u
 /-- `computation α` is the type of unbounded computations returning `α`.
   An element of `computation α` is an infinite sequence of `option α` such
   that if `f n = some a` for some `n` then it is constantly `some a` after that. -/
-def computation (α : Type u)  :=
+def computation (α : Type u) :=
   Subtype fun (f : stream (Option α)) => ∀ {n : ℕ} {a : α}, f n = some a → f (n + 1) = some a
 
 namespace computation
@@ -148,7 +148,7 @@ def corec {α : Type u} {β : Type v} (f : β → α ⊕ β) (b : β) : computat
 @[simp] def bisim_o {α : Type u} (R : computation α → computation α → Prop) : α ⊕ computation α → α ⊕ computation α → Prop :=
   sorry
 
-def is_bisimulation {α : Type u} (R : computation α → computation α → Prop)  :=
+def is_bisimulation {α : Type u} (R : computation α → computation α → Prop) :=
   ∀ {s₁ s₂ : computation α}, R s₁ s₂ → bisim_o R (destruct s₁) (destruct s₂)
 
 theorem eq_of_bisim {α : Type u} (R : computation α → computation α → Prop) (bisim : is_bisimulation R) {s₁ : computation α} {s₂ : computation α} (r : R s₁ s₂) : s₁ = s₂ := sorry
@@ -157,7 +157,7 @@ theorem eq_of_bisim {α : Type u} (R : computation α → computation α → Pro
 
 -- asserts that the computation limits to the given value.
 
-protected def mem {α : Type u} (a : α) (s : computation α)  :=
+protected def mem {α : Type u} (a : α) (s : computation α) :=
   some a ∈ subtype.val s
 
 protected instance has_mem {α : Type u} : has_mem α (computation α) :=
@@ -168,7 +168,7 @@ theorem le_stable {α : Type u} (s : computation α) {a : α} {m : ℕ} {n : ℕ
 theorem mem_unique {α : Type u} : relator.left_unique has_mem.mem := sorry
 
 /-- `terminates s` asserts that the computation `s` eventually terminates with some value. -/
-def terminates {α : Type u} (s : computation α)  :=
+def terminates {α : Type u} (s : computation α) :=
   ∃ (a : α), a ∈ s
 
 theorem terminates_of_mem {α : Type u} {s : computation α} {a : α} : a ∈ s → terminates s :=
@@ -215,7 +215,7 @@ theorem of_thinkN_terminates {α : Type u} (s : computation α) (n : ℕ) : term
 
 /-- `promises s a`, or `s ~> a`, asserts that although the computation `s`
   may not terminate, if it does, then the result is `a`. -/
-def promises {α : Type u} (s : computation α) (a : α)  :=
+def promises {α : Type u} (s : computation α) (a : α) :=
   ∀ {a' : α}, a' ∈ s → a = a'
 
 infixl:50 " ~> " => Mathlib.computation.promises
@@ -259,7 +259,7 @@ theorem get_eq_of_promises {α : Type u} (s : computation α) [h : terminates s]
 
 /-- `results s a n` completely characterizes a terminating computation:
   it asserts that `s` terminates after exactly `n` steps, with result `a`. -/
-def results {α : Type u} (s : computation α) (a : α) (n : ℕ)  :=
+def results {α : Type u} (s : computation α) (a : α) (n : ℕ) :=
   ∃ (h : a ∈ s), length s = n
 
 theorem results_of_terminates {α : Type u} (s : computation α) [T : terminates s] : results s (get s) (length s) :=
@@ -468,7 +468,7 @@ protected instance alternative : alternative computation :=
 
 /-- `c₁ ~ c₂` asserts that `c₁` and `c₂` either both terminate with the same result,
   or both loop forever. -/
-def equiv {α : Type u} (c₁ : computation α) (c₂ : computation α)  :=
+def equiv {α : Type u} (c₁ : computation α) (c₂ : computation α) :=
   ∀ (a : α), a ∈ c₁ ↔ a ∈ c₂
 
 infixl:50 " ~ " => Mathlib.computation.equiv
@@ -514,7 +514,7 @@ theorem equiv_ret_of_mem {α : Type u} {s : computation α} {a : α} (h : a ∈ 
   equality. It asserts that if `ca` terminates with `a`, then `cb` terminates with
   some `b` such that `R a b`, and if `cb` terminates with `b` then `ca` terminates
   with some `a` such that `R a b`. -/
-def lift_rel {α : Type u} {β : Type v} (R : α → β → Prop) (ca : computation α) (cb : computation β)  :=
+def lift_rel {α : Type u} {β : Type v} (R : α → β → Prop) (ca : computation α) (cb : computation β) :=
   (∀ {a : α}, a ∈ ca → Exists fun {b : β} => b ∈ cb ∧ R a b) ∧ ∀ {b : β}, b ∈ cb → Exists fun {a : α} => a ∈ ca ∧ R a b
 
 theorem lift_rel.swap {α : Type u} {β : Type v} (R : α → β → Prop) (ca : computation α) (cb : computation β) : lift_rel (function.swap R) cb ca ↔ lift_rel R ca cb :=

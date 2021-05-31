@@ -74,7 +74,7 @@ type of unordered pairs.
 It is equivalent in a natural way to multisets of cardinality 2 (see
 `sym2.equiv_multiset`).
 -/
-def sym2 (α : Type u)  :=
+def sym2 (α : Type u) :=
   quotient sorry
 
 namespace sym2
@@ -106,7 +106,7 @@ This is a predicate that determines whether a given term is a member of a term o
 symmetric square.  From this point of view, the symmetric square is the subtype of
 cardinality-two multisets on `α`.
 -/
-def mem {α : Type u} (x : α) (z : sym2 α)  :=
+def mem {α : Type u} (x : α) (z : sym2 α) :=
   ∃ (y : α), z = quotient.mk (x, y)
 
 protected instance has_mem {α : Type u} : has_mem α (sym2 α) :=
@@ -151,7 +151,7 @@ def diag {α : Type u} (x : α) : sym2 α :=
 /--
 A predicate for testing whether an element of `sym2 α` is on the diagonal.
 -/
-def is_diag {α : Type u} (z : sym2 α)  :=
+def is_diag {α : Type u} (z : sym2 α) :=
   z ∈ set.range diag
 
 @[simp] theorem diag_is_diag {α : Type u} (a : α) : is_diag (diag a) :=

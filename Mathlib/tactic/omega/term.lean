@@ -20,7 +20,7 @@ namespace omega
 /-- Shadow syntax of normalized terms. The first element
     represents the constant term and the list represents
     the coefficients. -/
-def term  :=
+def term :=
   ℤ × List ℤ
 
 namespace term

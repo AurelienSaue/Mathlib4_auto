@@ -415,7 +415,7 @@ protected instance has_to_string {α : Type u} [has_to_string α] : has_to_strin
 
      equiv {1, 2, 4} {2, 1, 1, 4} = true
      equiv {1, 2, 4} {1, 2, 3} = false -/
-def equiv {α : Type u} (t₁ : ordnode α) (t₂ : ordnode α)  :=
+def equiv {α : Type u} (t₁ : ordnode α) (t₂ : ordnode α) :=
   size t₁ = size t₂ ∧ to_list t₁ = to_list t₂
 
 protected instance equiv.decidable_rel {α : Type u} [DecidableEq α] : DecidableRel equiv :=

@@ -16,7 +16,7 @@ universes u v
 namespace Mathlib
 
 /-- The cartesian product, equipped with the lexicographic order. -/
-def lex (α : Type u) (β : Type v)  :=
+def lex (α : Type u) (β : Type v) :=
   α × β
 
 protected instance lex.decidable_eq {α : Type u} {β : Type v} [DecidableEq α] [DecidableEq β] : DecidableEq (lex α β) :=

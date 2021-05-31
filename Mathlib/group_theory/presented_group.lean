@@ -15,7 +15,7 @@ namespace Mathlib
 
 /-- Given a set of relations, rels, over a type α, presented_group constructs the group with
 generators α and relations rels as a quotient of free_group α.-/
-def presented_group {α : Type} (rels : set (free_group α))  :=
+def presented_group {α : Type} (rels : set (free_group α)) :=
   quotient_group.quotient (subgroup.normal_closure rels)
 
 namespace presented_group

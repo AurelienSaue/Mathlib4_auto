@@ -33,7 +33,7 @@ probability mass function, discrete probability measure, bernoulli distribution
 
 /-- A probability mass function, or discrete probability measures is a function `α → ℝ≥0` such that
   the values have (infinite) sum `1`. -/
-def pmf (α : Type u)  :=
+def pmf (α : Type u) :=
   Subtype fun (f : α → nnreal) => has_sum f 1
 
 namespace pmf

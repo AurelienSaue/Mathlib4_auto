@@ -32,7 +32,7 @@ protected instance pgame.setoid : setoid pgame :=
   reflecting that it is a proper class in ZFC.
   A combinatorial game is then constructed by quotienting by the equivalence
   `x ≈ y ↔ x ≤ y ∧ y ≤ x`. -/
-def game  :=
+def game :=
   quotient pgame.setoid
 
 namespace game

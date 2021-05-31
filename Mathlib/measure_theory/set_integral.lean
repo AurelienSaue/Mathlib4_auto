@@ -70,7 +70,7 @@ w.r.t. `μ.restrict s` for some `s ∈ l`. -/
 def measurable_at_filter {α : Type u_1} {β : Type u_2} [measurable_space α] [measurable_space β] (f : α → β) (l : filter α) (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   ∃ (s : set α), ∃ (H : s ∈ l), ae_measurable f
 
 @[simp] theorem measurable_at_bot {α : Type u_1} {β : Type u_2} [measurable_space α] [measurable_space β] {μ : measure_theory.measure α} {f : α → β} : measurable_at_filter f ⊥ := sorry
@@ -102,7 +102,7 @@ theorem has_finite_integral_restrict_of_bounded {α : Type u_1} {E : Type u_3} [
 def integrable_on {α : Type u_1} {E : Type u_3} [measurable_space α] [normed_group E] [measurable_space E] (f : α → E) (s : set α) (μ : autoParam (measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   integrable f
 
 theorem integrable_on.integrable {α : Type u_1} {E : Type u_3} [measurable_space α] [normed_group E] [measurable_space E] {f : α → E} {s : set α} {μ : measure α} (h : integrable_on f s) : integrable f :=
@@ -172,7 +172,7 @@ set `s ∈ l`. Equivalently, it is eventually integrable on `s` in `l.lift' powe
 def integrable_at_filter {α : Type u_1} {E : Type u_3} [measurable_space α] [normed_group E] [measurable_space E] (f : α → E) (l : filter α) (μ : autoParam (measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   ∃ (s : set α), ∃ (H : s ∈ l), integrable_on f s
 
 protected theorem integrable_at_filter.eventually {α : Type u_1} {E : Type u_3} [measurable_space α] [normed_group E] [measurable_space E] {f : α → E} {μ : measure α} {l : filter α} (h : integrable_at_filter f l) : filter.eventually (fun (s : set α) => integrable_on f s) (filter.lift' l set.powerset) := sorry

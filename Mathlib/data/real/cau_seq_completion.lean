@@ -18,7 +18,7 @@ namespace Mathlib
 namespace cau_seq.completion
 
 
-def Cauchy {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [comm_ring β] {abv : β → α} [is_absolute_value abv]  :=
+def Cauchy {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [comm_ring β] {abv : β → α} [is_absolute_value abv] :=
   quotient cau_seq.equiv
 
 def mk {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [comm_ring β] {abv : β → α} [is_absolute_value abv] : cau_seq β abv → Cauchy :=

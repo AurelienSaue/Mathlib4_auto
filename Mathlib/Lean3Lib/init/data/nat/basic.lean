@@ -24,10 +24,10 @@ where
 protected instance has_le : HasLessEq ℕ :=
   { LessEq := less_than_or_equal }
 
-protected def le (n : ℕ) (m : ℕ)  :=
+protected def le (n : ℕ) (m : ℕ) :=
   less_than_or_equal n m
 
-protected def lt (n : ℕ) (m : ℕ)  :=
+protected def lt (n : ℕ) (m : ℕ) :=
   less_than_or_equal (Nat.succ n) m
 
 protected instance has_lt : HasLess ℕ :=

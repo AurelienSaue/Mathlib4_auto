@@ -39,7 +39,7 @@ See https://isabelle.in.tum.de/dist/library/HOL/HOL-Library/Extended_Real.html
 -/
 
 /-- ereal : The type `[-∞, ∞]` -/
-def ereal  :=
+def ereal :=
   with_top (with_bot ℝ)
 
 namespace ereal

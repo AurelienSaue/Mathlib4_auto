@@ -332,7 +332,7 @@ on `H × H'`, there are two charted space structures with model space `H × H'` 
 from `manifold_model_space`, and the one coming from the product of the two `manifold_model_space` on
 each component. They are equal, but not defeq (because the product of `id` and `id` is not defeq to
 `id`), which is bad as we know. This expedient of renaming `H × H'` solves this problem. -/
-def model_prod (H : Type u_1) (H' : Type u_2)  :=
+def model_prod (H : Type u_1) (H' : Type u_2) :=
   H × H'
 
 protected instance model_prod_inhabited {α : Type u_1} {β : Type u_2} [Inhabited α] [Inhabited β] : Inhabited (model_prod α β) :=

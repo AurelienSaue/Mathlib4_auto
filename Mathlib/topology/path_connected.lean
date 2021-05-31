@@ -294,7 +294,7 @@ end path
 /-! ### Being joined by a path -/
 
 /-- The relation "being joined by a path". This is an equivalence relation. -/
-def joined {X : Type u_1} [topological_space X] (x : X) (y : X)  :=
+def joined {X : Type u_1} [topological_space X] (x : X) (y : X) :=
   Nonempty (path x y)
 
 theorem joined.refl {X : Type u_1} [topological_space X] (x : X) : joined x x :=
@@ -315,7 +315,7 @@ def path_setoid (X : Type u_1) [topological_space X] : setoid X :=
   setoid.mk joined sorry
 
 /-- The quotient type of points of a topological space modulo being joined by a continuous path. -/
-def zeroth_homotopy (X : Type u_1) [topological_space X]  :=
+def zeroth_homotopy (X : Type u_1) [topological_space X] :=
   quotient (path_setoid X)
 
 protected instance zeroth_homotopy.inhabited : Inhabited (zeroth_homotopy ℝ) :=
@@ -325,7 +325,7 @@ protected instance zeroth_homotopy.inhabited : Inhabited (zeroth_homotopy ℝ) :
 
 /-- The relation "being joined by a path in `F`". Not quite an equivalence relation since it's not
 reflexive for points that do not belong to `F`. -/
-def joined_in {X : Type u_1} [topological_space X] (F : set X) (x : X) (y : X)  :=
+def joined_in {X : Type u_1} [topological_space X] (F : set X) (x : X) (y : X) :=
   ∃ (γ : path x y), ∀ (t : ↥(set.Icc 0 1)), coe_fn γ t ∈ F
 
 theorem joined_in.mem {X : Type u_1} [topological_space X] {x : X} {y : X} {F : set X} (h : joined_in F x y) : x ∈ F ∧ y ∈ F := sorry
@@ -401,7 +401,7 @@ theorem joined.mem_path_component {X : Type u_1} [topological_space X] {x : X} {
 /-! ### Path connected sets -/
 
 /-- A set `F` is path connected if it contains a point that can be joined to all other in `F`. -/
-def is_path_connected {X : Type u_1} [topological_space X] (F : set X)  :=
+def is_path_connected {X : Type u_1} [topological_space X] (F : set X) :=
   ∃ (x : X), ∃ (H : x ∈ F), ∀ {y : X}, y ∈ F → joined_in F x y
 
 theorem is_path_connected_iff_eq {X : Type u_1} [topological_space X] {F : set X} : is_path_connected F ↔ ∃ (x : X), ∃ (H : x ∈ F), path_component_in x F = F := sorry

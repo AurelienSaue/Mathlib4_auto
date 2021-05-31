@@ -90,7 +90,7 @@ def app {C : Type u} [category C] {P : C} {Q : C} (f : P ⟶ Q) (a : over P) : o
 
 /-- Two arrows `f : X ⟶ P` and `g : Y ⟶ P are called pseudo-equal if there is some object
     `R` and epimorphisms `p : R ⟶ X` and `q : R ⟶ Y` such that `p ≫ f = q ≫ g`. -/
-def pseudo_equal {C : Type u} [category C] (P : C) (f : over P) (g : over P)  :=
+def pseudo_equal {C : Type u} [category C] (P : C) (f : over P) (g : over P) :=
   ∃ (R : C), ∃ (p : R ⟶ comma.left f), ∃ (q : R ⟶ comma.left g), Exists (Exists (p ≫ comma.hom f = q ≫ comma.hom g))
 
 theorem pseudo_equal_refl {C : Type u} [category C] {P : C} : reflexive (pseudo_equal P) := sorry
@@ -107,7 +107,7 @@ def pseudoelement.setoid {C : Type u} [category C] [abelian C] (P : C) : setoid 
 
 /-- A `pseudoelement` of `P` is just an equivalence class of arrows ending in `P` by being
     pseudo-equal. -/
-def pseudoelement {C : Type u} [category C] [abelian C] (P : C)  :=
+def pseudoelement {C : Type u} [category C] [abelian C] (P : C) :=
   quotient sorry
 
 namespace pseudoelement

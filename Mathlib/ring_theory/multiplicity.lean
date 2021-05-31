@@ -24,7 +24,7 @@ namespace multiplicity
 
 
 /-- `multiplicity.finite a b` indicates that the multiplicity of `a` in `b` is finite. -/
-def finite {α : Type u_1} [comm_monoid α] (a : α) (b : α)  :=
+def finite {α : Type u_1} [comm_monoid α] (a : α) (b : α) :=
   ∃ (n : ℕ), ¬a ^ (n + 1) ∣ b
 
 theorem finite_iff_dom {α : Type u_1} [comm_monoid α] [DecidableRel has_dvd.dvd] {a : α} {b : α} : finite a b ↔ roption.dom (multiplicity a b) :=

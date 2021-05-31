@@ -11,12 +11,12 @@ universes u v w
 
 namespace Mathlib
 
-def rbmap_lt {α : Type u} {β : Type v} (lt : α → α → Prop) (a : α × β) (b : α × β)  :=
+def rbmap_lt {α : Type u} {β : Type v} (lt : α → α → Prop) (a : α × β) (b : α × β) :=
   lt (prod.fst a) (prod.fst b)
 
 def rbmap (α : Type u) (β : Type v) (lt : autoParam (α → α → Prop)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.rbtree.default_lt")
-    (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "rbtree") "default_lt") []))  :=
+    (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "rbtree") "default_lt") [])) :=
   rbtree (α × β)
 
 def mk_rbmap (α : Type u) (β : Type v) (lt : autoParam (α → α → Prop)
@@ -52,7 +52,7 @@ If we had assumed β to be inhabited we could use the following simpler
 definition: (k, default β) ∈ m
 -/
 
-protected def mem {α : Type u} {β : Type v} {lt : α → α → Prop} (k : α) (m : rbmap α β)  :=
+protected def mem {α : Type u} {β : Type v} {lt : α → α → Prop} (k : α) (m : rbmap α β) :=
   sorry
 
 protected instance has_mem {α : Type u} {β : Type v} {lt : α → α → Prop} : has_mem α (rbmap α β) :=

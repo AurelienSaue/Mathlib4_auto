@@ -24,8 +24,8 @@ This file implements diffeomorphisms.
 
 ## Notations
 
-* `M ≃ₘ^n⟮I, I'⟯ M'`  := `times_diffeomorph I J M N n`
-* `M ≃ₘ⟮I, I'⟯ M'`    := `times_diffeomorph I J M N ⊤`
+* `M ≃ₘ^n⟮I, I'⟯ M'` := `times_diffeomorph I J M N n`
+* `M ≃ₘ⟮I, I'⟯ M'`   := `times_diffeomorph I J M N ⊤`
 
 ## Implementation notes
 
@@ -46,7 +46,7 @@ where
   times_cont_mdiff_inv_fun : times_cont_mdiff I' I n (equiv.inv_fun _to_equiv)
 
 /-- A `diffeomorph` is just a smooth `times_diffeomorph`. -/
-def diffeomorph {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {E' : Type u_3} [normed_group E'] [normed_space 𝕜 E'] {H : Type u_5} [topological_space H] {H' : Type u_6} [topological_space H'] (I : model_with_corners 𝕜 E H) (I' : model_with_corners 𝕜 E' H') (M : Type u_8) [topological_space M] [charted_space H M] [smooth_manifold_with_corners I M] (M' : Type u_9) [topological_space M'] [charted_space H' M'] [smooth_manifold_with_corners I' M']  :=
+def diffeomorph {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {E' : Type u_3} [normed_group E'] [normed_space 𝕜 E'] {H : Type u_5} [topological_space H] {H' : Type u_6} [topological_space H'] (I : model_with_corners 𝕜 E H) (I' : model_with_corners 𝕜 E' H') (M : Type u_8) [topological_space M] [charted_space H M] [smooth_manifold_with_corners I M] (M' : Type u_9) [topological_space M'] [charted_space H' M'] [smooth_manifold_with_corners I' M'] :=
   times_diffeomorph I I' M M' ⊤
 
 namespace times_diffeomorph

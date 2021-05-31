@@ -34,7 +34,7 @@ mul_aut, add_aut
 -/
 
 /-- The group of multiplicative automorphisms. -/
-def mul_aut (M : Type u_1) [Mul M]  :=
+def mul_aut (M : Type u_1) [Mul M] :=
   M ≃* M
 
 namespace mul_aut

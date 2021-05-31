@@ -45,7 +45,7 @@ theorem not_eq_key {α : Type u} {β : α → Type v} {a : α} {l : List (sigma 
 
 /- nodupkeys -/
 
-def nodupkeys {α : Type u} {β : α → Type v} (l : List (sigma β))  :=
+def nodupkeys {α : Type u} {β : α → Type v} (l : List (sigma β)) :=
   nodup (keys l)
 
 theorem nodupkeys_iff_pairwise {α : Type u} {β : α → Type v} {l : List (sigma β)} : nodupkeys l ↔ pairwise (fun (s s' : sigma β) => sigma.fst s ≠ sigma.fst s') l :=

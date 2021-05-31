@@ -32,7 +32,7 @@ namespace Mathlib
 -/
 
 /-- A module is simple when it has only two submodules, `⊥` and `⊤`. -/
-def is_simple_module (R : Type u_1) [comm_ring R] (M : Type u_2) [add_comm_group M] [module R M]  :=
+def is_simple_module (R : Type u_1) [comm_ring R] (M : Type u_2) [add_comm_group M] [module R M] :=
   is_simple_lattice (submodule R M)
 
 -- Making this an instance causes the linter to complain of "dangerous instances"

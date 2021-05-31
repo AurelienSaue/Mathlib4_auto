@@ -33,10 +33,10 @@ namespace category_theory.limits
 
 /-- `X` is terminal if the cone it induces on the empty diagram is limiting. -/
 /-- `X` is initial if the cocone it induces on the empty diagram is colimiting. -/
-def is_terminal {C : Type u} [category C] (X : C)  :=
+def is_terminal {C : Type u} [category C] (X : C) :=
   is_limit (as_empty_cone X)
 
-def is_initial {C : Type u} [category C] (X : C)  :=
+def is_initial {C : Type u} [category C] (X : C) :=
   is_colimit (as_empty_cocone X)
 
 /-- Give the morphism to a terminal object from any other. -/
@@ -66,13 +66,13 @@ A category has a terminal object if it has a limit over the empty diagram.
 Use `has_terminal_of_unique` to construct instances.
 -/
 /--
-def has_terminal (C : Type u) [category C]  :=
+def has_terminal (C : Type u) [category C] :=
   has_limits_of_shape (discrete pempty) C
 
 A category has an initial object if it has a colimit over the empty diagram.
 Use `has_initial_of_unique` to construct instances.
 -/
-def has_initial (C : Type u) [category C]  :=
+def has_initial (C : Type u) [category C] :=
   has_colimits_of_shape (discrete pempty) C
 
 /--

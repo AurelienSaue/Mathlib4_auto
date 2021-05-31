@@ -123,7 +123,7 @@ theorem findim_vector_span_le_iff_not_affine_independent (k : Type u_1) {V : Typ
 
 /-- A set of points is collinear if their `vector_span` has dimension
 at most `1`. -/
-def collinear (k : Type u_1) {V : Type u_2} {P : Type u_3} [field k] [add_comm_group V] [module k V] [add_torsor V P] (s : set P)  :=
+def collinear (k : Type u_1) {V : Type u_2} {P : Type u_3} [field k] [add_comm_group V] [module k V] [add_torsor V P] (s : set P) :=
   vector_space.dim k ↥(vector_span k s) ≤ 1
 
 /-- The definition of `collinear`. -/

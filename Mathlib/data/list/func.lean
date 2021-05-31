@@ -30,7 +30,7 @@ def neg {α : Type u} [Neg α] (as : List α) : List α :=
 @[simp] def get {α : Type u} [Inhabited α] : ℕ → List α → α :=
   sorry
 
-def equiv {α : Type u} [Inhabited α] (as1 : List α) (as2 : List α)  :=
+def equiv {α : Type u} [Inhabited α] (as1 : List α) (as2 : List α) :=
   ∀ (m : ℕ), get m as1 = get m as2
 
 @[simp] def pointwise {α : Type u} {β : Type v} {γ : Type w} [Inhabited α] [Inhabited β] (f : α → β → γ) : List α → List β → List γ :=

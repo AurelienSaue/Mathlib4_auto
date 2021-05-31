@@ -449,7 +449,7 @@ where
   lie_module.is_trivial.trivial x m
 
 /-- A Lie algebra is Abelian iff it is trivial as a Lie module over itself. -/
-def is_lie_abelian (L : Type v) [has_bracket L L] [HasZero L]  :=
+def is_lie_abelian (L : Type v) [has_bracket L L] [HasZero L] :=
   lie_module.is_trivial L L
 
 theorem commutative_ring_iff_abelian_lie_ring {A : Type v} [ring A] : is_commutative A Mul.mul ↔ is_lie_abelian A := sorry
@@ -708,7 +708,7 @@ end lie_submodule
 
 
 /-- An ideal of a Lie algebra is a Lie submodule of the Lie algebra as a Lie module over itself. -/
-def lie_ideal (R : Type u) (L : Type v) [comm_ring R] [lie_ring L] [lie_algebra R L]  :=
+def lie_ideal (R : Type u) (L : Type v) [comm_ring R] [lie_ring L] [lie_algebra R L] :=
   lie_submodule R L L
 
 theorem lie_mem_right (R : Type u) (L : Type v) [comm_ring R] [lie_ring L] [lie_algebra R L] (I : lie_ideal R L) (x : L) (y : L) (h : y ∈ I) : has_bracket.bracket x y ∈ I :=
@@ -920,7 +920,7 @@ theorem mono_lie_right {R : Type u} {L : Type v} {M : Type w} [comm_ring R] [lie
 @[simp] theorem trivial_lie_oper_zero {R : Type u} {L : Type v} {M : Type w} [comm_ring R] [lie_ring L] [lie_algebra R L] [add_comm_group M] [module R M] [lie_ring_module L M] [lie_module R L M] (N : lie_submodule R L M) (I : lie_ideal R L) [lie_module.is_trivial L M] : has_bracket.bracket I N = ⊥ := sorry
 
 /-- The quotient of a Lie module by a Lie submodule. It is a Lie module. -/
-def quotient {R : Type u} {L : Type v} {M : Type w} [comm_ring R] [lie_ring L] [lie_algebra R L] [add_comm_group M] [module R M] [lie_ring_module L M] [lie_module R L M] (N : lie_submodule R L M)  :=
+def quotient {R : Type u} {L : Type v} {M : Type w} [comm_ring R] [lie_ring L] [lie_algebra R L] [add_comm_group M] [module R M] [lie_ring_module L M] [lie_module R L M] (N : lie_submodule R L M) :=
   submodule.quotient (to_submodule N)
 
 namespace quotient
@@ -1149,7 +1149,7 @@ def ideal_range {R : Type u} {L : Type v} {L' : Type w₂} [comm_ring R] [lie_ri
   lie_ideal.map f ⊤
 
 /-- The condition that the image of a morphism of Lie algebras is an ideal. -/
-def is_ideal_morphism {R : Type u} {L : Type v} {L' : Type w₂} [comm_ring R] [lie_ring L] [lie_algebra R L] [lie_ring L'] [lie_algebra R L'] (f : morphism R L L')  :=
+def is_ideal_morphism {R : Type u} {L : Type v} {L' : Type w₂} [comm_ring R] [lie_ring L] [lie_algebra R L] [lie_ring L'] [lie_algebra R L'] (f : morphism R L L') :=
   ↑(ideal_range f) = range f
 
 @[simp] theorem is_ideal_morphism_def {R : Type u} {L : Type v} {L' : Type w₂} [comm_ring R] [lie_ring L] [lie_algebra R L] [lie_ring L'] [lie_algebra R L'] (f : morphism R L L') : is_ideal_morphism f ↔ ↑(ideal_range f) = range f :=

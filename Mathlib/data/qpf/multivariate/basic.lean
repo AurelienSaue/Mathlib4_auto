@@ -138,18 +138,18 @@ theorem has_good_supp_iff {n : ℕ} {F : typevec n → Type u_1} [mvfunctor F] [
 
 /-- A qpf is said to be uniform if every polynomial functor
 representing a single value all have the same range. -/
-def is_uniform {n : ℕ} {F : typevec n → Type u_1} [mvfunctor F] (q : mvqpf F)  :=
+def is_uniform {n : ℕ} {F : typevec n → Type u_1} [mvfunctor F] (q : mvqpf F) :=
   ∀ {α : typevec n} (a a' : mvpfunctor.A (P F)) (f : typevec.arrow (mvpfunctor.B (P F) a) α)
     (f' : typevec.arrow (mvpfunctor.B (P F) a') α),
     abs (sigma.mk a f) = abs (sigma.mk a' f') → ∀ (i : fin2 n), f i '' set.univ = f' i '' set.univ
 
 /-- does `abs` preserve `liftp`? -/
-def liftp_preservation {n : ℕ} {F : typevec n → Type u_1} [mvfunctor F] (q : mvqpf F)  :=
+def liftp_preservation {n : ℕ} {F : typevec n → Type u_1} [mvfunctor F] (q : mvqpf F) :=
   ∀ {α : typevec n} (p : {i : fin2 n} → α i → Prop) (x : mvpfunctor.obj (P F) α),
     mvfunctor.liftp p (abs x) ↔ mvfunctor.liftp p x
 
 /-- does `abs` preserve `supp`? -/
-def supp_preservation {n : ℕ} {F : typevec n → Type u_1} [mvfunctor F] (q : mvqpf F)  :=
+def supp_preservation {n : ℕ} {F : typevec n → Type u_1} [mvfunctor F] (q : mvqpf F) :=
   ∀ {α : typevec n} (x : mvpfunctor.obj (P F) α), mvfunctor.supp (abs x) = mvfunctor.supp x
 
 theorem supp_eq_of_is_uniform {n : ℕ} {F : typevec n → Type u_1} [mvfunctor F] [q : mvqpf F] (h : is_uniform q) {α : typevec n} (a : mvpfunctor.A (P F)) (f : typevec.arrow (mvpfunctor.B (P F) a) α) (i : fin2 n) : mvfunctor.supp (abs (sigma.mk a f)) i = f i '' set.univ := sorry

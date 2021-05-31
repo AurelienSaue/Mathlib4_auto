@@ -25,7 +25,7 @@ along with the relevant forgetful functors between them.
 -/
 
 /-- The category of semirings. -/
-def SemiRing  :=
+def SemiRing :=
   category_theory.bundled semiring
 
 namespace SemiRing
@@ -65,7 +65,7 @@ end SemiRing
 
 
 /-- The category of rings. -/
-def Ring  :=
+def Ring :=
   category_theory.bundled ring
 
 namespace Ring
@@ -105,7 +105,7 @@ end Ring
 
 
 /-- The category of commutative semirings. -/
-def CommSemiRing  :=
+def CommSemiRing :=
   category_theory.bundled comm_semiring
 
 namespace CommSemiRing
@@ -142,7 +142,7 @@ end CommSemiRing
 
 
 /-- The category of commutative rings. -/
-def CommRing  :=
+def CommRing :=
   category_theory.bundled comm_ring
 
 namespace CommRing

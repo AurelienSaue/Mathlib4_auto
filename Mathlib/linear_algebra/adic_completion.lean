@@ -32,19 +32,19 @@ with respect to an ideal `I`:
 -/
 
 /-- A module `M` is Hausdorff with respect to an ideal `I` if `⋂ I^n M = 0`. -/
-def is_Hausdorff {R : Type u_1} [comm_ring R] (I : ideal R) (M : Type u_2) [add_comm_group M] [module R M]  :=
+def is_Hausdorff {R : Type u_1} [comm_ring R] (I : ideal R) (M : Type u_2) [add_comm_group M] [module R M] :=
   ∀ (x : M), (∀ (n : ℕ), smodeq (I ^ n • ⊤) x 0) → x = 0
 
 /-- A module `M` is precomplete with respect to an ideal `I` if every Cauchy sequence converges. -/
-def is_precomplete {R : Type u_1} [comm_ring R] (I : ideal R) (M : Type u_2) [add_comm_group M] [module R M]  :=
+def is_precomplete {R : Type u_1} [comm_ring R] (I : ideal R) (M : Type u_2) [add_comm_group M] [module R M] :=
   ∀ (f : ℕ → M), (∀ {m n : ℕ}, m ≤ n → smodeq (I ^ m • ⊤) (f m) (f n)) → ∃ (L : M), ∀ (n : ℕ), smodeq (I ^ n • ⊤) (f n) L
 
 /-- A module `M` is `I`-adically complete if it is Hausdorff and precomplete. -/
-def is_adic_complete {R : Type u_1} [comm_ring R] (I : ideal R) (M : Type u_2) [add_comm_group M] [module R M]  :=
+def is_adic_complete {R : Type u_1} [comm_ring R] (I : ideal R) (M : Type u_2) [add_comm_group M] [module R M] :=
   is_Hausdorff I M ∧ is_precomplete I M
 
 /-- The Hausdorffification of a module with respect to an ideal. -/
-def Hausdorffification {R : Type u_1} [comm_ring R] (I : ideal R) (M : Type u_2) [add_comm_group M] [module R M]  :=
+def Hausdorffification {R : Type u_1} [comm_ring R] (I : ideal R) (M : Type u_2) [add_comm_group M] [module R M] :=
   submodule.quotient (infi fun (n : ℕ) => I ^ n • ⊤)
 
 /-- The completion of a module with respect to an ideal. This is not necessarily Hausdorff.

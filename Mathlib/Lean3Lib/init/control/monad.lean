@@ -11,7 +11,7 @@ universes u v l
 
 namespace Mathlib
 
-not founddef has_bind.and_then {α : Type u} {β : Type u} {m : Type u → Type v} [Bind m] (x : m α) (y : m β) : m β :=
+def has_bind.and_then {α : Type u} {β : Type u} {m : Type u → Type v} [Bind m] (x : m α) (y : m β) : m β :=
   do 
     x 
     y
@@ -20,7 +20,7 @@ infixl:55 " >>= " => Mathlib.has_bind.bind
 
 infixl:55 " >> " => Mathlib.has_bind.and_then
 
-not founddef return {m : Type u → Type v} [Monad m] {α : Type u} : α → m α :=
+def return {m : Type u → Type v} [Monad m] {α : Type u} : α → m α :=
   pure
 
 /- Identical to has_bind.and_then, but it is not inlined. -/

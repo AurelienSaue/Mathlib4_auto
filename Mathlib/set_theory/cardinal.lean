@@ -53,7 +53,7 @@ protected instance cardinal.is_equivalent : setoid (Type u) :=
 /-- `cardinal.{u}` is the type of cardinal numbers in `Type u`,
   defined as the quotient of `Type u` by existence of an equivalence
   (a bijection with explicit inverse). -/
-def cardinal  :=
+def cardinal :=
   quotient sorry
 
 namespace cardinal

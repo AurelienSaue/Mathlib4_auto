@@ -44,7 +44,7 @@ namespace category_theory
 An object `X` is *exponentiable* if `(X × -)` is a left adjoint.
 We define this as being `closed` in the cartesian monoidal structure.
 -/
-def exponentiable {C : Type u} [category C] [limits.has_finite_products C] (X : C)  :=
+def exponentiable {C : Type u} [category C] [limits.has_finite_products C] (X : C) :=
   closed X
 
 /--
@@ -67,7 +67,7 @@ def terminal_exponentiable {C : Type u} [category C] [limits.has_finite_products
 A category `C` is cartesian closed if it has finite products and every object is exponentiable.
 We define this as `monoidal_closed` with respect to the cartesian monoidal structure.
 -/
-def cartesian_closed (C : Type u) [category C] [limits.has_finite_products C]  :=
+def cartesian_closed (C : Type u) [category C] [limits.has_finite_products C] :=
   monoidal_closed C
 
 /-- This is (-)^A. -/

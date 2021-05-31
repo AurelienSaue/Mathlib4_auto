@@ -46,7 +46,7 @@ theorem comp_left {C : Type u} [category C] (r : {a b : C} → (a ⟶ b) → (a 
 theorem comp_right {C : Type u} [category C] (r : {a b : C} → (a ⟶ b) → (a ⟶ b) → Prop) {a : C} {b : C} {c : C} (g : b ⟶ c) (f₁ : a ⟶ b) (f₂ : a ⟶ b) (h : comp_closure r f₁ f₂) : comp_closure r (f₁ ≫ g) (f₂ ≫ g) := sorry
 
 /-- Hom-sets of the quotient category. -/
-def hom {C : Type u} [category C] (r : {a b : C} → (a ⟶ b) → (a ⟶ b) → Prop) (s : quotient r) (t : quotient r)  :=
+def hom {C : Type u} [category C] (r : {a b : C} → (a ⟶ b) → (a ⟶ b) → Prop) (s : quotient r) (t : quotient r) :=
   Quot (comp_closure r)
 
 protected instance hom.inhabited {C : Type u} [category C] (r : {a b : C} → (a ⟶ b) → (a ⟶ b) → Prop) (a : quotient r) : Inhabited (hom r a a) :=

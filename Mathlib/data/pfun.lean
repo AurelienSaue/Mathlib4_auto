@@ -34,7 +34,7 @@ theorem ext' {α : Type u_1} {o : roption α} {p : roption α} (H1 : dom o ↔ d
 @[simp] theorem eta {α : Type u_1} (o : roption α) : (mk (dom o) fun (h : dom o) => get o h) = o := sorry
 
 /-- `a ∈ o` means that `o` is defined and equal to `a` -/
-protected def mem {α : Type u_1} (a : α) (o : roption α)  :=
+protected def mem {α : Type u_1} (a : α) (o : roption α) :=
   ∃ (h : dom o), get o h = a
 
 protected instance has_mem {α : Type u_1} : has_mem α (roption α) :=
@@ -285,7 +285,7 @@ end roption
 
 /-- `pfun α β`, or `α →. β`, is the type of partial functions from
   `α` to `β`. It is defined as `α → roption β`. -/
-def pfun (α : Type u_1) (β : Type u_2)  :=
+def pfun (α : Type u_1) (β : Type u_2) :=
   α → roption β
 
 infixr:25 " →. " => Mathlib.pfun

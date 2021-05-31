@@ -361,7 +361,7 @@ theorem has_basis.prod {α : Type u_1} {β : Type u_2} {ι : Type u_4} {ι' : Ty
 theorem has_basis.prod' {α : Type u_1} {β : Type u_2} {la : filter α} {lb : filter β} {ι : Type u_3} {p : ι → Prop} {sa : ι → set α} {sb : ι → set β} (hla : has_basis la p sa) (hlb : has_basis lb p sb) (h_dir : ∀ {i j : ι}, p i → p j → ∃ (k : ι), p k ∧ sa k ⊆ sa i ∧ sb k ⊆ sb j) : has_basis (filter.prod la lb) p fun (i : ι) => set.prod (sa i) (sb i) := sorry
 
 /-- `is_countably_generated f` means `f = generate s` for some countable `s`. -/
-def is_countably_generated {α : Type u_1} (f : filter α)  :=
+def is_countably_generated {α : Type u_1} (f : filter α) :=
   ∃ (s : set (set α)), set.countable s ∧ f = generate s
 
 /-- `is_countable_basis p s` means the image of `s` bounded by `p` is a countable filter basis. -/

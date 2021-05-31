@@ -49,7 +49,7 @@ This file defines `ℝ≥0` as a localized notation for `nnreal`.
 -/
 
 /-- Nonnegative real numbers. -/
-def nnreal  :=
+def nnreal :=
   Subtype fun (r : ℝ) => 0 ≤ r
 
 namespace nnreal

@@ -14,7 +14,7 @@ universes u_1 u v
 namespace Mathlib
 
 /-- Add an extra element `1` to a type -/
-def with_one (α : Type u_1)  :=
+def with_one (α : Type u_1) :=
   Option α
 
 namespace with_one

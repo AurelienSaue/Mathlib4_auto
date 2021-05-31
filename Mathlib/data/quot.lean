@@ -180,7 +180,7 @@ theorem nonempty_quotient_iff {α : Sort u_1} (s : setoid α) : Nonempty (quotie
   in effect to `nonempty α`, but unlike `nonempty α`, `trunc α` is data,
   so the VM representation is the same as `α`, and so this can be used to
   maintain computability. -/
-def trunc (α : Sort u)  :=
+def trunc (α : Sort u) :=
   Quot fun (_x _x : α) => True
 
 theorem true_equivalence {α : Sort u_1} : equivalence fun (_x _x : α) => True :=

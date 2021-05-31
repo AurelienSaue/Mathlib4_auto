@@ -55,7 +55,7 @@ free commutative ring, free ring
 -/
 
 /-- `free_comm_ring α` is the free commutative ring on the type `α`. -/
-def free_comm_ring (α : Type u)  :=
+def free_comm_ring (α : Type u) :=
   free_abelian_group (multiplicative (multiset α))
 
 namespace free_comm_ring
@@ -99,7 +99,7 @@ def map {α : Type u} {β : Type v} (f : α → β) : free_comm_ring α →+* fr
   lift_of (of ∘ f) x
 
 /-- `is_supported x s` means that all monomials showing up in `x` have variables in `s`. -/
-def is_supported {α : Type u} (x : free_comm_ring α) (s : set α)  :=
+def is_supported {α : Type u} (x : free_comm_ring α) (s : set α) :=
   x ∈ ring.closure (of '' s)
 
 theorem is_supported_upwards {α : Type u} {x : free_comm_ring α} {s : set α} {t : set α} (hs : is_supported x s) (hst : s ⊆ t) : is_supported x t :=

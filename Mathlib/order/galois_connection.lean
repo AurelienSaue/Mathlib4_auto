@@ -55,7 +55,7 @@ intersection.
 /-- A Galois connection is a pair of functions `l` and `u` satisfying
   `l a ≤ b ↔ a ≤ u b`. They are special cases of  adjoint functors in category theory,
     but do not depend on the category theory library in mathlib. -/
-def galois_connection {α : Type u} {β : Type v} [preorder α] [preorder β] (l : α → β) (u : β → α)  :=
+def galois_connection {α : Type u} {β : Type v} [preorder α] [preorder β] (l : α → β) (u : β → α) :=
   ∀ (a : α) (b : β), l a ≤ b ↔ a ≤ u b
 
 /-- Makes a Galois connection from an order-preserving bijection. -/

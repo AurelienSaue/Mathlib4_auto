@@ -30,7 +30,7 @@ namespace category_theory
 The objects for the Kleisli category of the functor (usually monad) `T : C ⥤ C`, which are the same
 thing as objects of the base category `C`.
 -/
-def kleisli {C : Type u} [category C] (T : C ⥤ C)  :=
+def kleisli {C : Type u} [category C] (T : C ⥤ C) :=
   C
 
 namespace kleisli

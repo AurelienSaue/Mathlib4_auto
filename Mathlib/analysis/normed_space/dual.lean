@@ -48,7 +48,7 @@ namespace normed_space
 
 
 /-- The topological dual of a normed space `E`. -/
-def dual (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] (E : Type u_2) [normed_group E] [normed_space 𝕜 E]  :=
+def dual (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] (E : Type u_2) [normed_group E] [normed_space 𝕜 E] :=
   continuous_linear_map 𝕜 E 𝕜
 
 protected instance dual.inhabited (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] (E : Type u_2) [normed_group E] [normed_space 𝕜 E] : Inhabited (dual 𝕜 E) :=

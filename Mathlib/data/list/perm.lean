@@ -152,7 +152,7 @@ theorem rel_perm {α : Type uu} {β : Type vv} {r : α → β → Prop} (hr : re
 /-- `subperm l₁ l₂`, denoted `l₁ <+~ l₂`, means that `l₁` is a sublist of
   a permutation of `l₂`. This is an analogue of `l₁ ⊆ l₂` which respects
   multiplicities of elements, and is used for the `≤` relation on multisets. -/
-def subperm {α : Type uu} (l₁ : List α) (l₂ : List α)  :=
+def subperm {α : Type uu} (l₁ : List α) (l₂ : List α) :=
   ∃ (l : List α), ∃ (H : l ~ l₁), l <+ l₂
 
 infixl:50 " <+~ " => Mathlib.list.subperm

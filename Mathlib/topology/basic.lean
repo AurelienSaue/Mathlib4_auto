@@ -70,7 +70,7 @@ def topological_space.of_closed {α : Type u} (T : set (set α)) (empty_mem : �
 theorem topological_space_eq {α : Type u} {f : topological_space α} {g : topological_space α} : topological_space.is_open f = topological_space.is_open g → f = g := sorry
 
 /-- `is_open s` means that `s` is open in the ambient topological space on `α` -/
-def is_open {α : Type u} [t : topological_space α] (s : set α)  :=
+def is_open {α : Type u} [t : topological_space α] (s : set α) :=
   topological_space.is_open t s
 
 @[simp] theorem is_open_univ {α : Type u} [t : topological_space α] : is_open set.univ :=
@@ -120,7 +120,7 @@ theorem is_open_and {α : Type u} {p₁ : α → Prop} {p₂ : α → Prop} [top
   is_open_inter
 
 /-- A set is closed if its complement is open -/
-def is_closed {α : Type u} [topological_space α] (s : set α)  :=
+def is_closed {α : Type u} [topological_space α] (s : set α) :=
   is_open (sᶜ)
 
 @[simp] theorem is_closed_empty {α : Type u} [topological_space α] : is_closed ∅ :=
@@ -282,7 +282,7 @@ theorem closure_eq_compl_interior_compl {α : Type u} [topological_space α] {s 
 theorem mem_closure_iff {α : Type u} [topological_space α] {s : set α} {a : α} : a ∈ closure s ↔ ∀ (o : set α), is_open o → a ∈ o → set.nonempty (o ∩ s) := sorry
 
 /-- A set is dense in a topological space if every point belongs to its closure. -/
-def dense {α : Type u} [topological_space α] (s : set α)  :=
+def dense {α : Type u} [topological_space α] (s : set α) :=
   ∀ (x : α), x ∈ closure s
 
 theorem dense_iff_closure_eq {α : Type u} [topological_space α] {s : set α} : dense s ↔ closure s = set.univ :=
@@ -480,7 +480,7 @@ In this section we define [cluster points](https://en.wikipedia.org/wiki/Limit_p
 
 /-- A point `x` is a cluster point of a filter `F` if 𝓝 x ⊓ F ≠ ⊥. Also known as
 an accumulation point or a limit point. -/
-def cluster_pt {α : Type u} [topological_space α] (x : α) (F : filter α)  :=
+def cluster_pt {α : Type u} [topological_space α] (x : α) (F : filter α) :=
   filter.ne_bot (nhds x ⊓ F)
 
 theorem cluster_pt.ne_bot {α : Type u} [topological_space α] {x : α} {F : filter α} (h : cluster_pt x F) : filter.ne_bot (nhds x ⊓ F) :=
@@ -519,7 +519,7 @@ theorem ultrafilter.cluster_pt_iff {α : Type u} [topological_space α] {x : α}
 
 /-- A point `x` is a cluster point of a sequence `u` along a filter `F` if it is a cluster point
 of `map u F`. -/
-def map_cluster_pt {α : Type u} [topological_space α] {ι : Type u_1} (x : α) (F : filter ι) (u : ι → α)  :=
+def map_cluster_pt {α : Type u} [topological_space α] {ι : Type u_1} (x : α) (F : filter ι) (u : ι → α) :=
   cluster_pt x (filter.map u F)
 
 theorem map_cluster_pt_iff {α : Type u} [topological_space α] {ι : Type u_1} (x : α) (F : filter ι) (u : ι → α) : map_cluster_pt x F u ↔ ∀ (s : set α), s ∈ nhds x → filter.frequently (fun (a : ι) => u a ∈ s) F := sorry
@@ -665,7 +665,7 @@ theorem tendsto_nhds_lim {α : Type u} {β : Type v} [topological_space α] {f :
 
 /-- A family of sets in `set α` is locally finite if at every point `x:α`,
   there is a neighborhood of `x` which meets only finitely many sets in the family -/
-def locally_finite {α : Type u} {β : Type v} [topological_space α] (f : β → set α)  :=
+def locally_finite {α : Type u} {β : Type v} [topological_space α] (f : β → set α) :=
   ∀ (x : α), ∃ (t : set α), ∃ (H : t ∈ nhds x), set.finite (set_of fun (i : β) => set.nonempty (f i ∩ t))
 
 theorem locally_finite_of_finite {α : Type u} {β : Type v} [topological_space α] {f : β → set α} (h : set.finite set.univ) : locally_finite f := sorry
@@ -693,7 +693,7 @@ theorem is_open.preimage {α : Type u_1} {β : Type u_2} [topological_space α] 
 
 /-- A function between topological spaces is continuous at a point `x₀`
 if `f x` tends to `f x₀` when `x` tends to `x₀`. -/
-def continuous_at {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) (x : α)  :=
+def continuous_at {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) (x : α) :=
   filter.tendsto f (nhds x) (nhds (f x))
 
 theorem continuous_at.tendsto {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] {f : α → β} {x : α} (h : continuous_at f x) : filter.tendsto f (nhds x) (nhds (f x)) :=
@@ -763,7 +763,7 @@ theorem continuous_if {α : Type u_1} {β : Type u_2} [topological_space α] [to
 /-! ### Continuity and partial functions -/
 
 /-- Continuity of a partial function -/
-def pcontinuous {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α →. β)  :=
+def pcontinuous {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α →. β) :=
   ∀ (s : set β), is_open s → is_open (pfun.preimage f s)
 
 theorem open_dom_of_pcontinuous {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] {f : α →. β} (h : pcontinuous f) : is_open (pfun.dom f) :=
@@ -785,7 +785,7 @@ theorem map_mem_closure {α : Type u_1} {β : Type u_2} [topological_space α] [
 -/
 
 /-- `f : ι → β` has dense range if its range (image) is a dense subset of β. -/
-def dense_range {β : Type u_2} [topological_space β] {κ : Type u_5} (f : κ → β)  :=
+def dense_range {β : Type u_2} [topological_space β] {κ : Type u_5} (f : κ → β) :=
   dense (set.range f)
 
 /-- A surjective map has dense range. -/

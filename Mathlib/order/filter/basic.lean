@@ -277,7 +277,7 @@ protected instance complete_lattice {α : Type u} : complete_lattice (filter α)
 does not belong to the filter. Bourbaki include this assumption in the definition
 of a filter but we prefer to have a `complete_lattice` structure on filter, so
 we use a typeclass argument in lemmas instead. -/
-def ne_bot {α : Type u} (f : filter α)  :=
+def ne_bot {α : Type u} (f : filter α) :=
   f ≠ ⊥
 
 theorem ne_bot.ne {α : Type u} {f : filter α} (hf : ne_bot f) : f ≠ ⊥ :=
@@ -495,7 +495,7 @@ theorem join_mono {α : Type u} {f₁ : filter (filter α)} {f₂ : filter (filt
 
 /-- `f.eventually p` or `∀ᶠ x in f, p x` mean that `{x | p x} ∈ f`. E.g., `∀ᶠ x in at_top, p x`
 means that `p` holds true for sufficiently large `x`. -/
-protected def eventually {α : Type u} (p : α → Prop) (f : filter α)  :=
+protected def eventually {α : Type u} (p : α → Prop) (f : filter α) :=
   (set_of fun (x : α) => p x) ∈ f
 
 theorem eventually_iff {α : Type u} {f : filter α} {P : α → Prop} : filter.eventually (fun (x : α) => P x) f ↔ (set_of fun (x : α) => P x) ∈ f :=
@@ -595,7 +595,7 @@ theorem eventually_inf_principal {α : Type u} {f : filter α} {p : α → Prop}
 
 /-- `f.frequently p` or `∃ᶠ x in f, p x` mean that `{x | ¬p x} ∉ f`. E.g., `∃ᶠ x in at_top, p x`
 means that there exist arbitrarily large `x` for which `p` holds true. -/
-protected def frequently {α : Type u} (p : α → Prop) (f : filter α)  :=
+protected def frequently {α : Type u} (p : α → Prop) (f : filter α) :=
   ¬filter.eventually (fun (x : α) => ¬p x) f
 
 theorem eventually.frequently {α : Type u} {f : filter α} [ne_bot f] {p : α → Prop} (h : filter.eventually (fun (x : α) => p x) f) : filter.frequently (fun (x : α) => p x) f :=
@@ -670,7 +670,7 @@ theorem frequently_sup {α : Type u} {p : α → Prop} {f : filter α} {g : filt
 
 /-- Two functions `f` and `g` are *eventually equal* along a filter `l` if the set of `x` such that
 `f x = g x` belongs to `l`. -/
-def eventually_eq {α : Type u} {β : Type v} (l : filter α) (f : α → β) (g : α → β)  :=
+def eventually_eq {α : Type u} {β : Type v} (l : filter α) (f : α → β) (g : α → β) :=
   filter.eventually (fun (x : α) => f x = g x) l
 
 theorem eventually_eq.eventually {α : Type u} {β : Type v} {l : filter α} {f : α → β} {g : α → β} (h : eventually_eq l f g) : filter.eventually (fun (x : α) => f x = g x) l :=
@@ -748,7 +748,7 @@ theorem eventually_eq_inf_principal_iff {α : Type u} {β : Type v} {F : filter 
   eventually_inf_principal
 
 /-- A function `f` is eventually less than or equal to a function `g` at a filter `l`. -/
-def eventually_le {α : Type u} {β : Type v} [HasLessEq β] (l : filter α) (f : α → β) (g : α → β)  :=
+def eventually_le {α : Type u} {β : Type v} [HasLessEq β] (l : filter α) (f : α → β) (g : α → β) :=
   filter.eventually (fun (x : α) => f x ≤ g x) l
 
 theorem eventually_le.congr {α : Type u} {β : Type v} [HasLessEq β] {l : filter α} {f : α → β} {f' : α → β} {g : α → β} {g' : α → β} (H : eventually_le l f g) (hf : eventually_eq l f f') (hg : eventually_eq l g g') : eventually_le l f' g' := sorry
@@ -1213,7 +1213,7 @@ theorem mem_traverse_sets_iff {α' : Type u} {β' : Type u} {f : β' → filter 
 /-- `tendsto` is the generic "limit of a function" predicate.
   `tendsto f l₁ l₂` asserts that for every `l₂` neighborhood `a`,
   the `f`-preimage of `a` is an `l₁` neighborhood. -/
-def tendsto {α : Type u} {β : Type v} (f : α → β) (l₁ : filter α) (l₂ : filter β)  :=
+def tendsto {α : Type u} {β : Type v} (f : α → β) (l₁ : filter α) (l₂ : filter β) :=
   map f l₁ ≤ l₂
 
 theorem tendsto_def {α : Type u} {β : Type v} {f : α → β} {l₁ : filter α} {l₂ : filter β} : tendsto f l₁ l₂ ↔ ∀ (s : set β), s ∈ l₂ → f ⁻¹' s ∈ l₁ :=

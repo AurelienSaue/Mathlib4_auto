@@ -472,7 +472,7 @@ theorem reflection_vadd_smul_vsub_orthogonal_projection {V : Type u_1} {P : Type
 /-- A set of points is cospherical if they are equidistant from some
 point.  In two dimensions, this is the same thing as being
 concyclic. -/
-def cospherical {P : Type u_2} [metric_space P] (ps : set P)  :=
+def cospherical {P : Type u_2} [metric_space P] (ps : set P) :=
   ∃ (center : P), ∃ (radius : ℝ), ∀ (p : P), p ∈ ps → dist p center = radius
 
 /-- The definition of `cospherical`. -/

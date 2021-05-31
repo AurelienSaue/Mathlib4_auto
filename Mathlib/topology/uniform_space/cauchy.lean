@@ -22,12 +22,12 @@ namespace Mathlib
   `s ∈ f` such that `s × s ⊆ r`. This is a generalization of Cauchy
   sequences, because if `a : ℕ → α` then the filter of sets containing
   cofinitely many of the `a n` is Cauchy iff `a` is a Cauchy sequence. -/
-def cauchy {α : Type u} [uniform_space α] (f : filter α)  :=
+def cauchy {α : Type u} [uniform_space α] (f : filter α) :=
   filter.ne_bot f ∧ filter.prod f f ≤ uniformity α
 
 /-- A set `s` is called *complete*, if any Cauchy filter `f` such that `s ∈ f`
 has a limit in `s` (formally, it satisfies `f ≤ 𝓝 x` for some `x ∈ s`). -/
-def is_complete {α : Type u} [uniform_space α] (s : set α)  :=
+def is_complete {α : Type u} [uniform_space α] (s : set α) :=
   ∀ (f : filter α), cauchy f → f ≤ filter.principal s → ∃ (x : α), ∃ (H : x ∈ s), f ≤ nhds x
 
 theorem filter.has_basis.cauchy_iff {α : Type u} {β : Type v} [uniform_space α] {p : β → Prop} {s : β → set (α × α)} (h : filter.has_basis (uniformity α) p s) {f : filter α} : cauchy f ↔ filter.ne_bot f ∧ ∀ (i : β), p i → ∃ (t : set α), ∃ (H : t ∈ f), ∀ (x y : α), x ∈ t → y ∈ t → (x, y) ∈ s i := sorry
@@ -89,7 +89,7 @@ theorem cauchy.comap' {α : Type u} {β : Type v} [uniform_space α] [uniform_sp
 /-- Cauchy sequences. Usually defined on ℕ, but often it is also useful to say that a function
 defined on ℝ is Cauchy at +∞ to deduce convergence. Therefore, we define it in a type class that
 is general enough to cover both ℕ and ℝ, which are the main motivating examples. -/
-def cauchy_seq {α : Type u} {β : Type v} [uniform_space α] [semilattice_sup β] (u : β → α)  :=
+def cauchy_seq {α : Type u} {β : Type v} [uniform_space α] [semilattice_sup β] (u : β → α) :=
   cauchy (filter.map u filter.at_top)
 
 theorem cauchy_seq.mem_entourage {α : Type u} [uniform_space α] {ι : Type u_1} [Nonempty ι] [linear_order ι] {u : ι → α} (h : cauchy_seq u) {V : set (α × α)} (hV : V ∈ uniformity α) : ∃ (k₀ : ι), ∀ (i j : ι), k₀ ≤ i → k₀ ≤ j → (u i, u j) ∈ V := sorry
@@ -150,7 +150,7 @@ theorem is_closed.is_complete {α : Type u} [uniform_space α] [complete_space �
 
 /-- A set `s` is totally bounded if for every entourage `d` there is a finite
   set of points `t` such that every element of `s` is `d`-near to some element of `t`. -/
-def totally_bounded {α : Type u} [uniform_space α] (s : set α)  :=
+def totally_bounded {α : Type u} [uniform_space α] (s : set α) :=
   ∀ (d : set (α × α)) (H : d ∈ uniformity α),
     ∃ (t : set α),
       set.finite t ∧ s ⊆ set.Union fun (y : α) => set.Union fun (H : y ∈ t) => set_of fun (x : α) => (x, y) ∈ d

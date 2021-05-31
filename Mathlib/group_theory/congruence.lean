@@ -170,7 +170,7 @@ def Mathlib.add_con.pi {ι : Type u_1} {f : ι → Type u_2} [(i : ι) → Add (
 -- Quotients
 
 /-- Defining the quotient by a congruence relation of a type with a multiplication. -/
-protected def Mathlib.add_con.quotient {M : Type u_1} [Add M] (c : add_con M)  :=
+protected def Mathlib.add_con.quotient {M : Type u_1} [Add M] (c : add_con M) :=
   quotient (add_con.to_setoid c)
 
 /-- Coercion from a type with a multiplication to its quotient by a congruence relation.

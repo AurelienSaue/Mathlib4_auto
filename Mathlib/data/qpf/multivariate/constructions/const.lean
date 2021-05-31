@@ -27,7 +27,7 @@ namespace mvqpf
 
 
 /-- Constant multivariate functor -/
-def const (n : ℕ) (A : Type u_1) (v : typevec n)  :=
+def const (n : ℕ) (A : Type u_1) (v : typevec n) :=
   A
 
 protected instance const.inhabited (n : ℕ) {A : Type u_1} {α : typevec n} [Inhabited A] : Inhabited (const n A α) :=

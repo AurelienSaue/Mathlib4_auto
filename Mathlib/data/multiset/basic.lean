@@ -25,7 +25,7 @@ We define the global infix notation `::ₘ` for `multiset.cons`.
 
 /-- `multiset α` is the quotient of `list α` by list permutation. The result
   is a type of finite sets with duplicates allowed.  -/
-def multiset (α : Type u)  :=
+def multiset (α : Type u) :=
   quotient (list.is_setoid α)
 
 namespace multiset
@@ -133,7 +133,7 @@ protected def rec_on {α : Type u_1} {C : multiset α → Sort u_4} (m : multise
   quotient.induction_on m fun (l : List α) => rfl
 
 /-- `a ∈ s` means that `a` has nonzero multiplicity in `s`. -/
-def mem {α : Type u_1} (a : α) (s : multiset α)  :=
+def mem {α : Type u_1} (a : α) (s : multiset α) :=
   quot.lift_on s (fun (l : List α) => a ∈ l) sorry
 
 protected instance has_mem {α : Type u_1} : has_mem α (multiset α) :=
@@ -183,7 +183,7 @@ theorem cons_eq_cons {α : Type u_1} {a : α} {b : α} {as : multiset α} {bs : 
   element with nonzero multiplicity in `s` has nonzero multiplicity in `t`,
   but it does not imply that the multiplicity of `a` in `s` is less or equal than in `t`;
   see `s ≤ t` for this relation. -/
-protected def subset {α : Type u_1} (s : multiset α) (t : multiset α)  :=
+protected def subset {α : Type u_1} (s : multiset α) (t : multiset α) :=
   ∀ {a : α}, a ∈ s → a ∈ t
 
 protected instance has_subset {α : Type u_1} : has_subset (multiset α) :=
@@ -233,7 +233,7 @@ theorem mem_to_list {α : Type u_1} (a : α) (s : multiset α) : a ∈ to_list s
 
 /-- `s ≤ t` means that `s` is a sublist of `t` (up to permutation).
   Equivalently, `s ≤ t` means that `count a s ≤ count a t` for all `a`. -/
-protected def le {α : Type u_1} (s : multiset α) (t : multiset α)  :=
+protected def le {α : Type u_1} (s : multiset α) (t : multiset α) :=
   quotient.lift_on₂ s t list.subperm sorry
 
 protected instance partial_order {α : Type u_1} : partial_order (multiset α) :=
@@ -1436,7 +1436,7 @@ theorem induction_on_multiset_quot {α : Type u_1} {r : α → α → Prop} {p :
 /-! ### Disjoint multisets -/
 
 /-- `disjoint s t` means that `s` and `t` have no elements in common. -/
-def disjoint {α : Type u_1} (s : multiset α) (t : multiset α)  :=
+def disjoint {α : Type u_1} (s : multiset α) (t : multiset α) :=
   ∀ {a : α}, a ∈ s → a ∈ t → False
 
 @[simp] theorem coe_disjoint {α : Type u_1} (l₁ : List α) (l₂ : List α) : disjoint ↑l₁ ↑l₂ ↔ list.disjoint l₁ l₂ :=
@@ -1492,7 +1492,7 @@ theorem inter_eq_zero_iff_disjoint {α : Type u_1} [DecidableEq α] {s : multise
 theorem disjoint_map_map {α : Type u_1} {β : Type u_2} {γ : Type u_3} {f : α → γ} {g : β → γ} {s : multiset α} {t : multiset β} : disjoint (map f s) (map g t) ↔ ∀ (a : α), a ∈ s → ∀ (b : β), b ∈ t → f a ≠ g b := sorry
 
 /-- `pairwise r m` states that there exists a list of the elements s.t. `r` holds pairwise on this list. -/
-def pairwise {α : Type u_1} (r : α → α → Prop) (m : multiset α)  :=
+def pairwise {α : Type u_1} (r : α → α → Prop) (m : multiset α) :=
   ∃ (l : List α), m = ↑l ∧ list.pairwise r l
 
 theorem pairwise_coe_iff_pairwise {α : Type u_1} {r : α → α → Prop} (hr : symmetric r) {l : List α} : pairwise r ↑l ↔ list.pairwise r l := sorry

@@ -39,7 +39,7 @@ TODO
 
 /-- A multivariate polynomial `φ` is homogeneous of degree `n`
 if all monomials occuring in `φ` have degree `n`. -/
-def is_homogeneous {σ : Type u_1} {R : Type u_3} [comm_semiring R] (φ : mv_polynomial σ R) (n : ℕ)  :=
+def is_homogeneous {σ : Type u_1} {R : Type u_3} [comm_semiring R] (φ : mv_polynomial σ R) (n : ℕ) :=
   ∀ {d : σ →₀ ℕ}, coeff d φ ≠ 0 → (finset.sum (finsupp.support d) fun (i : σ) => coe_fn d i) = n
 
 theorem is_homogeneous_monomial {σ : Type u_1} {R : Type u_3} [comm_semiring R] (d : σ →₀ ℕ) (r : R) (n : ℕ) (hn : (finset.sum (finsupp.support d) fun (i : σ) => coe_fn d i) = n) : is_homogeneous (monomial d r) n := sorry

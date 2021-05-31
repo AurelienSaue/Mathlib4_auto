@@ -51,7 +51,7 @@ namespace matrix
 
 
 /-- `special_linear_group n R` is the group of `n` by `n` `R`-matrices with determinant equal to 1. -/
-def special_linear_group (n : Type u) [DecidableEq n] [fintype n] (R : Type v) [comm_ring R]  :=
+def special_linear_group (n : Type u) [DecidableEq n] [fintype n] (R : Type v) [comm_ring R] :=
   Subtype fun (A : matrix n n R) => det A = 1
 
 namespace special_linear_group

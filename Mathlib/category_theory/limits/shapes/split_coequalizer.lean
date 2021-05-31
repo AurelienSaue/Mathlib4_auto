@@ -99,7 +99,7 @@ where
 The pair `f,g` is a `G`-split pair if there is a `h : G Y ⟶ Z` so that `G f, G g, h` forms a split
 coequalizer in `D`.
 -/
-def functor.is_split_pair {C : Type u} [category C] {D : Type u₂} [category D] (G : C ⥤ D) {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y)  :=
+def functor.is_split_pair {C : Type u} [category C] {D : Type u₂} [category D] (G : C ⥤ D) {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y) :=
   has_split_coequalizer (functor.map G f) (functor.map G g)
 
 /-- Get the coequalizer object from the typeclass `is_split_pair`. -/

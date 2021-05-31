@@ -46,16 +46,16 @@ nondiscrete normed field.
 
 /-- A set `A` absorbs another set `B` if `B` is contained in scaling
 `A` by elements of sufficiently large norms. -/
-def absorbs (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [add_comm_group E] [vector_space 𝕜 E] (A : set E) (B : set E)  :=
+def absorbs (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [add_comm_group E] [vector_space 𝕜 E] (A : set E) (B : set E) :=
   ∃ (r : ℝ), ∃ (H : r > 0), ∀ (a : 𝕜), r ≤ norm a → B ⊆ a • A
 
 /-- A set is absorbent if it absorbs every singleton. -/
-def absorbent (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [add_comm_group E] [vector_space 𝕜 E] (A : set E)  :=
+def absorbent (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [add_comm_group E] [vector_space 𝕜 E] (A : set E) :=
   ∀ (x : E), ∃ (r : ℝ), ∃ (H : r > 0), ∀ (a : 𝕜), r ≤ norm a → x ∈ a • A
 
 /-- A set `A` is balanced if `a • A` is contained in `A` whenever `a`
 has norm no greater than one. -/
-def balanced (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [add_comm_group E] [vector_space 𝕜 E] (A : set E)  :=
+def balanced (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [add_comm_group E] [vector_space 𝕜 E] (A : set E) :=
   ∀ (a : 𝕜), norm a ≤ 1 → a • A ⊆ A
 
 /-- A balanced set absorbs itself. -/

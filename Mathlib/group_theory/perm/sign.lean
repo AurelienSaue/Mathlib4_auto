@@ -61,7 +61,7 @@ def of_subtype {α : Type u} {p : α → Prop} [decidable_pred p] : perm (Subtyp
 
 /-- Two permutations `f` and `g` are `disjoint` if their supports are disjoint, i.e.,
 every element is fixed either by `f`, or by `g`. -/
-def disjoint {α : Type u} (f : perm α) (g : perm α)  :=
+def disjoint {α : Type u} (f : perm α) (g : perm α) :=
   ∀ (x : α), coe_fn f x = x ∨ coe_fn g x = x
 
 theorem disjoint.symm {α : Type u} {f : perm α} {g : perm α} : disjoint f g → disjoint g f := sorry
@@ -112,7 +112,7 @@ def support {α : Type u} [DecidableEq α] [fintype α] (f : perm α) : finset �
 @[simp] theorem mem_support {α : Type u} [DecidableEq α] [fintype α] {f : perm α} {x : α} : x ∈ support f ↔ coe_fn f x ≠ x := sorry
 
 /-- `f.is_swap` indicates that the permutation `f` is a transposition of two elements. -/
-def is_swap {α : Type u} [DecidableEq α] (f : perm α)  :=
+def is_swap {α : Type u} [DecidableEq α] (f : perm α) :=
   ∃ (x : α), ∃ (y : α), x ≠ y ∧ f = swap x y
 
 theorem is_swap.of_subtype_is_swap {α : Type u} [DecidableEq α] {p : α → Prop} [decidable_pred p] {f : perm (Subtype p)} (h : is_swap f) : is_swap (coe_fn of_subtype f) := sorry

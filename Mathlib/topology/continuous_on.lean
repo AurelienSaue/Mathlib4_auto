@@ -210,7 +210,7 @@ theorem tendsto_nhds_within_iff_subtype {α : Type u_1} {β : Type u_2} [topolog
 
 /-- A function between topological spaces is continuous at a point `x₀` within a subset `s`
 if `f x` tends to `f x₀` when `x` tends to `x₀` while staying within `s`. -/
-def continuous_within_at {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) (s : set α) (x : α)  :=
+def continuous_within_at {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) (s : set α) (x : α) :=
   filter.tendsto f (nhds_within x s) (nhds (f x))
 
 /-- If a function is continuous within `s` at `x`, then it tends to `f x` within `s` by definition.
@@ -221,7 +221,7 @@ theorem continuous_within_at.tendsto {α : Type u_1} {β : Type u_2} [topologica
 
 /-- A function between topological spaces is continuous on a subset `s`
 when it's continuous at every point of `s` within `s`. -/
-def continuous_on {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) (s : set α)  :=
+def continuous_on {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) (s : set α) :=
   ∀ (x : α), x ∈ s → continuous_within_at f s x
 
 theorem continuous_on.continuous_within_at {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] {f : α → β} {s : set α} {x : α} (hf : continuous_on f s) (hx : x ∈ s) : continuous_within_at f s x :=

@@ -45,18 +45,18 @@ def lower_bounds {α : Type u} [preorder α] (s : set α) : set α :=
 
 /-- A set is bounded above if there exists an upper bound. -/
 /-- A set is bounded below if there exists a lower bound. -/
-def bdd_above {α : Type u} [preorder α] (s : set α)  :=
+def bdd_above {α : Type u} [preorder α] (s : set α) :=
   set.nonempty (upper_bounds s)
 
-def bdd_below {α : Type u} [preorder α] (s : set α)  :=
+def bdd_below {α : Type u} [preorder α] (s : set α) :=
   set.nonempty (lower_bounds s)
 
 /-- `a` is a least element of a set `s`; for a partial order, it is unique if exists. -/
 /-- `a` is a greatest element of a set `s`; for a partial order, it is unique if exists -/
-def is_least {α : Type u} [preorder α] (s : set α) (a : α)  :=
+def is_least {α : Type u} [preorder α] (s : set α) (a : α) :=
   a ∈ s ∧ a ∈ lower_bounds s
 
-def is_greatest {α : Type u} [preorder α] (s : set α) (a : α)  :=
+def is_greatest {α : Type u} [preorder α] (s : set α) (a : α) :=
   a ∈ s ∧ a ∈ upper_bounds s
 
 /-- `a` is a least upper bound of a set `s`; for a partial order, it is unique if exists. -/

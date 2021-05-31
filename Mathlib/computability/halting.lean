@@ -49,12 +49,12 @@ end partrec
 
 
 /-- A computable predicate is one whose indicator function is computable. -/
-def computable_pred {α : Type u_1} [primcodable α] (p : α → Prop)  :=
+def computable_pred {α : Type u_1} [primcodable α] (p : α → Prop) :=
   Exists (computable fun (a : α) => to_bool (p a))
 
 /-- A recursively enumerable predicate is one which is the domain of a computable partial function.
  -/
-def re_pred {α : Type u_1} [primcodable α] (p : α → Prop)  :=
+def re_pred {α : Type u_1} [primcodable α] (p : α → Prop) :=
   partrec fun (a : α) => roption.assert (p a) fun (_x : p a) => roption.some Unit.unit
 
 theorem computable_pred.of_eq {α : Type u_1} [primcodable α] {p : α → Prop} {q : α → Prop} (hp : computable_pred p) (H : ∀ (a : α), p a ↔ q a) : computable_pred q :=
@@ -127,7 +127,7 @@ protected theorem map {n : ℕ} {f : vector ℕ n →. ℕ} {g : vector ℕ (n +
 
 /-- Analogous to `nat.partrec'` for `ℕ`-valued functions, a predicate for partial recursive
   vector-valued functions.-/
-def vec {n : ℕ} {m : ℕ} (f : vector ℕ n → vector ℕ m)  :=
+def vec {n : ℕ} {m : ℕ} (f : vector ℕ n → vector ℕ m) :=
   ∀ (i : fin m), partrec' ↑fun (v : vector ℕ n) => vector.nth (f v) i
 
 theorem vec.prim {n : ℕ} {m : ℕ} {f : vector ℕ n → vector ℕ m} (hf : primrec'.vec f) : vec f :=

@@ -57,7 +57,7 @@ protected instance func.category_theory.monad {C : Type u} [category C] {M : Mon
   str M
 
 /-- Morphisms of bundled monads. -/
-def hom {C : Type u} [category C] (M : Monad C) (N : Monad C)  :=
+def hom {C : Type u} [category C] (M : Monad C) (N : Monad C) :=
   monad_hom (func M) (func N)
 
 namespace hom
@@ -100,7 +100,7 @@ protected instance func.category_theory.comonad {C : Type u} [category C] {M : C
   str M
 
 /-- Morphisms of bundled comonads. -/
-def hom {C : Type u} [category C] (M : Comonad C) (N : Comonad C)  :=
+def hom {C : Type u} [category C] (M : Comonad C) (N : Comonad C) :=
   comonad_hom (func M) (func N)
 
 namespace hom

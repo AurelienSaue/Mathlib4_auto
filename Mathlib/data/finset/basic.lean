@@ -168,7 +168,7 @@ theorem ssubset_iff_of_subset {α : Type u_1} {s₁ : finset α} {s₂ : finset 
 /-- The property `s.nonempty` expresses the fact that the finset `s` is not empty. It should be used
 in theorem assumptions instead of `∃ x, x ∈ s` or `s ≠ ∅` as it gives access to a nice API thanks
 to the dot notation. -/
-protected def nonempty {α : Type u_1} (s : finset α)  :=
+protected def nonempty {α : Type u_1} (s : finset α) :=
   ∃ (x : α), x ∈ s
 
 @[simp] theorem coe_nonempty {α : Type u_1} {s : finset α} : set.nonempty ↑s ↔ finset.nonempty s :=

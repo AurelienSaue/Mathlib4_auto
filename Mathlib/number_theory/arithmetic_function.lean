@@ -58,7 +58,7 @@ namespace nat
 /-- An arithmetic function is a function from `ℕ` that maps 0 to 0. In the literature, they are
   often instead defined as functions from `ℕ+`. Multiplication on `arithmetic_functions` is by
   Dirichlet convolution. -/
-def arithmetic_function (R : Type u_1) [HasZero R]  :=
+def arithmetic_function (R : Type u_1) [HasZero R] :=
   zero_hom ℕ R
 
 namespace arithmetic_function
@@ -221,7 +221,7 @@ theorem ppow_succ {R : Type u_1} [semiring R] {f : arithmetic_function R} {k : �
 theorem ppow_succ' {R : Type u_1} [semiring R] {f : arithmetic_function R} {k : ℕ} {kpos : 0 < k} : ppow f (k + 1) = pmul (ppow f k) f := sorry
 
 /-- Multiplicative functions -/
-def is_multiplicative {R : Type u_1} [monoid_with_zero R] (f : arithmetic_function R)  :=
+def is_multiplicative {R : Type u_1} [monoid_with_zero R] (f : arithmetic_function R) :=
   coe_fn f 1 = 1 ∧ ∀ {m n : ℕ}, coprime m n → coe_fn f (m * n) = coe_fn f m * coe_fn f n
 
 namespace is_multiplicative

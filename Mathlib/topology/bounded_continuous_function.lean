@@ -21,7 +21,7 @@ the uniform distance.
 -/
 
 /-- The type of bounded continuous functions from a topological space to a metric space -/
-def bounded_continuous_function (α : Type u) (β : Type v) [topological_space α] [metric_space β]  :=
+def bounded_continuous_function (α : Type u) (β : Type v) [topological_space α] [metric_space β] :=
   Subtype fun (f : α → β) => continuous f ∧ ∃ (C : ℝ), ∀ (x y : α), dist (f x) (f y) ≤ C
 
 namespace bounded_continuous_function

@@ -39,7 +39,7 @@ lemma foo.ext_iff : ∀ {α : Type u_1} (x y : foo α),
 ```
 
 -/
-def ext_param_type  :=
+def ext_param_type :=
   Option name ⊕ Option name
 
 /--

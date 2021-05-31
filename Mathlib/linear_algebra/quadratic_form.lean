@@ -268,13 +268,13 @@ theorem associated_left_inverse {M : Type v} [add_comm_group M] {R₁ : Type u} 
 theorem associated_right_inverse {M : Type v} [add_comm_group M] {R₁ : Type u} [comm_ring R₁] [module R₁ M] [invertible (bit0 1)] {Q : quadratic_form R₁ M} : bilin_form.to_quadratic_form (coe_fn associated Q) = Q := sorry
 
 /-- An anisotropic quadratic form is zero only on zero vectors. -/
-def anisotropic {R : Type u} {M : Type v} [add_comm_group M] [ring R] [module R M] (Q : quadratic_form R M)  :=
+def anisotropic {R : Type u} {M : Type v} [add_comm_group M] [ring R] [module R M] (Q : quadratic_form R M) :=
   ∀ (x : M), coe_fn Q x = 0 → x = 0
 
 theorem not_anisotropic_iff_exists {R : Type u} {M : Type v} [add_comm_group M] [ring R] [module R M] (Q : quadratic_form R M) : ¬anisotropic Q ↔ ∃ (x : M), ∃ (H : x ≠ 0), coe_fn Q x = 0 := sorry
 
 /-- A positive definite quadratic form is positive on nonzero vectors. -/
-def pos_def {M : Type v} [add_comm_group M] {R₂ : Type u} [ordered_ring R₂] [module R₂ M] (Q₂ : quadratic_form R₂ M)  :=
+def pos_def {M : Type v} [add_comm_group M] {R₂ : Type u} [ordered_ring R₂] [module R₂ M] (Q₂ : quadratic_form R₂ M) :=
   ∀ (x : M), x ≠ 0 → 0 < coe_fn Q₂ x
 
 theorem pos_def.smul {M : Type v} [add_comm_group M] {R : Type u_1} [linear_ordered_comm_ring R] [module R M] {Q : quadratic_form R M} (h : pos_def Q) {a : R} (a_pos : 0 < a) : pos_def (a • Q) :=
@@ -338,7 +338,7 @@ where
 /-- Two quadratic forms over a ring `R` are equivalent
 if there exists an isometry between them:
 a linear equivalence that transforms one quadratic form into the other. -/
-def equivalent {R : Type u} [ring R] {M₁ : Type u_1} {M₂ : Type u_2} [add_comm_group M₁] [add_comm_group M₂] [module R M₁] [module R M₂] (Q₁ : quadratic_form R M₁) (Q₂ : quadratic_form R M₂)  :=
+def equivalent {R : Type u} [ring R] {M₁ : Type u_1} {M₂ : Type u_2} [add_comm_group M₁] [add_comm_group M₂] [module R M₁] [module R M₂] (Q₁ : quadratic_form R M₁) (Q₂ : quadratic_form R M₂) :=
   Nonempty (isometry Q₁ Q₂)
 
 namespace isometry

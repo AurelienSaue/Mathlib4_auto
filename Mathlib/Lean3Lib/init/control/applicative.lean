@@ -11,10 +11,9 @@ universes u v l
 
 namespace Mathlib
 
-not foundnot foundinfixl:60 " <*> " => Mathlib.has_seq.seq
+infixl:60 " <*> " => Mathlib.has_seq.seq
 
-not foundinfixl:60 " <* " => Mathlib.has_seq_left.seq_left
+infixl:60 " <* " => Mathlib.has_seq_left.seq_left
 
-not foundinfixl:60 " *> " => Mathlib.has_seq_right.seq_right
+infixl:60 " *> " => Mathlib.has_seq_right.seq_right
 
-not found

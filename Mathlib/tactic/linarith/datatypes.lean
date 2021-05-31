@@ -41,7 +41,7 @@ Some functions on `linexp` assume that `n : ℕ` occurs at most once as the firs
 and that the list is sorted in decreasing order of the first argument.
 This is not enforced by the type but the operations here preserve it.
 -/
-def linexp  :=
+def linexp :=
   List (ℕ × ℤ)
 
 namespace linexp

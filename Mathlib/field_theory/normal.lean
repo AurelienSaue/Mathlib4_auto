@@ -31,7 +31,7 @@ is the same as being a splitting field (`normal.of_is_splitting_field` and
 
 /-- Typeclass for normal field extension: `K` is a normal extension of `F` iff the minimal
 polynomial of every element `x` in `K` splits in `K`, i.e. every conjugate of `x` is in `K`. -/
-def normal (F : Type u_1) (K : Type u_2) [field F] [field K] [algebra F K]  :=
+def normal (F : Type u_1) (K : Type u_2) [field F] [field K] [algebra F K] :=
   ∀ (x : K), is_integral F x ∧ polynomial.splits (algebra_map F K) (minpoly F x)
 
 protected instance normal_self (F : Type u_1) [field F] : normal F F :=

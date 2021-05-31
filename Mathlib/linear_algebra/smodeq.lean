@@ -17,7 +17,7 @@ namespace Mathlib
 -/
 
 /-- A predicate saying two elements of a module are equivalent modulo a submodule. -/
-def smodeq {R : Type u_1} [ring R] {M : Type u_2} [add_comm_group M] [module R M] (U : submodule R M) (x : M) (y : M)  :=
+def smodeq {R : Type u_1} [ring R] {M : Type u_2} [add_comm_group M] [module R M] (U : submodule R M) (x : M) (y : M) :=
   submodule.quotient.mk x = submodule.quotient.mk y
 
 protected theorem smodeq.def {R : Type u_1} [ring R] {M : Type u_2} [add_comm_group M] [module R M] {U : submodule R M} {x : M} {y : M} : smodeq U x y ↔ submodule.quotient.mk x = submodule.quotient.mk y :=

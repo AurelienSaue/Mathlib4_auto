@@ -31,7 +31,7 @@ def quotient_qpf {n : ℕ} {F : typevec n → Type u} [mvfunctor F] [q : mvqpf F
     (fun (α : typevec n) (x : G α) => repr (FG_repr x)) sorry sorry
 
 /-- Functorial quotient type -/
-def quot1 {n : ℕ} {F : typevec n → Type u} (R : {α : typevec n} → F α → F α → Prop) (α : typevec n)  :=
+def quot1 {n : ℕ} {F : typevec n → Type u} (R : {α : typevec n} → F α → F α → Prop) (α : typevec n) :=
   Quot R
 
 protected instance quot1.inhabited {n : ℕ} {F : typevec n → Type u} (R : {α : typevec n} → F α → F α → Prop) {α : typevec n} [Inhabited (F α)] : Inhabited (quot1 R α) :=

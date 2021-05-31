@@ -107,7 +107,7 @@ theorem residue_eq_zero_iff_s_mod_eq_zero (p : ℕ) (w : 1 < p) : lucas_lehmer_r
 A Mersenne number `2^p-1` is prime if and only if
 the Lucas-Lehmer residue `s p (p-2) % (2^p - 1)` is zero.
 -/
-def lucas_lehmer_test (p : ℕ)  :=
+def lucas_lehmer_test (p : ℕ) :=
   lucas_lehmer_residue p = 0
 
 /-- `q` is defined as the minimum factor of `mersenne p`, bundled as an `ℕ+`. -/
@@ -128,7 +128,7 @@ protected instance fact_pnat_pos (q : ℕ+) : fact (0 < ↑q) :=
 
 -- cardinality calculations would be somewhat more involved, too.
 
-def X (q : ℕ+)  :=
+def X (q : ℕ+) :=
   zmod ↑q × zmod ↑q
 
 namespace X

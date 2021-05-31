@@ -62,11 +62,11 @@ protected instance topological_semiring.to_semimodule {R : Type u_1} [topologica
 /-- A topological module, over a ring which is also a topological space, is a module in which
 scalar multiplication is continuous. In applications, `R` will be a topological ring and `M` a
 topological additive group, but this is not needed for the definition -/
-def topological_module (R : Type u) (M : Type v) [ring R] [topological_space R] [topological_space M] [add_comm_group M] [module R M]  :=
+def topological_module (R : Type u) (M : Type v) [ring R] [topological_space R] [topological_space M] [add_comm_group M] [module R M] :=
   topological_semimodule R M
 
 /-- A topological vector space is a topological module over a field. -/
-def topological_vector_space (R : Type u) (M : Type v) [field R] [topological_space R] [topological_space M] [add_comm_group M] [module R M]  :=
+def topological_vector_space (R : Type u) (M : Type v) [field R] [topological_space R] [topological_space M] [add_comm_group M] [module R M] :=
   topological_module R M
 
 /-- Scalar multiplication by a unit is a homeomorphism from a
@@ -890,7 +890,7 @@ namespace submodule
 
 
 /-- A submodule `p` is called *complemented* if there exists a continuous projection `M →ₗ[R] p`. -/
-def closed_complemented {R : Type u_1} [ring R] {M : Type u_2} [topological_space M] [add_comm_group M] [module R M] (p : submodule R M)  :=
+def closed_complemented {R : Type u_1} [ring R] {M : Type u_2} [topological_space M] [add_comm_group M] [module R M] (p : submodule R M) :=
   ∃ (f : continuous_linear_map R M ↥p), ∀ (x : ↥p), coe_fn f ↑x = x
 
 theorem closed_complemented.has_closed_complement {R : Type u_1} [ring R] {M : Type u_2} [topological_space M] [add_comm_group M] [module R M] {p : submodule R M} [t1_space ↥p] (h : closed_complemented p) : ∃ (q : submodule R M), ∃ (hq : is_closed ↑q), is_compl p q := sorry

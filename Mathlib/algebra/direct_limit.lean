@@ -49,7 +49,7 @@ where
   coe_fn (f j k hjk) (coe_fn (f i j hij) x) = coe_fn (f i k (le_trans hij hjk)) x
 
 /-- The direct limit of a directed system is the modules glued together along the maps. -/
-def direct_limit {R : Type u} [ring R] {ι : Type v} [dec_ι : DecidableEq ι] [directed_order ι] (G : ι → Type w) [(i : ι) → add_comm_group (G i)] [(i : ι) → module R (G i)] (f : (i j : ι) → i ≤ j → linear_map R (G i) (G j))  :=
+def direct_limit {R : Type u} [ring R] {ι : Type v} [dec_ι : DecidableEq ι] [directed_order ι] (G : ι → Type w) [(i : ι) → add_comm_group (G i)] [(i : ι) → module R (G i)] (f : (i j : ι) → i ≤ j → linear_map R (G i) (G j)) :=
   submodule.quotient
     (submodule.span R
       (set_of
@@ -178,7 +178,7 @@ namespace add_comm_group
 
 
 /-- The direct limit of a directed system is the abelian groups glued together along the maps. -/
-def direct_limit {ι : Type v} [dec_ι : DecidableEq ι] [directed_order ι] (G : ι → Type w) [(i : ι) → add_comm_group (G i)] (f : (i j : ι) → i ≤ j → G i →+ G j)  :=
+def direct_limit {ι : Type v} [dec_ι : DecidableEq ι] [directed_order ι] (G : ι → Type w) [(i : ι) → add_comm_group (G i)] (f : (i j : ι) → i ≤ j → G i →+ G j) :=
   module.direct_limit G fun (i j : ι) (hij : i ≤ j) => add_monoid_hom.to_int_linear_map (f i j hij)
 
 namespace direct_limit
@@ -269,7 +269,7 @@ namespace ring
 
 
 /-- The direct limit of a directed system is the rings glued together along the maps. -/
-def direct_limit {ι : Type v} [directed_order ι] (G : ι → Type w) [(i : ι) → comm_ring (G i)] (f : (i j : ι) → i ≤ j → G i → G j)  :=
+def direct_limit {ι : Type v} [directed_order ι] (G : ι → Type w) [(i : ι) → comm_ring (G i)] (f : (i j : ι) → i ≤ j → G i → G j) :=
   ideal.quotient
     (ideal.span
       (set_of

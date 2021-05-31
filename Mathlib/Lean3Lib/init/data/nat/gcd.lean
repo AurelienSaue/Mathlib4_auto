@@ -39,6 +39,6 @@ theorem gcd.induction {P : ℕ → ℕ → Prop} (m : ℕ) (n : ℕ) (H0 : ∀ (
 def lcm (m : ℕ) (n : ℕ) : ℕ :=
   m * n / gcd m n
 
-def coprime (m : ℕ) (n : ℕ)  :=
+def coprime (m : ℕ) (n : ℕ) :=
   gcd m n = 1
 

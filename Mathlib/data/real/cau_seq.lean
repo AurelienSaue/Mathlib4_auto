@@ -94,7 +94,7 @@ theorem rat_mul_continuous_lemma {α : Type u_1} [linear_ordered_field α] {β :
 theorem rat_inv_continuous_lemma {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [field β] (abv : β → α) [is_absolute_value abv] {ε : α} {K : α} (ε0 : 0 < ε) (K0 : 0 < K) : ∃ (δ : α), ∃ (H : δ > 0), ∀ {a b : β}, K ≤ abv a → K ≤ abv b → abv (a - b) < δ → abv (a⁻¹ - (b⁻¹)) < ε := sorry
 
 /-- A sequence is Cauchy if the distance between its entries tends to zero. -/
-def is_cau_seq {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [ring β] (abv : β → α) (f : ℕ → β)  :=
+def is_cau_seq {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [ring β] (abv : β → α) (f : ℕ → β) :=
   ∀ (ε : α), ε > 0 → ∃ (i : ℕ), ∀ (j : ℕ), j ≥ i → abv (f j - f i) < ε
 
 namespace is_cau_seq
@@ -109,7 +109,7 @@ end is_cau_seq
 
 /-- `cau_seq β abv` is the type of `β`-valued Cauchy sequences, with respect to the absolute value
 function `abv`. -/
-def cau_seq {α : Type u_1} [linear_ordered_field α] (β : Type u_2) [ring β] (abv : β → α)  :=
+def cau_seq {α : Type u_1} [linear_ordered_field α] (β : Type u_2) [ring β] (abv : β → α) :=
   Subtype fun (f : ℕ → β) => is_cau_seq abv f
 
 namespace cau_seq
@@ -215,7 +215,7 @@ protected instance comm_ring {α : Type u_1} [linear_ordered_field α] {β : Typ
     sorry sorry sorry
 
 /-- `lim_zero f` holds when `f` approaches 0. -/
-def lim_zero {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [ring β] {abv : β → α} (f : cau_seq β abv)  :=
+def lim_zero {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [ring β] {abv : β → α} (f : cau_seq β abv) :=
   ∀ (ε : α), ε > 0 → ∃ (i : ℕ), ∀ (j : ℕ), j ≥ i → abv (coe_fn f j) < ε
 
 theorem add_lim_zero {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [ring β] {abv : β → α} [is_absolute_value abv] {f : cau_seq β abv} {g : cau_seq β abv} (hf : lim_zero f) (hg : lim_zero g) : lim_zero (f + g) := sorry
@@ -285,7 +285,7 @@ theorem const_inv {α : Type u_1} [linear_ordered_field α] {β : Type u_2} [fie
   inv (const abv x) (eq.mpr (id (Eq._oldrec (Eq.refl (¬lim_zero (const abv x))) (propext const_lim_zero))) hx) := sorry
 
 /-- The entries of a positive Cauchy sequence eventually have a positive lower bound. -/
-def pos {α : Type u_1} [linear_ordered_field α] (f : cau_seq α abs)  :=
+def pos {α : Type u_1} [linear_ordered_field α] (f : cau_seq α abs) :=
   ∃ (K : α), ∃ (H : K > 0), ∃ (i : ℕ), ∀ (j : ℕ), j ≥ i → K ≤ coe_fn f j
 
 theorem not_lim_zero_of_pos {α : Type u_1} [linear_ordered_field α] {f : cau_seq α abs} : pos f → ¬lim_zero f := sorry

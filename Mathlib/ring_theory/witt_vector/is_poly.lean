@@ -164,7 +164,7 @@ and the `@[is_poly]` attribute derives certain specialized composition instances
 for declarations of type `is_poly f`.
 For the most part, users are not expected to treat `is_poly` as a class.
 -/
-def is_poly (p : ℕ) (f : {R : Type u_1} → [_inst_3 : comm_ring R] → witt_vector p R → witt_vector p R)  :=
+def is_poly (p : ℕ) (f : {R : Type u_1} → [_inst_3 : comm_ring R] → witt_vector p R → witt_vector p R) :=
   ∃ (φ : ℕ → mv_polynomial ℕ ℤ),
     ∀ {R : Type u_1} [_inst_4 : comm_ring R] (x : witt_vector p R),
       coeff (f x) = fun (n : ℕ) => coe_fn (mv_polynomial.aeval (coeff x)) (φ n)
@@ -213,7 +213,7 @@ and the `@[is_poly]` attribute derives certain specialized composition instances
 for declarations of type `is_poly₂ f`.
 For the most part, users are not expected to treat `is_poly₂` as a class.
 -/
-def is_poly₂ (p : ℕ) (f : {R : Type u_1} → [_inst_3 : comm_ring R] → witt_vector p R → witt_vector p R → witt_vector p R)  :=
+def is_poly₂ (p : ℕ) (f : {R : Type u_1} → [_inst_3 : comm_ring R] → witt_vector p R → witt_vector p R → witt_vector p R) :=
   ∃ (φ : ℕ → mv_polynomial (fin (bit0 1) × ℕ) ℤ),
     ∀ {R : Type u_1} [_inst_4 : comm_ring R] (x y : witt_vector p R),
       coeff (f x y) = fun (n : ℕ) => peval (φ n) (matrix.vec_cons (coeff x) (matrix.vec_cons (coeff y) matrix.vec_empty))

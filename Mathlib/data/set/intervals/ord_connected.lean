@@ -34,7 +34,7 @@ interval `[x, y]`. If `α` is a `densely_ordered` `conditionally_complete_linear
 the `order_topology`, then this condition is equivalent to `is_preconnected s`. If `α = ℝ`, then
 this condition is also equivalent to `convex s`.
 -/
-def ord_connected {α : Type u_1} [preorder α] (s : set α)  :=
+def ord_connected {α : Type u_1} [preorder α] (s : set α) :=
   ∀ {x : α}, x ∈ s → ∀ {y : α}, y ∈ s → Icc x y ⊆ s
 
 /-- It suffices to prove `[x, y] ⊆ s` for `x y ∈ s`, `x ≤ y`. -/

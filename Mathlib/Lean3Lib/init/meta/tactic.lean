@@ -405,6 +405,6 @@ of `(position_in_file, docstring)` pairs. -/
 /-- Type check `e` with respect to the current goal.
     Fails if `e` is not type correct. -/
 /-- A `tag` is a list of `names`. These are attached to goals to help tactics track them.-/
-def tag  :=
+def tag :=
   List name
 

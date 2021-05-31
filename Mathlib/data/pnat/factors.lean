@@ -16,7 +16,7 @@ namespace Mathlib
 /-- The type of multisets of prime numbers.  Unique factorization
  gives an equivalence between this set and ℕ+, as we will formalize
  below. -/
-def prime_multiset  :=
+def prime_multiset :=
   multiset nat.primes
 
 namespace prime_multiset

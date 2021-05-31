@@ -19,7 +19,7 @@ where
 | fail : ℕ → dlist string → parse_result α
 
 /-- The parser monad. If you are familiar with the Parsec library in Haskell, you will understand this.  -/
-def parser (α : Type)  :=
+def parser (α : Type) :=
   char_buffer → ℕ → parse_result α
 
 namespace parser

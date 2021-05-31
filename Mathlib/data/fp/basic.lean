@@ -43,7 +43,7 @@ def emax [C : float_cfg] : ℕ :=
 def emin [C : float_cfg] : ℤ :=
   1 - ↑float_cfg.emax
 
-def valid_finite [C : float_cfg] (e : ℤ) (m : ℕ)  :=
+def valid_finite [C : float_cfg] (e : ℤ) (m : ℕ) :=
   emin ≤ e + ↑prec - 1 ∧ e + ↑prec - 1 ≤ ↑emax ∧ e = max (e + ↑(nat.size m) - ↑prec) emin
 
 protected instance dec_valid_finite [C : float_cfg] (e : ℤ) (m : ℕ) : Decidable (valid_finite e m) :=

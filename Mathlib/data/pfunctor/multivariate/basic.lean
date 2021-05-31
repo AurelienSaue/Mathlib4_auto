@@ -35,7 +35,7 @@ namespace mvpfunctor
 
 
 /-- Applying `P` to an object of `Type` -/
-def obj {n : ℕ} (P : mvpfunctor n) (α : typevec n)  :=
+def obj {n : ℕ} (P : mvpfunctor n) (α : typevec n) :=
   sigma fun (a : A P) => typevec.arrow (B P a) α
 
 /-- Applying `P` to a morphism of `Type` -/

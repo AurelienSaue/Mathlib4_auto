@@ -40,7 +40,7 @@ end dfinsupp
 
 
 /-- A dependent function `Π i, β i` with finite support. -/
-def dfinsupp {ι : Type u} (β : ι → Type v) [(i : ι) → HasZero (β i)]  :=
+def dfinsupp {ι : Type u} (β : ι → Type v) [(i : ι) → HasZero (β i)] :=
   quotient sorry
 
 infixl:25 " →ₚ " => Mathlib.dfinsupp

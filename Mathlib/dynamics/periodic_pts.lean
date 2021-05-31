@@ -48,7 +48,7 @@ namespace function
 /-- A point `x` is a periodic point of `f : α → α` of period `n` if `f^[n] x = x`.
 Note that we do not require `0 < n` in this definition. Many theorems about periodic points
 need this assumption. -/
-def is_periodic_pt {α : Type u_1} (f : α → α) (n : ℕ) (x : α)  :=
+def is_periodic_pt {α : Type u_1} (f : α → α) (n : ℕ) (x : α) :=
   is_fixed_pt (nat.iterate f n) x
 
 /-- A fixed point of `f` is a periodic point of `f` of any prescribed period. -/

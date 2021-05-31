@@ -120,7 +120,7 @@ than the input. For `F a b c` a ternary functor, fix F is a binary functor such 
 fix F a b = F a b (fix F a b)
 ```
 -/
-def fix {n : ℕ} (F : typevec (n + 1) → Type u_1) [mvfunctor F] [q : mvqpf F] (α : typevec n)  :=
+def fix {n : ℕ} (F : typevec (n + 1) → Type u_1) [mvfunctor F] [q : mvqpf F] (α : typevec n) :=
   quotient (W_setoid α)
 
 /-- `fix F` is a functor -/

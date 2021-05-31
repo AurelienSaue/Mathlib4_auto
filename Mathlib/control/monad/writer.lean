@@ -19,7 +19,7 @@ structure writer_t (ω : Type u) (m : Type u → Type v) (α : Type u)
 where
   run : m (α × ω)
 
-def writer (ω : Type u) (α : Type u)  :=
+def writer (ω : Type u) (α : Type u) :=
   writer_t ω id
 
 namespace writer_t

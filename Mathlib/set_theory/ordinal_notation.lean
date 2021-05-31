@@ -135,7 +135,7 @@ where
   ordinal notations, but to avoid complicating the algorithms
   we define everything over general ordinal notations and
   only prove correctness with normal form as an invariant. -/
-def NF (o : onote)  :=
+def NF (o : onote) :=
   Exists (NF_below o)
 
 protected instance NF.zero : NF 0 :=
@@ -363,7 +363,7 @@ end onote
   requires `repr` which requires `onote`, so all these things
   would have to be defined at once, which messes up the VM
   representation.) -/
-def nonote  :=
+def nonote :=
   Subtype fun (o : onote) => onote.NF o
 
 protected instance nonote.decidable_eq : DecidableEq nonote :=
@@ -418,7 +418,7 @@ protected instance linear_order : linear_order nonote :=
   linear_order_of_compares cmp cmp_compares
 
 /-- Asserts that `repr a < ω ^ repr b`. Used in `nonote.rec_on` -/
-def old_below (a : nonote) (b : nonote)  :=
+def old_below (a : nonote) (b : nonote) :=
   onote.NF_below (subtype.val a) (repr b)
 
 /-- The `oadd` pseudo-constructor for `nonote` -/

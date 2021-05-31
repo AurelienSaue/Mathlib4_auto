@@ -142,14 +142,14 @@ theorem ite_mul_zero_left {α : Type u_1} [mul_zero_class α] (P : Prop) [Decida
 theorem ite_mul_zero_right {α : Type u_1} [mul_zero_class α] (P : Prop) [Decidable P] (a : α) (b : α) : ite P (a * b) 0 = a * ite P b 0 := sorry
 
 /-- An element `a` of a semiring is even if there exists `k` such `a = 2*k`. -/
-def even {α : Type u} [semiring α] (a : α)  :=
+def even {α : Type u} [semiring α] (a : α) :=
   ∃ (k : α), a = bit0 1 * k
 
 theorem even_iff_two_dvd {α : Type u} [semiring α] {a : α} : even a ↔ bit0 1 ∣ a :=
   iff.rfl
 
 /-- An element `a` of a semiring is odd if there exists `k` such `a = 2*k + 1`. -/
-def odd {α : Type u} [semiring α] (a : α)  :=
+def odd {α : Type u} [semiring α] (a : α) :=
   ∃ (k : α), a = bit0 1 * k + 1
 
 theorem dvd_add {α : Type u} [semiring α] {a : α} {b : α} {c : α} (h₁ : a ∣ b) (h₂ : a ∣ c) : a ∣ b + c := sorry

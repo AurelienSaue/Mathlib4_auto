@@ -69,7 +69,7 @@ def cod_restrict {α : Type u} {β : Type v} (f : α → β) (s : set β) (h : �
 
 /-- Two functions `f₁ f₂ : α → β` are equal on `s`
   if `f₁ x = f₂ x` for all `x ∈ a`. -/
-def eq_on {α : Type u} {β : Type v} (f₁ : α → β) (f₂ : α → β) (s : set α)  :=
+def eq_on {α : Type u} {β : Type v} (f₁ : α → β) (f₂ : α → β) (s : set α) :=
   ∀ {x : α}, x ∈ s → f₁ x = f₂ x
 
 theorem eq_on.symm {α : Type u} {β : Type v} {s : set α} {f₁ : α → β} {f₂ : α → β} (h : eq_on f₁ f₂ s) : eq_on f₂ f₁ s :=
@@ -96,7 +96,7 @@ theorem comp_eq_of_eq_on_range {α : Type u} {β : Type v} {ι : Sort u_1} {f : 
 /-! ### maps to -/
 
 /-- `maps_to f a b` means that the image of `a` is contained in `b`. -/
-def maps_to {α : Type u} {β : Type v} (f : α → β) (s : set α) (t : set β)  :=
+def maps_to {α : Type u} {β : Type v} (f : α → β) (s : set α) (t : set β) :=
   ∀ {x : α}, x ∈ s → f x ∈ t
 
 /-- Given a map `f` sending `s : set α` into `t : set β`, restrict domain of `f` to `s`
@@ -174,7 +174,7 @@ theorem maps_to.mem_iff {α : Type u} {β : Type v} {s : set α} {t : set β} {f
 /-! ### Injectivity on a set -/
 
 /-- `f` is injective on `a` if the restriction of `f` to `a` is injective. -/
-def inj_on {α : Type u} {β : Type v} (f : α → β) (s : set α)  :=
+def inj_on {α : Type u} {β : Type v} (f : α → β) (s : set α) :=
   ∀ {x₁ : α}, x₁ ∈ s → ∀ {x₂ : α}, x₂ ∈ s → f x₁ = f x₂ → x₁ = x₂
 
 theorem inj_on_empty {α : Type u} {β : Type v} (f : α → β) : inj_on f ∅ :=
@@ -219,7 +219,7 @@ theorem inj_on_preimage {α : Type u} {β : Type v} {f : α → β} {B : set (se
 /-! ### Surjectivity on a set -/
 
 /-- `f` is surjective from `a` to `b` if `b` is contained in the image of `a`. -/
-def surj_on {α : Type u} {β : Type v} (f : α → β) (s : set α) (t : set β)  :=
+def surj_on {α : Type u} {β : Type v} (f : α → β) (s : set α) (t : set β) :=
   t ⊆ f '' s
 
 theorem surj_on.subset_range {α : Type u} {β : Type v} {s : set α} {t : set β} {f : α → β} (h : surj_on f s t) : t ⊆ range f :=
@@ -275,7 +275,7 @@ theorem maps_to.surj_on_compl {α : Type u} {β : Type v} {s : set α} {t : set 
 /-! ### Bijectivity -/
 
 /-- `f` is bijective from `s` to `t` if `f` is injective on `s` and `f '' s = t`. -/
-def bij_on {α : Type u} {β : Type v} (f : α → β) (s : set α) (t : set β)  :=
+def bij_on {α : Type u} {β : Type v} (f : α → β) (s : set α) (t : set β) :=
   maps_to f s t ∧ inj_on f s ∧ surj_on f s t
 
 theorem bij_on.maps_to {α : Type u} {β : Type v} {s : set α} {t : set β} {f : α → β} (h : bij_on f s t) : maps_to f s t :=
@@ -329,7 +329,7 @@ theorem bij_on.compl {α : Type u} {β : Type v} {s : set α} {t : set β} {f : 
 /-! ### left inverse -/
 
 /-- `g` is a left inverse to `f` on `a` means that `g (f x) = x` for all `x ∈ a`. -/
-def left_inv_on {α : Type u} {β : Type v} (f' : β → α) (f : α → β) (s : set α)  :=
+def left_inv_on {α : Type u} {β : Type v} (f' : β → α) (f : α → β) (s : set α) :=
   ∀ {x : α}, x ∈ s → f' (f x) = x
 
 theorem left_inv_on.eq_on {α : Type u} {β : Type v} {s : set α} {f : α → β} {f' : β → α} (h : left_inv_on f' f s) : eq_on (f' ∘ f) id s :=
@@ -362,7 +362,7 @@ theorem left_inv_on.mono {α : Type u} {β : Type v} {s : set α} {s₁ : set α
 /-! ### Right inverse -/
 
 /-- `g` is a right inverse to `f` on `b` if `f (g x) = x` for all `x ∈ b`. -/
-def right_inv_on {α : Type u} {β : Type v} (f' : β → α) (f : α → β) (t : set β)  :=
+def right_inv_on {α : Type u} {β : Type v} (f' : β → α) (f : α → β) (t : set β) :=
   left_inv_on f f' t
 
 theorem right_inv_on.eq_on {α : Type u} {β : Type v} {t : set β} {f : α → β} {f' : β → α} (h : right_inv_on f' f t) : eq_on (f ∘ f') id t :=
@@ -400,7 +400,7 @@ theorem surj_on.left_inv_on_of_right_inv_on {α : Type u} {β : Type v} {s : set
 /-! ### Two-side inverses -/
 
 /-- `g` is an inverse to `f` viewed as a map from `a` to `b` -/
-def inv_on {α : Type u} {β : Type v} (g : β → α) (f : α → β) (s : set α) (t : set β)  :=
+def inv_on {α : Type u} {β : Type v} (g : β → α) (f : α → β) (s : set α) (t : set β) :=
   left_inv_on g f s ∧ right_inv_on g f t
 
 theorem inv_on.symm {α : Type u} {β : Type v} {s : set α} {t : set β} {f : α → β} {f' : β → α} (h : inv_on f' f s t) : inv_on f f' t s :=

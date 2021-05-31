@@ -83,7 +83,7 @@ polynomial, multivariate polynomial, multivariable polynomial
 
 /-- Multivariate polynomial, where `σ` is the index set of the variables and
   `R` is the coefficient ring -/
-def mv_polynomial (σ : Type u_1) (R : Type u_2) [comm_semiring R]  :=
+def mv_polynomial (σ : Type u_1) (R : Type u_2) [comm_semiring R] :=
   add_monoid_algebra R (σ →₀ ℕ)
 
 namespace mv_polynomial

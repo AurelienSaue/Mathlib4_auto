@@ -38,7 +38,7 @@ triangles.
 
 See https://stacks.math.columbia.edu/tag/001G.
 -/
-def over {T : Type u₁} [category T] (X : T)  :=
+def over {T : Type u₁} [category T] (X : T) :=
   comma 𝟭 (functor.from_punit X)
 
 -- Satisfying the inhabited linter
@@ -202,7 +202,7 @@ end over
 
 /-- The under category has as objects arrows with domain `X` and as morphisms commutative
     triangles. -/
-def under {T : Type u₁} [category T] (X : T)  :=
+def under {T : Type u₁} [category T] (X : T) :=
   comma (functor.from_punit X) 𝟭
 
 -- Satisfying the inhabited linter

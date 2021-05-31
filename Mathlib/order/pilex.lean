@@ -16,11 +16,11 @@ namespace Mathlib
 
 /-- The lexicographic relation on `Π i : ι, β i`, where `ι` is ordered by `r`,
   and each `β i` is ordered by `s`. -/
-def pi.lex {ι : Type u_1} {β : ι → Type u_2} (r : ι → ι → Prop) (s : {i : ι} → β i → β i → Prop) (x : (i : ι) → β i) (y : (i : ι) → β i)  :=
+def pi.lex {ι : Type u_1} {β : ι → Type u_2} (r : ι → ι → Prop) (s : {i : ι} → β i → β i → Prop) (x : (i : ι) → β i) (y : (i : ι) → β i) :=
   ∃ (i : ι), (∀ (j : ι), r j i → x j = y j) ∧ s (x i) (y i)
 
 /-- The cartesian product of an indexed family, equipped with the lexicographic order. -/
-def pilex (α : Type u_1) (β : α → Type u_2)  :=
+def pilex (α : Type u_1) (β : α → Type u_2) :=
   (a : α) → β a
 
 protected instance pilex.has_lt {ι : Type u_1} {β : ι → Type u_2} [HasLess ι] [(a : ι) → HasLess (β a)] : HasLess (pilex ι β) :=
