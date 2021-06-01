@@ -7,7 +7,7 @@ Auxiliary lemmas used to compare int numerals.
 -/
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.int.order
-import PostPort
+ 
 
 namespace Mathlib
 

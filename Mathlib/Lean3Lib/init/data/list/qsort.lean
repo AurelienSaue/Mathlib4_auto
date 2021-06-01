@@ -6,7 +6,7 @@ Author: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.list.lemmas
 import Mathlib.Lean3Lib.init.wf
-import PostPort
+ 
 
 universes u_1 
 

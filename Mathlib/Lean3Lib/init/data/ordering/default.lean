@@ -6,7 +6,7 @@ Authors: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.ordering.basic
 import Mathlib.Lean3Lib.init.data.ordering.lemmas
-import PostPort
+ 
 
 namespace Mathlib
 

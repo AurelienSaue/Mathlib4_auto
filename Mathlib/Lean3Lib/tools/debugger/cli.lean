@@ -8,7 +8,7 @@ Simple command line interface for debugging Lean programs and tactics.
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.default
 import Mathlib.Lean3Lib.tools.debugger.util
-import PostPort
+ 
 
 universes l 
 

@@ -6,7 +6,7 @@ Author: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.data.fin.basic
 import Mathlib.Lean3Lib.init.data.fin.ops
-import PostPort
+ 
 
 namespace Mathlib
 

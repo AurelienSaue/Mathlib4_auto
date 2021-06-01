@@ -6,7 +6,7 @@ Authors: Leonardo de Moura
 import Mathlib.PrePort
 import Mathlib.Lean3Lib.init.meta.tactic
 import Mathlib.Lean3Lib.init.meta.rb_map
-import PostPort
+ 
 
 namespace Mathlib
 
