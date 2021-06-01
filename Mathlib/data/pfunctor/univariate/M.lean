@@ -65,7 +65,7 @@ where
 Given an infinite series of approximations `approx`,
 `all_agree approx` states that they are all consistent with each other.
 -/
-def all_agree {F : pfunctor} (x : (n : ℕ) → cofix_a F n)  :=
+def all_agree {F : pfunctor} (x : (n : ℕ) → cofix_a F n) :=
   ∀ (n : ℕ), agree (x n) (x (Nat.succ n))
 
 @[simp] theorem agree_trival {F : pfunctor} {x : cofix_a F 0} {y : cofix_a F 1} : agree x y :=
@@ -87,7 +87,7 @@ def s_corec {F : pfunctor} {X : Type w} (f : X → obj F X) (i : X) (n : ℕ) : 
 theorem P_corec {F : pfunctor} {X : Type w} (f : X → obj F X) (i : X) (n : ℕ) : agree (s_corec f i n) (s_corec f i (Nat.succ n)) := sorry
 
 /-- `path F` provides indices to access internal nodes in `corec F` -/
-def path (F : pfunctor)  :=
+def path (F : pfunctor) :=
   List (Idx F)
 
 protected instance path.inhabited {F : pfunctor} : Inhabited (path F) :=
@@ -122,7 +122,7 @@ where
   consistent : approx.all_agree approx
 
 /-- For polynomial functor `F`, `M F` is its final coalgebra -/
-def M (F : pfunctor)  :=
+def M (F : pfunctor) :=
   M_intl F
 
 theorem M.default_consistent (F : pfunctor) [Inhabited (A F)] (n : ℕ) : approx.agree Inhabited.default Inhabited.default := sorry

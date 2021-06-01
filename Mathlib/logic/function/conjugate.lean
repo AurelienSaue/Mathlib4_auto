@@ -28,7 +28,7 @@ namespace function
 
 
 /-- We say that `f : α → β` semiconjugates `ga : α → α` to `gb : β → β` if `f ∘ ga = gb ∘ f`. -/
-def semiconj {α : Type u_1} {β : Type u_2} (f : α → β) (ga : α → α) (gb : β → β)  :=
+def semiconj {α : Type u_1} {β : Type u_2} (f : α → β) (ga : α → α) (gb : β → β) :=
   ∀ (x : α), f (ga x) = gb (f x)
 
 namespace semiconj
@@ -56,7 +56,7 @@ end semiconj
 
 
 /-- Two maps `f g : α → α` commute if `f ∘ g = g ∘ f`. -/
-def commute {α : Type u_1} (f : α → α) (g : α → α)  :=
+def commute {α : Type u_1} (f : α → α) (g : α → α) :=
   semiconj f g g
 
 theorem semiconj.commute {α : Type u_1} {f : α → α} {g : α → α} (h : semiconj f g g) : commute f g :=
@@ -89,7 +89,7 @@ end commute
 /-- A map `f` semiconjugates a binary operation `ga` to a binary operation `gb` if
 for all `x`, `y` we have `f (ga x y) = gb (f x) (f y)`. E.g., a `monoid_hom`
 semiconjugates `(*)` to `(*)`. -/
-def semiconj₂ {α : Type u_1} {β : Type u_2} (f : α → β) (ga : α → α → α) (gb : β → β → β)  :=
+def semiconj₂ {α : Type u_1} {β : Type u_2} (f : α → β) (ga : α → α → α) (gb : β → β → β) :=
   ∀ (x y : α), f (ga x y) = gb (f x) (f y)
 
 namespace semiconj₂

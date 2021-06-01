@@ -87,7 +87,7 @@ namespace subalgebra
 
 /-- A subalgebra `S` is finitely generated if there exists `t : finset A` such that
 `algebra.adjoin R t = S`. -/
-def fg {R : Type u} {A : Type v} [comm_semiring R] [semiring A] [algebra R A] (S : subalgebra R A)  :=
+def fg {R : Type u} {A : Type v} [comm_semiring R] [semiring A] [algebra R A] (S : subalgebra R A) :=
   ∃ (t : finset A), algebra.adjoin R ↑t = S
 
 theorem fg_adjoin_finset {R : Type u} {A : Type v} [comm_semiring R] [semiring A] [algebra R A] (s : finset A) : fg (algebra.adjoin R ↑s) :=

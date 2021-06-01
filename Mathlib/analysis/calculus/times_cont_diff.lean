@@ -229,7 +229,7 @@ depend on the finite order we consider).
 For instance, a real function which is `C^m` on `(-1/m, 1/m)` for each natural `m`, but not
 better, is `C^∞` at `0` within `univ`.
 -/
-def times_cont_diff_within_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (n : with_top ℕ) (f : E → F) (s : set E) (x : E)  :=
+def times_cont_diff_within_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (n : with_top ℕ) (f : E → F) (s : set E) (x : E) :=
   ∀ (m : ℕ),
     ↑m ≤ n →
       ∃ (u : set E),
@@ -302,7 +302,7 @@ admits continuous derivatives up to order `n` on a neighborhood of `x` in `s`.
 For `n = ∞`, we only require that this holds up to any finite order (where the neighborhood may
 depend on the finite order we consider).
 -/
-def times_cont_diff_on (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (n : with_top ℕ) (f : E → F) (s : set E)  :=
+def times_cont_diff_on (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (n : with_top ℕ) (f : E → F) (s : set E) :=
   ∀ (x : E), x ∈ s → times_cont_diff_within_at 𝕜 n f s x
 
 theorem times_cont_diff_on.times_cont_diff_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] {s : set E} {f : E → F} {x : E} {n : with_top ℕ} (h : times_cont_diff_on 𝕜 n f s) (hx : x ∈ s) : times_cont_diff_within_at 𝕜 n f s x :=
@@ -523,7 +523,7 @@ theorem has_ftaylor_series_up_to_succ_iff_right {𝕜 : Type u_1} [nondiscrete_n
 /-- A function is continuously differentiable up to `n` at a point `x` if, for any integer `k ≤ n`,
 there is a neighborhood of `x` where `f` admits derivatives up to order `n`, which are continuous.
 -/
-def times_cont_diff_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (n : with_top ℕ) (f : E → F) (x : E)  :=
+def times_cont_diff_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (n : with_top ℕ) (f : E → F) (x : E) :=
   times_cont_diff_within_at 𝕜 n f set.univ x
 
 theorem times_cont_diff_within_at_univ {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] {f : E → F} {x : E} {n : with_top ℕ} : times_cont_diff_within_at 𝕜 n f set.univ x ↔ times_cont_diff_at 𝕜 n f x :=
@@ -562,7 +562,7 @@ theorem times_cont_diff_at_succ_iff_has_fderiv_at {𝕜 : Type u_1} [nondiscrete
 order `n`, which are continuous. Contrary to the case of definitions in domains (where derivatives
 might not be unique) we do not need to localize the definition in space or time.
 -/
-def times_cont_diff (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (n : with_top ℕ) (f : E → F)  :=
+def times_cont_diff (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (n : with_top ℕ) (f : E → F) :=
   ∃ (p : E → formal_multilinear_series 𝕜 E F), has_ftaylor_series_up_to n f p
 
 theorem times_cont_diff_on_univ {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] {f : E → F} {n : with_top ℕ} : times_cont_diff_on 𝕜 n f set.univ ↔ times_cont_diff 𝕜 n f := sorry

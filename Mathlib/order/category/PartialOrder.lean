@@ -15,7 +15,7 @@ namespace Mathlib
 /-! # Category of partially ordered types -/
 
 /-- The category of partially ordered types. -/
-def PartialOrder  :=
+def PartialOrder :=
   category_theory.bundled partial_order
 
 namespace PartialOrder

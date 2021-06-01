@@ -123,7 +123,7 @@ def partial_denominators {α : Type u_1} (g : generalized_continued_fraction α)
   seq.map pair.b (s g)
 
 /-- A gcf terminated at position `n` if its sequence terminates at position `n`. -/
-def terminated_at {α : Type u_1} (g : generalized_continued_fraction α) (n : ℕ)  :=
+def terminated_at {α : Type u_1} (g : generalized_continued_fraction α) (n : ℕ) :=
   seq.terminated_at (s g) n
 
 /-- It is decidable whether a gcf terminated at a given position. -/
@@ -131,7 +131,7 @@ protected instance terminated_at_decidable {α : Type u_1} (g : generalized_cont
   eq.mpr sorry (seq.terminated_at_decidable (s g) n)
 
 /-- A gcf terminates if its sequence terminates. -/
-def terminates {α : Type u_1} (g : generalized_continued_fraction α)  :=
+def terminates {α : Type u_1} (g : generalized_continued_fraction α) :=
   seq.terminates (s g)
 
 /-! Interlude: define some expected coercions. -/
@@ -163,7 +163,7 @@ equal to one.
                                       b₃ + ...
 
 -/
-def generalized_continued_fraction.is_simple_continued_fraction {α : Type u_1} (g : generalized_continued_fraction α) [HasOne α]  :=
+def generalized_continued_fraction.is_simple_continued_fraction {α : Type u_1} (g : generalized_continued_fraction α) [HasOne α] :=
   ∀ (n : ℕ) (aₙ : α), seq.nth (generalized_continued_fraction.partial_numerators g) n = some aₙ → aₙ = 1
 
 /--
@@ -184,7 +184,7 @@ For convenience, one often writes `[h; b₀, b₁, b₂,...]`.
 It is encoded as the subtype of gcfs that satisfy
 `generalized_continued_fraction.is_simple_continued_fraction`.
  -/
-def simple_continued_fraction (α : Type u_1) [HasOne α]  :=
+def simple_continued_fraction (α : Type u_1) [HasOne α] :=
   Subtype fun (g : generalized_continued_fraction α) => generalized_continued_fraction.is_simple_continued_fraction g
 
 /- Interlude: define some expected coercions. -/
@@ -213,7 +213,7 @@ end simple_continued_fraction
 A simple continued fraction is a *(regular) continued fraction* ((r)cf) if all partial denominators
 `bᵢ` are positive, i.e. `0 < bᵢ`.
 -/
-def simple_continued_fraction.is_regular_continued_fraction {α : Type u_1} [HasOne α] [HasZero α] [HasLess α] (s : simple_continued_fraction α)  :=
+def simple_continued_fraction.is_regular_continued_fraction {α : Type u_1} [HasOne α] [HasZero α] [HasLess α] (s : simple_continued_fraction α) :=
   ∀ (n : ℕ) (bₙ : α), seq.nth (generalized_continued_fraction.partial_denominators ↑s) n = some bₙ → 0 < bₙ
 
 /--
@@ -221,7 +221,7 @@ A *(regular) continued fraction* ((r)cf) is a simple continued fraction (scf) wh
 denominators are all positive. It is the subtype of scfs that satisfy
 `simple_continued_fraction.is_regular_continued_fraction`.
  -/
-def continued_fraction (α : Type u_1) [HasOne α] [HasZero α] [HasLess α]  :=
+def continued_fraction (α : Type u_1) [HasOne α] [HasZero α] [HasLess α] :=
   Subtype fun (s : simple_continued_fraction α) => simple_continued_fraction.is_regular_continued_fraction s
 
 /- Interlude: define some expected coercions. -/

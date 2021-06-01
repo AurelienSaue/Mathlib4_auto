@@ -76,14 +76,14 @@ protected instance complex.is_alg_closed : is_alg_closed ℂ :=
       complex.exists_root (polynomial.degree_pos_of_irreducible hp)
 
 /-- Typeclass for an extension being an algebraic closure. -/
-def is_alg_closure (k : Type u) [field k] (K : Type v) [field K] [algebra k K]  :=
+def is_alg_closure (k : Type u) [field k] (K : Type v) [field K] [algebra k K] :=
   is_alg_closed K ∧ algebra.is_algebraic k K
 
 namespace algebraic_closure
 
 
 /-- The subtype of monic irreducible polynomials -/
-def monic_irreducible (k : Type u) [field k]  :=
+def monic_irreducible (k : Type u) [field k] :=
   Subtype fun (f : polynomial k) => polynomial.monic f ∧ irreducible f
 
 /-- Sends a monic irreducible polynomial `f` to `f(x_f)` where `x_f` is a formal indeterminate. -/
@@ -122,7 +122,7 @@ theorem le_max_ideal (k : Type u) [field k] : span_eval k ≤ max_ideal k :=
   and.right (classical.some_spec (ideal.exists_le_maximal (span_eval k) (span_eval_ne_top k)))
 
 /-- The first step of constructing `algebraic_closure`: adjoin a root of all monic polynomials -/
-def adjoin_monic (k : Type u) [field k]  :=
+def adjoin_monic (k : Type u) [field k] :=
   ideal.quotient (max_ideal k)
 
 protected instance adjoin_monic.field (k : Type u) [field k] : field (adjoin_monic k) :=
@@ -152,7 +152,7 @@ def step_aux (k : Type u) [field k] (n : ℕ) : sigma fun (α : Type u) => field
       sigma.mk (adjoin_monic (sigma.fst ih)) (adjoin_monic.field (sigma.fst ih))
 
 /-- The `n`th step of constructing `algebraic_closure`. -/
-def step (k : Type u) [field k] (n : ℕ)  :=
+def step (k : Type u) [field k] (n : ℕ) :=
   sigma.fst (step_aux k n)
 
 protected instance step.field (k : Type u) [field k] (n : ℕ) : field (step k n) :=
@@ -201,7 +201,7 @@ end algebraic_closure
 
 
 /-- The canonical algebraic closure of a field, the direct limit of adding roots to the field for each polynomial over the field. -/
-def algebraic_closure (k : Type u) [field k]  :=
+def algebraic_closure (k : Type u) [field k] :=
   ring.direct_limit sorry fun (i j : ℕ) (h : i ≤ j) => ⇑sorry
 
 namespace algebraic_closure

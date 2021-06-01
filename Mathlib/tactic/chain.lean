@@ -29,6 +29,6 @@ This tactic is used by the `tidy` tactic.
 
 -- describing what that tactic did as an interactive tactic.
 
-def tactic_script (α : Type)  :=
+def tactic_script (α : Type) :=
   _nest_1_1.tactic.tactic_script
 

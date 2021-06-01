@@ -48,7 +48,7 @@ is always at a `parse_result.pos` that is at least `n`. Additionally, if the pos
 of the parser was within the size of the `cb`, then the input to the parser must have been within
 `cb.size` too.
 -/
-def valid {α : Type} (p : parser α)  :=
+def valid {α : Type} (p : parser α) :=
   ∀ (cb : char_buffer) (n : ℕ),
     n ≤ parse_result.pos (p cb n) ∧ (parse_result.pos (p cb n) ≤ buffer.size cb → n ≤ buffer.size cb)
 

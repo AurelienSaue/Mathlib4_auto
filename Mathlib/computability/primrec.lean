@@ -139,7 +139,7 @@ end primcodable
 
 /-- `primrec f` means `f` is primitive recursive (after
   encoding its input and output as natural numbers). -/
-def primrec {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (f : α → β)  :=
+def primrec {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (f : α → β) :=
   nat.primrec fun (n : ℕ) => encodable.encode (option.map f (encodable.decode α n))
 
 namespace primrec
@@ -228,19 +228,19 @@ end primrec
   This is technically unnecessary since we can always curry all
   the arguments together, but there are enough natural two-arg
   functions that it is convenient to express this directly. -/
-def primrec₂ {α : Type u_1} {β : Type u_2} {σ : Type u_3} [primcodable α] [primcodable β] [primcodable σ] (f : α → β → σ)  :=
+def primrec₂ {α : Type u_1} {β : Type u_2} {σ : Type u_3} [primcodable α] [primcodable β] [primcodable σ] (f : α → β → σ) :=
   primrec fun (p : α × β) => f (prod.fst p) (prod.snd p)
 
 /-- `primrec_pred p` means `p : α → Prop` is a (decidable)
   primitive recursive predicate, which is to say that
   `to_bool ∘ p : α → bool` is primitive recursive. -/
-def primrec_pred {α : Type u_1} [primcodable α] (p : α → Prop) [decidable_pred p]  :=
+def primrec_pred {α : Type u_1} [primcodable α] (p : α → Prop) [decidable_pred p] :=
   primrec fun (a : α) => to_bool (p a)
 
 /-- `primrec_rel p` means `p : α → β → Prop` is a (decidable)
   primitive recursive relation, which is to say that
   `to_bool ∘ p : α → β → bool` is primitive recursive. -/
-def primrec_rel {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (s : α → β → Prop) [(a : α) → (b : β) → Decidable (s a b)]  :=
+def primrec_rel {α : Type u_1} {β : Type u_2} [primcodable α] [primcodable β] (s : α → β → Prop) [(a : α) → (b : β) → Decidable (s a b)] :=
   primrec₂ fun (a : α) (b : β) => to_bool (s a b)
 
 namespace primrec₂
@@ -668,7 +668,7 @@ theorem head {n : ℕ} : primrec' vector.head := sorry
 
 theorem tail {n : ℕ} {f : vector ℕ n → ℕ} (hf : primrec' f) : primrec' fun (v : vector ℕ (Nat.succ n)) => f (vector.tail v) := sorry
 
-def vec {n : ℕ} {m : ℕ} (f : vector ℕ n → vector ℕ m)  :=
+def vec {n : ℕ} {m : ℕ} (f : vector ℕ n → vector ℕ m) :=
   ∀ (i : fin m), primrec' fun (v : vector ℕ n) => vector.nth (f v) i
 
 protected theorem nil {n : ℕ} : vec fun (_x : vector ℕ n) => vector.nil :=

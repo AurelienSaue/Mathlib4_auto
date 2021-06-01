@@ -35,7 +35,7 @@ This is often called 'finitely complete'.
 
 -- because of https://github.com/leanprover-community/lean/issues/429
 
-def has_finite_limits (C : Type u) [category C]  :=
+def has_finite_limits (C : Type u) [category C] :=
   ∀ (J : Type v) [𝒥 : small_category J] [_inst_2 : fin_category J], has_limits_of_shape J C
 
 protected instance has_limits_of_shape_of_has_finite_limits (C : Type u) [category C] (J : Type v) [small_category J] [fin_category J] [has_finite_limits C] : has_limits_of_shape J C :=
@@ -51,7 +51,7 @@ has a colimit.
 
 This is often called 'finitely cocomplete'.
 -/
-def has_finite_colimits (C : Type u) [category C]  :=
+def has_finite_colimits (C : Type u) [category C] :=
   ∀ (J : Type v) [𝒥 : small_category J] [_inst_2 : fin_category J], has_colimits_of_shape J C
 
 protected instance has_colimits_of_shape_of_has_finite_colimits (C : Type u) [category C] (J : Type v) [small_category J] [fin_category J] [has_finite_colimits C] : has_colimits_of_shape J C :=
@@ -124,7 +124,7 @@ for every finite collection of morphisms
 
 -- because of https://github.com/leanprover-community/lean/issues/429
 
-def has_finite_wide_pullbacks (C : Type u) [category C]  :=
+def has_finite_wide_pullbacks (C : Type u) [category C] :=
   ∀ (J : Type v) [_inst_2 : DecidableEq J] [_inst_3 : fintype J], has_limits_of_shape (wide_pullback_shape J) C
 
 protected instance has_limits_of_shape_wide_pullback_shape (C : Type u) [category C] (J : Type v) [fintype J] [has_finite_wide_pullbacks C] : has_limits_of_shape (wide_pullback_shape J) C :=
@@ -134,7 +134,7 @@ protected instance has_limits_of_shape_wide_pullback_shape (C : Type u) [categor
 `has_finite_wide_pushouts` represents a choice of wide pushout
 for every finite collection of morphisms
 -/
-def has_finite_wide_pushouts (C : Type u) [category C]  :=
+def has_finite_wide_pushouts (C : Type u) [category C] :=
   ∀ (J : Type v) [_inst_2 : DecidableEq J] [_inst_3 : fintype J], has_colimits_of_shape (wide_pushout_shape J) C
 
 protected instance has_colimits_of_shape_wide_pushout_shape (C : Type u) [category C] (J : Type v) [fintype J] [has_finite_wide_pushouts C] : has_colimits_of_shape (wide_pushout_shape J) C :=

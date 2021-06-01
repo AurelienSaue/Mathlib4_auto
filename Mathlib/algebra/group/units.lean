@@ -223,7 +223,7 @@ also `prime`, `associated`, and `irreducible` in `algebra/associated`.
 /-- An element `a : M` of a monoid is a unit if it has a two-sided inverse.
 The actual definition says that `a` is equal to some `u : units M`, where
 `units M` is a bundled version of `is_unit`. -/
-def is_unit {M : Type u_1} [monoid M] (a : M)  :=
+def is_unit {M : Type u_1} [monoid M] (a : M) :=
   ∃ (u : units M), ↑u = a
 
 theorem is_unit_of_subsingleton {M : Type u_1} [monoid M] [subsingleton M] (a : M) : is_unit a :=

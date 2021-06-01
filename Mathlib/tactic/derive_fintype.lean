@@ -118,7 +118,7 @@ namespace derive_fintype
 /-- A step in the construction of `finset.univ` for a finite inductive type.
 We will set `enum` to the discriminant of the inductive type, so a `finset_above`
 represents a finset that enumerates all elements in a tail of the constructor list. -/
-def finset_above (α : Type u_1) (enum : α → ℕ) (n : ℕ)  :=
+def finset_above (α : Type u_1) (enum : α → ℕ) (n : ℕ) :=
   Subtype fun (s : finset α) => ∀ (x : α), x ∈ s → n ≤ enum x
 
 /-- Construct a fintype instance from a completed `finset_above`. -/
@@ -145,7 +145,7 @@ protected instance finset_above.inhabited (α : Type u_1) (enum : α → ℕ) (n
 /-- This is a finset covering a nontrivial variant (with one or more constructor arguments).
 The property `P` here is `λ a, enum a = n` where `n` is the discriminant for the current
 variant. -/
-def finset_in {α : Type u_1} (P : α → Prop)  :=
+def finset_in {α : Type u_1} (P : α → Prop) :=
   Subtype fun (s : finset α) => ∀ (x : α), x ∈ s → P x
 
 /-- To construct the finset, we use an injective map from the type `Γ`, which will be the

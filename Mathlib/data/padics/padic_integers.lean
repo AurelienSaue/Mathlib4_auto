@@ -55,7 +55,7 @@ p-adic, p adic, padic, p-adic integer
 -/
 
 /-- The p-adic integers ℤ_p are the p-adic numbers with norm ≤ 1. -/
-def padic_int (p : ℕ) [fact (nat.prime p)]  :=
+def padic_int (p : ℕ) [fact (nat.prime p)] :=
   Subtype fun (x : padic p) => norm x ≤ 1
 
 namespace padic_int

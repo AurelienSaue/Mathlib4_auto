@@ -49,7 +49,7 @@ theorem exists_between_finsets {α : Type u_1} [linear_order α] [densely_ordere
 /-- The type of partial order isomorphisms between `α` and `β` defined on finite subsets.
     A partial order isomorphism is encoded as a finite subset of `α × β`, consisting
     of pairs which should be identified. -/
-def partial_iso (α : Type u_1) (β : Type u_2) [linear_order α] [linear_order β]  :=
+def partial_iso (α : Type u_1) (β : Type u_2) [linear_order α] [linear_order β] :=
   Subtype
     fun (f : finset (α × β)) =>
       ∀ (p q : α × β), p ∈ f → q ∈ f → cmp (prod.fst p) (prod.fst q) = cmp (prod.snd p) (prod.snd q)

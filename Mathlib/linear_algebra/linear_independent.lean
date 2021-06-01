@@ -79,7 +79,7 @@ linearly dependent, linear dependence, linearly independent, linear independence
 -/
 
 /-- `linear_independent R v` states the family of vectors `v` is linearly independent over `R`. -/
-def linear_independent {ι : Type u_1} (R : Type u_3) {M : Type u_5} (v : ι → M) [ring R] [add_comm_group M] [module R M]  :=
+def linear_independent {ι : Type u_1} (R : Type u_3) {M : Type u_5} (v : ι → M) [ring R] [add_comm_group M] [module R M] :=
   linear_map.ker (finsupp.total ι M R v) = ⊥
 
 theorem linear_independent_iff {ι : Type u_1} {R : Type u_3} {M : Type u_5} {v : ι → M} [ring R] [add_comm_group M] [module R M] : linear_independent R v ↔ ∀ (l : ι →₀ R), coe_fn (finsupp.total ι M R v) l = 0 → l = 0 := sorry

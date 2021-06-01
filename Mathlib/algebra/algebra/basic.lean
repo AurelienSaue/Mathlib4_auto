@@ -684,7 +684,7 @@ namespace algebra
 /- The `nolint` attribute is added because it has unused arguments `R` and `S`, but these are
   necessary for synthesizing the appropriate type classes -/
 
-def comap (R : Type u) (S : Type v) (A : Type w)  :=
+def comap (R : Type u) (S : Type v) (A : Type w) :=
   A
 
 protected instance comap.inhabited (R : Type u) (S : Type v) (A : Type w) [h : Inhabited A] : Inhabited (comap R S A) :=
@@ -960,7 +960,7 @@ is by `[module R M] [module A M] [is_scalar_tower R A M]`.
 When `M` is a module over a ring `A`, and `A` is an algebra over `R`, then `M` inherits a
 module structure over `R`, provided as a type synonym `module.restrict_scalars R A M := M`.
 -/
-def restrict_scalars (R : Type u_1) (A : Type u_2) (M : Type u_3)  :=
+def restrict_scalars (R : Type u_1) (A : Type u_2) (M : Type u_3) :=
   M
 
 protected instance restrict_scalars.inhabited (R : Type u_1) (A : Type u_2) (M : Type u_3) [I : Inhabited M] : Inhabited (restrict_scalars R A M) :=

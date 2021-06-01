@@ -13,7 +13,7 @@ universes u v l
 
 namespace Mathlib
 
-not foundinfixr:100 " <$> " => Mathlib.functor.map
+infixr:100 " <$> " => Mathlib.functor.map
 
 infixr:100 " <$ " => Mathlib.functor.map_const
 

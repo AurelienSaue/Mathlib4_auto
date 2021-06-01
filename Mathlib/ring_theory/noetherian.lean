@@ -63,7 +63,7 @@ namespace submodule
 
 
 /-- A submodule of `M` is finitely generated if it is the span of a finite subset of `M`. -/
-def fg {R : Type u_1} {M : Type u_2} [semiring R] [add_comm_monoid M] [semimodule R M] (N : submodule R M)  :=
+def fg {R : Type u_1} {M : Type u_2} [semiring R] [add_comm_monoid M] [semimodule R M] (N : submodule R M) :=
   ∃ (S : finset M), span R ↑S = N
 
 theorem fg_def {R : Type u_1} {M : Type u_2} [semiring R] [add_comm_monoid M] [semimodule R M] {N : submodule R M} : fg N ↔ ∃ (S : set M), set.finite S ∧ span R S = N := sorry
@@ -163,7 +163,7 @@ theorem is_noetherian.induction {R : Type u_1} {M : Type u_2} [ring R] [add_comm
 A ring is Noetherian if it is Noetherian as a module over itself,
 i.e. all its ideals are finitely generated.
 -/
-def is_noetherian_ring (R : Type u_1) [ring R]  :=
+def is_noetherian_ring (R : Type u_1) [ring R] :=
   is_noetherian R R
 
 protected instance is_noetherian_ring.to_is_noetherian {R : Type u_1} [ring R] [is_noetherian_ring R] : is_noetherian R R :=

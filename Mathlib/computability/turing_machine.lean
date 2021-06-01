@@ -66,7 +66,7 @@ namespace turing
 
 /-- The `blank_extends` partial order holds of `l₁` and `l₂` if `l₂` is obtained by adding
 blanks (`default Γ`) to the end of `l₁`. -/
-def blank_extends {Γ : Type u_1} [Inhabited Γ] (l₁ : List Γ) (l₂ : List Γ)  :=
+def blank_extends {Γ : Type u_1} [Inhabited Γ] (l₁ : List Γ) (l₂ : List Γ) :=
   ∃ (n : ℕ), l₂ = l₁ ++ list.repeat Inhabited.default n
 
 theorem blank_extends.refl {Γ : Type u_1} [Inhabited Γ] (l : List Γ) : blank_extends l l := sorry
@@ -85,7 +85,7 @@ theorem blank_extends.above_of_le {Γ : Type u_1} [Inhabited Γ] {l : List Γ} {
 
 /-- `blank_rel` is the symmetric closure of `blank_extends`, turning it into an equivalence
 relation. Two lists are related by `blank_rel` if one extends the other by blanks. -/
-def blank_rel {Γ : Type u_1} [Inhabited Γ] (l₁ : List Γ) (l₂ : List Γ)  :=
+def blank_rel {Γ : Type u_1} [Inhabited Γ] (l₁ : List Γ) (l₂ : List Γ) :=
   blank_extends l₁ l₂ ∨ blank_extends l₂ l₁
 
 theorem blank_rel.refl {Γ : Type u_1} [Inhabited Γ] (l : List Γ) : blank_rel l l :=
@@ -117,7 +117,7 @@ def blank_rel.setoid (Γ : Type u_1) [Inhabited Γ] : setoid (List Γ) :=
 /-- A `list_blank Γ` is a quotient of `list Γ` by extension by blanks at the end. This is used to
 represent half-tapes of a Turing machine, so that we can pretend that the list continues
 infinitely with blanks. -/
-def list_blank (Γ : Type u_1) [Inhabited Γ]  :=
+def list_blank (Γ : Type u_1) [Inhabited Γ] :=
   quotient (blank_rel.setoid Γ)
 
 protected instance list_blank.inhabited {Γ : Type u_1} [Inhabited Γ] : Inhabited (list_blank Γ) :=
@@ -412,7 +412,7 @@ theorem reaches₁_fwd {σ : Type u_1} {f : σ → Option σ} {a : σ} {b : σ} 
 /-- A variation on `reaches`. `reaches₀ f a b` holds if whenever `reaches₁ f b c` then
 `reaches₁ f a c`. This is a weaker property than `reaches` and is useful for replacing states with
 equivalent states without taking a step. -/
-def reaches₀ {σ : Type u_1} (f : σ → Option σ) (a : σ) (b : σ)  :=
+def reaches₀ {σ : Type u_1} (f : σ → Option σ) (a : σ) (b : σ) :=
   ∀ (c : σ), reaches₁ f b c → reaches₁ f a c
 
 theorem reaches₀.trans {σ : Type u_1} {f : σ → Option σ} {a : σ} {b : σ} {c : σ} (h₁ : reaches₀ f a b) (h₂ : reaches₀ f b c) : reaches₀ f a c :=
@@ -471,7 +471,7 @@ theorem reaches_eval {σ : Type u_1} {f : σ → Option σ} {a : σ} {b : σ} (a
 initially and `f₁` takes a step to `a₂` then `f₂` will take one or more steps before reaching a
 state `b₂` satisfying `tr a₂ b₂`, and if `f₁ a₁` terminates then `f₂ a₂` also terminates.
 Such a relation `tr` is also known as a refinement. -/
-def respects {σ₁ : Type u_1} {σ₂ : Type u_2} (f₁ : σ₁ → Option σ₁) (f₂ : σ₂ → Option σ₂) (tr : σ₁ → σ₂ → Prop)  :=
+def respects {σ₁ : Type u_1} {σ₂ : Type u_2} (f₁ : σ₁ → Option σ₁) (f₂ : σ₂ → Option σ₂) (tr : σ₁ → σ₂ → Prop) :=
   {a₁ : σ₁} → {a₂ : σ₂} → tr a₁ a₂ → sorry
 
 theorem tr_reaches₁ {σ₁ : Type u_1} {σ₂ : Type u_2} {f₁ : σ₁ → Option σ₁} {f₂ : σ₂ → Option σ₂} {tr : σ₁ → σ₂ → Prop} (H : respects f₁ f₂ tr) {a₁ : σ₁} {a₂ : σ₂} (aa : tr a₁ a₂) {b₁ : σ₁} (ab : reaches₁ f₁ a₁ b₁) : ∃ (b₂ : σ₂), tr b₁ b₂ ∧ reaches₁ f₂ a₂ b₂ := sorry
@@ -542,7 +542,7 @@ protected instance stmt.inhabited (Γ : Type u_1) [Inhabited Γ] : Inhabited (st
   Both `Λ` and `Γ` are required to be inhabited; the default value
   for `Γ` is the "blank" tape value, and the default value of `Λ` is
   the initial state. -/
-def machine (Γ : Type u_1) [Inhabited Γ] (Λ : Type u_2) [Inhabited Λ]  :=
+def machine (Γ : Type u_1) [Inhabited Γ] (Λ : Type u_2) [Inhabited Λ] :=
   Λ → Γ → Option (Λ × stmt Γ)
 
 protected instance machine.inhabited (Γ : Type u_1) [Inhabited Γ] (Λ : Type u_2) [Inhabited Λ] : Inhabited (machine Γ Λ) :=
@@ -586,7 +586,7 @@ def eval {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} [Inhabited Λ] (M : mach
   finite subset of their states. We say that a set `S ⊆ Λ`
   supports a Turing machine `M` if `S` is closed under the
   transition function and contains the initial state. -/
-def supports {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} [Inhabited Λ] (M : machine Γ Λ) (S : set Λ)  :=
+def supports {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} [Inhabited Λ] (M : machine Γ Λ) (S : set Λ) :=
   Inhabited.default ∈ S ∧ ∀ {q : Λ} {a : Γ} {q' : Λ} {s : stmt Γ}, (q', s) ∈ M q a → q ∈ S → q' ∈ S
 
 theorem step_supports {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} [Inhabited Λ] (M : machine Γ Λ) {S : set Λ} (ss : supports M S) {c : cfg Γ Λ} {c' : cfg Γ Λ} : c' ∈ step M c → cfg.q c ∈ S → cfg.q c' ∈ S := sorry
@@ -722,7 +722,7 @@ theorem stmts_trans {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} {σ : Type u_
 /-- A set `S` of labels supports machine `M` if all the `goto`
   statements in the functions in `S` refer only to other functions
   in `S`. -/
-def supports {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} {σ : Type u_3} [Inhabited Λ] (M : Λ → stmt Γ Λ σ) (S : finset Λ)  :=
+def supports {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} {σ : Type u_3} [Inhabited Λ] (M : Λ → stmt Γ Λ σ) (S : finset Λ) :=
   Inhabited.default ∈ S ∧ ∀ (q : Λ), q ∈ S → supports_stmt S (M q)
 
 theorem stmts_supports_stmt {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} {σ : Type u_3} [Inhabited Λ] {M : Λ → stmt Γ Λ σ} {S : finset Λ} {q : stmt Γ Λ σ} (ss : supports M S) : some q ∈ stmts M S → supports_stmt S q := sorry
@@ -772,7 +772,7 @@ reachable. -/
 
 -- But they are parameters so we cannot easily skip them for just this definition.
 
-def Λ' {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} [Inhabited Λ] {σ : Type u_3} [Inhabited σ] (M : Λ → TM1.stmt Γ Λ σ)  :=
+def Λ' {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} [Inhabited Λ] {σ : Type u_3} [Inhabited σ] (M : Λ → TM1.stmt Γ Λ σ) :=
   Option (TM1.stmt Γ Λ σ) × σ
 
 protected instance Λ'.inhabited {Γ : Type u_1} [Inhabited Γ] {Λ : Type u_2} [Inhabited Λ] {σ : Type u_3} [Inhabited σ] (M : Λ → TM1.stmt Γ Λ σ) : Inhabited (Λ' M) :=
@@ -1058,7 +1058,7 @@ theorem stmts_trans {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2} {Λ : T
 
 /-- Given a TM2 machine `M` and a set `S` of states, `supports M S` means that all states in
 `S` jump only to other states in `S`. -/
-def supports {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2} {Λ : Type u_3} {σ : Type u_4} [Inhabited Λ] (M : Λ → stmt Γ Λ σ) (S : finset Λ)  :=
+def supports {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2} {Λ : Type u_3} {σ : Type u_4} [Inhabited Λ] (M : Λ → stmt Γ Λ σ) (S : finset Λ) :=
   Inhabited.default ∈ S ∧ ∀ (q : Λ), q ∈ S → supports_stmt S (M q)
 
 theorem stmts_supports_stmt {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2} {Λ : Type u_3} {σ : Type u_4} [Inhabited Λ] {M : Λ → stmt Γ Λ σ} {S : finset Λ} {q : stmt Γ Λ σ} (ss : supports M S) : some q ∈ stmts M S → supports_stmt S q := sorry
@@ -1125,7 +1125,7 @@ theorem stk_nth_val {K : Type u_1} {Γ : K → Type u_2} {L : list_blank ((k : K
 plus a vector of stack elements for each stack, or none if the stack does not extend this far. -/
 -- the decidable_eq assumption, and this is a local definition anyway so it's not important.
 
-def Γ' {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2}  :=
+def Γ' {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2} :=
   Bool × ((k : K) → Option (Γ k))
 
 protected instance Γ'.inhabited {K : Type u_1} [DecidableEq K] {Γ : K → Type u_2} : Inhabited Γ' :=

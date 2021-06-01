@@ -43,7 +43,7 @@ adjoined a square root of `d`, in this case `-1`. The definition is reducible, s
 and definitions about `zsqrtd` can easily be used.
 -/
 
-def gaussian_int  :=
+def gaussian_int :=
   ℤ√(-1)
 
 namespace gaussian_int

@@ -34,7 +34,7 @@ Transport a monoidal structure along an equivalence of (plain) categories.
   Eq.refl 𝟙_
 
 /-- A type synonym for `D`, which will carry the transported monoidal structure. -/
-def transported {C : Type u₁} [category C] [monoidal_category C] {D : Type u₂} [category D] (e : C ≌ D)  :=
+def transported {C : Type u₁} [category C] [monoidal_category C] {D : Type u₂} [category D] (e : C ≌ D) :=
   D
 
 protected instance transported.category_theory.monoidal_category {C : Type u₁} [category C] [monoidal_category C] {D : Type u₂} [category D] (e : C ≌ D) : monoidal_category (transported e) :=

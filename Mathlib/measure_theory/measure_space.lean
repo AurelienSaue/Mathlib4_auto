@@ -948,7 +948,7 @@ namespace measure
 
 /-- A measure is called finite at filter `f` if it is finite at some set `s ∈ f`.
 Equivalently, it is eventually finite at `s` in `f.lift' powerset`. -/
-def finite_at_filter {α : Type u_1} [measurable_space α] (μ : measure α) (f : filter α)  :=
+def finite_at_filter {α : Type u_1} [measurable_space α] (μ : measure α) (f : filter α) :=
   ∃ (s : set α), ∃ (H : s ∈ f), coe_fn μ s < ⊤
 
 theorem finite_at_filter_of_finite {α : Type u_1} [measurable_space α] (μ : measure α) [finite_measure μ] (f : filter α) : finite_at_filter μ f :=
@@ -975,7 +975,7 @@ end measure
 
 /-- A measure `μ` is called σ-finite if there is a countable collection of sets
   `{ A i | i ∈ ℕ }` such that `μ (A i) < ⊤` and `⋃ i, A i = s`. -/
-def sigma_finite {α : Type u_1} [measurable_space α] (μ : measure α)  :=
+def sigma_finite {α : Type u_1} [measurable_space α] (μ : measure α) :=
   Nonempty (measure.finite_spanning_sets_in μ (set_of fun (s : set α) => is_measurable s))
 
 /-- If `μ` is σ-finite it has finite spanning sets in the collection of all measurable sets. -/
@@ -1186,11 +1186,11 @@ end measurable_equiv
   A null set is a subset of a measurable set with measure `0`.
   Since every measure is defined as a special case of an outer measure, we can more simply state
   that a set `s` is null if `μ s = 0`. -/
-def measure_theory.measure.is_complete {α : Type u_1} {_x : measurable_space α} (μ : measure_theory.measure α)  :=
+def measure_theory.measure.is_complete {α : Type u_1} {_x : measurable_space α} (μ : measure_theory.measure α) :=
   ∀ (s : set α), coe_fn μ s = 0 → is_measurable s
 
 /-- A set is null measurable if it is the union of a null set and a measurable set. -/
-def is_null_measurable {α : Type u_1} [measurable_space α] (μ : measure_theory.measure α) (s : set α)  :=
+def is_null_measurable {α : Type u_1} [measurable_space α] (μ : measure_theory.measure α) (s : set α) :=
   ∃ (t : set α), ∃ (z : set α), s = t ∪ z ∧ is_measurable t ∧ coe_fn μ z = 0
 
 theorem is_null_measurable_iff {α : Type u_1} [measurable_space α] {μ : measure_theory.measure α} {s : set α} : is_null_measurable μ s ↔ ∃ (t : set α), t ⊆ s ∧ is_measurable t ∧ coe_fn μ (s \ t) = 0 := sorry
@@ -1261,7 +1261,7 @@ function. -/
 def ae_measurable {α : Type u_1} {β : Type u_2} [measurable_space α] [measurable_space β] (f : α → β) (μ : autoParam (measure_theory.measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   ∃ (g : α → β), measurable g ∧ filter.eventually_eq (measure_theory.measure.ae μ) f g
 
 theorem measurable.ae_measurable {α : Type u_1} {β : Type u_2} [measurable_space α] [measurable_space β] {f : α → β} {μ : measure_theory.measure α} (h : measurable f) : ae_measurable f :=

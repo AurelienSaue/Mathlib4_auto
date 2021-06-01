@@ -203,7 +203,7 @@ namespace magma
 
 
 /-- Free semigroup over a magma. -/
-def free_semigroup (α : Type u) [Mul α]  :=
+def free_semigroup (α : Type u) [Mul α] :=
   Quot sorry
 
 namespace free_semigroup
@@ -271,7 +271,7 @@ end magma
 
 /-- Free semigroup over a given alphabet.
 (Note: In this definition, the free semigroup does not contain the empty word.) -/
-def free_semigroup (α : Type u)  :=
+def free_semigroup (α : Type u) :=
   α × List α
 
 namespace free_semigroup

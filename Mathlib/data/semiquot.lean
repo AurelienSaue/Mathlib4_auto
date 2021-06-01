@@ -155,7 +155,7 @@ protected instance semilattice_sup {α : Type u_1} : semilattice_sup (semiquot �
 @[simp] theorem pure_le {α : Type u_1} {a : α} {s : semiquot α} : pure a ≤ s ↔ a ∈ s :=
   set.singleton_subset_iff
 
-def is_pure {α : Type u_1} (q : semiquot α)  :=
+def is_pure {α : Type u_1} (q : semiquot α) :=
   ∀ (a b : α), a ∈ q → b ∈ q → a = b
 
 def get {α : Type u_1} (q : semiquot α) (h : is_pure q) : α :=

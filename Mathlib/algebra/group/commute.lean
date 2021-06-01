@@ -32,7 +32,7 @@ Most of the proofs come from the properties of `semiconj_by`.
 -/
 
 /-- Two elements commute if `a * b = b * a`. -/
-def commute {S : Type u_1} [Mul S] (a : S) (b : S)  :=
+def commute {S : Type u_1} [Mul S] (a : S) (b : S) :=
   semiconj_by a b b
 
 namespace commute

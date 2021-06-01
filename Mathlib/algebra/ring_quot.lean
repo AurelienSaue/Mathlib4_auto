@@ -55,7 +55,7 @@ end ring_quot
 
 
 /-- The quotient of a ring by an arbitrary relation. -/
-def ring_quot {R : Type u₁} [semiring R] (r : R → R → Prop)  :=
+def ring_quot {R : Type u₁} [semiring R] (r : R → R → Prop) :=
   Quot sorry
 
 namespace ring_quot

@@ -125,35 +125,35 @@ derivative, differentiable, Fréchet, calculus
 is designed to be specialized for `L = 𝓝 x` (in `has_fderiv_at`), giving rise to the usual notion
 of Fréchet derivative, and for `L = 𝓝[s] x` (in `has_fderiv_within_at`), giving rise to
 the notion of Fréchet derivative along the set `s`. -/
-def has_fderiv_at_filter {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (x : E) (L : filter E)  :=
+def has_fderiv_at_filter {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (x : E) (L : filter E) :=
   asymptotics.is_o (fun (x' : E) => f x' - f x - coe_fn f' (x' - x)) (fun (x' : E) => x' - x) L
 
 /-- A function `f` has the continuous linear map `f'` as derivative at `x` within a set `s` if
 `f x' = f x + f' (x' - x) + o (x' - x)` when `x'` tends to `x` inside `s`. -/
-def has_fderiv_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (s : set E) (x : E)  :=
+def has_fderiv_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (s : set E) (x : E) :=
   has_fderiv_at_filter f f' x (nhds_within x s)
 
 /-- A function `f` has the continuous linear map `f'` as derivative at `x` if
 `f x' = f x + f' (x' - x) + o (x' - x)` when `x'` tends to `x`. -/
-def has_fderiv_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (x : E)  :=
+def has_fderiv_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (x : E) :=
   has_fderiv_at_filter f f' x (nhds x)
 
 /-- A function `f` has derivative `f'` at `a` in the sense of *strict differentiability*
 if `f x - f y - f' (x - y) = o(x - y)` as `x, y → a`. This form of differentiability is required,
 e.g., by the inverse function theorem. Any `C^1` function on a vector space over `ℝ` is strictly
 differentiable but this definition works, e.g., for vector spaces over `p`-adic numbers. -/
-def has_strict_fderiv_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (x : E)  :=
+def has_strict_fderiv_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (f' : continuous_linear_map 𝕜 E F) (x : E) :=
   asymptotics.is_o (fun (p : E × E) => f (prod.fst p) - f (prod.snd p) - coe_fn f' (prod.fst p - prod.snd p))
     (fun (p : E × E) => prod.fst p - prod.snd p) (nhds (x, x))
 
 /-- A function `f` is differentiable at a point `x` within a set `s` if it admits a derivative
 there (possibly non-unique). -/
-def differentiable_within_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (s : set E) (x : E)  :=
+def differentiable_within_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (s : set E) (x : E) :=
   ∃ (f' : continuous_linear_map 𝕜 E F), has_fderiv_within_at f f' s x
 
 /-- A function `f` is differentiable at a point `x` if it admits a derivative there (possibly
 non-unique). -/
-def differentiable_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (x : E)  :=
+def differentiable_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (x : E) :=
   ∃ (f' : continuous_linear_map 𝕜 E F), has_fderiv_at f f' x
 
 /-- If `f` has a derivative at `x` within `s`, then `fderiv_within 𝕜 f s x` is such a derivative.
@@ -171,11 +171,11 @@ def fderiv (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [nor
     fun (h : ¬∃ (f' : continuous_linear_map 𝕜 E F), has_fderiv_at f f' x) => 0
 
 /-- `differentiable_on 𝕜 f s` means that `f` is differentiable within `s` at any point of `s`. -/
-def differentiable_on (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (s : set E)  :=
+def differentiable_on (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (s : set E) :=
   ∀ (x : E), x ∈ s → differentiable_within_at 𝕜 f s x
 
 /-- `differentiable 𝕜 f` means that `f` is differentiable at any point. -/
-def differentiable (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F)  :=
+def differentiable (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) :=
   ∀ (x : E), differentiable_at 𝕜 f x
 
 theorem fderiv_within_zero_of_not_differentiable_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] {f : E → F} {x : E} {s : set E} (h : ¬differentiable_within_at 𝕜 f s x) : fderiv_within 𝕜 f s x = 0 := sorry

@@ -25,7 +25,7 @@ along with the relevant forgetful functors between them, and to the bundled mono
 -/
 
 /-- The category of groups and group morphisms. -/
-def AddGroup  :=
+def AddGroup :=
   category_theory.bundled add_group
 
 /-- The category of additive groups and group morphisms -/
@@ -73,12 +73,12 @@ end Group
 
 
 /-- The category of commutative groups and group morphisms. -/
-def AddCommGroup  :=
+def AddCommGroup :=
   category_theory.bundled add_comm_group
 
 /-- The category of additive commutative groups and group morphisms. -/
 /-- `Ab` is an abbreviation for `AddCommGroup`, for the sake of mathematicians' sanity. -/
-def Ab  :=
+def Ab :=
   AddCommGroup
 
 namespace CommGroup

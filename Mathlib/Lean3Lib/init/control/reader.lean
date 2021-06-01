@@ -21,7 +21,7 @@ structure reader_t (ρ : Type u) (m : Type u → Type v) (α : Type u)
 where
   run : ρ → m α
 
-def reader (ρ : Type u) (α : Type u)  :=
+def reader (ρ : Type u) (α : Type u) :=
   reader_t ρ id
 
 namespace reader_t

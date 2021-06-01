@@ -49,7 +49,7 @@ def leading_coeff {R : Type u} [semiring R] (p : polynomial R) : R :=
   coeff p (nat_degree p)
 
 /-- a polynomial is `monic` if its leading coefficient is 1 -/
-def monic {R : Type u} [semiring R] (p : polynomial R)  :=
+def monic {R : Type u} [semiring R] (p : polynomial R) :=
   leading_coeff p = 1
 
 theorem monic_of_subsingleton {R : Type u} [semiring R] [subsingleton R] (p : polynomial R) : monic p :=

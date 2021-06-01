@@ -49,7 +49,7 @@ and under this assumption we construct a ring structure on `truncated_witt_vecto
 (`truncated_witt_vector p₁ n R` and `truncated_witt_vector p₂ n R` are definitionally
 equal as types but will have different ring operations.)
 -/
-def truncated_witt_vector (p : ℕ) (n : ℕ) (R : Type u_1)  :=
+def truncated_witt_vector (p : ℕ) (n : ℕ) (R : Type u_1) :=
   fin n → R
 
 protected instance truncated_witt_vector.inhabited (p : ℕ) (n : ℕ) (R : Type u_1) [Inhabited R] : Inhabited (truncated_witt_vector p n R) :=

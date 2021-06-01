@@ -139,7 +139,7 @@ integral, fundamental theorem of calculus
 interval `a..b` if it is integrable on both intervals `(a, b]` and `(b, a]`. One of these
 intervals is always empty, so this property is equivalent to `f` being integrable on
 `(min a b, max a b]`. -/
-def interval_integrable {α : Type u_1} {E : Type u_4} [linear_order α] [measurable_space α] [measurable_space E] [normed_group E] (f : α → E) (μ : measure_theory.measure α) (a : α) (b : α)  :=
+def interval_integrable {α : Type u_1} {E : Type u_4} [linear_order α] [measurable_space α] [measurable_space E] [normed_group E] (f : α → E) (μ : measure_theory.measure α) (a : α) (b : α) :=
   measure_theory.integrable_on f (set.Ioc a b) ∧ measure_theory.integrable_on f (set.Ioc b a)
 
 theorem measure_theory.integrable.interval_integrable {α : Type u_1} {E : Type u_4} [linear_order α] [measurable_space α] [measurable_space E] [normed_group E] {f : α → E} {μ : measure_theory.measure α} (hf : measure_theory.integrable f) {a : α} {b : α} : interval_integrable f μ a b :=

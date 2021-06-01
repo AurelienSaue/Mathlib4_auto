@@ -97,7 +97,7 @@ protected instance inhabited {R : Type u} {M : Type v} [ring R] [add_comm_group 
   { default := 0 }
 
 /-- The proposition that two elements of a sesquilinear form space are orthogonal -/
-def is_ortho {R : Type u} {M : Type v} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} (S : sesq_form R M I) (x : M) (y : M)  :=
+def is_ortho {R : Type u} {M : Type v} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} (S : sesq_form R M I) (x : M) (y : M) :=
   coe_fn S x y = 0
 
 theorem ortho_zero {R : Type u} {M : Type v} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} {S : sesq_form R M I} (x : M) : is_ortho S 0 x :=
@@ -129,7 +129,7 @@ namespace refl_sesq_form
 
 
 /-- The proposition that a sesquilinear form is reflexive -/
-def is_refl {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} (S : sesq_form R M I)  :=
+def is_refl {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} (S : sesq_form R M I) :=
   ∀ (x y : M), coe_fn S x y = 0 → coe_fn S y x = 0
 
 theorem eq_zero {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} {S : sesq_form R M I} (H : is_refl S) {x : M} {y : M} : coe_fn S x y = 0 → coe_fn S y x = 0 :=
@@ -145,7 +145,7 @@ namespace sym_sesq_form
 
 
 /-- The proposition that a sesquilinear form is symmetric -/
-def is_sym {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} (S : sesq_form R M I)  :=
+def is_sym {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} (S : sesq_form R M I) :=
   ∀ (x y : M), opposite.unop (coe_fn I (coe_fn S x y)) = coe_fn S y x
 
 theorem sym {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} {S : sesq_form R M I} (H : is_sym S) (x : M) (y : M) : opposite.unop (coe_fn I (coe_fn S x y)) = coe_fn S y x :=
@@ -163,7 +163,7 @@ namespace alt_sesq_form
 
 
 /-- The proposition that a sesquilinear form is alternating -/
-def is_alt {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} (S : sesq_form R M I)  :=
+def is_alt {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} (S : sesq_form R M I) :=
   ∀ (x : M), coe_fn S x x = 0
 
 theorem self_eq_zero {R : Type u_1} {M : Type u_2} [ring R] [add_comm_group M] [module R M] {I : R ≃+* (Rᵒᵖ)} {S : sesq_form R M I} (H : is_alt S) (x : M) : coe_fn S x x = 0 :=

@@ -49,7 +49,7 @@ def min_fac : pos_num → pos_num :=
 @[simp] theorem min_fac_to_nat (n : pos_num) : ↑(min_fac n) = nat.min_fac ↑n := sorry
 
 /-- Primality predicate for a `pos_num`. -/
-@[simp] def prime (n : pos_num)  :=
+@[simp] def prime (n : pos_num) :=
   nat.prime ↑n
 
 protected instance decidable_prime : decidable_pred prime :=
@@ -70,7 +70,7 @@ def min_fac : num → pos_num :=
     fun (n : pos_num) => idRhs (↑(pos_num.min_fac n) = nat.min_fac ↑n) (pos_num.min_fac_to_nat n)
 
 /-- Primality predicate for a `num`. -/
-@[simp] def prime (n : num)  :=
+@[simp] def prime (n : num) :=
   nat.prime ↑n
 
 protected instance decidable_prime : decidable_pred prime :=

@@ -27,7 +27,7 @@ theorem mem_right_coset {α : Type u_1} [Mul α] {s : set α} {x : α} (a : α) 
   set.mem_image_of_mem (fun (b : α) => b * a) hxS
 
 /-- Equality of two left cosets `a*s` and `b*s` -/
-def left_coset_equiv {α : Type u_1} [Mul α] (s : set α) (a : α) (b : α)  :=
+def left_coset_equiv {α : Type u_1} [Mul α] (s : set α) (a : α) (b : α) :=
   left_coset a s = left_coset b s
 
 theorem left_add_coset_equiv_rel {α : Type u_1} [Add α] (s : set α) : equivalence (left_add_coset_equiv s) :=
@@ -91,7 +91,7 @@ protected instance left_rel_decidable {α : Type u_1} [group α] (s : subgroup �
 
 /-- `quotient s` is the quotient type representing the left cosets of `s`.
   If `s` is a normal subgroup, `quotient s` is a group -/
-def quotient {α : Type u_1} [group α] (s : subgroup α)  :=
+def quotient {α : Type u_1} [group α] (s : subgroup α) :=
   quotient (left_rel s)
 
 end quotient_group
@@ -102,7 +102,7 @@ namespace quotient_add_group
 
 /-- `quotient s` is the quotient type representing the left cosets of `s`.
   If `s` is a normal subgroup, `quotient s` is a group -/
-def quotient {α : Type u_1} [add_group α] (s : add_subgroup α)  :=
+def quotient {α : Type u_1} [add_group α] (s : add_subgroup α) :=
   quotient (left_rel s)
 
 end quotient_add_group

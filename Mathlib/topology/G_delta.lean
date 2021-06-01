@@ -39,7 +39,7 @@ Gδ set, residual set
 -/
 
 /-- A Gδ set is a countable intersection of open sets. -/
-def is_Gδ {α : Type u_1} [topological_space α] (s : set α)  :=
+def is_Gδ {α : Type u_1} [topological_space α] (s : set α) :=
   ∃ (T : set (set α)), (∀ (t : set α), t ∈ T → is_open t) ∧ set.countable T ∧ s = ⋂₀T
 
 /-- An open set is a Gδ set. -/

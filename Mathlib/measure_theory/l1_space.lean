@@ -89,7 +89,7 @@ theorem lintegral_nnnorm_neg {α : Type u_1} {β : Type u_2} [measurable_space �
 def has_finite_integral {α : Type u_1} {β : Type u_2} [measurable_space α] [normed_group β] (f : α → β) (μ : autoParam (measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   (lintegral μ fun (a : α) => ↑(nnnorm (f a))) < ⊤
 
 theorem has_finite_integral_iff_norm {α : Type u_1} {β : Type u_2} [measurable_space α] {μ : measure α} [normed_group β] (f : α → β) : has_finite_integral f ↔ (lintegral μ fun (a : α) => ennreal.of_real (norm (f a))) < ⊤ := sorry
@@ -204,7 +204,7 @@ theorem has_finite_integral.mul_const {α : Type u_1} [measurable_space α] {μ 
 def integrable {α : Type u_1} {β : Type u_2} [measurable_space α] [normed_group β] [measurable_space β] (f : α → β) (μ : autoParam (measure α)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.measure_theory.volume_tac")
     (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "measure_theory") "volume_tac")
-    []))  :=
+    [])) :=
   ae_measurable f ∧ has_finite_integral f
 
 theorem integrable.ae_measurable {α : Type u_1} {β : Type u_2} [measurable_space α] {μ : measure α} [normed_group β] [measurable_space β] {f : α → β} (hf : integrable f) : ae_measurable f :=
@@ -325,7 +325,7 @@ namespace ae_eq_fun
 
 /-- A class of almost everywhere equal functions is `integrable` if it has a finite distance to
   the origin. It means the same thing as the predicate `integrable` over functions. -/
-def integrable {α : Type u_1} {β : Type u_2} [measurable_space α] {μ : measure α} [normed_group β] [measurable_space β] [topological_space.second_countable_topology β] [opens_measurable_space β] (f : ae_eq_fun α β μ)  :=
+def integrable {α : Type u_1} {β : Type u_2} [measurable_space α] {μ : measure α} [normed_group β] [measurable_space β] [topological_space.second_countable_topology β] [opens_measurable_space β] (f : ae_eq_fun α β μ) :=
   f ∈ emetric.ball 0 ⊤
 
 theorem integrable_mk {α : Type u_1} {β : Type u_2} [measurable_space α] {μ : measure α} [normed_group β] [measurable_space β] [topological_space.second_countable_topology β] [opens_measurable_space β] {f : α → β} (hf : ae_measurable f) : integrable (mk f hf) ↔ integrable f := sorry
@@ -355,7 +355,7 @@ end ae_eq_fun
 /-- The space of equivalence classes of integrable (and measurable) functions, where two integrable
     functions are equivalent if they agree almost everywhere, i.e., they differ on a set of measure
     `0`. -/
-def l1 (α : Type u_1) (β : Type u_2) [measurable_space α] [normed_group β] [measurable_space β] [topological_space.second_countable_topology β] [opens_measurable_space β] (μ : measure α)  :=
+def l1 (α : Type u_1) (β : Type u_2) [measurable_space α] [normed_group β] [measurable_space β] [topological_space.second_countable_topology β] [opens_measurable_space β] (μ : measure α) :=
   Subtype fun (f : ae_eq_fun α β μ) => ae_eq_fun.integrable f
 
 namespace l1

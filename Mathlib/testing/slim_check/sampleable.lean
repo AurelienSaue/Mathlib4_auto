@@ -103,12 +103,12 @@ namespace slim_check
 
 
 /-- `sizeof_lt x y` compares the sizes of `x` and `y`. -/
-def sizeof_lt {α : Sort u_1} [SizeOf α] (x : α) (y : α)  :=
+def sizeof_lt {α : Sort u_1} [SizeOf α] (x : α) (y : α) :=
   sizeof x < sizeof y
 
 /-- `shrink_fn α` is the type of functions that shrink an
 argument of type `α` -/
-def shrink_fn (α : Type u_1) [SizeOf α]  :=
+def shrink_fn (α : Type u_1) [SizeOf α] :=
   (x : α) → lazy_list (Subtype fun (y : α) => sizeof_lt y x)
 
 /-- `sampleable α` provides ways of creating examples of type `α`,
@@ -390,7 +390,7 @@ a certain type is not to be shrunk. It can be useful in
 combination with other types: e.g. `xs : list (no_shrink ℤ)`
 will result in the list being cut down but individual
 integers being kept as is. -/
-def no_shrink (α : Type u_1)  :=
+def no_shrink (α : Type u_1) :=
   α
 
 protected instance no_shrink.inhabited {α : Type u_1} [Inhabited α] : Inhabited (no_shrink α) :=
@@ -456,7 +456,7 @@ protected instance sampleable_tree : sampleable_functor tree :=
     (fun (α : Type u_1) (Iα : SizeOf α) (shr_α : shrink_fn α) => tree.shrink_with shr_α) tree.has_repr
 
 /-- Type tag that signals to `slim_check` to use small values for a given type. -/
-def small (α : Type u_1)  :=
+def small (α : Type u_1) :=
   α
 
 /-- Add the `small` type tag -/
@@ -464,7 +464,7 @@ def small.mk {α : Type u_1} (x : α) : small α :=
   x
 
 /-- Type tag that signals to `slim_check` to use large values for a given type. -/
-def large (α : Type u_1)  :=
+def large (α : Type u_1) :=
   α
 
 /-- Add the `large` type tag -/

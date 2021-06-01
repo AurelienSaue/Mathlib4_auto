@@ -148,7 +148,7 @@ theorem is_connected_of_equivalent {J : Type u₁} [category J] {K : Type u₁} 
   is_connected.mk
 
 /-- j₁ and j₂ are related by `zag` if there is a morphism between them. -/
-def zag {J : Type u₁} [category J] (j₁ : J) (j₂ : J)  :=
+def zag {J : Type u₁} [category J] (j₁ : J) (j₂ : J) :=
   Nonempty (j₁ ⟶ j₂) ∨ Nonempty (j₂ ⟶ j₁)
 
 theorem zag_symmetric {J : Type u₁} [category J] : symmetric zag :=

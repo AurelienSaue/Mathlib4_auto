@@ -61,7 +61,7 @@ https://ncatlab.org/nlab/show/too+simple+to+be+simple#relationship_to_biased_def
 
 /-- A set `s` is compact if for every filter `f` that contains `s`,
     every set of `f` also meets every neighborhood of some `a ∈ s`. -/
-def is_compact {α : Type u} [topological_space α] (s : set α)  :=
+def is_compact {α : Type u} [topological_space α] (s : set α) :=
   ∀ {f : filter α} [_inst_2 : filter.ne_bot f], f ≤ filter.principal s → ∃ (a : α), ∃ (H : a ∈ s), cluster_pt a f
 
 /-- The complement to a compact set belongs to a filter `f` if it belongs to each filter
@@ -196,7 +196,7 @@ theorem is_compact.compl_mem_cocompact {α : Type u} [topological_space α] {s :
 
 /-- `nhds_contain_boxes s t` means that any open neighborhood of `s × t` in `α × β` includes
 a product of an open neighborhood of `s` by an open neighborhood of `t`. -/
-def nhds_contain_boxes {α : Type u} {β : Type v} [topological_space α] [topological_space β] (s : set α) (t : set β)  :=
+def nhds_contain_boxes {α : Type u} {β : Type v} [topological_space α] [topological_space β] (s : set α) (t : set β) :=
   ∀ (n : set (α × β)),
     is_open n → set.prod s t ⊆ n → ∃ (u : set α), ∃ (v : set β), is_open u ∧ is_open v ∧ s ⊆ u ∧ t ⊆ v ∧ set.prod u v ⊆ n
 
@@ -338,7 +338,7 @@ theorem Union_compact_covering (α : Type u) [topological_space α] [sigma_compa
   and.right (classical.some_spec sigma_compact_space.exists_compact_covering)
 
 /-- A set is clopen if it is both open and closed. -/
-def is_clopen {α : Type u} [topological_space α] (s : set α)  :=
+def is_clopen {α : Type u} [topological_space α] (s : set α) :=
   is_open s ∧ is_closed s
 
 theorem is_clopen_union {α : Type u} [topological_space α] {s : set α} {t : set α} (hs : is_clopen s) (ht : is_clopen t) : is_clopen (s ∪ t) :=
@@ -376,12 +376,12 @@ theorem continuous_on.preimage_clopen_of_clopen {α : Type u} [topological_space
 theorem is_clopen_inter_of_disjoint_cover_clopen {α : Type u} [topological_space α] {Z : set α} {a : set α} {b : set α} (h : is_clopen Z) (cover : Z ⊆ a ∪ b) (ha : is_open a) (hb : is_open b) (hab : a ∩ b = ∅) : is_clopen (Z ∩ a) := sorry
 
 /-- A preirreducible set `s` is one where there is no non-trivial pair of disjoint opens on `s`. -/
-def is_preirreducible {α : Type u} [topological_space α] (s : set α)  :=
+def is_preirreducible {α : Type u} [topological_space α] (s : set α) :=
   ∀ (u v : set α), is_open u → is_open v → set.nonempty (s ∩ u) → set.nonempty (s ∩ v) → set.nonempty (s ∩ (u ∩ v))
 
 /-- An irreducible set `s` is one that is nonempty and
 where there is no non-trivial pair of disjoint opens on `s`. -/
-def is_irreducible {α : Type u} [topological_space α] (s : set α)  :=
+def is_irreducible {α : Type u} [topological_space α] (s : set α) :=
   set.nonempty s ∧ is_preirreducible s
 
 theorem is_irreducible.nonempty {α : Type u} [topological_space α] {s : set α} (h : is_irreducible s) : set.nonempty s :=
@@ -469,12 +469,12 @@ theorem is_irreducible_iff_sUnion_closed {α : Type u} [topological_space α] {s
   ∀ (Z : finset (set α)), (∀ (z : set α), z ∈ Z → is_closed z) → ∀ (H : s ⊆ ⋃₀↑Z), ∃ (z : set α), ∃ (H : z ∈ Z), s ⊆ z := sorry
 
 /-- A preconnected set is one where there is no non-trivial open partition. -/
-def is_preconnected {α : Type u} [topological_space α] (s : set α)  :=
+def is_preconnected {α : Type u} [topological_space α] (s : set α) :=
   ∀ (u v : set α),
     is_open u → is_open v → s ⊆ u ∪ v → set.nonempty (s ∩ u) → set.nonempty (s ∩ v) → set.nonempty (s ∩ (u ∩ v))
 
 /-- A connected set is one that is nonempty and where there is no non-trivial open partition. -/
-def is_connected {α : Type u} [topological_space α] (s : set α)  :=
+def is_connected {α : Type u} [topological_space α] (s : set α) :=
   set.nonempty s ∧ is_preconnected s
 
 theorem is_connected.nonempty {α : Type u} [topological_space α] {s : set α} (h : is_connected s) : set.nonempty s :=
@@ -617,7 +617,7 @@ neighbourhoods. -/
 theorem connected_component_subset_Inter_clopen {α : Type u} [topological_space α] {x : α} : connected_component x ⊆ set.Inter fun (Z : Subtype fun (Z : set α) => is_clopen Z ∧ x ∈ Z) => ↑Z := sorry
 
 /-- A set is called totally disconnected if all of its connected components are singletons. -/
-def is_totally_disconnected {α : Type u} [topological_space α] (s : set α)  :=
+def is_totally_disconnected {α : Type u} [topological_space α] (s : set α) :=
   ∀ (t : set α), t ⊆ s → is_preconnected t → subsingleton ↥t
 
 theorem is_totally_disconnected_empty {α : Type u} [topological_space α] : is_totally_disconnected ∅ := sorry
@@ -640,7 +640,7 @@ protected instance subtype.totally_disconnected_space {α : Type u_1} {p : α �
 
 /-- A set `s` is called totally separated if any two points of this set can be separated
 by two disjoint open sets covering `s`. -/
-def is_totally_separated {α : Type u} [topological_space α] (s : set α)  :=
+def is_totally_separated {α : Type u} [topological_space α] (s : set α) :=
   ∀ (x : α),
     x ∈ s →
       ∀ (y : α),

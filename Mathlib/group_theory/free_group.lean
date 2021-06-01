@@ -141,7 +141,7 @@ end free_group
 
 /-- The free group over a type, i.e. the words formed by the elements of the type and their formal
 inverses, quotient by one step reduction. -/
-def free_group (α : Type u)  :=
+def free_group (α : Type u) :=
   Quot sorry
 
 namespace free_group

@@ -119,7 +119,7 @@ def pair_comp {C : Type u} [category C] {D : Type u} [category D] (X : C) (Y : C
   diagram_iso_pair (pair X Y ⋙ F)
 
 /-- A binary fan is just a cone on a diagram indexing a product. -/
-def binary_fan {C : Type u} [category C] (X : C) (Y : C)  :=
+def binary_fan {C : Type u} [category C] (X : C) (Y : C) :=
   cone (pair X Y)
 
 /-- The first projection of a binary fan. -/
@@ -142,7 +142,7 @@ theorem binary_fan.is_limit.hom_ext {C : Type u} [category C] {W : C} {X : C} {Y
   is_limit.hom_ext h fun (j : discrete walking_pair) => walking_pair.cases_on j h₁ h₂
 
 /-- A binary cofan is just a cocone on a diagram indexing a coproduct. -/
-def binary_cofan {C : Type u} [category C] (X : C) (Y : C)  :=
+def binary_cofan {C : Type u} [category C] (X : C) (Y : C) :=
   cocone (pair X Y)
 
 /-- The first inclusion of a binary cofan. -/
@@ -198,10 +198,10 @@ def binary_cofan.mk {C : Type u} [category C] {X : C} {Y : C} {P : C} (ι₁ : X
 
 /-- An abbreviation for `has_limit (pair X Y)`. -/
 /-- An abbreviation for `has_colimit (pair X Y)`. -/
-def has_binary_product {C : Type u} [category C] (X : C) (Y : C)  :=
+def has_binary_product {C : Type u} [category C] (X : C) (Y : C) :=
   has_limit (pair X Y)
 
-def has_binary_coproduct {C : Type u} [category C] (X : C) (Y : C)  :=
+def has_binary_coproduct {C : Type u} [category C] (X : C) (Y : C) :=
   has_colimit (pair X Y)
 
 /-- If we have a product of `X` and `Y`, we can access it using `prod X Y` or
@@ -426,7 +426,7 @@ theorem coprod.map_inl_inr_codiag_assoc {C : Type u} [category C] {X : C} {Y : C
 
 See https://stacks.math.columbia.edu/tag/001T.
 -/
-def has_binary_products (C : Type u) [category C]  :=
+def has_binary_products (C : Type u) [category C] :=
   has_limits_of_shape (discrete walking_pair) C
 
 /--
@@ -434,7 +434,7 @@ def has_binary_products (C : Type u) [category C]  :=
 
 See https://stacks.math.columbia.edu/tag/04AP.
 -/
-def has_binary_coproducts (C : Type u) [category C]  :=
+def has_binary_coproducts (C : Type u) [category C] :=
   has_colimits_of_shape (discrete walking_pair) C
 
 /-- If `C` has all limits of diagrams `pair X Y`, then it has all binary products -/

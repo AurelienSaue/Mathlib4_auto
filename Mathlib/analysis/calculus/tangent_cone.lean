@@ -53,14 +53,14 @@ hence this name. The uniqueness it asserts is proved in `unique_diff_within_at.e
 To avoid pathologies in dimension 0, we also require that `x` belongs to the closure of `s` (which
 is automatic when `E` is not `0`-dimensional).
  -/
-def unique_diff_within_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] (s : set E) (x : E)  :=
+def unique_diff_within_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] (s : set E) (x : E) :=
   dense ↑(submodule.span 𝕜 (tangent_cone_at 𝕜 s x)) ∧ x ∈ closure s
 
 /-- A property ensuring that the tangent cone to `s` at any of its points spans a dense subset of
 the whole space.  The main role of this property is to ensure that the differential along `s` is
 unique, hence this name. The uniqueness it asserts is proved in `unique_diff_on.eq` in
 `fderiv.lean`. -/
-def unique_diff_on (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] (s : set E)  :=
+def unique_diff_on (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] (s : set E) :=
   ∀ (x : E), x ∈ s → unique_diff_within_at 𝕜 s x
 
 /- This section is devoted to the properties of the tangent cone. -/

@@ -21,7 +21,7 @@ over the languages.
 -/
 
 /-- A language is a set of strings over an alphabet. -/
-def language (α : Type u_1)  :=
+def language (α : Type u_1) :=
   set (List α)
 
 namespace language

@@ -238,7 +238,7 @@ a fixed choice of limit data for the empty functor, and for `pair X Y` for every
 
 This is an implementation detail for `symmetric_of_chosen_finite_products`.
 -/
-def monoidal_of_chosen_finite_products_synonym {C : Type u} [category C] (𝒯 : limits.limit_cone (functor.empty C)) (ℬ : (X Y : C) → limits.limit_cone (limits.pair X Y))  :=
+def monoidal_of_chosen_finite_products_synonym {C : Type u} [category C] (𝒯 : limits.limit_cone (functor.empty C)) (ℬ : (X Y : C) → limits.limit_cone (limits.pair X Y)) :=
   C
 
 protected instance monoidal_of_chosen_finite_products_synonym.category_theory.monoidal_category {C : Type u} [category C] (𝒯 : limits.limit_cone (functor.empty C)) (ℬ : (X Y : C) → limits.limit_cone (limits.pair X Y)) : monoidal_category (monoidal_of_chosen_finite_products_synonym 𝒯 ℬ) :=

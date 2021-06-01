@@ -341,7 +341,7 @@ theorem lt_of_lt_of_le {x : pgame} {y : pgame} {z : pgame} (hxy : x < y) (hyz : 
 
 /-- Define the equivalence relation on pre-games. Two pre-games
   `x`, `y` are equivalent if `x ≤ y` and `y ≤ x`. -/
-def equiv (x : pgame) (y : pgame)  :=
+def equiv (x : pgame) (y : pgame) :=
   x ≤ y ∧ y ≤ x
 
 theorem equiv_refl (x : pgame) : equiv x x :=

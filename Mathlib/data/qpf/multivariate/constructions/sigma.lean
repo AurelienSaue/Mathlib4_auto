@@ -22,12 +22,12 @@ namespace mvqpf
 
 /-- Dependent sum of of an `n`-ary functor. The sum can range over
 data types like `ℕ` or over `Type.{u-1}` -/
-def sigma {n : ℕ} {A : Type u} (F : A → typevec n → Type u) (v : typevec n)  :=
+def sigma {n : ℕ} {A : Type u} (F : A → typevec n → Type u) (v : typevec n) :=
   sigma fun (α : A) => F α v
 
 /-- Dependent product of of an `n`-ary functor. The sum can range over
 data types like `ℕ` or over `Type.{u-1}` -/
-def pi {n : ℕ} {A : Type u} (F : A → typevec n → Type u) (v : typevec n)  :=
+def pi {n : ℕ} {A : Type u} (F : A → typevec n → Type u) (v : typevec n) :=
   (α : A) → F α v
 
 protected instance sigma.inhabited {n : ℕ} {A : Type u} (F : A → typevec n → Type u) {α : typevec n} [Inhabited A] [Inhabited (F Inhabited.default α)] : Inhabited (sigma F α) :=

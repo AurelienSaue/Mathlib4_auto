@@ -32,7 +32,7 @@ multilinear, formal series
 
 /-- A formal multilinear series over a field `𝕜`, from `E` to `F`, is given by a family of
 multilinear maps from `E^n` to `F` for all `n`. -/
-def formal_multilinear_series (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] (E : Type u_2) [normed_group E] [normed_space 𝕜 E] (F : Type u_3) [normed_group F] [normed_space 𝕜 F]  :=
+def formal_multilinear_series (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] (E : Type u_2) [normed_group E] [normed_space 𝕜 E] (F : Type u_3) [normed_group F] [normed_space 𝕜 F] :=
   (n : ℕ) → continuous_multilinear_map 𝕜 (fun (i : fin n) => E) F
 
 protected instance formal_multilinear_series.inhabited {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] : Inhabited (formal_multilinear_series 𝕜 E F) :=

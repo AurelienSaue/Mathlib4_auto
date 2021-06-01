@@ -40,7 +40,7 @@ to it, we need support functions and lemmas to mediate between constructions.
 /--
 n-tuples of types, as a category
 -/
-def typevec (n : ℕ)  :=
+def typevec (n : ℕ) :=
   fin2 n → Type u_1
 
 protected instance typevec.inhabited {n : ℕ} : Inhabited (typevec n) :=
@@ -50,7 +50,7 @@ namespace typevec
 
 
 /-- arrow in the category of `typevec` -/
-def arrow {n : ℕ} (α : typevec n) (β : typevec n)  :=
+def arrow {n : ℕ} (α : typevec n) (β : typevec n) :=
   (i : fin2 n) → α i → β i
 
 protected instance arrow.inhabited {n : ℕ} (α : typevec n) (β : typevec n) [(i : fin2 n) → Inhabited (β i)] : Inhabited (arrow α β) :=
@@ -86,7 +86,7 @@ def drop {n : ℕ} (α : typevec (n + 1)) : typevec n :=
   fun (i : fin2 n) => α (fin2.fs i)
 
 /-- take the last value of a `(n+1)-length` vector -/
-def last {n : ℕ} (α : typevec (n + 1))  :=
+def last {n : ℕ} (α : typevec (n + 1)) :=
   α fin2.fz
 
 protected instance last.inhabited {n : ℕ} (α : typevec (n + 1)) [Inhabited (α fin2.fz)] : Inhabited (last α) :=
@@ -296,7 +296,7 @@ def rel_last' {n : ℕ} (α : typevec n) {β : Type u_1} (p : β → β → Prop
 
 /-- given `F : typevec.{u} (n+1) → Type u`, `curry F : Type u → typevec.{u} → Type u`,
 i.e. its first argument can be fed in separately from the rest of the vector of arguments -/
-def curry {n : ℕ} (F : typevec (n + 1) → Type u_1) (α : Type u) (β : typevec n)  :=
+def curry {n : ℕ} (F : typevec (n + 1) → Type u_1) (α : Type u) (β : typevec n) :=
   F (β ::: α)
 
 protected instance curry.inhabited {n : ℕ} (F : typevec (n + 1) → Type u_1) (α : Type u) (β : typevec n) [I : Inhabited (F (β ::: α))] : Inhabited (curry F α β) :=

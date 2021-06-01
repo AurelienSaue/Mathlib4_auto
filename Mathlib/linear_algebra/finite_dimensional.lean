@@ -75,7 +75,7 @@ equivalence is proved in `submodule.fg_iff_finite_dimensional`.
 /-- `finite_dimensional` vector spaces are defined to be noetherian modules.
 Use `finite_dimensional.iff_fg` or `finite_dimensional.of_fintype_basis` to prove finite dimension
 from a conventional definition. -/
-def finite_dimensional (K : Type u_1) (V : Type u_2) [field K] [add_comm_group V] [vector_space K V]  :=
+def finite_dimensional (K : Type u_1) (V : Type u_2) [field K] [add_comm_group V] [vector_space K V] :=
   is_noetherian K V
 
 namespace finite_dimensional

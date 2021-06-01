@@ -177,7 +177,7 @@ end is_unit
 
 
 /-- `dvd_not_unit a b` expresses that `a` divides `b` "strictly", i.e. that `b` divided by `a` is not a unit. -/
-def dvd_not_unit {α : Type u_1} [comm_monoid_with_zero α] (a : α) (b : α)  :=
+def dvd_not_unit {α : Type u_1} [comm_monoid_with_zero α] (a : α) (b : α) :=
   a ≠ 0 ∧ ∃ (x : α), ¬is_unit x ∧ b = a * x
 
 theorem dvd_not_unit_of_dvd_of_not_dvd {α : Type u_1} [comm_monoid_with_zero α] {a : α} {b : α} (hd : a ∣ b) (hnd : ¬b ∣ a) : dvd_not_unit a b := sorry

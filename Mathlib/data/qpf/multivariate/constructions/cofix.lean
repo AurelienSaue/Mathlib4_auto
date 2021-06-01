@@ -56,14 +56,14 @@ def corecF {n : ℕ} {F : typevec (n + 1) → Type u} [mvfunctor F] [q : mvqpf F
 theorem corecF_eq {n : ℕ} {F : typevec (n + 1) → Type u} [mvfunctor F] [q : mvqpf F] {α : typevec n} {β : Type u} (g : β → F (α ::: β)) (x : β) : mvpfunctor.M.dest (P F) (corecF g x) = mvfunctor.map (typevec.id ::: corecF g) (repr (g x)) := sorry
 
 /-- Characterization of desirable equivalence relations on M-types -/
-def is_precongr {n : ℕ} {F : typevec (n + 1) → Type u} [mvfunctor F] [q : mvqpf F] {α : typevec n} (r : mvpfunctor.M (P F) α → mvpfunctor.M (P F) α → Prop)  :=
+def is_precongr {n : ℕ} {F : typevec (n + 1) → Type u} [mvfunctor F] [q : mvqpf F] {α : typevec n} (r : mvpfunctor.M (P F) α → mvpfunctor.M (P F) α → Prop) :=
   ∀ {x y : mvpfunctor.M (P F) α},
     r x y →
       abs (mvfunctor.map (typevec.id ::: Quot.mk r) (mvpfunctor.M.dest (P F) x)) =
         abs (mvfunctor.map (typevec.id ::: Quot.mk r) (mvpfunctor.M.dest (P F) y))
 
 /-- Equivalence relation on M-types representing a value of type `cofix F` -/
-def Mcongr {n : ℕ} {F : typevec (n + 1) → Type u} [mvfunctor F] [q : mvqpf F] {α : typevec n} (x : mvpfunctor.M (P F) α) (y : mvpfunctor.M (P F) α)  :=
+def Mcongr {n : ℕ} {F : typevec (n + 1) → Type u} [mvfunctor F] [q : mvqpf F] {α : typevec n} (x : mvpfunctor.M (P F) α) (y : mvpfunctor.M (P F) α) :=
   ∃ (r : mvpfunctor.M (P F) α → mvpfunctor.M (P F) α → Prop), is_precongr r ∧ r x y
 
 /-- Greatest fixed point of functor F. The result is a functor with one fewer parameters
@@ -73,7 +73,7 @@ than the input. For `F a b c` a ternary functor, fix F is a binary functor such 
 cofix F a b = F a b (cofix F a b)
 ```
 -/
-def cofix {n : ℕ} (F : typevec (n + 1) → Type u) [mvfunctor F] [q : mvqpf F] (α : typevec n)  :=
+def cofix {n : ℕ} (F : typevec (n + 1) → Type u) [mvfunctor F] [q : mvqpf F] (α : typevec n) :=
   Quot Mcongr
 
 protected instance cofix.inhabited {n : ℕ} {F : typevec (n + 1) → Type u} [mvfunctor F] [q : mvqpf F] {α : typevec n} [Inhabited (mvpfunctor.A (P F))] [(i : fin2 n) → Inhabited (α i)] : Inhabited (cofix F α) :=

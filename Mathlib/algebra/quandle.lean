@@ -194,7 +194,7 @@ def self_apply_equiv (R : Type u_1) [rack R] : R ≃ R :=
 /--
 An involutory rack is one for which `rack.op R x` is an involution for every x.
 -/
-def is_involutory (R : Type u_1) [rack R]  :=
+def is_involutory (R : Type u_1) [rack R] :=
   ∀ (x : R), function.involutive (shelf.act x)
 
 theorem involutory_inv_act_eq_act {R : Type u_1} [rack R] (h : is_involutory R) (x : R) (y : R) : inv_act x y = shelf.act x y :=
@@ -205,7 +205,7 @@ theorem involutory_inv_act_eq_act {R : Type u_1} [rack R] (h : is_involutory R) 
 /--
 An abelian rack is one for which the mediality axiom holds.
 -/
-def is_abelian (R : Type u_1) [rack R]  :=
+def is_abelian (R : Type u_1) [rack R] :=
   ∀ (x y z w : R), shelf.act (shelf.act x y) (shelf.act z w) = shelf.act (shelf.act x z) (shelf.act y w)
 
 /--
@@ -265,7 +265,7 @@ protected instance opposite_quandle {Q : Type u_1} [quandle Q] : quandle (Qᵒ�
 The conjugation quandle of a group.  Each element of the group acts by
 the corresponding inner automorphism.
 -/
-def conj (G : Type u_1)  :=
+def conj (G : Type u_1) :=
   G
 
 protected instance conj.quandle (G : Type u_1) [group G] : quandle (conj G) :=
@@ -290,7 +290,7 @@ The dihedral quandle. This is the conjugation quandle of the dihedral group rest
 
 Used for Fox n-colorings of knots.
 -/
-def dihedral (n : ℕ)  :=
+def dihedral (n : ℕ) :=
   zmod n
 
 /--
@@ -446,7 +446,7 @@ protected instance pre_envel_group.setoid (R : Type u_1) [rack R] : setoid (pre_
 /--
 The universal enveloping group for the rack R.
 -/
-def envel_group (R : Type u_1) [rack R]  :=
+def envel_group (R : Type u_1) [rack R] :=
   quotient (pre_envel_group.setoid R)
 
 -- Define the `group` instances in two steps so `inv` can be inferred correctly.

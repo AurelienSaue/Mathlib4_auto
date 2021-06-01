@@ -20,7 +20,7 @@ See also `mul_aut.conj` and `quandle.conj`.
 -/
 
 /-- We say that `a` is conjugate to `b` if for some `c` we have `c * a * c⁻¹ = b`. -/
-def is_conj {α : Type u} [group α] (a : α) (b : α)  :=
+def is_conj {α : Type u} [group α] (a : α) (b : α) :=
   ∃ (c : α), c * a * (c⁻¹) = b
 
 theorem is_conj_refl {α : Type u} [group α] (a : α) : is_conj a a := sorry

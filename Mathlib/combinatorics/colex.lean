@@ -58,7 +58,7 @@ Show the subset ordering is a sub-relation of the colex ordering.
 We define this type synonym to refer to the colexicographic ordering on finsets
 rather than the natural subset ordering.
 -/
-def finset.colex (α : Type u_1)  :=
+def finset.colex (α : Type u_1) :=
   finset α
 
 /--

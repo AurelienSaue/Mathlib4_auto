@@ -91,7 +91,7 @@ theorem mk_classes_classes {α : Type u_1} (r : setoid α) : mk_classes (classes
 
 /-- A collection `c : set (set α)` of sets is a partition of `α` into pairwise
 disjoint sets if `∅ ∉ c` and each element `a : α` belongs to a unique set `b ∈ c`. -/
-def is_partition {α : Type u_1} (c : set (set α))  :=
+def is_partition {α : Type u_1} (c : set (set α)) :=
   ¬∅ ∈ c ∧ ∀ (a : α), exists_unique fun (b : set α) => exists_unique fun (H : b ∈ c) => a ∈ b
 
 /-- A partition of `α` does not contain the empty set. -/

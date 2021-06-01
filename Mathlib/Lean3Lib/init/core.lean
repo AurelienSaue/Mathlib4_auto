@@ -44,11 +44,11 @@ def id_delta {α : Sort u} (a : α) : α :=
   a
 
 /-- Gadget for optional parameter support. -/
-def opt_param (α : Sort u) (default : α)  :=
+def opt_param (α : Sort u) (default : α) :=
   α
 
 /-- Gadget for marking output parameters in type classes. -/
-def out_param (α : Sort u)  :=
+def out_param (α : Sort u) :=
   α
 
 /-
@@ -62,7 +62,7 @@ def id_rhs (α : Sort u) (a : α) : α :=
 /-- An abbreviation for `punit.{0}`, its most common instantiation.
     This type should be preferred over `punit` where possible to avoid
     unnecessary universe parameters. -/
-def unit  :=
+def unit :=
   PUnit
 
 def unit.star : Unit :=
@@ -77,7 +77,7 @@ an application
  is converted into
      f "hello" (λ _, 10)
 -/
-def thunk (α : Type u)  :=
+def thunk (α : Type u) :=
   Unit → α
 
 inductive empty 
@@ -94,7 +94,7 @@ A hypothesis `h : ¬ P` can be used in term mode as a function, so if `w : P` th
 
 Related mathlib tactic: `contrapose`.
 -/
-def not (a : Prop)  :=
+def not (a : Prop) :=
   a → False
 
 prefix:40 "¬" => Mathlib.not
@@ -237,13 +237,13 @@ where
 
 /- Remark: subtype must take a Sort instead of Type because of the axiom strong_indefinite_description. -/
 
-def decidable_pred {α : Sort u} (r : α → Prop)  :=
+def decidable_pred {α : Sort u} (r : α → Prop) :=
   (a : α) → Decidable (r a)
 
-def decidable_rel {α : Sort u} (r : α → α → Prop)  :=
+def decidable_rel {α : Sort u} (r : α → α → Prop) :=
   (a b : α) → Decidable (r a b)
 
-def decidable_eq (α : Sort u)  :=
+def decidable_eq (α : Sort u) :=
   DecidableRel Eq
 
 infixr:67 " :: " => Mathlib.list.cons
@@ -375,10 +375,10 @@ infixl:50 " ≈ " => Mathlib.has_equiv.equiv
 
 infixr:80 " ^ " => Mathlib.has_pow.pow
 
-def ge {α : Type u} [HasLessEq α] (a : α) (b : α)  :=
+def ge {α : Type u} [HasLessEq α] (a : α) (b : α) :=
   b ≤ a
 
-def gt {α : Type u} [HasLess α] (a : α) (b : α)  :=
+def gt {α : Type u} [HasLess α] (a : α) (b : α) :=
   b < a
 
 infixl:50 " >= " => Mathlib.ge
@@ -387,10 +387,10 @@ infixl:50 " ≥ " => Mathlib.ge
 
 infixl:50 " > " => Mathlib.gt
 
-def superset {α : Type u} [has_subset α] (a : α) (b : α)  :=
+def superset {α : Type u} [has_subset α] (a : α) (b : α) :=
   b ⊆ a
 
-def ssuperset {α : Type u} [has_ssubset α] (a : α) (b : α)  :=
+def ssuperset {α : Type u} [has_ssubset α] (a : α) (b : α) :=
   b ⊂ a
 
 infixl:50 " ⊇ " => Mathlib.superset

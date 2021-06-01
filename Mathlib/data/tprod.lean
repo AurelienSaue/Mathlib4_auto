@@ -44,7 +44,7 @@ namespace list
 
 
 /-- The product of a family of types over a list. -/
-def tprod {ι : Type u_1} (α : ι → Type u_2) (l : List ι)  :=
+def tprod {ι : Type u_1} (α : ι → Type u_2) (l : List ι) :=
   foldr (fun (i : ι) (β : Type (max u_2 u_3)) => α i × β) PUnit l
 
 namespace tprod

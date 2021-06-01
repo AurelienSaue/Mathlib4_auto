@@ -15,16 +15,16 @@ namespace Mathlib
 namespace int
 
 
-def nonneg (a : ℤ)  :=
+def nonneg (a : ℤ) :=
   int.cases_on a (fun (n : ℕ) => True) fun (n : ℕ) => False
 
-protected def le (a : ℤ) (b : ℤ)  :=
+protected def le (a : ℤ) (b : ℤ) :=
   nonneg (b - a)
 
 protected instance has_le : HasLessEq ℤ :=
   { LessEq := int.le }
 
-protected def lt (a : ℤ) (b : ℤ)  :=
+protected def lt (a : ℤ) (b : ℤ) :=
   a + 1 ≤ b
 
 protected instance has_lt : HasLess ℤ :=

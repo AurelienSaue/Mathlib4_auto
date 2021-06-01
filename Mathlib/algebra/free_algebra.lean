@@ -158,7 +158,7 @@ end free_algebra
 /--
 The free algebra for the type `X` over the commutative semiring `R`.
 -/
-def free_algebra (R : Type u_1) [comm_semiring R] (X : Type u_2)  :=
+def free_algebra (R : Type u_1) [comm_semiring R] (X : Type u_2) :=
   Quot sorry
 
 namespace free_algebra

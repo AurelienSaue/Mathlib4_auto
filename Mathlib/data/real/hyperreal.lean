@@ -16,7 +16,7 @@ namespace Mathlib
 -/
 
 /-- Hyperreal numbers on the ultrafilter extending the cofinite filter -/
-def hyperreal  :=
+def hyperreal :=
   filter.germ ↑(filter.hyperfilter ℕ) ℝ
 
 notation:1024 "ℝ*" => Mathlib.hyperreal
@@ -126,7 +126,7 @@ theorem epsilon_lt_pos (x : ℝ) : 0 < x → epsilon < ↑x :=
   lt_of_tendsto_zero_of_pos tendsto_inverse_at_top_nhds_0_nat
 
 /-- Standard part predicate -/
-def is_st (x : ℝ*) (r : ℝ)  :=
+def is_st (x : ℝ*) (r : ℝ) :=
   ∀ (δ : ℝ), 0 < δ → ↑r - ↑δ < x ∧ x < ↑r + ↑δ
 
 /-- Standard part function: like a "round" to ℝ instead of ℤ -/
@@ -135,19 +135,19 @@ def st : ℝ* → ℝ :=
     dite (∃ (r : ℝ), is_st x r) (fun (h : ∃ (r : ℝ), is_st x r) => classical.some h) fun (h : ¬∃ (r : ℝ), is_st x r) => 0
 
 /-- A hyperreal number is infinitesimal if its standard part is 0 -/
-def infinitesimal (x : ℝ*)  :=
+def infinitesimal (x : ℝ*) :=
   is_st x 0
 
 /-- A hyperreal number is positive infinite if it is larger than all real numbers -/
-def infinite_pos (x : ℝ*)  :=
+def infinite_pos (x : ℝ*) :=
   ∀ (r : ℝ), ↑r < x
 
 /-- A hyperreal number is negative infinite if it is smaller than all real numbers -/
-def infinite_neg (x : ℝ*)  :=
+def infinite_neg (x : ℝ*) :=
   ∀ (r : ℝ), x < ↑r
 
 /-- A hyperreal number is infinite if it is infinite positive or infinite negative -/
-def infinite (x : ℝ*)  :=
+def infinite (x : ℝ*) :=
   infinite_pos x ∨ infinite_neg x
 
 /-!

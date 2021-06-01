@@ -39,14 +39,14 @@ group.
 
 /-- A set `s ⊆ α` is invariant under `ϕ : τ → α → α` if
     `ϕ t s ⊆ s` for all `t` in `τ`. -/
-def is_invariant {τ : Type u_1} {α : Type u_2} (ϕ : τ → α → α) (s : set α)  :=
+def is_invariant {τ : Type u_1} {α : Type u_2} (ϕ : τ → α → α) (s : set α) :=
   ∀ (t : τ), set.maps_to (ϕ t) s s
 
 theorem is_invariant_iff_image {τ : Type u_1} {α : Type u_2} (ϕ : τ → α → α) (s : set α) : is_invariant ϕ s ↔ ∀ (t : τ), ϕ t '' s ⊆ s := sorry
 
 /-- A set `s ⊆ α` is forward-invariant under `ϕ : τ → α → α` if
     `ϕ t s ⊆ s` for all `t ≥ 0`. -/
-def is_fw_invariant {τ : Type u_1} {α : Type u_2} [preorder τ] [HasZero τ] (ϕ : τ → α → α) (s : set α)  :=
+def is_fw_invariant {τ : Type u_1} {α : Type u_2} [preorder τ] [HasZero τ] (ϕ : τ → α → α) (s : set α) :=
   ∀ {t : τ}, 0 ≤ t → set.maps_to (ϕ t) s s
 
 theorem is_invariant.is_fw_invariant {τ : Type u_1} {α : Type u_2} [preorder τ] [HasZero τ] {ϕ : τ → α → α} {s : set α} (h : is_invariant ϕ s) : is_fw_invariant ϕ s :=

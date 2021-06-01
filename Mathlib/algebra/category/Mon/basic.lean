@@ -26,7 +26,7 @@ along with the relevant forgetful functors between them.
 -/
 
 /-- The category of monoids and monoid morphisms. -/
-def Mon  :=
+def Mon :=
   category_theory.bundled monoid
 
 /-- The category of additive monoids and monoid morphisms. -/
@@ -61,7 +61,7 @@ end Mon
 
 
 /-- The category of commutative monoids and monoid morphisms. -/
-def CommMon  :=
+def CommMon :=
   category_theory.bundled comm_monoid
 
 /-- The category of additive commutative monoids and monoid morphisms. -/

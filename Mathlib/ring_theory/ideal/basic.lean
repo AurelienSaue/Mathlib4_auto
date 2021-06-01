@@ -34,7 +34,7 @@ See `algebra.ring_quot` for quotients of non-commutative rings.
 
 /-- An ideal in a commutative semiring `R` is an additive submonoid `s` such that
 `a * b ∈ s` whenever `b ∈ s`. If `R` is a ring, then `s` is an additive subgroup.  -/
-def ideal (R : Type u) [comm_semiring R]  :=
+def ideal (R : Type u) [comm_semiring R] :=
   submodule R R
 
 namespace ideal
@@ -155,7 +155,7 @@ def of_rel {α : Type u} [comm_ring α] (r : α → α → Prop) : ideal α :=
   submodule.span α (set_of fun (x : α) => ∃ (a : α), ∃ (b : α), ∃ (h : r a b), x = a - b)
 
 /-- An ideal `P` of a ring `R` is prime if `P ≠ R` and `xy ∈ P → x ∈ P ∨ y ∈ P` -/
-def is_prime {α : Type u} [comm_ring α] (I : ideal α)  :=
+def is_prime {α : Type u} [comm_ring α] (I : ideal α) :=
   I ≠ ⊤ ∧ ∀ {x y : α}, x * y ∈ I → x ∈ I ∨ y ∈ I
 
 theorem is_prime.mem_or_mem {α : Type u} [comm_ring α] {I : ideal α} (hI : is_prime I) {x : α} {y : α} : x * y ∈ I → x ∈ I ∨ y ∈ I :=
@@ -178,7 +178,7 @@ theorem span_singleton_prime {α : Type u} [comm_ring α] {p : α} (hp : p ≠ 0
 theorem bot_prime {R : Type u_1} [integral_domain R] : is_prime ⊥ := sorry
 
 /-- An ideal is maximal if it is maximal in the collection of proper ideals. -/
-def is_maximal {α : Type u} [comm_ring α] (I : ideal α)  :=
+def is_maximal {α : Type u} [comm_ring α] (I : ideal α) :=
   is_coatom I
 
 theorem is_maximal_iff {α : Type u} [comm_ring α] {I : ideal α} : is_maximal I ↔ ¬1 ∈ I ∧ ∀ (J : ideal α) (x : α), I ≤ J → ¬x ∈ I → x ∈ J → 1 ∈ J := sorry
@@ -211,7 +211,7 @@ theorem span_singleton_lt_span_singleton {β : Type v} [integral_domain β] {x :
 theorem factors_decreasing {β : Type v} [integral_domain β] (b₁ : β) (b₂ : β) (h₁ : b₁ ≠ 0) (h₂ : ¬is_unit b₂) : span (singleton (b₁ * b₂)) < span (singleton b₁) := sorry
 
 /-- The quotient `R/I` of a ring `R` by an ideal `I`. -/
-def quotient {α : Type u} [comm_ring α] (I : ideal α)  :=
+def quotient {α : Type u} [comm_ring α] (I : ideal α) :=
   submodule.quotient I
 
 namespace quotient
@@ -490,7 +490,7 @@ namespace local_ring
 
 
 /-- The residue field of a local ring is the quotient of the ring by its maximal ideal. -/
-def residue_field (α : Type u) [comm_ring α] [local_ring α]  :=
+def residue_field (α : Type u) [comm_ring α] [local_ring α] :=
   ideal.quotient (maximal_ideal α)
 
 protected instance residue_field.field (α : Type u) [comm_ring α] [local_ring α] : field (residue_field α) :=

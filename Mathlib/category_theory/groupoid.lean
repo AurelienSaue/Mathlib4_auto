@@ -36,13 +36,13 @@ A `large_groupoid` is a groupoid
 where the objects live in `Type (u+1)` while the morphisms live in `Type u`.
 -/
 /--
-def large_groupoid (C : Type (u + 1))  :=
+def large_groupoid (C : Type (u + 1)) :=
   groupoid C
 
 A `small_groupoid` is a groupoid
 where the objects and morphisms live in the same universe.
 -/
-def small_groupoid (C : Type u)  :=
+def small_groupoid (C : Type u) :=
   groupoid C
 
 protected instance is_iso.of_groupoid {C : Type u} [groupoid C] {X : C} {Y : C} (f : X ⟶ Y) : is_iso f :=

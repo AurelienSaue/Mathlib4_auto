@@ -19,7 +19,7 @@ namespace category_theory
 
 /-- The core of a category C is the groupoid whose morphisms are all the
 isomorphisms of C. -/
-def core (C : Type u₁)  :=
+def core (C : Type u₁) :=
   C
 
 protected instance core_category {C : Type u₁} [category C] : groupoid (core C) :=

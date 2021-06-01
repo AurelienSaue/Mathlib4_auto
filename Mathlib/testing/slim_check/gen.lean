@@ -45,7 +45,7 @@ namespace slim_check
 /-- Monad to generate random examples to test properties with.
 It has a `nat` parameter so that the caller can decide on the
 size of the examples. -/
-def gen (α : Type u)  :=
+def gen (α : Type u) :=
   reader_t (ulift ℕ) rand α
 
 /-- Execute a `gen` inside the `io` monad using `i` as the example

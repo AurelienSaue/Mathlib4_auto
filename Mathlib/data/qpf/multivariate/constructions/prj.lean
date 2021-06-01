@@ -22,7 +22,7 @@ namespace mvqpf
 
 
 /-- The projection `i` functor -/
-def prj {n : ℕ} (i : fin2 n) (v : typevec n)  :=
+def prj {n : ℕ} (i : fin2 n) (v : typevec n) :=
   v i
 
 protected instance prj.inhabited {n : ℕ} (i : fin2 n) {v : typevec n} [Inhabited (v i)] : Inhabited (prj i v) :=

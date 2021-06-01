@@ -33,7 +33,7 @@ ring_aut
 -/
 
 /-- The group of ring automorphisms. -/
-def ring_aut (R : Type u_1) [Mul R] [Add R]  :=
+def ring_aut (R : Type u_1) [Mul R] [Add R] :=
   R ≃+* R
 
 namespace ring_aut

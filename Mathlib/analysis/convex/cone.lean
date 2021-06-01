@@ -183,19 +183,19 @@ theorem to_ordered_semimodule {M : Type u_1} [ordered_add_comm_group M] [semimod
 /-! ### Convex cones with extra properties -/
 
 /-- A convex cone is pointed if it includes 0. -/
-def pointed {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E)  :=
+def pointed {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E) :=
   0 ∈ S
 
 /-- A convex cone is blunt if it doesn't include 0. -/
-def blunt {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E)  :=
+def blunt {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E) :=
   ¬0 ∈ S
 
 /-- A convex cone is flat if it contains some nonzero vector `x` and its opposite `-x`. -/
-def flat {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E)  :=
+def flat {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E) :=
   ∃ (x : E), ∃ (H : x ∈ S), x ≠ 0 ∧ -x ∈ S
 
 /-- A convex cone is salient if it doesn't include `x` and `-x` for any nonzero `x`. -/
-def salient {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E)  :=
+def salient {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E) :=
   ∀ (x : E), x ∈ S → x ≠ 0 → ¬-x ∈ S
 
 theorem pointed_iff_not_blunt {E : Type u_1} [add_comm_group E] [vector_space ℝ E] (S : convex_cone E) : pointed S ↔ ¬blunt S :=

@@ -116,7 +116,7 @@ theorem mem_append_right {α : Type u} {a : α} (l₁ : List α) {l₂ : List α
 
 /- list subset -/
 
-protected def subset {α : Type u} (l₁ : List α) (l₂ : List α)  :=
+protected def subset {α : Type u} (l₁ : List α) (l₂ : List α) :=
   ∀ {a : α}, a ∈ l₁ → a ∈ l₂
 
 protected instance has_subset {α : Type u} : has_subset (List α) :=

@@ -59,7 +59,7 @@ end coord
 
 /-- An address is a list of coordinates used to reference subterms of an expression.
 The first coordinate in the list corresponds to the root of the expression. -/
-def address  :=
+def address :=
   List coord
 
 namespace address

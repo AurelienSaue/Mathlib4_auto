@@ -18,7 +18,7 @@ universes u v u_1 u_2 u_3
 
 namespace Mathlib
 
-def free_abelian_group (α : Type u)  :=
+def free_abelian_group (α : Type u) :=
   additive (abelianization (free_group α))
 
 protected instance free_abelian_group.add_comm_group (α : Type u) : add_comm_group (free_abelian_group α) :=

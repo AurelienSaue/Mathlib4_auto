@@ -53,7 +53,7 @@ is the type of all prime ideals of `R`.
 It is naturally endowed with a topology (the Zariski topology),
 and a sheaf of commutative rings (see `algebraic_geometry.structure_sheaf`).
 It is a fundamental building block in algebraic geometry. -/
-def prime_spectrum (R : Type u) [comm_ring R]  :=
+def prime_spectrum (R : Type u) [comm_ring R] :=
   Subtype fun (I : ideal R) => ideal.is_prime I
 
 namespace prime_spectrum

@@ -51,7 +51,7 @@ protected instance decidable_nonneg (a : ℚ) : Decidable (rat.nonneg a) :=
     fun (a_num : ℤ) (a_denom : ℕ) (a_pos : 0 < a_denom) (a_cop : nat.coprime (int.nat_abs a_num) a_denom) =>
       eq.mpr sorry (int.decidable_le 0 a_num)
 
-protected def le (a : ℚ) (b : ℚ)  :=
+protected def le (a : ℚ) (b : ℚ) :=
   rat.nonneg (b - a)
 
 protected instance has_le : HasLessEq ℚ :=

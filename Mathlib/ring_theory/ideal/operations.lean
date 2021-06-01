@@ -469,7 +469,7 @@ theorem map.is_maximal {R : Type u} {S : Type v} [comm_ring R] [comm_ring S] (f 
 theorem ring_equiv.bot_maximal_iff {R : Type u} {S : Type v} [comm_ring R] [comm_ring S] (e : R ≃+* S) : is_maximal ⊥ ↔ is_maximal ⊥ := sorry
 
 /-- A proper ideal `I` is primary iff `xy ∈ I` implies `x ∈ I` or `y ∈ radical I`. -/
-def is_primary {R : Type u} [comm_ring R] (I : ideal R)  :=
+def is_primary {R : Type u} [comm_ring R] (I : ideal R) :=
   I ≠ ⊤ ∧ ∀ {x y : R}, x * y ∈ I → x ∈ I ∨ y ∈ radical I
 
 theorem is_primary.to_is_prime {R : Type u} [comm_ring R] (I : ideal R) (hi : is_prime I) : is_primary I :=

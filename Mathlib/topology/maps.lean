@@ -116,7 +116,7 @@ theorem embedding.closure_eq_preimage_closure_image {α : Type u_1} {β : Type u
 
 /-- A function between topological spaces is a quotient map if it is surjective,
   and for all `s : set β`, `s` is open iff its preimage is an open set. -/
-def quotient_map {α : Type u_1} {β : Type u_2} [tα : topological_space α] [tβ : topological_space β] (f : α → β)  :=
+def quotient_map {α : Type u_1} {β : Type u_2} [tα : topological_space α] [tβ : topological_space β] (f : α → β) :=
   function.surjective f ∧ tβ = topological_space.coinduced f tα
 
 theorem quotient_map_iff {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] {f : α → β} : quotient_map f ↔ function.surjective f ∧ ∀ (s : set β), is_open s ↔ is_open (f ⁻¹' s) :=
@@ -148,7 +148,7 @@ end quotient_map
 
 /-- A map `f : α → β` is said to be an *open map*, if the image of any open `U : set α`
 is open in `β`. -/
-def is_open_map {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β)  :=
+def is_open_map {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) :=
   ∀ (U : set α), is_open U → is_open (f '' U)
 
 namespace is_open_map
@@ -184,7 +184,7 @@ theorem is_open_map_iff_nhds_le {α : Type u_1} {β : Type u_2} [topological_spa
 
 /-- A map `f : α → β` is said to be a *closed map*, if the image of any closed `U : set α`
 is closed in `β`. -/
-def is_closed_map {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β)  :=
+def is_closed_map {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (f : α → β) :=
   ∀ (U : set α), is_closed U → is_closed (f '' U)
 
 namespace is_closed_map

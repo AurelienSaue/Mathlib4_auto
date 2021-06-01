@@ -39,7 +39,7 @@ as a subtype of `multiset` since these are well developed in the
 library.  We also give a definition `sym.sym'` in terms of vectors, and we
 show these are equivalent in `sym.sym_equiv_sym'`.
 -/
-def sym (α : Type u) (n : ℕ)  :=
+def sym (α : Type u) (n : ℕ) :=
   Subtype fun (s : multiset α) => coe_fn multiset.card s = n
 
 /--
@@ -84,7 +84,7 @@ theorem cons_swap {α : Type u} {n : ℕ} (a : α) (b : α) (s : sym α n) : a :
 /--
 `α ∈ s` means that `a` appears as one of the factors in `s`.
 -/
-def mem {α : Type u} {n : ℕ} (a : α) (s : sym α n)  :=
+def mem {α : Type u} {n : ℕ} (a : α) (s : sym α n) :=
   a ∈ subtype.val s
 
 protected instance has_mem {α : Type u} {n : ℕ} : has_mem α (sym α n) :=
@@ -109,7 +109,7 @@ theorem sound {α : Type u} {n : ℕ} {a : vector α n} {b : vector α n} (h : s
 /--
 Another definition of the nth symmetric power, using vectors modulo permutations. (See `sym`.)
 -/
-def sym' (α : Type u) (n : ℕ)  :=
+def sym' (α : Type u) (n : ℕ) :=
   quotient (vector.perm.is_setoid α n)
 
 /--

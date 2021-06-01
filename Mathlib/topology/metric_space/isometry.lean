@@ -24,7 +24,7 @@ and prove their basic properties. We also introduce isometric bijections.
 
 /-- An isometry (also known as isometric embedding) is a map preserving the edistance
 between emetric spaces, or equivalently the distance between metric space.  -/
-def isometry {α : Type u} {β : Type v} [emetric_space α] [emetric_space β] (f : α → β)  :=
+def isometry {α : Type u} {β : Type v} [emetric_space α] [emetric_space β] (f : α → β) :=
   ∀ (x1 x2 : α), edist (f x1) (f x2) = edist x1 x2
 
 /-- On metric spaces, a map is an isometry if and only if it preserves distances. -/
@@ -317,7 +317,7 @@ def isometry.isometric_on_range {α : Type u} {β : Type v} [emetric_space α] [
 theorem algebra_map_isometry (𝕜 : Type u_1) (𝕜' : Type u_2) [normed_field 𝕜] [normed_ring 𝕜'] [normed_algebra 𝕜 𝕜'] : isometry ⇑(algebra_map 𝕜 𝕜') := sorry
 
 /-- The space of bounded sequences, with its sup norm -/
-def ℓ_infty_ℝ  :=
+def ℓ_infty_ℝ :=
   bounded_continuous_function ℕ ℝ
 
 namespace Kuratowski_embedding

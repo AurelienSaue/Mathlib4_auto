@@ -62,7 +62,7 @@ namespace using_conv
 
 
 /-- `app_addr` represents a tree structure that `conv` tactics use for a rewrite. -/
-def app_addr  :=
+def app_addr :=
   _nest_1_1.tactic.rewrite_search.using_conv.app_addr
 
 /--

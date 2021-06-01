@@ -31,7 +31,7 @@ This notation is in the `direct_sum` locale, accessible after `open_locale direc
 /-- `direct_sum β` is the direct sum of a family of additive commutative monoids `β i`.
 
 Note: `open_locale direct_sum` will enable the notation `⨁ i, β i` for `direct_sum β`. -/
-def direct_sum (ι : Type v) (β : ι → Type w) [(i : ι) → add_comm_monoid (β i)]  :=
+def direct_sum (ι : Type v) (β : ι → Type w) [(i : ι) → add_comm_monoid (β i)] :=
   dfinsupp fun (i : ι) => β i
 
 namespace direct_sum

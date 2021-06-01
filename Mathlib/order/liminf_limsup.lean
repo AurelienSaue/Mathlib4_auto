@@ -47,12 +47,12 @@ namespace filter
 /-- `f.is_bounded (≺)`: the filter `f` is eventually bounded w.r.t. the relation `≺`, i.e.
 eventually, it is bounded by some uniform bound.
 `r` will be usually instantiated with `≤` or `≥`. -/
-def is_bounded {α : Type u_1} (r : α → α → Prop) (f : filter α)  :=
+def is_bounded {α : Type u_1} (r : α → α → Prop) (f : filter α) :=
   ∃ (b : α), filter.eventually (fun (x : α) => r x b) f
 
 /-- `f.is_bounded_under (≺) u`: the image of the filter `f` under `u` is eventually bounded w.r.t.
 the relation `≺`, i.e. eventually, it is bounded by some uniform bound. -/
-def is_bounded_under {α : Type u_1} {β : Type u_2} (r : α → α → Prop) (f : filter β) (u : β → α)  :=
+def is_bounded_under {α : Type u_1} {β : Type u_2} (r : α → α → Prop) (f : filter β) (u : β → α) :=
   is_bounded r (map u f)
 
 /-- `f` is eventually bounded if and only if, there exists an admissible set on which it is
@@ -87,13 +87,13 @@ the edge case of the trivial filter containing the empty set: the other natural 
   `¬ ∀ a, ∀ᶠ n in f, a ≤ n`
 would not work as well in this case.
 -/
-def is_cobounded {α : Type u_1} (r : α → α → Prop) (f : filter α)  :=
+def is_cobounded {α : Type u_1} (r : α → α → Prop) (f : filter α) :=
   ∃ (b : α), ∀ (a : α), filter.eventually (fun (x : α) => r x a) f → r b a
 
 /-- `is_cobounded_under (≺) f u` states that the image of the filter `f` under the map `u` does not
 tend to infinity w.r.t. `≺`. This is also called frequently bounded. Will be usually instantiated
 with `≤` or `≥`. -/
-def is_cobounded_under {α : Type u_1} {β : Type u_2} (r : α → α → Prop) (f : filter β) (u : β → α)  :=
+def is_cobounded_under {α : Type u_1} {β : Type u_2} (r : α → α → Prop) (f : filter β) (u : β → α) :=
   is_cobounded r (map u f)
 
 /-- To check that a filter is frequently bounded, it suffices to have a witness

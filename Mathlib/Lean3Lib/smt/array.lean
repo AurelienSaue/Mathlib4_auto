@@ -14,7 +14,7 @@ namespace Mathlib
 namespace smt
 
 
-def array (α : Type u) (β : Type v)  :=
+def array (α : Type u) (β : Type v) :=
   α → β
 
 def select {α : Type u} {β : Type v} (a : array α β) (i : α) : β :=

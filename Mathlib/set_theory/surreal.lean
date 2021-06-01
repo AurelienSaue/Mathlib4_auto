@@ -158,7 +158,7 @@ end pgame
 
 
 /-- The equivalence on numeric pre-games. -/
-def surreal.equiv (x : Subtype fun (x : pgame) => pgame.numeric x) (y : Subtype fun (x : pgame) => pgame.numeric x)  :=
+def surreal.equiv (x : Subtype fun (x : pgame) => pgame.numeric x) (y : Subtype fun (x : pgame) => pgame.numeric x) :=
   pgame.equiv (subtype.val x) (subtype.val y)
 
 protected instance surreal.setoid : setoid (Subtype fun (x : pgame) => pgame.numeric x) :=
@@ -167,7 +167,7 @@ protected instance surreal.setoid : setoid (Subtype fun (x : pgame) => pgame.num
 /-- The type of surreal numbers. These are the numeric pre-games quotiented
 by the equivalence relation `x ≈ y ↔ x ≤ y ∧ y ≤ x`. In the quotient,
 the order becomes a total order. -/
-def surreal  :=
+def surreal :=
   quotient sorry
 
 namespace surreal

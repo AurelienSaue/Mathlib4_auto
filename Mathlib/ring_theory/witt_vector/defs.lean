@@ -44,7 +44,7 @@ If `p` is invertible in `R`, this ring is isomorphic to `ℕ → R` (the product
 If `R` is a ring of characteristic `p`, then `witt_vector p R` is a ring of characteristic `0`.
 The canonical example is `witt_vector p (zmod p)`,
 which is isomorphic to the `p`-adic integers `ℤ_[p]`. -/
-def witt_vector (p : ℕ) (R : Type u_1)  :=
+def witt_vector (p : ℕ) (R : Type u_1) :=
   ℕ → R
 
 /- We cannot make this `localized` notation, because the `p` on the RHS doesn't occur on the left

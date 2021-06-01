@@ -87,7 +87,7 @@ end rbnode
 
 def rbtree (α : Type u) (lt : autoParam (α → α → Prop)
   (Lean.Syntax.ident Lean.SourceInfo.none (String.toSubstring "Mathlib.rbtree.default_lt")
-    (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "rbtree") "default_lt") []))  :=
+    (Lean.Name.mkStr (Lean.Name.mkStr (Lean.Name.mkStr Lean.Name.anonymous "Mathlib") "rbtree") "default_lt") [])) :=
   Subtype fun (t : rbnode α) => rbnode.well_formed lt t
 
 def mk_rbtree (α : Type u) (lt : autoParam (α → α → Prop)
@@ -98,13 +98,13 @@ def mk_rbtree (α : Type u) (lt : autoParam (α → α → Prop)
 namespace rbtree
 
 
-protected def mem {α : Type u} {lt : α → α → Prop} (a : α) (t : rbtree α)  :=
+protected def mem {α : Type u} {lt : α → α → Prop} (a : α) (t : rbtree α) :=
   rbnode.mem lt a (subtype.val t)
 
 protected instance has_mem {α : Type u} {lt : α → α → Prop} : has_mem α (rbtree α) :=
   has_mem.mk rbtree.mem
 
-def mem_exact {α : Type u} {lt : α → α → Prop} (a : α) (t : rbtree α)  :=
+def mem_exact {α : Type u} {lt : α → α → Prop} (a : α) (t : rbtree α) :=
   rbnode.mem_exact a (subtype.val t)
 
 def depth {α : Type u} {lt : α → α → Prop} (f : ℕ → ℕ → ℕ) (t : rbtree α) : ℕ :=

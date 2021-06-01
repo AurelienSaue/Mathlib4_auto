@@ -68,7 +68,7 @@ in terms of extended charts in `times_cont_mdiff_on_iff` and `times_cont_mdiff_i
 /-- Property in the model space of a model with corners of being `C^n` within at set at a point,
 when read in the model vector space. This property will be lifted to manifolds to define smooth
 functions between manifolds. -/
-def times_cont_diff_within_at_prop {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') (n : with_top ℕ) (f : H → H') (s : set H) (x : H)  :=
+def times_cont_diff_within_at_prop {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') (n : with_top ℕ) (f : H → H') (s : set H) (x : H) :=
   times_cont_diff_within_at 𝕜 n (⇑I' ∘ f ∘ ⇑(model_with_corners.symm I))
     (set.range ⇑I ∩ ⇑(model_with_corners.symm I) ⁻¹' s) (coe_fn I x)
 
@@ -84,38 +84,38 @@ theorem times_cont_diff_within_at_local_invariant_prop_id {𝕜 : Type u_1} [non
 /-- A function is `n` times continuously differentiable within a set at a point in a manifold if
 it is continuous and it is `n` times continuously differentiable in this set around this point, when
 read in the preferred chart at this point. -/
-def times_cont_mdiff_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (n : with_top ℕ) (f : M → M') (s : set M) (x : M)  :=
+def times_cont_mdiff_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (n : with_top ℕ) (f : M → M') (s : set M) (x : M) :=
   charted_space.lift_prop_within_at (times_cont_diff_within_at_prop I I' n) f s x
 
 /-- Abbreviation for `times_cont_mdiff_within_at I I' ⊤ f s x`. See also documentation for `smooth`.
 -/
-def smooth_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (s : set M) (x : M)  :=
+def smooth_within_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (s : set M) (x : M) :=
   times_cont_mdiff_within_at I I' ⊤ f s x
 
 /-- A function is `n` times continuously differentiable at a point in a manifold if
 it is continuous and it is `n` times continuously differentiable around this point, when
 read in the preferred chart at this point. -/
-def times_cont_mdiff_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (n : with_top ℕ) (f : M → M') (x : M)  :=
+def times_cont_mdiff_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (n : with_top ℕ) (f : M → M') (x : M) :=
   times_cont_mdiff_within_at I I' n f set.univ x
 
 /-- Abbreviation for `times_cont_mdiff_at I I' ⊤ f x`. See also documentation for `smooth`. -/
-def smooth_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (x : M)  :=
+def smooth_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (x : M) :=
   times_cont_mdiff_at I I' ⊤ f x
 
 /-- A function is `n` times continuously differentiable in a set of a manifold if it is continuous
 and, for any pair of points, it is `n` times continuously differentiable on this set in the charts
 around these points. -/
-def times_cont_mdiff_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (n : with_top ℕ) (f : M → M') (s : set M)  :=
+def times_cont_mdiff_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (n : with_top ℕ) (f : M → M') (s : set M) :=
   ∀ (x : M), x ∈ s → times_cont_mdiff_within_at I I' n f s x
 
 /-- Abbreviation for `times_cont_mdiff_on I I' ⊤ f s`. See also documentation for `smooth`. -/
-def smooth_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (s : set M)  :=
+def smooth_on {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') (s : set M) :=
   times_cont_mdiff_on I I' ⊤ f s
 
 /-- A function is `n` times continuously differentiable in a manifold if it is continuous
 and, for any pair of points, it is `n` times continuously differentiable in the charts
 around these points. -/
-def times_cont_mdiff {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (n : with_top ℕ) (f : M → M')  :=
+def times_cont_mdiff {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (n : with_top ℕ) (f : M → M') :=
   ∀ (x : M), times_cont_mdiff_at I I' n f x
 
 /-- Abbreviation for `times_cont_mdiff I I' ⊤ f`.
@@ -125,7 +125,7 @@ If the consequence `bar` of the lemma involves `times_cont_diff`, it is still be
 the lemma replacing `times_cont_diff` with `smooth` both in the assumption and in the conclusion,
 to make it possible to use `smooth` consistently.
 This also applies to `smooth_at`, `smooth_on` and `smooth_within_at`.-/
-def smooth {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M')  :=
+def smooth {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {H : Type u_3} [topological_space H] (I : model_with_corners 𝕜 E H) {M : Type u_4} [topological_space M] [charted_space H M] {E' : Type u_5} [normed_group E'] [normed_space 𝕜 E'] {H' : Type u_6} [topological_space H'] (I' : model_with_corners 𝕜 E' H') {M' : Type u_7} [topological_space M'] [charted_space H' M'] (f : M → M') :=
   times_cont_mdiff I I' ⊤ f
 
 /-! ### Basic properties of smooth functions between manifolds -/

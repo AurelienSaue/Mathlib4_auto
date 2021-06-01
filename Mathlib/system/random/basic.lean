@@ -56,11 +56,11 @@ random monad io
 -/
 
 /-- A monad to generate random objects using the generator type `g` -/
-def rand_g (g : Type) (α : Type u)  :=
+def rand_g (g : Type) (α : Type u) :=
   state (ulift g) α
 
 /-- A monad to generate random objects using the generator type `std_gen` -/
-def rand (α : Type u_1)  :=
+def rand (α : Type u_1) :=
   rand_g std_gen
 
 protected instance rand_g.uliftable (g : Type) : uliftable (rand_g g) (rand_g g) :=

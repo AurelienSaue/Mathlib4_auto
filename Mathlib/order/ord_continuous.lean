@@ -33,13 +33,13 @@ and right order continuous.
 /-- A function `f` between preorders is left order continuous if it preserves all suprema.  We
 define it using `is_lub` instead of `Sup` so that the proof works both for complete lattices and
 conditionally complete lattices. -/
-def left_ord_continuous {α : Type u} {β : Type v} [preorder α] [preorder β] (f : α → β)  :=
+def left_ord_continuous {α : Type u} {β : Type v} [preorder α] [preorder β] (f : α → β) :=
   ∀ {s : set α} {x : α}, is_lub s x → is_lub (f '' s) (f x)
 
 /-- A function `f` between preorders is right order continuous if it preserves all infima.  We
 define it using `is_glb` instead of `Inf` so that the proof works both for complete lattices and
 conditionally complete lattices. -/
-def right_ord_continuous {α : Type u} {β : Type v} [preorder α] [preorder β] (f : α → β)  :=
+def right_ord_continuous {α : Type u} {β : Type v} [preorder α] [preorder β] (f : α → β) :=
   ∀ {s : set α} {x : α}, is_glb s x → is_glb (f '' s) (f x)
 
 namespace left_ord_continuous

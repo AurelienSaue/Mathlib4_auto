@@ -54,7 +54,7 @@ namespace structure_sheaf
 /--
 The type family over `prime_spectrum R` consisting of the localization over each point.
 -/
-def localizations (R : Type u) [comm_ring R] (P : ↥(Spec.Top R))  :=
+def localizations (R : Type u) [comm_ring R] (P : ↥(Spec.Top R)) :=
   localization.at_prime (prime_spectrum.as_ideal P)
 
 protected instance localizations.inhabited (R : Type u) [comm_ring R] (P : ↥(Spec.Top R)) : Inhabited (localizations R P) :=
@@ -64,7 +64,7 @@ protected instance localizations.inhabited (R : Type u) [comm_ring R] (P : ↥(S
 The predicate saying that a dependent function on an open `U` is realised as a fixed fraction
 `r / s` in each of the stalks (which are localizations at various prime ideals).
 -/
-def is_fraction {R : Type u} [comm_ring R] {U : topological_space.opens ↥(Spec.Top R)} (f : (x : ↥U) → localizations R ↑x)  :=
+def is_fraction {R : Type u} [comm_ring R] {U : topological_space.opens ↥(Spec.Top R)} (f : (x : ↥U) → localizations R ↑x) :=
   ∃ (r : R),
     ∃ (s : R),
       ∀ (x : ↥U),

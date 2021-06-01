@@ -26,7 +26,7 @@ We also provide dot-style constructors like `irrational.add_rat`, `irrational.ra
 -/
 
 /-- A real number is irrational if it is not equal to any rational number. -/
-def irrational (x : ℝ)  :=
+def irrational (x : ℝ) :=
   ¬x ∈ set.range coe
 
 theorem irrational_iff_ne_rational (x : ℝ) : irrational x ↔ ∀ (a b : ℤ), x ≠ ↑a / ↑b := sorry

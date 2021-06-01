@@ -142,7 +142,7 @@ protected instance bundle_trivialization.has_coe_to_fun {B : Type u_2} (F : Type
 /-- A topological fiber bundle with fiber F over a base B is a space projecting on B for which the
 fibers are all homeomorphic to F, such that the local situation around each point is a direct
 product. -/
-def is_topological_fiber_bundle {B : Type u_2} (F : Type u_3) {Z : Type u_4} [topological_space B] [topological_space Z] [topological_space F] (proj : Z → B)  :=
+def is_topological_fiber_bundle {B : Type u_2} (F : Type u_3) {Z : Type u_4} [topological_space B] [topological_space Z] [topological_space F] (proj : Z → B) :=
   ∀ (x : Z),
     ∃ (e : bundle_trivialization F proj),
       x ∈ local_equiv.source (local_homeomorph.to_local_equiv (bundle_trivialization.to_local_homeomorph e))
@@ -191,16 +191,16 @@ namespace topological_fiber_bundle_core
 
 
 /-- The index set of a topological fiber bundle core, as a convenience function for dot notation -/
-def index {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F)  :=
+def index {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F) :=
   ι
 
 /-- The base space of a topological fiber bundle core, as a convenience function for dot notation -/
-def base {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F)  :=
+def base {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F) :=
   B
 
 /-- The fiber of a topological fiber bundle core, as a convenience function for dot notation and
 typeclass inference -/
-def fiber {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F) (x : B)  :=
+def fiber {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F) (x : B) :=
   F
 
 protected instance topological_space_fiber {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F) (x : B) : topological_space (fiber Z x) :=
@@ -209,7 +209,7 @@ protected instance topological_space_fiber {ι : Type u_1} {B : Type u_2} {F : T
 /-- Total space of a topological bundle created from core. It is equal to `Σ (x : B), F` as a type,
 but the fiber above `x` is registered as `Z.fiber x` to make sure that it is possible to register
 additional type classes on these fibers. -/
-def total_space {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F)  :=
+def total_space {ι : Type u_1} {B : Type u_2} {F : Type u_3} [topological_space B] [topological_space F] (Z : topological_fiber_bundle_core ι B F) :=
   sigma fun (x : B) => fiber Z x
 
 /-- The projection from the total space of a topological fiber bundle core, on its base. -/

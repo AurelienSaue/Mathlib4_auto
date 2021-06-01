@@ -98,7 +98,7 @@ namespace omega_complete_partial_order
 /-- A chain is a monotonically increasing sequence.
 
 See the definition on page 114 of [gunter]. -/
-def chain (α : Type u) [preorder α]  :=
+def chain (α : Type u) [preorder α] :=
   ℕ →ₘ α
 
 namespace chain
@@ -192,11 +192,11 @@ In order to distinguish it from the (more commonly used) continuity from topolog
 (see topology/basic.lean), the present definition is often referred to as
 "Scott-continuity" (referring to Dana Scott). It corresponds to continuity
 in Scott topological spaces (not defined here). -/
-def continuous {α : Type u} {β : Type v} [omega_complete_partial_order α] [omega_complete_partial_order β] (f : α →ₘ β)  :=
+def continuous {α : Type u} {β : Type v} [omega_complete_partial_order α] [omega_complete_partial_order β] (f : α →ₘ β) :=
   ∀ (c : chain α), coe_fn f (ωSup c) = ωSup (chain.map c f)
 
 /-- `continuous' f` asserts that `f` is both monotone and continuous. -/
-def continuous' {α : Type u} {β : Type v} [omega_complete_partial_order α] [omega_complete_partial_order β] (f : α → β)  :=
+def continuous' {α : Type u} {β : Type v} [omega_complete_partial_order α] [omega_complete_partial_order β] (f : α → β) :=
   ∃ (hf : monotone f), continuous (preorder_hom.mk f hf)
 
 theorem continuous.to_monotone {α : Type u} {β : Type v} [omega_complete_partial_order α] [omega_complete_partial_order β] {f : α → β} (hf : continuous' f) : monotone f :=

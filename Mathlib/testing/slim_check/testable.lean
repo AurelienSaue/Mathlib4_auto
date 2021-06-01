@@ -246,7 +246,7 @@ Problem found!
 x := 3
 ```
  -/
-@[simp] def named_binder (n : string) (p : Prop)  :=
+@[simp] def named_binder (n : string) (p : Prop) :=
   p
 
 /-- Is the given test result a failure? -/
@@ -284,7 +284,7 @@ protected instance dec_guard_testable (var : string) (p : Prop) [printable_prop 
             (return (test_result.gave_up 1))
 
 /-- Type tag that replaces a type's `has_repr` instance with its `has_to_string` instance. -/
-def use_has_to_string (α : Type u_1)  :=
+def use_has_to_string (α : Type u_1) :=
   α
 
 protected instance use_has_to_string.inhabited (α : Type u) [I : Inhabited α] : Inhabited (use_has_to_string α) :=
@@ -620,7 +620,7 @@ them. -/
 /-- `decorations_of p` is used as a hint to `mk_decorations` to specify
 that the goal should be satisfied with a proposition equivalent to `p`
 with added annotations. -/
-def decorations_of (p : Prop)  :=
+def decorations_of (p : Prop) :=
   Prop
 
 /-- In a goal of the shape `⊢ tactic.decorations_of p`, `mk_decoration` examines

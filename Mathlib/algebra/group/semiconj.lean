@@ -34,7 +34,7 @@ operations (`pow_right`, field inverse etc) are in the files that define corresp
 -/
 
 /-- `x` is semiconjugate to `y` by `a`, if `a * x = y * a`. -/
-def add_semiconj_by {M : Type u} [Add M] (a : M) (x : M) (y : M)  :=
+def add_semiconj_by {M : Type u} [Add M] (a : M) (x : M) (y : M) :=
   a + x = y + a
 
 namespace semiconj_by

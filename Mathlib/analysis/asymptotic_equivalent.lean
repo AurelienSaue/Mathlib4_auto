@@ -62,7 +62,7 @@ namespace asymptotics
 
 /-- Two functions `u` and `v` are said to be asymptotically equivalent along a filter `l` when
     `u x - v x = o(v x)` as x converges along `l`. -/
-def is_equivalent {α : Type u_1} {β : Type u_2} [normed_group β] (u : α → β) (v : α → β) (l : filter α)  :=
+def is_equivalent {α : Type u_1} {β : Type u_2} [normed_group β] (u : α → β) (v : α → β) (l : filter α) :=
   is_o (u - v) v l
 
 theorem is_equivalent.is_o {α : Type u_1} {β : Type u_2} [normed_group β] {u : α → β} {v : α → β} {l : filter α} (h : is_equivalent u v l) : is_o (u - v) v l :=

@@ -52,7 +52,7 @@ enat, with_top ℕ
 -/
 
 /-- Type of natural numbers with infinity (`⊤`) -/
-def enat  :=
+def enat :=
   roption ℕ
 
 namespace enat

@@ -31,7 +31,7 @@ the bulk of the proof below.
 -/
 
 /-- Three integers `x`, `y`, and `z` form a Pythagorean triple if `x * x + y * y = z * z`. -/
-def pythagorean_triple (x : ℤ) (y : ℤ) (z : ℤ)  :=
+def pythagorean_triple (x : ℤ) (y : ℤ) (z : ℤ) :=
   x * x + y * y = z * z
 
 /-- Pythagorean triples are interchangable, i.e `x * x + y * y = y * y + x * x = z * z`.
@@ -64,7 +64,7 @@ theorem mul_iff {x : ℤ} {y : ℤ} {z : ℤ} (k : ℤ) (hk : k ≠ 0) : pythago
 /-- A pythogorean triple `x, y, z` is “classified” if there exist integers `k, m, n` such that either
  * `x = k * (m ^ 2 - n ^ 2)` and `y = k * (2 * m * n)`, or
  * `x = k * (2 * m * n)` and `y = k * (m ^ 2 - n ^ 2)`. -/
-def is_classified {x : ℤ} {y : ℤ} {z : ℤ} (h : pythagorean_triple x y z)  :=
+def is_classified {x : ℤ} {y : ℤ} {z : ℤ} (h : pythagorean_triple x y z) :=
   ∃ (k : ℤ),
     ∃ (m : ℤ),
       ∃ (n : ℤ),
@@ -77,7 +77,7 @@ def is_classified {x : ℤ} {y : ℤ} {z : ℤ} (h : pythagorean_triple x y z)  
  * `x = m ^ 2 - n ^ 2` and `y = 2 * m * n`, or
  * `x = 2 * m * n` and `y = m ^ 2 - n ^ 2`.
 -/
-def is_primitive_classified {x : ℤ} {y : ℤ} {z : ℤ} (h : pythagorean_triple x y z)  :=
+def is_primitive_classified {x : ℤ} {y : ℤ} {z : ℤ} (h : pythagorean_triple x y z) :=
   ∃ (m : ℤ),
     ∃ (n : ℤ),
       (x = m ^ bit0 1 - n ^ bit0 1 ∧ y = bit0 1 * m * n ∨ x = bit0 1 * m * n ∧ y = m ^ bit0 1 - n ^ bit0 1) ∧

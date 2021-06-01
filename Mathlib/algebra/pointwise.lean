@@ -252,7 +252,7 @@ theorem singleton_smul {α : Type u_1} {β : Type u_2} {a : α} [has_scalar α �
 
 /-- An alias for `set α`, which has a semiring structure given by `∪` as "addition" and pointwise
   multiplication `*` as "multiplication". -/
-def set_semiring (α : Type u_1)  :=
+def set_semiring (α : Type u_1) :=
   set α
 
 /-- The identitiy function `set α → set_semiring α`. -/

@@ -84,11 +84,11 @@ annotations in reported types.
 -/
 
 /-- A list, with a disjunctive meaning (like a list of inductive constructors, or subgoals) -/
-def list_Sigma (T : Type u_1)  :=
+def list_Sigma (T : Type u_1) :=
   List
 
 /-- A list, with a conjunctive meaning (like a list of constructor arguments, or hypotheses) -/
-def list_Pi (T : Type u_1)  :=
+def list_Pi (T : Type u_1) :=
   List
 
 /-- A metavariable representing a subgoal, together with a list of local constants to clear. -/

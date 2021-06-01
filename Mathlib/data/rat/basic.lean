@@ -237,12 +237,12 @@ protected instance division_ring : division_ring ℚ :=
 protected instance integral_domain : integral_domain ℚ :=
   field.to_integral_domain
 
---instance : domain ℚ           := by apply_instance
+--instance : domain ℚ          := by apply_instance
 
 protected instance nontrivial : nontrivial ℚ :=
   euclidean_domain.to_nontrivial ℚ
 
---instance : ring ℚ             := by apply_instance
+--instance : ring ℚ            := by apply_instance
 
 protected instance comm_ring : comm_ring ℚ :=
   euclidean_domain.to_comm_ring ℚ

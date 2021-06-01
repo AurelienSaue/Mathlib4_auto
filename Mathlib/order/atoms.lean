@@ -51,7 +51,7 @@ which are lattices with only two elements, and related ideas.
 
 /-- An atom of an `order_bot` is an element with no other element between it and `⊥`,
   which is not `⊥`. -/
-def is_atom {α : Type u_1} [order_bot α] (a : α)  :=
+def is_atom {α : Type u_1} [order_bot α] (a : α) :=
   a ≠ ⊥ ∧ ∀ (b : α), b < a → b = ⊥
 
 theorem eq_bot_or_eq_of_le_atom {α : Type u_1} [order_bot α] {a : α} {b : α} (ha : is_atom a) (hab : b ≤ a) : b = ⊥ ∨ b = a :=
@@ -63,7 +63,7 @@ theorem is_atom.of_is_atom_coe_Iic {α : Type u_1} [order_bot α] {x : α} {a : 
 
 /-- A coatom of an `order_top` is an element with no other element between it and `⊤`,
   which is not `⊤`. -/
-def is_coatom {α : Type u_1} [order_top α] (a : α)  :=
+def is_coatom {α : Type u_1} [order_top α] (a : α) :=
   a ≠ ⊤ ∧ ∀ (b : α), a < b → b = ⊤
 
 theorem eq_top_or_eq_of_coatom_le {α : Type u_1} [order_top α] {a : α} {b : α} (ha : is_coatom a) (hab : a ≤ b) : b = ⊤ ∨ b = a :=

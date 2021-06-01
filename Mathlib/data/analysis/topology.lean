@@ -134,7 +134,7 @@ theorem locally_finite.realizer.to_locally_finite {α : Type u_1} {β : Type u_2
 
 theorem locally_finite_iff_exists_realizer {α : Type u_1} {β : Type u_2} [topological_space α] (F : ctop.realizer α) {f : β → set α} : locally_finite f ↔ Nonempty (locally_finite.realizer F f) := sorry
 
-def compact.realizer {α : Type u_1} [topological_space α] (R : ctop.realizer α) (s : set α)  :=
+def compact.realizer {α : Type u_1} [topological_space α] (R : ctop.realizer α) (s : set α) :=
   {f : filter α} →
     (F : filter.realizer f) →
       (x : filter.realizer.σ F) →

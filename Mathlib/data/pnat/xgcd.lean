@@ -97,10 +97,10 @@ def succ₂ (t : ℕ × ℕ) : ℕ × ℕ :=
 theorem v_eq_succ_vp (u : xgcd_type) : v u = succ₂ (vp u) := sorry
 
 /-- is_special holds if the matrix has determinant one. -/
-def is_special (u : xgcd_type)  :=
+def is_special (u : xgcd_type) :=
   wp u + zp u + wp u * zp u = x u * y u
 
-def is_special' (u : xgcd_type)  :=
+def is_special' (u : xgcd_type) :=
   w u * z u = nat.succ_pnat (x u * y u)
 
 theorem is_special_iff (u : xgcd_type) : is_special u ↔ is_special' u := sorry
@@ -109,10 +109,10 @@ theorem is_special_iff (u : xgcd_type) : is_special u ↔ is_special' u := sorry
  same.  The reduction algorithm will produce a system with this
  property, whose product vector is the same as for the original
  system. -/
-def is_reduced (u : xgcd_type)  :=
+def is_reduced (u : xgcd_type) :=
   ap u = bp u
 
-def is_reduced' (u : xgcd_type)  :=
+def is_reduced' (u : xgcd_type) :=
   a u = b u
 
 theorem is_reduced_iff (u : xgcd_type) : is_reduced u ↔ is_reduced' u :=

@@ -28,7 +28,7 @@ theorem lin_comb_holds {v : ℕ → ℤ} {ts : List term} (ns : List ℕ) : (∀
 
 /-- `unsat_lin_comb ns ts` asserts that the linear combination
     `lin_comb ns ts` is unsatisfiable  -/
-def unsat_lin_comb (ns : List ℕ) (ts : List term)  :=
+def unsat_lin_comb (ns : List ℕ) (ts : List term) :=
   prod.fst (lin_comb ns ts) < 0 ∧ ∀ (x : ℤ), x ∈ prod.snd (lin_comb ns ts) → x = 0
 
 theorem unsat_lin_comb_of (ns : List ℕ) (ts : List term) : prod.fst (lin_comb ns ts) < 0 → (∀ (x : ℤ), x ∈ prod.snd (lin_comb ns ts) → x = 0) → unsat_lin_comb ns ts :=

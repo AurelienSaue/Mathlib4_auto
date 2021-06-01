@@ -34,7 +34,7 @@ namespace category_theory.limits
 The type of objects for the diagram indexing a pullback, defined as a special case of
 `wide_pullback_shape`.
 -/
-def walking_cospan  :=
+def walking_cospan :=
   wide_pullback_shape walking_pair
 
 /-- The left point of the walking cospan. -/
@@ -53,7 +53,7 @@ def walking_cospan.one : walking_cospan :=
 The type of objects for the diagram indexing a pushout, defined as a special case of
 `wide_pushout_shape`.
 -/
-def walking_span  :=
+def walking_span :=
   wide_pushout_shape walking_pair
 
 /-- The left point of the walking span. -/
@@ -174,7 +174,7 @@ def diagram_iso_span {C : Type u} [category C] (F : walking_span ⥤ C) : F ≅ 
 
 /-- A pullback cone is just a cone on the cospan formed by two morphisms `f : X ⟶ Z` and
     `g : Y ⟶ Z`.-/
-def pullback_cone {C : Type u} [category C] {X : C} {Y : C} {Z : C} (f : X ⟶ Z) (g : Y ⟶ Z)  :=
+def pullback_cone {C : Type u} [category C] {X : C} {Y : C} {Z : C} (f : X ⟶ Z) (g : Y ⟶ Z) :=
   cone (cospan f g)
 
 namespace pullback_cone
@@ -269,7 +269,7 @@ end pullback_cone
 
 /-- A pushout cocone is just a cocone on the span formed by two morphisms `f : X ⟶ Y` and
     `g : X ⟶ Z`.-/
-def pushout_cocone {C : Type u} [category C] {X : C} {Y : C} {Z : C} (f : X ⟶ Y) (g : X ⟶ Z)  :=
+def pushout_cocone {C : Type u} [category C] {X : C} {Y : C} {Z : C} (f : X ⟶ Y) (g : X ⟶ Z) :=
   cocone (span f g)
 
 namespace pushout_cocone
@@ -386,13 +386,13 @@ def pushout_cocone.of_cocone {C : Type u} [category C] {F : walking_span ⥤ C} 
 for the pair of morphisms `f : X ⟶ Z` and `g : Y ⟶ Z`.
 -/
 /--
-def has_pullback {C : Type u} [category C] {X : C} {Y : C} {Z : C} (f : X ⟶ Z) (g : Y ⟶ Z)  :=
+def has_pullback {C : Type u} [category C] {X : C} {Y : C} {Z : C} (f : X ⟶ Z) (g : Y ⟶ Z) :=
   has_limit (cospan f g)
 
 `has_pushout f g` represents a particular choice of colimiting cocone
 for the pair of morphisms `f : X ⟶ Y` and `g : X ⟶ Z`.
 -/
-def has_pushout {C : Type u} [category C] {X : C} {Y : C} {Z : C} (f : X ⟶ Y) (g : X ⟶ Z)  :=
+def has_pushout {C : Type u} [category C] {X : C} {Y : C} {Z : C} (f : X ⟶ Y) (g : X ⟶ Z) :=
   has_colimit (span f g)
 
 /-- `pullback f g` computes the pullback of a pair of morphisms with the same target. -/
@@ -544,11 +544,11 @@ def pullback_comparison {C : Type u} [category C] {X : C} {Y : C} {Z : C} {D : T
 
 See https://stacks.math.columbia.edu/tag/001W.
 -/
-def has_pullbacks (C : Type u) [category C]  :=
+def has_pullbacks (C : Type u) [category C] :=
   has_limits_of_shape walking_cospan C
 
 /-- `has_pushouts` represents a choice of pushout for every pair of morphisms -/
-def has_pushouts (C : Type u) [category C]  :=
+def has_pushouts (C : Type u) [category C] :=
   has_colimits_of_shape walking_span C
 
 /-- If `C` has all limits of diagrams `cospan f g`, then it has all pullbacks -/

@@ -20,7 +20,7 @@ namespace omega
 /-- (([t₁,...tₘ],[s₁,...,sₙ]) : clause) encodes the constraints
 0 = ⟦t₁⟧ ∧ ... ∧ 0 = ⟦tₘ⟧ ∧ 0 ≤ ⟦s₁⟧ ∧ ... ∧ 0 ≤ ⟦sₙ⟧, where
 ⟦t⟧ is the value of (t : term). -/
-def clause  :=
+def clause :=
   List term × List term
 
 namespace clause
@@ -31,11 +31,11 @@ def holds (v : ℕ → ℤ) : clause → Prop :=
   sorry
 
 /-- sat c := there exists a valuation v under which c holds -/
-def sat (c : clause)  :=
+def sat (c : clause) :=
   ∃ (v : ℕ → ℤ), holds v c
 
 /-- unsat c := there is no valuation v under which c holds -/
-def unsat (c : clause)  :=
+def unsat (c : clause) :=
   ¬sat c
 
 /-- append two clauses by elementwise appending -/
@@ -48,11 +48,11 @@ end clause
 
 
 /-- There exists a satisfiable clause c in argument -/
-def clauses.sat (cs : List clause)  :=
+def clauses.sat (cs : List clause) :=
   ∃ (c : clause), ∃ (H : c ∈ cs), clause.sat c
 
 /-- There is no satisfiable clause c in argument -/
-def clauses.unsat (cs : List clause)  :=
+def clauses.unsat (cs : List clause) :=
   ¬clauses.sat cs
 
 theorem clauses.unsat_nil : clauses.unsat [] := sorry

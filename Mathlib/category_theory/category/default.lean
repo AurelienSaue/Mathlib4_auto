@@ -93,12 +93,12 @@ the morphisms. It is useful for examples such as the category of types, or the c
 of groups, etc.
 -/
 /--
-def large_category (C : Type (u + 1))  :=
+def large_category (C : Type (u + 1)) :=
   category C
 
 A `small_category` has objects and morphisms in the same universe level.
 -/
-def small_category (C : Type u)  :=
+def small_category (C : Type u) :=
   category C
 
 /-- postcompose an equation between morphisms by another morphism -/

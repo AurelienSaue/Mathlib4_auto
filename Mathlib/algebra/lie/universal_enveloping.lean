@@ -60,7 +60,7 @@ end universal_enveloping_algebra
 
 
 /-- The universal enveloping algebra of a Lie algebra. -/
-def universal_enveloping_algebra (R : Type u₁) (L : Type u₂) [comm_ring R] [lie_ring L] [lie_algebra R L]  :=
+def universal_enveloping_algebra (R : Type u₁) (L : Type u₂) [comm_ring R] [lie_ring L] [lie_algebra R L] :=
   ring_quot sorry
 
 namespace universal_enveloping_algebra

@@ -121,7 +121,7 @@ in this way.)
 end interactive
 
 
-def calculated_Prop {α : Sort u_1} (β : Prop) (hh : α)  :=
+def calculated_Prop {α : Sort u_1} (β : Prop) (hh : α) :=
   β
 
 end tactic

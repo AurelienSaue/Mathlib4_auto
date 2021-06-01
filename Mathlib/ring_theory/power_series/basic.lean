@@ -71,7 +71,7 @@ Occasionally this leads to proofs that are uglier than expected.
 
 /-- Multivariate formal power series, where `σ` is the index set of the variables
 and `R` is the coefficient ring.-/
-def mv_power_series (σ : Type u_1) (R : Type u_2)  :=
+def mv_power_series (σ : Type u_1) (R : Type u_2) :=
   (σ →₀ ℕ) → R
 
 namespace mv_power_series
@@ -480,7 +480,7 @@ end mv_polynomial
 
 
 /-- Formal power series over the coefficient ring `R`.-/
-def power_series (R : Type u_1)  :=
+def power_series (R : Type u_1) :=
   mv_power_series Unit R
 
 namespace power_series

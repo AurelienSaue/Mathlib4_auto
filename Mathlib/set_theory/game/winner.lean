@@ -24,19 +24,19 @@ namespace pgame
 
 
 /-- The player who goes first loses -/
-def first_loses (G : pgame)  :=
+def first_loses (G : pgame) :=
   G ≤ 0 ∧ 0 ≤ G
 
 /-- The player who goes first wins -/
-def first_wins (G : pgame)  :=
+def first_wins (G : pgame) :=
   0 < G ∧ G < 0
 
 /-- The left player can always win -/
-def left_wins (G : pgame)  :=
+def left_wins (G : pgame) :=
   0 < G ∧ 0 ≤ G
 
 /-- The right player can always win -/
-def right_wins (G : pgame)  :=
+def right_wins (G : pgame) :=
   G ≤ 0 ∧ G < 0
 
 theorem zero_first_loses : first_loses 0 :=

@@ -41,7 +41,7 @@ protected instance ulift.nonempty_fin_lin_ord (α : Type u) [nonempty_fin_lin_or
     linear_order.decidable_le linear_order.decidable_eq linear_order.decidable_lt (ulift.up ⊥) sorry (ulift.up ⊤) sorry
 
 /-- The category of nonempty finite linear orders. -/
-def NonemptyFinLinOrd  :=
+def NonemptyFinLinOrd :=
   category_theory.bundled nonempty_fin_lin_ord
 
 namespace NonemptyFinLinOrd

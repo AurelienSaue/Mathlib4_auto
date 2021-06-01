@@ -18,7 +18,7 @@ tfae: The Following (propositions) Are Equivalent.
 
 The `tfae_have` and `tfae_finish` tactics can be useful in proofs with `tfae` goals.
 -/
-def tfae (l : List Prop)  :=
+def tfae (l : List Prop) :=
   ∀ (x : Prop), x ∈ l → ∀ (y : Prop), y ∈ l → (x ↔ y)
 
 theorem tfae_nil : tfae [] :=

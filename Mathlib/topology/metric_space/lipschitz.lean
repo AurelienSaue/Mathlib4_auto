@@ -45,7 +45,7 @@ argument, and return `lipschitz_with (nnreal.of_real K) f`.
 
 /-- A function `f` is Lipschitz continuous with constant `K ≥ 0` if for all `x, y`
 we have `dist (f x) (f y) ≤ K * dist x y` -/
-def lipschitz_with {α : Type u} {β : Type v} [emetric_space α] [emetric_space β] (K : nnreal) (f : α → β)  :=
+def lipschitz_with {α : Type u} {β : Type v} [emetric_space α] [emetric_space β] (K : nnreal) (f : α → β) :=
   ∀ (x y : α), edist (f x) (f y) ≤ ↑K * edist x y
 
 theorem lipschitz_with_iff_dist_le_mul {α : Type u} {β : Type v} [metric_space α] [metric_space β] {K : nnreal} {f : α → β} : lipschitz_with K f ↔ ∀ (x y : α), dist (f x) (f y) ≤ ↑K * dist x y := sorry
@@ -55,7 +55,7 @@ theorem lipschitz_with.dist_le_mul {α : Type u} {β : Type v} [metric_space α]
 
 /-- A function `f` is Lipschitz continuous with constant `K ≥ 0` on `s` if for all `x, y` in `s`
 we have `dist (f x) (f y) ≤ K * dist x y` -/
-def lipschitz_on_with {α : Type u} {β : Type v} [emetric_space α] [emetric_space β] (K : nnreal) (f : α → β) (s : set α)  :=
+def lipschitz_on_with {α : Type u} {β : Type v} [emetric_space α] [emetric_space β] (K : nnreal) (f : α → β) (s : set α) :=
   ∀ {x : α}, x ∈ s → ∀ {y : α}, y ∈ s → edist (f x) (f y) ≤ ↑K * edist x y
 
 @[simp] theorem lipschitz_on_with_empty {α : Type u} {β : Type v} [emetric_space α] [emetric_space β] (K : nnreal) (f : α → β) : lipschitz_on_with K f ∅ :=

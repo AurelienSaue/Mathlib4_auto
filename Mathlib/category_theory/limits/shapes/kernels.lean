@@ -56,14 +56,14 @@ namespace category_theory.limits
 
 /-- A morphism `f` has a kernel if the functor `parallel_pair f 0` has a limit. -/
 /-- A morphism `f` has a cokernel if the functor `parallel_pair f 0` has a colimit. -/
-def has_kernel {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} (f : X ⟶ Y)  :=
+def has_kernel {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} (f : X ⟶ Y) :=
   has_limit (parallel_pair f 0)
 
-def has_cokernel {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} (f : X ⟶ Y)  :=
+def has_cokernel {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} (f : X ⟶ Y) :=
   has_colimit (parallel_pair f 0)
 
 /-- A kernel fork is just a fork where the second morphism is a zero morphism. -/
-def kernel_fork {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} (f : X ⟶ Y)  :=
+def kernel_fork {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} (f : X ⟶ Y) :=
   fork f 0
 
 @[simp] theorem kernel_fork.condition_assoc {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} {f : X ⟶ Y} (s : kernel_fork f) {X' : C} (f' : Y ⟶ X') : fork.ι s ≫ f ≫ f' = 0 ≫ f' := sorry
@@ -235,7 +235,7 @@ def kernel.ι_of_zero {C : Type u} [category C] [has_zero_morphisms C] (X : C) (
   equalizer.ι_of_self 0
 
 /-- A cokernel cofork is just a cofork where the second morphism is a zero morphism. -/
-def cokernel_cofork {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} (f : X ⟶ Y)  :=
+def cokernel_cofork {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} (f : X ⟶ Y) :=
   cofork f 0
 
 @[simp] theorem cokernel_cofork.condition {C : Type u} [category C] [has_zero_morphisms C] {X : C} {Y : C} {f : X ⟶ Y} (s : cokernel_cofork f) : f ≫ cofork.π s = 0 :=

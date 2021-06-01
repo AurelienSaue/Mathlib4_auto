@@ -73,7 +73,7 @@ The `hom` corresponding to first forgetting along `F`, then taking the `hom` ass
 
 For typical usage, see the construction of `CommMon` from `Mon`.
 -/
-def map_hom {c : Type u → Type u} (hom : {α β : Type u} → c α → c β → Type u) {d : Type u → Type u} (F : {α : Type u} → d α → c α) {α : Type u} {β : Type u} (Iα : d α) (Iβ : d β)  :=
+def map_hom {c : Type u → Type u} (hom : {α β : Type u} → c α → c β → Type u) {d : Type u → Type u} (F : {α : Type u} → d α → c α) {α : Type u} {β : Type u} (Iα : d α) (Iβ : d β) :=
   hom (F iα) (F iβ)
 
 /--

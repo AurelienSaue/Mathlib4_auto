@@ -32,7 +32,7 @@ namespace function
 
 
 /-- A point `x` is a fixed point of `f : α → α` if `f x = x`. -/
-def is_fixed_pt {α : Type u} (f : α → α) (x : α)  :=
+def is_fixed_pt {α : Type u} (f : α → α) (x : α) :=
   f x = x
 
 /-- Every point is a fixed point of `id`. -/

@@ -12,7 +12,7 @@ universes u v u_1
 
 namespace Mathlib
 
-def set (α : Type u)  :=
+def set (α : Type u) :=
   α → Prop
 
 def set_of {α : Type u} (p : α → Prop) : set α :=
@@ -21,13 +21,13 @@ def set_of {α : Type u} (p : α → Prop) : set α :=
 namespace set
 
 
-protected def mem {α : Type u} (a : α) (s : set α)  :=
+protected def mem {α : Type u} (a : α) (s : set α) :=
   s a
 
 protected instance has_mem {α : Type u} : has_mem α (set α) :=
   has_mem.mk set.mem
 
-protected def subset {α : Type u} (s₁ : set α) (s₂ : set α)  :=
+protected def subset {α : Type u} (s₁ : set α) (s₂ : set α) :=
   ∀ {a : α}, a ∈ s₁ → a ∈ s₂
 
 protected instance has_subset {α : Type u} : has_subset (set α) :=

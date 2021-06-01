@@ -35,7 +35,7 @@ namespace nat
 
 /-- Modular equality. `modeq n a b`, or `a ≡ b [MOD n]`, means
   that `a - b` is a multiple of `n`. -/
-def modeq (n : ℕ) (a : ℕ) (b : ℕ)  :=
+def modeq (n : ℕ) (a : ℕ) (b : ℕ) :=
   a % n = b % n
 
 namespace modeq

@@ -40,7 +40,7 @@ namespace nat
 
 /-- `prime p` means that `p` is a prime number, that is, a natural number
   at least 2 whose only divisors are `p` and `1`. -/
-def prime (p : ℕ)  :=
+def prime (p : ℕ) :=
   bit0 1 ≤ p ∧ ∀ (m : ℕ), m ∣ p → m = 1 ∨ m = p
 
 theorem prime.two_le {p : ℕ} : prime p → bit0 1 ≤ p :=
@@ -258,7 +258,7 @@ theorem factors_unique {n : ℕ} {l : List ℕ} (h₁ : list.prod l = n) (h₂ :
 theorem succ_dvd_or_succ_dvd_of_succ_sum_dvd_mul {p : ℕ} (p_prime : prime p) {m : ℕ} {n : ℕ} {k : ℕ} {l : ℕ} (hpm : p ^ k ∣ m) (hpn : p ^ l ∣ n) (hpmn : p ^ (k + l + 1) ∣ m * n) : p ^ (k + 1) ∣ m ∨ p ^ (l + 1) ∣ n := sorry
 
 /-- The type of prime numbers -/
-def primes  :=
+def primes :=
   Subtype fun (p : ℕ) => prime p
 
 namespace primes
@@ -299,7 +299,7 @@ theorem is_prime_helper (n : ℕ) (h₁ : 1 < n) (h₂ : nat.min_fac n = n) : na
 theorem min_fac_bit0 (n : ℕ) : nat.min_fac (bit0 n) = bit0 1 := sorry
 
 /-- A predicate representing partial progress in a proof of `min_fac`. -/
-def min_fac_helper (n : ℕ) (k : ℕ)  :=
+def min_fac_helper (n : ℕ) (k : ℕ) :=
   0 < k ∧ bit1 k ≤ nat.min_fac (bit1 n)
 
 theorem min_fac_helper.n_pos {n : ℕ} {k : ℕ} (h : min_fac_helper n k) : 0 < n := sorry

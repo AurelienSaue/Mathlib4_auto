@@ -40,7 +40,7 @@ This file defines affinely independent families of points.
 /-- An indexed family is said to be affinely independent if no
 nontrivial weighted subtractions (where the sum of weights is 0) are
 0. -/
-def affine_independent (k : Type u_1) {V : Type u_2} {P : Type u_3} [ring k] [add_comm_group V] [module k V] [add_torsor V P] {ι : Type u_4} (p : ι → P)  :=
+def affine_independent (k : Type u_1) {V : Type u_2} {P : Type u_3} [ring k] [add_comm_group V] [module k V] [add_torsor V P] {ι : Type u_4} (p : ι → P) :=
   ∀ (s : finset ι) (w : ι → k),
     (finset.sum s fun (i : ι) => w i) = 0 → coe_fn (finset.weighted_vsub s p) w = 0 → ∀ (i : ι), i ∈ s → w i = 0
 
@@ -154,7 +154,7 @@ where
   independent : affine_independent k points
 
 /-- A `triangle k P` is a collection of three affinely independent points. -/
-def triangle (k : Type u_1) {V : Type u_2} (P : Type u_3) [ring k] [add_comm_group V] [module k V] [add_torsor V P]  :=
+def triangle (k : Type u_1) {V : Type u_2} (P : Type u_3) [ring k] [add_comm_group V] [module k V] [add_torsor V P] :=
   simplex k P (bit0 1)
 
 namespace simplex

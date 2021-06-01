@@ -129,12 +129,12 @@ namespace cardinal
 
 /-- A cardinal is a limit if it is not zero or a successor
   cardinal. Note that `ω` is a limit cardinal by this definition. -/
-def is_limit (c : cardinal)  :=
+def is_limit (c : cardinal) :=
   c ≠ 0 ∧ ∀ (x : cardinal), x < c → succ x < c
 
 /-- A cardinal is a strong limit if it is not zero and it is
   closed under powersets. Note that `ω` is a strong limit by this definition. -/
-def is_strong_limit (c : cardinal)  :=
+def is_strong_limit (c : cardinal) :=
   c ≠ 0 ∧ ∀ (x : cardinal), x < c → bit0 1 ^ x < c
 
 theorem is_strong_limit.is_limit {c : cardinal} (H : is_strong_limit c) : is_limit c :=
@@ -142,7 +142,7 @@ theorem is_strong_limit.is_limit {c : cardinal} (H : is_strong_limit c) : is_lim
     right := fun (x : cardinal) (h : x < c) => lt_of_le_of_lt (iff.mpr succ_le (cantor x)) (and.right H x h) }
 
 /-- A cardinal is regular if it is infinite and it equals its own cofinality. -/
-def is_regular (c : cardinal)  :=
+def is_regular (c : cardinal) :=
   omega ≤ c ∧ ordinal.cof (ord c) = c
 
 theorem cof_is_regular {o : ordinal} (h : ordinal.is_limit o) : is_regular (ordinal.cof o) :=
@@ -165,7 +165,7 @@ theorem sum_lt_of_is_regular {ι : Type u} (f : ι → cardinal) {c : cardinal} 
 
 /-- A cardinal is inaccessible if it is an
   uncountable regular strong limit cardinal. -/
-def is_inaccessible (c : cardinal)  :=
+def is_inaccessible (c : cardinal) :=
   omega < c ∧ is_regular c ∧ is_strong_limit c
 
 theorem is_inaccessible.mk {c : cardinal} (h₁ : omega < c) (h₂ : c ≤ ordinal.cof (ord c)) (h₃ : ∀ (x : cardinal), x < c → bit0 1 ^ x < c) : is_inaccessible c := sorry

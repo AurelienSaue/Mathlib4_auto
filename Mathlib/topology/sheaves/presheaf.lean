@@ -30,7 +30,7 @@ along with their `@[simp]` lemmas.
 namespace Top
 
 
-def presheaf (C : Type u) [category_theory.category C] (X : Top)  :=
+def presheaf (C : Type u) [category_theory.category C] (X : Top) :=
   topological_space.opens ↥Xᵒᵖ ⥤ C
 
 namespace presheaf

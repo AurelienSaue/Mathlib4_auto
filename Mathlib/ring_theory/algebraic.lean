@@ -24,15 +24,15 @@ a tower of algebraic field extensions is algebraic.
 -/
 
 /-- An element of an R-algebra is algebraic over R if it is the root of a nonzero polynomial. -/
-def is_algebraic (R : Type u) {A : Type v} [comm_ring R] [ring A] [algebra R A] (x : A)  :=
+def is_algebraic (R : Type u) {A : Type v} [comm_ring R] [ring A] [algebra R A] (x : A) :=
   ∃ (p : polynomial R), p ≠ 0 ∧ coe_fn (polynomial.aeval x) p = 0
 
 /-- A subalgebra is algebraic if all its elements are algebraic. -/
-def subalgebra.is_algebraic {R : Type u} {A : Type v} [comm_ring R] [ring A] [algebra R A] (S : subalgebra R A)  :=
+def subalgebra.is_algebraic {R : Type u} {A : Type v} [comm_ring R] [ring A] [algebra R A] (S : subalgebra R A) :=
   ∀ (x : A), x ∈ S → is_algebraic R x
 
 /-- An algebra is algebraic if all its elements are algebraic. -/
-def algebra.is_algebraic (R : Type u) (A : Type v) [comm_ring R] [ring A] [algebra R A]  :=
+def algebra.is_algebraic (R : Type u) (A : Type v) [comm_ring R] [ring A] [algebra R A] :=
   ∀ (x : A), is_algebraic R x
 
 /-- A subalgebra is algebraic if and only if it is algebraic an algebra. -/

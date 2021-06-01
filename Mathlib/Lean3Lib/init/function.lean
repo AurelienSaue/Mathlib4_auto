@@ -82,7 +82,7 @@ theorem comp_const_right {α : Sort u₁} {β : Sort u₂} {φ : Sort u₃} (f :
   rfl
 
 /-- A function `f : α → β` is called injective if `f x = f y` implies `x = y`. -/
-def injective {α : Sort u₁} {β : Sort u₂} (f : α → β)  :=
+def injective {α : Sort u₁} {β : Sort u₂} (f : α → β) :=
   ∀ {a₁ a₂ : α}, f a₁ = f a₂ → a₁ = a₂
 
 theorem injective.comp {α : Sort u₁} {β : Sort u₂} {φ : Sort u₃} {g : β → φ} {f : α → β} (hg : injective g) (hf : injective f) : injective (g ∘ f) :=
@@ -90,31 +90,31 @@ theorem injective.comp {α : Sort u₁} {β : Sort u₂} {φ : Sort u₃} {g : �
 
 /-- A function `f : α → β` is calles surjective if every `b : β` is equal to `f a`
 for some `a : α`. -/
-def surjective {α : Sort u₁} {β : Sort u₂} (f : α → β)  :=
+def surjective {α : Sort u₁} {β : Sort u₂} (f : α → β) :=
   ∀ (b : β), ∃ (a : α), f a = b
 
 theorem surjective.comp {α : Sort u₁} {β : Sort u₂} {φ : Sort u₃} {g : β → φ} {f : α → β} (hg : surjective g) (hf : surjective f) : surjective (g ∘ f) := sorry
 
 /-- A function is called bijective if it is both injective and surjective. -/
-def bijective {α : Sort u₁} {β : Sort u₂} (f : α → β)  :=
+def bijective {α : Sort u₁} {β : Sort u₂} (f : α → β) :=
   injective f ∧ surjective f
 
 theorem bijective.comp {α : Sort u₁} {β : Sort u₂} {φ : Sort u₃} {g : β → φ} {f : α → β} : bijective g → bijective f → bijective (g ∘ f) := sorry
 
 /-- `left_inverse g f` means that g is a left inverse to f. That is, `g ∘ f = id`. -/
-def left_inverse {α : Sort u₁} {β : Sort u₂} (g : β → α) (f : α → β)  :=
+def left_inverse {α : Sort u₁} {β : Sort u₂} (g : β → α) (f : α → β) :=
   ∀ (x : α), g (f x) = x
 
 /-- `has_left_inverse f` means that `f` has an unspecified left inverse. -/
-def has_left_inverse {α : Sort u₁} {β : Sort u₂} (f : α → β)  :=
+def has_left_inverse {α : Sort u₁} {β : Sort u₂} (f : α → β) :=
   ∃ (finv : β → α), left_inverse finv f
 
 /-- `right_inverse g f` means that g is a right inverse to f. That is, `f ∘ g = id`. -/
-def right_inverse {α : Sort u₁} {β : Sort u₂} (g : β → α) (f : α → β)  :=
+def right_inverse {α : Sort u₁} {β : Sort u₂} (g : β → α) (f : α → β) :=
   left_inverse f g
 
 /-- `has_right_inverse f` means that `f` has an unspecified right inverse. -/
-def has_right_inverse {α : Sort u₁} {β : Sort u₂} (f : α → β)  :=
+def has_right_inverse {α : Sort u₁} {β : Sort u₂} (f : α → β) :=
   ∃ (finv : β → α), right_inverse finv f
 
 theorem left_inverse.injective {α : Sort u₁} {β : Sort u₂} {g : β → α} {f : α → β} : left_inverse g f → injective f :=

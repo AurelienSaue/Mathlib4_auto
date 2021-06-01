@@ -61,7 +61,7 @@ def 𝒪 (X : LocallyRingedSpace) : Top.sheaf CommRing (to_Top X) :=
 
 /-- A morphism of locally ringed spaces is a morphism of ringed spaces
  such that the morphims induced on stalks are local ring homomorphisms. -/
-def hom (X : LocallyRingedSpace) (Y : LocallyRingedSpace)  :=
+def hom (X : LocallyRingedSpace) (Y : LocallyRingedSpace) :=
   Subtype
     fun (f : to_SheafedSpace X ⟶ to_SheafedSpace Y) =>
       ∀ (x : ↥(SheafedSpace.to_PresheafedSpace (to_SheafedSpace X))), is_local_ring_hom (PresheafedSpace.stalk_map f x)

@@ -32,7 +32,7 @@ namespace category_theory
 
 /-- The arrow category of `T` has as objects all morphisms in `T` and as morphisms commutative
      squares in `T`. -/
-def arrow (T : Type u) [category T]  :=
+def arrow (T : Type u) [category T] :=
   comma 𝟭 𝟭
 
 -- Satisfying the inhabited linter

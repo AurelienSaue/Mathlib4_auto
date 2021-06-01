@@ -24,7 +24,7 @@ namespace polynomial
 
 
 /-- a polynomial `splits` iff it is zero or all of its irreducible factors have `degree` 1 -/
-def splits {α : Type u} {β : Type v} [field α] [field β] (i : α →+* β) (f : polynomial α)  :=
+def splits {α : Type u} {β : Type v} [field α] [field β] (i : α →+* β) (f : polynomial α) :=
   f = 0 ∨ ∀ {g : polynomial β}, irreducible g → g ∣ map i f → degree g = 1
 
 @[simp] theorem splits_zero {α : Type u} {β : Type v} [field α] [field β] (i : α →+* β) : splits i 0 :=
@@ -234,7 +234,7 @@ end splitting_field_aux
 
 
 /-- A splitting field of a polynomial. -/
-def splitting_field {α : Type u} [field α] (f : polynomial α)  :=
+def splitting_field {α : Type u} [field α] (f : polynomial α) :=
   splitting_field_aux (nat_degree f) f sorry
 
 namespace splitting_field

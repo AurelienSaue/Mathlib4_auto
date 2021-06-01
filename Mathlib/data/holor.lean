@@ -38,7 +38,7 @@ Based on the tensor library found in <https://www.isa-afp.org/entries/Deep_Learn
 -/
 
 /-- `holor_index ds` is the type of valid index tuples to identify an entry of a holor of dimensions `ds` -/
-def holor_index (ds : List ℕ)  :=
+def holor_index (ds : List ℕ) :=
   Subtype fun (is : List ℕ) => list.forall₂ Less is ds
 
 namespace holor_index
@@ -69,7 +69,7 @@ end holor_index
 
 
 /-- Holor (indexed collections of tensor coefficients) -/
-def holor (α : Type u) (ds : List ℕ)  :=
+def holor (α : Type u) (ds : List ℕ) :=
   holor_index ds → α
 
 namespace holor

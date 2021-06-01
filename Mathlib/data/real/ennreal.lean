@@ -77,7 +77,7 @@ context, or if we have `(f : α → ennreal) (hf : ∀ x, f x ≠ ∞)`.
 
 /-- The extended nonnegative real numbers. This is usually denoted [0, ∞],
   and is relevant as the codomain of a measure. -/
-def ennreal  :=
+def ennreal :=
   with_top nnreal
 
 namespace ennreal

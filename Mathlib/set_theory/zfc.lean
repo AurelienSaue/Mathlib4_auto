@@ -58,7 +58,7 @@ theorem mk_type_func (x : pSet) : mk (type x) (func x) = x :=
 /-- Two pre-sets are extensionally equivalent if every
   element of the first family is extensionally equivalent to
   some element of the second family and vice-versa. -/
-def equiv (x : pSet) (y : pSet)  :=
+def equiv (x : pSet) (y : pSet) :=
   pSet.rec (fun (α : Type u_1) (z : α → pSet) (m : α → pSet → Prop) (_x : pSet) => sorry) x y
 
 theorem equiv.refl (x : pSet) : equiv x x :=
@@ -198,7 +198,7 @@ theorem arity.equiv_const {a : pSet} (n : ℕ) : arity.equiv (arity.const a n) (
 
 /-- `resp n` is the collection of n-ary functions on `pSet` that respect
   equivalence, i.e. when the inputs are equivalent the output is as well. -/
-def resp (n : ℕ)  :=
+def resp (n : ℕ) :=
   Subtype fun (x : arity pSet n) => arity.equiv x x
 
 protected instance resp.inhabited {n : ℕ} : Inhabited (resp n) :=
@@ -207,7 +207,7 @@ protected instance resp.inhabited {n : ℕ} : Inhabited (resp n) :=
 def resp.f {n : ℕ} (f : resp (n + 1)) (x : pSet) : resp n :=
   { val := subtype.val f x, property := sorry }
 
-def resp.equiv {n : ℕ} (a : resp n) (b : resp n)  :=
+def resp.equiv {n : ℕ} (a : resp n) (b : resp n) :=
   arity.equiv (subtype.val a) (subtype.val b)
 
 theorem resp.refl {n : ℕ} (a : resp n) : resp.equiv a a :=
@@ -223,7 +223,7 @@ end pSet
 
 /-- The ZFC universe of sets consists of the type of pre-sets,
   quotiented by extensional equivalence. -/
-def Set  :=
+def Set :=
   quotient pSet.setoid
 
 namespace pSet
@@ -294,7 +294,7 @@ protected instance has_mem : has_mem Set Set :=
 def to_set (u : Set) : set Set :=
   set_of fun (x : Set) => x ∈ u
 
-protected def subset (x : Set) (y : Set)  :=
+protected def subset (x : Set) (y : Set) :=
   ∀ {z : Set}, z ∈ x → z ∈ y
 
 protected instance has_subset : has_subset Set :=
@@ -456,7 +456,7 @@ def prod : Set → Set → Set :=
 
 /-- `is_func x y f` is the assertion `f : x → y` where `f` is a ZFC function
   (a set of ordered pairs) -/
-def is_func (x : Set) (y : Set) (f : Set)  :=
+def is_func (x : Set) (y : Set) (f : Set) :=
   f ⊆ prod x y ∧ ∀ (z : Set), z ∈ x → exists_unique fun (w : Set) => pair z w ∈ f
 
 /-- `funs x y` is `y ^ x`, the set of all set functions `x → y` -/
@@ -484,7 +484,7 @@ theorem map_unique {f : Set → Set} [H : pSet.definable 1 f] {x : Set} {z : Set
 end Set
 
 
-def Class  :=
+def Class :=
   set Set
 
 namespace Class
@@ -529,11 +529,11 @@ def univ : Class :=
   set.univ
 
 /-- Assert that `A` is a set satisfying `p` -/
-def to_Set (p : Set → Prop) (A : Class)  :=
+def to_Set (p : Set → Prop) (A : Class) :=
   ∃ (x : Set), ↑x = A ∧ p x
 
 /-- `A ∈ B` if `A` is a set which is a member of `B` -/
-protected def mem (A : Class) (B : Class)  :=
+protected def mem (A : Class) (B : Class) :=
   to_Set B A
 
 protected instance has_mem : has_mem Class Class :=

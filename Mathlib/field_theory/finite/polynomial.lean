@@ -63,7 +63,7 @@ end mv_polynomial
 namespace mv_polynomial
 
 
-def R (σ : Type u) (K : Type u) [fintype σ] [field K] [fintype K]  :=
+def R (σ : Type u) (K : Type u) [fintype σ] [field K] [fintype K] :=
   ↥(restrict_degree σ K (fintype.card K - 1))
 
 protected instance decidable_restrict_degree (σ : Type u) [fintype σ] (m : ℕ) : decidable_pred fun (n : σ →₀ ℕ) => n ∈ set_of fun (n : σ →₀ ℕ) => ∀ (i : σ), coe_fn n i ≤ m :=

@@ -25,7 +25,7 @@ An encoding is an injection with a partial inverse, which can be viewed as a
 constructive analogue of countability. (For the most part, theorems about
 `countable` will be classical and `encodable` will be constructive.)
 -/
-def countable {α : Type u} (s : set α)  :=
+def countable {α : Type u} (s : set α) :=
   Nonempty (encodable ↥s)
 
 theorem countable_iff_exists_injective {α : Type u} {s : set α} : countable s ↔ ∃ (f : ↥s → ℕ), function.injective f := sorry

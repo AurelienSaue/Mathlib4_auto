@@ -25,7 +25,7 @@ with shape `discrete J`, where we have `[decidable_eq J]` and `[fintype J]`.
 
 -- because of https://github.com/leanprover-community/lean/issues/429
 
-def has_finite_products (C : Type u) [category C]  :=
+def has_finite_products (C : Type u) [category C] :=
   ∀ (J : Type v) [_inst_2 : DecidableEq J] [_inst_3 : fintype J], has_limits_of_shape (discrete J) C
 
 protected instance has_limits_of_shape_discrete (C : Type u) [category C] (J : Type v) [fintype J] [has_finite_products C] : has_limits_of_shape (discrete J) C :=
@@ -45,7 +45,7 @@ theorem has_finite_products_of_has_products (C : Type u) [category C] [has_produ
 A category has finite coproducts if there is a chosen colimit for every diagram
 with shape `discrete J`, where we have `[decidable_eq J]` and `[fintype J]`.
 -/
-def has_finite_coproducts (C : Type u) [category C]  :=
+def has_finite_coproducts (C : Type u) [category C] :=
   ∀ (J : Type v) [_inst_2 : DecidableEq J] [_inst_3 : fintype J], has_colimits_of_shape (discrete J) C
 
 protected instance has_colimits_of_shape_discrete (C : Type u) [category C] (J : Type v) [fintype J] [has_finite_coproducts C] : has_colimits_of_shape (discrete J) C :=

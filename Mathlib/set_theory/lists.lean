@@ -23,7 +23,7 @@ where
 | nil : lists' α tt
 | cons' : {b : Bool} → lists' α b → lists' α tt → lists' α tt
 
-def lists (α : Type u_1)  :=
+def lists (α : Type u_1) :=
   sigma fun (b : Bool) => lists' α b
 
 namespace lists'
@@ -98,7 +98,7 @@ def of' {α : Type u_1} (l : lists' α tt) : lists α :=
 @[simp] def to_list {α : Type u_1} : lists α → List (lists α) :=
   sorry
 
-def is_list {α : Type u_1} (l : lists α)  :=
+def is_list {α : Type u_1} (l : lists α) :=
   ↥(sigma.fst l)
 
 def of_list {α : Type u_1} (l : List (lists α)) : lists α :=
@@ -181,7 +181,7 @@ theorem subset.trans {α : Type u_1} {l₁ : lists' α tt} {l₂ : lists' α tt}
 end lists'
 
 
-def finsets (α : Type u_1)  :=
+def finsets (α : Type u_1) :=
   quotient lists.setoid
 
 namespace finsets

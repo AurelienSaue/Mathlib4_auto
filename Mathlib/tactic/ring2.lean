@@ -253,9 +253,9 @@ The indices cannot be computed until the whole tree is built, so another pass ov
 the expressions is needed - this is what `replace` does. The computation (expressed
 in the state monad) fixes up `atom`s to match their positions in the atom tree.
 The initial state is a list of all atom occurrences in the goal, left-to-right. -/
---| (csring_expr.neg x)   := csring_expr.neg <$> x.replace
+--| (csring_expr.neg x)  := csring_expr.neg <$> x.replace
 
---| (csring_expr.inv x)   := csring_expr.inv <$> x.replace
+--| (csring_expr.inv x)  := csring_expr.inv <$> x.replace
 
 end tactic.ring2
 

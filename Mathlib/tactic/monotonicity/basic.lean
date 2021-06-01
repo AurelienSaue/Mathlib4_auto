@@ -29,6 +29,6 @@ where
 def last_two {α : Type u_1} (l : List α) : Option (α × α) :=
   sorry
 
-def mono_key  :=
+def mono_key :=
   with_bot name × with_bot name
 

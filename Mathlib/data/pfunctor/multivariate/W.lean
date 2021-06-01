@@ -93,7 +93,7 @@ def Wp {n : ℕ} (P : mvpfunctor (n + 1)) : mvpfunctor n :=
   mk (pfunctor.W (last P)) (W_path P)
 
 /-- W-type of `P` -/
-def W {n : ℕ} (P : mvpfunctor (n + 1)) (α : typevec n)  :=
+def W {n : ℕ} (P : mvpfunctor (n + 1)) (α : typevec n) :=
   obj (Wp P) α
 
 protected instance mvfunctor_W {n : ℕ} (P : mvpfunctor (n + 1)) : mvfunctor (W P) :=

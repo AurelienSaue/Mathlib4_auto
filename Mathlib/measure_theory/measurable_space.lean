@@ -350,7 +350,7 @@ end measurable_space
 
 /-- A function `f` between measurable spaces is measurable if the preimage of every
   measurable set is measurable. -/
-def measurable {α : Type u_1} {β : Type u_2} [measurable_space α] [measurable_space β] (f : α → β)  :=
+def measurable {α : Type u_1} {β : Type u_2} [measurable_space α] [measurable_space β] (f : α → β) :=
   ∀ {t : set β}, is_measurable t → is_measurable (f ⁻¹' t)
 
 theorem measurable_iff_le_map {α : Type u_1} {β : Type u_2} {m₁ : measurable_space α} {m₂ : measurable_space β} {f : α → β} : measurable f ↔ m₂ ≤ measurable_space.map f m₁ :=
@@ -724,7 +724,7 @@ end measurable_equiv
 /-- A pi-system is a collection of subsets of `α` that is closed under intersections of sets that
   are not disjoint. Usually it is also required that the collection is nonempty, but we don't do
   that here. -/
-def is_pi_system {α : Type u_1} (C : set (set α))  :=
+def is_pi_system {α : Type u_1} (C : set (set α)) :=
   ∀ (s t : set α), s ∈ C → t ∈ C → set.nonempty (s ∩ t) → s ∩ t ∈ C
 
 namespace measurable_space
@@ -875,7 +875,7 @@ end filter
   whole type. This is a useful condition in various parts of measure theory. For example, it is
   a needed condition to show that the product of two collections generate the product sigma algebra,
   see `generate_from_prod_eq`. -/
-def is_countably_spanning {α : Type u_1} (C : set (set α))  :=
+def is_countably_spanning {α : Type u_1} (C : set (set α)) :=
   ∃ (s : ℕ → set α), (∀ (n : ℕ), s n ∈ C) ∧ (set.Union fun (n : ℕ) => s n) = set.univ
 
 theorem is_countably_spanning_is_measurable {α : Type u_1} [measurable_space α] : is_countably_spanning (set_of fun (s : set α) => is_measurable s) :=

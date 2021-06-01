@@ -22,7 +22,7 @@ def flip {α : Sort u} {β : Sort v} {φ : Sort w} (f : α → β → φ) : β �
 
 /- implication -/
 
-def implies (a : Prop) (b : Prop)  :=
+def implies (a : Prop) (b : Prop) :=
   a → b
 
 /-- Implication `→` is transitive. If `P → Q` and `Q → R` then `P → R`. -/
@@ -48,7 +48,7 @@ theorem mt {a : Prop} {b : Prop} (h₁ : a → b) (h₂ : ¬b) : ¬a :=
 theorem not_false : ¬False :=
   id
 
-def non_contradictory (a : Prop)  :=
+def non_contradictory (a : Prop) :=
   ¬¬a
 
 theorem non_contradictory_intro {a : Prop} (ha : a) : ¬¬a :=
@@ -110,7 +110,7 @@ theorem cast_eq {α : Sort u} (h : α = α) (a : α) : cast h a = a :=
 
 /- ne -/
 
-def ne {α : Sort u} (a : α) (b : α)  :=
+def ne {α : Sort u} (a : α) (b : α) :=
   ¬a = b
 
 infixl:50 " ≠ " => Mathlib.ne
@@ -231,14 +231,14 @@ def or.symm {a : Prop} {b : Prop} : a ∨ b → b ∨ a :=
 
 /- xor -/
 
-def xor (a : Prop) (b : Prop)  :=
+def xor (a : Prop) (b : Prop) :=
   a ∧ ¬b ∨ b ∧ ¬a
 
 /- iff -/
 
 /-- `iff P Q`, with notation `P ↔ Q`, is the proposition asserting that `P` and `Q` are equivalent,
 that is, have the same truth value. -/
-not foundinfixl:20 " <-> " => Mathlib.iff
+infixl:20 " <-> " => Mathlib.iff
 
 infixl:20 " ↔ " => Mathlib.iff
 
@@ -528,7 +528,7 @@ You'll then be left with the goal `⊢ p y`.
 To extract a witness `x` and proof `hx : p x` from a hypothesis `h : ∃ x, p x`,
 use the tactic `cases h with x hx`. See also the mathlib tactics `obtain` and `rcases`.
 -/
-not founddef exists.intro {α : Sort u_1} {p : α → Prop} (w : α) (h : p w) : Exists p :=
+def exists.intro {α : Sort u_1} {p : α → Prop} (w : α) (h : p w) : Exists p :=
   Exists.intro
 
 theorem exists.elim {α : Sort u} {p : α → Prop} {b : Prop} (h₁ : ∃ (x : α), p x) (h₂ : ∀ (a : α), p a → b) : b :=
@@ -536,7 +536,7 @@ theorem exists.elim {α : Sort u} {p : α → Prop} {b : Prop} (h₁ : ∃ (x : 
 
 /- exists unique -/
 
-def exists_unique {α : Sort u} (p : α → Prop)  :=
+def exists_unique {α : Sort u} (p : α → Prop) :=
   ∃ (x : α), p x ∧ ∀ (y : α), p y → y = x
 
 theorem exists_unique.intro {α : Sort u} {p : α → Prop} (w : α) (h₁ : p w) (h₂ : ∀ (y : α), p y → y = w) : exists_unique fun (x : α) => p x :=
@@ -679,10 +679,10 @@ protected instance ne.decidable {α : Sort u} [DecidableEq α] (a : α) (b : α)
 theorem bool.ff_ne_tt : false = tt → False :=
   fun (ᾰ : false = tt) => eq.dcases_on ᾰ (fun (H_1 : tt = false) => bool.no_confusion H_1) (Eq.refl tt) (HEq.refl ᾰ)
 
-def is_dec_eq {α : Sort u} (p : α → α → Bool)  :=
+def is_dec_eq {α : Sort u} (p : α → α → Bool) :=
   ∀ {x y : α}, p x y = tt → x = y
 
-def is_dec_refl {α : Sort u} (p : α → α → Bool)  :=
+def is_dec_refl {α : Sort u} (p : α → α → Bool) :=
   ∀ (x : α), p x x = tt
 
 protected instance bool.decidable_eq : DecidableEq Bool :=
@@ -697,7 +697,7 @@ theorem decidable_eq_inr_neg {α : Sort u} [h : DecidableEq α] {a : α} {b : α
 
 /- inhabited -/
 
-not founddef arbitrary (α : Sort u) [Inhabited α] : α :=
+def arbitrary (α : Sort u) [Inhabited α] : α :=
   Inhabited.default
 
 protected instance prop.inhabited : Inhabited Prop :=
@@ -712,7 +712,7 @@ protected instance bool.inhabited : Inhabited Bool :=
 protected instance true.inhabited : Inhabited True :=
   { default := trivial }
 
-not foundprotected def nonempty.elim {α : Sort u} {p : Prop} (h₁ : Nonempty α) (h₂ : α → p) : p :=
+protected def nonempty.elim {α : Sort u} {p : Prop} (h₁ : Nonempty α) (h₂ : α → p) : p :=
   Nonempty._oldrec h₂ h₁
 
 protected instance nonempty_of_inhabited {α : Sort u} [Inhabited α] : Nonempty α :=
@@ -794,10 +794,10 @@ protected instance ite.decidable {c : Prop} {t : Prop} {e : Prop} [d_c : Decidab
 protected instance dite.decidable {c : Prop} {t : c → Prop} {e : ¬c → Prop} [d_c : Decidable c] [d_t : (h : c) → Decidable (t h)] [d_e : (h : ¬c) → Decidable (e h)] : Decidable (dite c (fun (h : c) => t h) fun (h : ¬c) => e h) :=
   sorry
 
-def as_true (c : Prop) [Decidable c]  :=
+def as_true (c : Prop) [Decidable c] :=
   ite c True False
 
-def as_false (c : Prop) [Decidable c]  :=
+def as_false (c : Prop) [Decidable c] :=
   ite c False True
 
 def of_as_true {c : Prop} [h₁ : Decidable c] (h₂ : as_true c) : c :=
@@ -872,34 +872,34 @@ theorem let_eq {α : Sort v} {β : Sort u} {a₁ : α} {a₂ : α} {b₁ : α �
       b₂ x :=
   fun (h₁ : a₁ = a₂) (h₂ : ∀ (x : α), b₁ x = b₂ x) => eq.rec_on h₁ (h₂ a₁)
 
-def reflexive {β : Sort v} (r : β → β → Prop)  :=
+def reflexive {β : Sort v} (r : β → β → Prop) :=
   ∀ (x : β), r x x
 
-def symmetric {β : Sort v} (r : β → β → Prop)  :=
+def symmetric {β : Sort v} (r : β → β → Prop) :=
   ∀ {x y : β}, r x y → r y x
 
-def transitive {β : Sort v} (r : β → β → Prop)  :=
+def transitive {β : Sort v} (r : β → β → Prop) :=
   ∀ {x y z : β}, r x y → r y z → r x z
 
-def equivalence {β : Sort v} (r : β → β → Prop)  :=
+def equivalence {β : Sort v} (r : β → β → Prop) :=
   reflexive r ∧ symmetric r ∧ transitive r
 
-def total {β : Sort v} (r : β → β → Prop)  :=
+def total {β : Sort v} (r : β → β → Prop) :=
   ∀ (x y : β), r x y ∨ r y x
 
 def mk_equivalence {β : Sort v} (r : β → β → Prop) (rfl : reflexive r) (symm : symmetric r) (trans : transitive r) : equivalence r :=
   { left := rfl, right := { left := symm, right := trans } }
 
-def irreflexive {β : Sort v} (r : β → β → Prop)  :=
+def irreflexive {β : Sort v} (r : β → β → Prop) :=
   ∀ (x : β), ¬r x x
 
-def anti_symmetric {β : Sort v} (r : β → β → Prop)  :=
+def anti_symmetric {β : Sort v} (r : β → β → Prop) :=
   ∀ {x y : β}, r x y → r y x → x = y
 
-def empty_relation {α : Sort u} (a₁ : α) (a₂ : α)  :=
+def empty_relation {α : Sort u} (a₁ : α) (a₂ : α) :=
   False
 
-def subrelation {β : Sort v} (q : β → β → Prop) (r : β → β → Prop)  :=
+def subrelation {β : Sort v} (q : β → β → Prop) (r : β → β → Prop) :=
   ∀ {x y : β}, q x y → r x y
 
 def inv_image {α : Sort u} {β : Sort v} (r : β → β → Prop) (f : α → β) : α → α → Prop :=
@@ -916,37 +916,37 @@ where
 | base : ∀ (a b : α), r a b → tc r a b
 | trans : ∀ (a b c : α), tc r a b → tc r b c → tc r a c
 
-def commutative {α : Type u} (f : α → α → α)  :=
+def commutative {α : Type u} (f : α → α → α) :=
   ∀ (a b : α), f a b = f b a
 
-def associative {α : Type u} (f : α → α → α)  :=
+def associative {α : Type u} (f : α → α → α) :=
   ∀ (a b c : α), f (f a b) c = f a (f b c)
 
-def left_identity {α : Type u} (f : α → α → α) (one : α)  :=
+def left_identity {α : Type u} (f : α → α → α) (one : α) :=
   ∀ (a : α), f one a = a
 
-def right_identity {α : Type u} (f : α → α → α) (one : α)  :=
+def right_identity {α : Type u} (f : α → α → α) (one : α) :=
   ∀ (a : α), f a one = a
 
-def right_inverse {α : Type u} (f : α → α → α) (inv : α → α) (one : α)  :=
+def right_inverse {α : Type u} (f : α → α → α) (inv : α → α) (one : α) :=
   ∀ (a : α), f a (inv a) = one
 
-def left_cancelative {α : Type u} (f : α → α → α)  :=
+def left_cancelative {α : Type u} (f : α → α → α) :=
   ∀ (a b c : α), f a b = f a c → b = c
 
-def right_cancelative {α : Type u} (f : α → α → α)  :=
+def right_cancelative {α : Type u} (f : α → α → α) :=
   ∀ (a b c : α), f a b = f c b → a = c
 
-def left_distributive {α : Type u} (f : α → α → α) (g : α → α → α)  :=
+def left_distributive {α : Type u} (f : α → α → α) (g : α → α → α) :=
   ∀ (a b c : α), f a (g b c) = g (f a b) (f a c)
 
-def right_distributive {α : Type u} (f : α → α → α) (g : α → α → α)  :=
+def right_distributive {α : Type u} (f : α → α → α) (g : α → α → α) :=
   ∀ (a b c : α), f (g a b) c = g (f a c) (f b c)
 
-def right_commutative {α : Type u} {β : Type v} (h : β → α → β)  :=
+def right_commutative {α : Type u} {β : Type v} (h : β → α → β) :=
   ∀ (b : β) (a₁ a₂ : α), h (h b a₁) a₂ = h (h b a₂) a₁
 
-def left_commutative {α : Type u} {β : Type v} (h : α → β → β)  :=
+def left_commutative {α : Type u} {β : Type v} (h : α → β → β) :=
   ∀ (a₁ a₂ : α) (b : β), h a₁ (h a₂ b) = h a₂ (h a₁ b)
 
 theorem left_comm {α : Type u} (f : α → α → α) : commutative f → associative f → left_commutative f :=

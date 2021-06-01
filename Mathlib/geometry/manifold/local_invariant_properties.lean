@@ -80,7 +80,7 @@ this point. (When the property is local and invariant, it will in fact hold usin
 `lift_prop_within_at_indep_chart`). We require continuity in the lifted property, as otherwise one
 single chart might fail to capture the behavior of the function.
 -/
-def charted_space.lift_prop_within_at {H : Type u_1} {M : Type u_2} [topological_space H] [topological_space M] [charted_space H M] {H' : Type u_3} {M' : Type u_4} [topological_space H'] [topological_space M'] [charted_space H' M'] (P : (H → H') → set H → H → Prop) (f : M → M') (s : set M) (x : M)  :=
+def charted_space.lift_prop_within_at {H : Type u_1} {M : Type u_2} [topological_space H] [topological_space M] [charted_space H M] {H' : Type u_3} {M' : Type u_4} [topological_space H'] [topological_space M'] [charted_space H' M'] (P : (H → H') → set H → H → Prop) (f : M → M') (s : set M) (x : M) :=
   continuous_within_at f s x ∧
     P (⇑(charted_space.chart_at H' (f x)) ∘ f ∘ ⇑(local_homeomorph.symm (charted_space.chart_at H x)))
       (local_equiv.target (local_homeomorph.to_local_equiv (charted_space.chart_at H x)) ∩
@@ -91,19 +91,19 @@ def charted_space.lift_prop_within_at {H : Type u_1} {M : Type u_2} [topological
 /-- Given a property of germs of functions and sets in the model space, then one defines
 a corresponding property of functions on sets in a charted space, by requiring that it holds
 around each point of the set, in the preferred charts. -/
-def charted_space.lift_prop_on {H : Type u_1} {M : Type u_2} [topological_space H] [topological_space M] [charted_space H M] {H' : Type u_3} {M' : Type u_4} [topological_space H'] [topological_space M'] [charted_space H' M'] (P : (H → H') → set H → H → Prop) (f : M → M') (s : set M)  :=
+def charted_space.lift_prop_on {H : Type u_1} {M : Type u_2} [topological_space H] [topological_space M] [charted_space H M] {H' : Type u_3} {M' : Type u_4} [topological_space H'] [topological_space M'] [charted_space H' M'] (P : (H → H') → set H → H → Prop) (f : M → M') (s : set M) :=
   ∀ (x : M), x ∈ s → charted_space.lift_prop_within_at P f s x
 
 /-- Given a property of germs of functions and sets in the model space, then one defines
 a corresponding property of a function at a point in a charted space, by requiring that it holds
 in the preferred chart. -/
-def charted_space.lift_prop_at {H : Type u_1} {M : Type u_2} [topological_space H] [topological_space M] [charted_space H M] {H' : Type u_3} {M' : Type u_4} [topological_space H'] [topological_space M'] [charted_space H' M'] (P : (H → H') → set H → H → Prop) (f : M → M') (x : M)  :=
+def charted_space.lift_prop_at {H : Type u_1} {M : Type u_2} [topological_space H] [topological_space M] [charted_space H M] {H' : Type u_3} {M' : Type u_4} [topological_space H'] [topological_space M'] [charted_space H' M'] (P : (H → H') → set H → H → Prop) (f : M → M') (x : M) :=
   charted_space.lift_prop_within_at P f set.univ x
 
 /-- Given a property of germs of functions and sets in the model space, then one defines
 a corresponding property of a function in a charted space, by requiring that it holds
 in the preferred chart around every point. -/
-def charted_space.lift_prop {H : Type u_1} {M : Type u_2} [topological_space H] [topological_space M] [charted_space H M] {H' : Type u_3} {M' : Type u_4} [topological_space H'] [topological_space M'] [charted_space H' M'] (P : (H → H') → set H → H → Prop) (f : M → M')  :=
+def charted_space.lift_prop {H : Type u_1} {M : Type u_2} [topological_space H] [topological_space M] [charted_space H M] {H' : Type u_3} {M' : Type u_4} [topological_space H'] [topological_space M'] [charted_space H' M'] (P : (H → H') → set H → H → Prop) (f : M → M') :=
   ∀ (x : M), charted_space.lift_prop_at P f x
 
 namespace structure_groupoid
@@ -221,7 +221,7 @@ end local_invariant_prop
 /-- A function from a model space `H` to itself is a local structomorphism, with respect to a
 structure groupoid `G` for `H`, relative to a set `s` in `H`, if for all points `x` in the set, the
 function agrees with a `G`-structomorphism on `s` in a neighbourhood of `x`. -/
-def is_local_structomorph_within_at {H : Type u_1} [topological_space H] (G : structure_groupoid H) (f : H → H) (s : set H) (x : H)  :=
+def is_local_structomorph_within_at {H : Type u_1} [topological_space H] (G : structure_groupoid H) (f : H → H) (s : set H) (x : H) :=
   x ∈ s →
     ∃ (e : local_homeomorph H H),
       e ∈ G ∧

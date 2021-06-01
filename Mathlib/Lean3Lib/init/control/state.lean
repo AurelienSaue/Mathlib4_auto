@@ -20,7 +20,7 @@ structure state_t (σ : Type u) (m : Type u → Type v) (α : Type u)
 where
   run : σ → m (α × σ)
 
-def state (σ : Type u) (α : Type u)  :=
+def state (σ : Type u) (α : Type u) :=
   state_t σ id α
 
 namespace state_t

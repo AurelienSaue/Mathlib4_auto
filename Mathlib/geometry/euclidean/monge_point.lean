@@ -295,7 +295,7 @@ namespace euclidean_geometry
 
 /-- Four points form an orthocentric system if they consist of the
 vertices of a triangle and its orthocenter. -/
-def orthocentric_system {V : Type u_1} {P : Type u_2} [inner_product_space ℝ V] [metric_space P] [normed_add_torsor V P] (s : set P)  :=
+def orthocentric_system {V : Type u_1} {P : Type u_2} [inner_product_space ℝ V] [metric_space P] [normed_add_torsor V P] (s : set P) :=
   ∃ (t : affine.triangle ℝ P),
     ¬affine.triangle.orthocenter t ∈ set.range (affine.simplex.points t) ∧
       s = insert (affine.triangle.orthocenter t) (set.range (affine.simplex.points t))

@@ -31,7 +31,7 @@ namespace category_theory
 
 
 /-- Category of categories. -/
-def Cat  :=
+def Cat :=
   bundled category
 
 namespace Cat

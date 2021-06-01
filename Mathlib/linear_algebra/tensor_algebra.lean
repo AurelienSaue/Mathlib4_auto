@@ -62,7 +62,7 @@ end tensor_algebra
 /--
 The tensor algebra of the module `M` over the commutative semiring `R`.
 -/
-def tensor_algebra (R : Type u_1) [comm_semiring R] (M : Type u_2) [add_comm_monoid M] [semimodule R M]  :=
+def tensor_algebra (R : Type u_1) [comm_semiring R] (M : Type u_2) [add_comm_monoid M] [semimodule R M] :=
   ring_quot sorry
 
 namespace tensor_algebra

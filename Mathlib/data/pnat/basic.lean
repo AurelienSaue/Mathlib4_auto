@@ -19,7 +19,7 @@ This file defines the type `ℕ+` or `pnat`, the subtype of natural numbers that
 /-- `ℕ+` is the type of positive natural numbers. It is defined as a subtype,
   and the VM representation of `ℕ+` is the same as `ℕ` because the proof
   is not stored. -/
-def pnat  :=
+def pnat :=
   Subtype fun (n : ℕ) => 0 < n
 
 notation:1024 "ℕ+" => Mathlib.pnat

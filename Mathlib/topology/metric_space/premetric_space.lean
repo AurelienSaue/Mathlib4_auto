@@ -41,7 +41,7 @@ def dist_setoid (α : Type u) [premetric_space α] : setoid α :=
   setoid.mk (fun (x y : α) => dist x y = 0) sorry
 
 /-- The canonical quotient of a premetric space, identifying points at distance `0`. -/
-def metric_quot (α : Type u) [premetric_space α]  :=
+def metric_quot (α : Type u) [premetric_space α] :=
   quotient (dist_setoid α)
 
 protected instance has_dist_metric_quot {α : Type u} [premetric_space α] : has_dist (metric_quot α) :=

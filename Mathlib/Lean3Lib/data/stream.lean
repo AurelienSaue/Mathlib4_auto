@@ -11,7 +11,7 @@ universes u v w
 
 namespace Mathlib
 
-def stream (α : Type u)  :=
+def stream (α : Type u) :=
   ℕ → α
 
 namespace stream
@@ -67,10 +67,10 @@ theorem drop_succ {α : Type u} (n : ℕ) (s : stream α) : drop (Nat.succ n) s 
 protected theorem ext {α : Type u} {s₁ : stream α} {s₂ : stream α} : (∀ (n : ℕ), nth n s₁ = nth n s₂) → s₁ = s₂ :=
   fun (h : ∀ (n : ℕ), nth n s₁ = nth n s₂) => funext h
 
-def all {α : Type u} (p : α → Prop) (s : stream α)  :=
+def all {α : Type u} (p : α → Prop) (s : stream α) :=
   ∀ (n : ℕ), p (nth n s)
 
-def any {α : Type u} (p : α → Prop) (s : stream α)  :=
+def any {α : Type u} (p : α → Prop) (s : stream α) :=
   ∃ (n : ℕ), p (nth n s)
 
 theorem all_def {α : Type u} (p : α → Prop) (s : stream α) : all p s = ∀ (n : ℕ), p (nth n s) :=
@@ -79,7 +79,7 @@ theorem all_def {α : Type u} (p : α → Prop) (s : stream α) : all p s = ∀ 
 theorem any_def {α : Type u} (p : α → Prop) (s : stream α) : any p s = ∃ (n : ℕ), p (nth n s) :=
   rfl
 
-protected def mem {α : Type u} (a : α) (s : stream α)  :=
+protected def mem {α : Type u} (a : α) (s : stream α) :=
   any (fun (b : α) => a = b) s
 
 protected instance has_mem {α : Type u} : has_mem α (stream α) :=
@@ -186,7 +186,7 @@ theorem nth_succ_iterate {α : Type u} (n : ℕ) (f : α → α) (a : α) : nth 
     (eq.mpr (id (Eq._oldrec (Eq.refl (nth n (tail (iterate f a)) = nth n (iterate f (f a)))) (tail_iterate f a)))
       (Eq.refl (nth n (iterate f (f a)))))
 
-def is_bisimulation {α : Type u} (R : stream α → stream α → Prop)  :=
+def is_bisimulation {α : Type u} (R : stream α → stream α → Prop) :=
   ∀ {s₁ s₂ : stream α}, R s₁ s₂ → head s₁ = head s₂ ∧ R (tail s₁) (tail s₂)
 
 theorem nth_of_bisim {α : Type u} (R : stream α → stream α → Prop) (bisim : is_bisimulation R) {s₁ : stream α} {s₂ : stream α} (n : ℕ) : R s₁ s₂ → nth n s₁ = nth n s₂ ∧ R (drop (n + 1) s₁) (drop (n + 1) s₂) := sorry

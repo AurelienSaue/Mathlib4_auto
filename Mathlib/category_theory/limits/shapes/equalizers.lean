@@ -107,11 +107,11 @@ def diagram_iso_parallel_pair {C : Type u} [category C] (F : walking_parallel_pa
   nat_iso.of_components (fun (j : walking_parallel_pair) => eq_to_iso sorry) sorry
 
 /-- A fork on `f` and `g` is just a `cone (parallel_pair f g)`. -/
-def fork {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y)  :=
+def fork {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y) :=
   cone (parallel_pair f g)
 
 /-- A cofork on `f` and `g` is just a `cocone (parallel_pair f g)`. -/
-def cofork {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y)  :=
+def cofork {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y) :=
   cocone (parallel_pair f g)
 
 /-- A fork `t` on the parallel pair `f g : X ⟶ Y` consists of two morphisms `t.π.app zero : t.X ⟶ X`
@@ -393,7 +393,7 @@ def cofork.ext {C : Type u} [category C] {X : C} {Y : C} {f : X ⟶ Y} {g : X �
 `has_equalizer f g` represents a particular choice of limiting cone
 for the parallel pair of morphisms `f` and `g`.
 -/
-def has_equalizer {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y)  :=
+def has_equalizer {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y) :=
   has_limit (parallel_pair f g)
 
 /-- If an equalizer of `f` and `g` exists, we can access an arbitrary choice of such by
@@ -503,7 +503,7 @@ def equalizer.iso_source_of_self {C : Type u} [category C] {X : C} {Y : C} (f : 
 `has_coequalizer f g` represents a particular choice of colimiting cocone
 for the parallel pair of morphisms `f` and `g`.
 -/
-def has_coequalizer {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y)  :=
+def has_coequalizer {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ Y) (g : X ⟶ Y) :=
   has_colimit (parallel_pair f g)
 
 /-- If a coequalizer of `f` and `g` exists, we can access an arbitrary choice of such by
@@ -654,11 +654,11 @@ def coequalizer_comparison {C : Type u} [category C] {X : C} {Y : C} (f : X ⟶ 
     f' := sorry
 
 /-- `has_equalizers` represents a choice of equalizer for every pair of morphisms -/
-def has_equalizers (C : Type u) [category C]  :=
+def has_equalizers (C : Type u) [category C] :=
   has_limits_of_shape walking_parallel_pair C
 
 /-- `has_coequalizers` represents a choice of coequalizer for every pair of morphisms -/
-def has_coequalizers (C : Type u) [category C]  :=
+def has_coequalizers (C : Type u) [category C] :=
   has_colimits_of_shape walking_parallel_pair C
 
 /-- If `C` has all limits of diagrams `parallel_pair f g`, then it has all equalizers -/

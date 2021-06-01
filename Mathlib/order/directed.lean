@@ -15,12 +15,12 @@ namespace Mathlib
 
 /-- A family of elements of α is directed (with respect to a relation `≼` on α)
   if there is a member of the family `≼`-above any pair in the family.  -/
-def directed {α : Type u} {ι : Sort w} (r : α → α → Prop) (f : ι → α)  :=
+def directed {α : Type u} {ι : Sort w} (r : α → α → Prop) (f : ι → α) :=
   ∀ (x y : ι), ∃ (z : ι), r (f x) (f z) ∧ r (f y) (f z)
 
 /-- A subset of α is directed if there is an element of the set `≼`-above any
   pair of elements in the set. -/
-def directed_on {α : Type u} (r : α → α → Prop) (s : set α)  :=
+def directed_on {α : Type u} (r : α → α → Prop) (s : set α) :=
   ∀ (x : α) (H : x ∈ s) (y : α) (H : y ∈ s), ∃ (z : α), ∃ (H : z ∈ s), r x z ∧ r y z
 
 theorem directed_on_iff_directed {α : Type u} {r : α → α → Prop} {s : set α} : directed_on r s ↔ directed r coe := sorry

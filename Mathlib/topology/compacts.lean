@@ -31,7 +31,7 @@ namespace topological_space
 
 
 /-- The type of closed subsets of a topological space. -/
-def closeds (α : Type u_1) [topological_space α]  :=
+def closeds (α : Type u_1) [topological_space α] :=
   Subtype fun (s : set α) => is_closed s
 
 /-- The type of closed subsets is inhabited, with default element the empty set. -/
@@ -39,13 +39,13 @@ protected instance closeds.inhabited (α : Type u_1) [topological_space α] : In
   { default := { val := ∅, property := is_closed_empty } }
 
 /-- The compact sets of a topological space. See also `nonempty_compacts`. -/
-def compacts (α : Type u_1) [topological_space α]  :=
+def compacts (α : Type u_1) [topological_space α] :=
   Subtype fun (s : set α) => is_compact s
 
 /-- The type of non-empty compact subsets of a topological space. The
 non-emptiness will be useful in metric spaces, as we will be able to put
 a distance (and not merely an edistance) on this space. -/
-def nonempty_compacts (α : Type u_1) [topological_space α]  :=
+def nonempty_compacts (α : Type u_1) [topological_space α] :=
   Subtype fun (s : set α) => set.nonempty s ∧ is_compact s
 
 /-- In an inhabited space, the type of nonempty compact subsets is also inhabited, with
@@ -55,7 +55,7 @@ protected instance nonempty_compacts_inhabited (α : Type u_1) [topological_spac
 
 /-- The compact sets with nonempty interior of a topological space. See also `compacts` and
   `nonempty_compacts`. -/
-def positive_compacts (α : Type u_1) [topological_space α]  :=
+def positive_compacts (α : Type u_1) [topological_space α] :=
   Subtype fun (s : set α) => is_compact s ∧ set.nonempty (interior s)
 
 namespace compacts

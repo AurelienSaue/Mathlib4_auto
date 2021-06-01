@@ -207,7 +207,7 @@ end is_linear_map
 
 /-- Linear endomorphisms of a module, with associated ring structure
 `linear_map.endomorphism_semiring` and algebra structure `module.endomorphism_algebra`. -/
-def module.End (R : Type u) (M : Type v) [semiring R] [add_comm_monoid M] [semimodule R M]  :=
+def module.End (R : Type u) (M : Type v) [semiring R] [add_comm_monoid M] [semimodule R M] :=
   linear_map R M M
 
 /-- Reinterpret an additive homomorphism as a `ℤ`-linear map. -/

@@ -85,7 +85,7 @@ theorem separated_equiv {α : Type u} [uniform_space α] : equivalence fun (x y 
 
 /-- A uniform space is separated if its separation relation is trivial (each point
 is related only to itself). -/
-def separated_space (α : Type u) [uniform_space α]  :=
+def separated_space (α : Type u) [uniform_space α] :=
   Mathlib.separation_rel α = id_rel
 
 theorem separated_def {α : Type u} [uniform_space α] : separated_space α ↔ ∀ (x y : α), (∀ (r : set (α × α)), r ∈ uniformity α → (x, y) ∈ r) → x = y := sorry
@@ -118,7 +118,7 @@ protected instance separated_regular {α : Type u} [uniform_space α] [separated
 
 /-- A set `s` in a uniform space `α` is separated if the separation relation `𝓢 α`
 induces the trivial relation on `s`. -/
-def is_separated {α : Type u} [uniform_space α] (s : set α)  :=
+def is_separated {α : Type u} [uniform_space α] (s : set α) :=
   ∀ (x y : α), x ∈ s → y ∈ s → (x, y) ∈ Mathlib.separation_rel α → x = y
 
 theorem is_separated_def {α : Type u} [uniform_space α] (s : set α) : is_separated s ↔ ∀ (x y : α), x ∈ s → y ∈ s → (x, y) ∈ Mathlib.separation_rel α → x = y :=
@@ -191,7 +191,7 @@ theorem eq_of_separated_of_uniform_continuous {α : Type u} {β : Type v} [unifo
   iff.mp separated_def _inst_4 (f x) (f y) (separated_of_uniform_continuous H h)
 
 /-- The maximal separated quotient of a uniform space `α`. -/
-def separation_quotient (α : Type u_1) [uniform_space α]  :=
+def separation_quotient (α : Type u_1) [uniform_space α] :=
   quotient (separation_setoid α)
 
 namespace separation_quotient

@@ -135,7 +135,7 @@ theorem bind_covering {C : Type u} [category C] {X : C} (J : grothendieck_topolo
 The sieve `S` on `X` `J`-covers an arrow `f` to `X` if `S.pullback f ∈ J Y`.
 This definition is an alternate way of presenting a Grothendieck topology.
 -/
-def covers {C : Type u} [category C] {X : C} {Y : C} (J : grothendieck_topology C) (S : sieve X) (f : Y ⟶ X)  :=
+def covers {C : Type u} [category C] {X : C} {Y : C} (J : grothendieck_topology C) (S : sieve X) (f : Y ⟶ X) :=
   sieve.pullback f S ∈ coe_fn J Y
 
 theorem covers_iff {C : Type u} [category C] {X : C} {Y : C} (J : grothendieck_topology C) (S : sieve X) (f : Y ⟶ X) : covers J S f ↔ sieve.pullback f S ∈ coe_fn J Y :=
@@ -239,7 +239,7 @@ A category satisfies the right Ore condition if any span can be completed to a c
 NB. Any category with pullbacks obviously satisfies the right Ore condition, see
 `right_ore_of_pullbacks`.
 -/
-def right_ore_condition (C : Type u) [category C]  :=
+def right_ore_condition (C : Type u) [category C] :=
   ∀ {X Y Z : C} (yx : Y ⟶ X) (zx : Z ⟶ X), ∃ (W : C), ∃ (wy : W ⟶ Y), ∃ (wz : W ⟶ Z), wy ≫ yx = wz ≫ zx
 
 theorem right_ore_of_pullbacks {C : Type u} [category C] [limits.has_pullbacks C] : right_ore_condition C :=

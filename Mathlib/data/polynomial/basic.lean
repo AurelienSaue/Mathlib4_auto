@@ -26,7 +26,7 @@ In this file, we define `polynomial`, provide basic instances, and prove an `ext
 
 Polynomials should be seen as (semi-)rings with the additional constructor `X`.
 The embedding from `R` is called `C`. -/
-def polynomial (R : Type u_1) [semiring R]  :=
+def polynomial (R : Type u_1) [semiring R] :=
   add_monoid_algebra R ℕ
 
 namespace polynomial

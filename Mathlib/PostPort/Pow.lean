@@ -11,6 +11,6 @@ universes u v
 variable {α : Type u} {β : Type v}
 
 noncomputable instance [has_pow α β] : HPow α β α := ⟨pow⟩
-noncomputable instance [has_pow α α] : Pow α      := ⟨pow⟩
+noncomputable instance [has_pow α α] : Pow α     := ⟨pow⟩
 
 end Mathlib

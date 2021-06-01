@@ -271,10 +271,10 @@ protected instance prod.lex.is_well_order {α : Type u} {β : Type v} {r : α �
 
 /-- An unbounded or cofinal set -/
 /-- A bounded or final set -/
-def unbounded {α : Type u} (r : α → α → Prop) (s : set α)  :=
+def unbounded {α : Type u} (r : α → α → Prop) (s : set α) :=
   ∀ (a : α), ∃ (b : α), ∃ (H : b ∈ s), ¬r b a
 
-def bounded {α : Type u} (r : α → α → Prop) (s : set α)  :=
+def bounded {α : Type u} (r : α → α → Prop) (s : set α) :=
   ∃ (a : α), ∀ (b : α), b ∈ s → r b a
 
 @[simp] theorem not_bounded_iff {α : Type u} {r : α → α → Prop} (s : set α) : ¬bounded r s ↔ unbounded r s := sorry

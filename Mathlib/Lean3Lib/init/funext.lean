@@ -17,7 +17,7 @@ namespace Mathlib
 namespace function
 
 
-protected def equiv {α : Sort u} {β : α → Sort v} (f₁ : (x : α) → β x) (f₂ : (x : α) → β x)  :=
+protected def equiv {α : Sort u} {β : α → Sort v} (f₁ : (x : α) → β x) (f₂ : (x : α) → β x) :=
   ∀ (x : α), f₁ x = f₂ x
 
 protected theorem equiv.refl {α : Sort u} {β : α → Sort v} (f : (x : α) → β x) : function.equiv f f :=

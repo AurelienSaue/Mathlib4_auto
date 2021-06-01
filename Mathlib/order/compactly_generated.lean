@@ -54,23 +54,23 @@ namespace complete_lattice
 
 /-- A compactness property for a complete lattice is that any `sup`-closed non-empty subset
 contains its `Sup`. -/
-def is_sup_closed_compact (α : Type u_1) [complete_lattice α]  :=
+def is_sup_closed_compact (α : Type u_1) [complete_lattice α] :=
   ∀ (s : set α), set.nonempty s → (∀ (a b : α), a ∈ s → b ∈ s → a ⊔ b ∈ s) → Sup s ∈ s
 
 /-- A compactness property for a complete lattice is that any subset has a finite subset with the
 same `Sup`. -/
-def is_Sup_finite_compact (α : Type u_1) [complete_lattice α]  :=
+def is_Sup_finite_compact (α : Type u_1) [complete_lattice α] :=
   ∀ (s : set α), ∃ (t : finset α), ↑t ⊆ s ∧ Sup s = finset.sup t id
 
 /-- An element `k` of a complete lattice is said to be compact if any set with `Sup`
 above `k` has a finite subset with `Sup` above `k`.  Such an element is also called
 "finite" or "S-compact". -/
-def is_compact_element {α : Type u_1} [complete_lattice α] (k : α)  :=
+def is_compact_element {α : Type u_1} [complete_lattice α] (k : α) :=
   ∀ (s : set α), k ≤ Sup s → ∃ (t : finset α), ↑t ⊆ s ∧ k ≤ finset.sup t id
 
 /-- A complete lattice is said to be compactly generated if any
 element is the `Sup` of compact elements. -/
-def is_compactly_generated (α : Type u_1) [complete_lattice α]  :=
+def is_compactly_generated (α : Type u_1) [complete_lattice α] :=
   ∀ (x : α), ∃ (s : set α), (∀ (x : α), x ∈ s → is_compact_element x) ∧ Sup s = x
 
 /-- An element `k` is compact if and only if any directed set with `Sup` above

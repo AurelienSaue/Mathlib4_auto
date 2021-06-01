@@ -44,7 +44,7 @@ namespace sheaf_condition
 /--
 The category of open sets contained in some element of the cover.
 -/
-def opens_le_cover {X : Top} {ι : Type v} (U : ι → topological_space.opens ↥X)  :=
+def opens_le_cover {X : Top} {ι : Type v} (U : ι → topological_space.opens ↥X) :=
   Subtype fun (V : topological_space.opens ↥X) => ∃ (i : ι), V ≤ U i
 
 protected instance opens_le_cover.inhabited {X : Top} {ι : Type v} (U : ι → topological_space.opens ↥X) [Inhabited ι] : Inhabited (opens_le_cover U) :=
@@ -95,7 +95,7 @@ A presheaf is a sheaf if `F` sends the cone `(opens_le_cover_cocone U).op` to a 
 (Recall `opens_le_cover_cocone U`, has cone point `supr U`,
 mapping down to any `V` which is contained in some `U i`.)
 -/
-def sheaf_condition_opens_le_cover {C : Type u} [category_theory.category C] {X : Top} (F : presheaf C X)  :=
+def sheaf_condition_opens_le_cover {C : Type u} [category_theory.category C] {X : Top} (F : presheaf C X) :=
   {ι : Type v} →
     (U : ι → topological_space.opens ↥X) →
       category_theory.limits.is_limit

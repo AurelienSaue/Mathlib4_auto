@@ -20,7 +20,7 @@ namespace category_theory
 
 /-- Endomorphisms of an object in a category. Arguments order in multiplication agrees with
 `function.comp`, not with `category.comp`. -/
-def End {C : Type u} [category_struct C] (X : C)  :=
+def End {C : Type u} [category_struct C] (X : C) :=
   X ⟶ X
 
 namespace End
@@ -60,7 +60,7 @@ Automorphisms of an object in a category.
 The order of arguments in multiplication agrees with
 `function.comp`, not with `category.comp`.
 -/
-def Aut {C : Type u} [category C] (X : C)  :=
+def Aut {C : Type u} [category C] (X : C) :=
   X ≅ X
 
 namespace Aut

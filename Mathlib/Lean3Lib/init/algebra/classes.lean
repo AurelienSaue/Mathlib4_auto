@@ -247,7 +247,7 @@ theorem incomp_trans_of {α : Type u} (r : α → α → Prop) [is_incomp_trans 
 namespace strict_weak_order
 
 
-def equiv {α : Type u} {r : α → α → Prop} (a : α) (b : α)  :=
+def equiv {α : Type u} {r : α → α → Prop} (a : α) (b : α) :=
   ¬r a b ∧ ¬r b a
 
 theorem erefl {α : Type u} {r : α → α → Prop} [is_strict_weak_order α r] (a : α) : equiv a a :=

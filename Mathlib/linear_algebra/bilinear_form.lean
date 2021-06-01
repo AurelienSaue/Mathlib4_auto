@@ -231,7 +231,7 @@ def lin_mul_lin {R₂ : Type u} {M₂ : Type v} [comm_semiring R₂] [add_comm_m
   rfl
 
 /-- The proposition that two elements of a bilinear form space are orthogonal -/
-def is_ortho {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) (x : M) (y : M)  :=
+def is_ortho {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) (x : M) (y : M) :=
   coe_fn B x y = 0
 
 theorem ortho_zero {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] {B : bilin_form R M} (x : M) : is_ortho B 0 x :=
@@ -423,7 +423,7 @@ namespace refl_bilin_form
 
 
 /-- The proposition that a bilinear form is reflexive -/
-def is_refl {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M)  :=
+def is_refl {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) :=
   ∀ (x y : M), coe_fn B x y = 0 → coe_fn B y x = 0
 
 theorem eq_zero {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] {B : bilin_form R M} (H : is_refl B) {x : M} {y : M} : coe_fn B x y = 0 → coe_fn B y x = 0 :=
@@ -439,7 +439,7 @@ namespace sym_bilin_form
 
 
 /-- The proposition that a bilinear form is symmetric -/
-def is_sym {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M)  :=
+def is_sym {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) :=
   ∀ (x y : M), coe_fn B x y = coe_fn B y x
 
 theorem sym {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] {B : bilin_form R M} (H : is_sym B) (x : M) (y : M) : coe_fn B x y = coe_fn B y x :=
@@ -458,7 +458,7 @@ namespace alt_bilin_form
 
 
 /-- The proposition that a bilinear form is alternating -/
-def is_alt {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M)  :=
+def is_alt {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) :=
   ∀ (x : M), coe_fn B x x = 0
 
 theorem self_eq_zero {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] {B : bilin_form R M} (H : is_alt B) (x : M) : coe_fn B x x = 0 :=
@@ -474,7 +474,7 @@ namespace bilin_form
 
 /-- Given a pair of modules equipped with bilinear forms, this is the condition for a pair of
 maps between them to be mutually adjoint. -/
-def is_adjoint_pair {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) {M' : Type u_1} [add_comm_monoid M'] [semimodule R M'] (B' : bilin_form R M') (f : linear_map R M M') (g : linear_map R M' M)  :=
+def is_adjoint_pair {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) {M' : Type u_1} [add_comm_monoid M'] [semimodule R M'] (B' : bilin_form R M') (f : linear_map R M M') (g : linear_map R M' M) :=
   ∀ {x : M} {y : M'}, coe_fn B' (coe_fn f x) y = coe_fn B x (coe_fn g y)
 
 theorem is_adjoint_pair.eq {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] {B : bilin_form R M} {M' : Type u_1} [add_comm_monoid M'] [semimodule R M'] {B' : bilin_form R M'} {f : linear_map R M M'} {g : linear_map R M' M} (h : is_adjoint_pair B B' f g) {x : M} {y : M'} : coe_fn B' (coe_fn f x) y = coe_fn B x (coe_fn g y) :=
@@ -501,7 +501,7 @@ theorem is_adjoint_pair.mul {R : Type u} {M : Type v} [semiring R] [add_comm_mon
 on the underlying module. In the case that these two forms are identical, this is the usual concept
 of self adjointness. In the case that one of the forms is the negation of the other, this is the
 usual concept of skew adjointness. -/
-def is_pair_self_adjoint {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) (F : bilin_form R M) (f : module.End R M)  :=
+def is_pair_self_adjoint {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) (F : bilin_form R M) (f : module.End R M) :=
   is_adjoint_pair B F f f
 
 /-- The set of pair-self-adjoint endomorphisms are a submodule of the type of all endomorphisms. -/
@@ -516,12 +516,12 @@ theorem is_pair_self_adjoint_equiv {R₃ : Type u} {M₃ : Type v} [comm_ring R�
 
 /-- An endomorphism of a module is self-adjoint with respect to a bilinear form if it serves as an
 adjoint for itself. -/
-def is_self_adjoint {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) (f : module.End R M)  :=
+def is_self_adjoint {R : Type u} {M : Type v} [semiring R] [add_comm_monoid M] [semimodule R M] (B : bilin_form R M) (f : module.End R M) :=
   is_adjoint_pair B B f f
 
 /-- An endomorphism of a module is skew-adjoint with respect to a bilinear form if its negation
 serves as an adjoint. -/
-def is_skew_adjoint {R₁ : Type u} {M₁ : Type v} [ring R₁] [add_comm_group M₁] [module R₁ M₁] (B₁ : bilin_form R₁ M₁) (f : module.End R₁ M₁)  :=
+def is_skew_adjoint {R₁ : Type u} {M₁ : Type v} [ring R₁] [add_comm_group M₁] [module R₁ M₁] (B₁ : bilin_form R₁ M₁) (f : module.End R₁ M₁) :=
   is_adjoint_pair B₁ B₁ f (-f)
 
 theorem is_skew_adjoint_iff_neg_self_adjoint {R₁ : Type u} {M₁ : Type v} [ring R₁] [add_comm_group M₁] [module R₁ M₁] (B₁ : bilin_form R₁ M₁) (f : module.End R₁ M₁) : is_skew_adjoint B₁ f ↔ is_adjoint_pair (-B₁) B₁ f f := sorry
@@ -546,17 +546,17 @@ end bilin_form
 
 /-- The condition for the square matrices `A`, `A'` to be an adjoint pair with respect to the square
 matrices `J`, `J₃`. -/
-def matrix.is_adjoint_pair {R₃ : Type u} [comm_ring R₃] {n : Type w} [fintype n] (J : matrix n n R₃) (J₃ : matrix n n R₃) (A : matrix n n R₃) (A' : matrix n n R₃)  :=
+def matrix.is_adjoint_pair {R₃ : Type u} [comm_ring R₃] {n : Type w} [fintype n] (J : matrix n n R₃) (J₃ : matrix n n R₃) (A : matrix n n R₃) (A' : matrix n n R₃) :=
   matrix.mul (matrix.transpose A) J₃ = matrix.mul J A'
 
 /-- The condition for a square matrix `A` to be self-adjoint with respect to the square matrix
 `J`. -/
-def matrix.is_self_adjoint {R₃ : Type u} [comm_ring R₃] {n : Type w} [fintype n] (J : matrix n n R₃) (A : matrix n n R₃)  :=
+def matrix.is_self_adjoint {R₃ : Type u} [comm_ring R₃] {n : Type w} [fintype n] (J : matrix n n R₃) (A : matrix n n R₃) :=
   matrix.is_adjoint_pair J J A A
 
 /-- The condition for a square matrix `A` to be skew-adjoint with respect to the square matrix
 `J`. -/
-def matrix.is_skew_adjoint {R₃ : Type u} [comm_ring R₃] {n : Type w} [fintype n] (J : matrix n n R₃) (A : matrix n n R₃)  :=
+def matrix.is_skew_adjoint {R₃ : Type u} [comm_ring R₃] {n : Type w} [fintype n] (J : matrix n n R₃) (A : matrix n n R₃) :=
   matrix.is_adjoint_pair J J A (-A)
 
 @[simp] theorem is_adjoint_pair_to_bilin' {R₃ : Type u} [comm_ring R₃] {n : Type w} [fintype n] (J : matrix n n R₃) (J₃ : matrix n n R₃) (A : matrix n n R₃) (A' : matrix n n R₃) [DecidableEq n] : bilin_form.is_adjoint_pair (coe_fn matrix.to_bilin' J) (coe_fn matrix.to_bilin' J₃) (coe_fn matrix.to_lin' A)

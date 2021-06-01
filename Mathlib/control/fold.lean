@@ -98,7 +98,7 @@ We can use traverse and const to construct this composition:
 And this is how `const` turns a monoid into an applicative functor and
 how the monoid of endofunctions define `foldl`.
 -/
-def foldl (α : Type u)  :=
+def foldl (α : Type u) :=
   category_theory.End αᵒᵖ
 
 def foldl.mk {α : Type u} (f : α → α) : foldl α :=
@@ -110,7 +110,7 @@ def foldl.get {α : Type u} (x : foldl α) : α → α :=
 def foldl.of_free_monoid {α : Type u} {β : Type u} (f : β → α → β) (xs : free_monoid α) : foldl β :=
   opposite.op (flip (list.foldl f) xs)
 
-def foldr (α : Type u)  :=
+def foldr (α : Type u) :=
   category_theory.End α
 
 def foldr.mk {α : Type u} (f : α → α) : foldr α :=
@@ -122,7 +122,7 @@ def foldr.get {α : Type u} (x : foldr α) : α → α :=
 def foldr.of_free_monoid {α : Type u} {β : Type u} (f : α → β → β) (xs : free_monoid α) : foldr β :=
   flip (list.foldr f) xs
 
-def mfoldl (m : Type u → Type u) [Monad m] (α : Type u)  :=
+def mfoldl (m : Type u → Type u) [Monad m] (α : Type u) :=
   category_theory.End (category_theory.Kleisli.mk m α)ᵒᵖ
 
 def mfoldl.mk {m : Type u → Type u} [Monad m] {α : Type u} (f : α → m α) : mfoldl m α :=
@@ -134,7 +134,7 @@ def mfoldl.get {m : Type u → Type u} [Monad m] {α : Type u} (x : mfoldl m α)
 def mfoldl.of_free_monoid {m : Type u → Type u} [Monad m] {α : Type u} {β : Type u} (f : β → α → m β) (xs : free_monoid α) : mfoldl m β :=
   opposite.op (flip (mfoldl f) xs)
 
-def mfoldr (m : Type u → Type u) [Monad m] (α : Type u)  :=
+def mfoldr (m : Type u → Type u) [Monad m] (α : Type u) :=
   category_theory.End (category_theory.Kleisli.mk m α)
 
 def mfoldr.mk {m : Type u → Type u} [Monad m] {α : Type u} (f : α → m α) : mfoldr m α :=

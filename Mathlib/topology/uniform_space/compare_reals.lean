@@ -69,14 +69,14 @@ namespace compare_reals
 instead of the metric space one. We proved in rat.uniform_space_eq that they are equal,
 but they are not definitionaly equal, so it would confuse the type class system (and probably
 also human readers). -/
-def Q  :=
+def Q :=
   ℚ
 
 protected instance Q.uniform_space : uniform_space Q :=
   is_absolute_value.uniform_space abs
 
 /-- Real numbers constructed as in Bourbaki. -/
-def Bourbakiℝ  :=
+def Bourbakiℝ :=
   uniform_space.completion Q
 
 protected instance bourbaki.uniform_space : uniform_space Bourbakiℝ :=

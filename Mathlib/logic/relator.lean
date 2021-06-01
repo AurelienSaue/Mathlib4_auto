@@ -25,24 +25,24 @@ predicate? For now we stick to the recursor approach.
  * implement method to derive relators from datatype
 -/
 
-def lift_fun {α : Sort u₁} {β : Sort u₂} {γ : Sort v₁} {δ : Sort v₂} (R : α → β → Prop) (S : γ → δ → Prop) (f : α → γ) (g : β → δ)  :=
+def lift_fun {α : Sort u₁} {β : Sort u₂} {γ : Sort v₁} {δ : Sort v₂} (R : α → β → Prop) (S : γ → δ → Prop) (f : α → γ) (g : β → δ) :=
   ∀ {a : α} {b : β}, R a b → S (f a) (g b)
 
 infixr:40 " ⇒ " => Mathlib.relator.lift_fun
 
-def right_total {α : Type u₁} {β : outParam (Type u₂)} (R : outParam (α → β → Prop))  :=
+def right_total {α : Type u₁} {β : outParam (Type u₂)} (R : outParam (α → β → Prop)) :=
   ∀ (b : β), ∃ (a : α), R a b
 
-def left_total {α : Type u₁} {β : outParam (Type u₂)} (R : outParam (α → β → Prop))  :=
+def left_total {α : Type u₁} {β : outParam (Type u₂)} (R : outParam (α → β → Prop)) :=
   ∀ (a : α), ∃ (b : β), R a b
 
-def bi_total {α : Type u₁} {β : outParam (Type u₂)} (R : outParam (α → β → Prop))  :=
+def bi_total {α : Type u₁} {β : outParam (Type u₂)} (R : outParam (α → β → Prop)) :=
   left_total R ∧ right_total R
 
-def left_unique {α : Type u₁} {β : Type u₂} (R : α → β → Prop)  :=
+def left_unique {α : Type u₁} {β : Type u₂} (R : α → β → Prop) :=
   ∀ {a : α} {b : β} {c : α}, R a b → R c b → a = c
 
-def right_unique {α : Type u₁} {β : Type u₂} (R : α → β → Prop)  :=
+def right_unique {α : Type u₁} {β : Type u₂} (R : α → β → Prop) :=
   ∀ {a : α} {b c : β}, R a b → R a c → b = c
 
 theorem rel_forall_of_right_total {α : Type u₁} {β : Type u₂} (R : α → β → Prop) [t : right_total R] : lift_fun (R ⇒ implies) implies (fun (p : α → Prop) => ∀ (i : α), p i) fun (q : β → Prop) => ∀ (i : β), q i :=
@@ -70,7 +70,7 @@ theorem rel_not : lift_fun Iff Iff Not Not :=
 protected instance bi_total_eq {α : Type u₁} : bi_total Eq :=
   { left := fun (a : α) => Exists.intro a rfl, right := fun (a : α) => Exists.intro a rfl }
 
-def bi_unique {α : Type u_1} {β : Type u_2} (r : α → β → Prop)  :=
+def bi_unique {α : Type u_1} {β : Type u_2} (r : α → β → Prop) :=
   left_unique r ∧ right_unique r
 
 theorem left_unique_flip {α : Type u_1} {β : Type u_2} {r : α → β → Prop} (h : left_unique r) : right_unique (flip r) :=

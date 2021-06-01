@@ -86,7 +86,7 @@ theorem C_content_dvd {R : Type u_1} [integral_domain R] [gcd_monoid R] (p : pol
   iff.mp dvd_content_iff_C_dvd (dvd_refl (content p))
 
 /-- A polynomial over a GCD domain is primitive when the `gcd` of its coefficients is 1 -/
-def is_primitive {R : Type u_1} [integral_domain R] [gcd_monoid R] (p : polynomial R)  :=
+def is_primitive {R : Type u_1} [integral_domain R] [gcd_monoid R] (p : polynomial R) :=
   content p = 1
 
 @[simp] theorem is_primitive_one {R : Type u_1} [integral_domain R] [gcd_monoid R] : is_primitive 1 := sorry

@@ -31,7 +31,7 @@ a `omega_complete_partial_order`.
  -/
 
 /-- The category of types with a omega complete partial order. -/
-def ωCPO  :=
+def ωCPO :=
   category_theory.bundled omega_complete_partial_order
 
 namespace ωCPO

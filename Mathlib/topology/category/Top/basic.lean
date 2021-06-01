@@ -15,7 +15,7 @@ universes u u_1
 namespace Mathlib
 
 /-- The category of topological spaces and continuous maps. -/
-def Top  :=
+def Top :=
   category_theory.bundled topological_space
 
 namespace Top

@@ -49,7 +49,7 @@ namespace functor
 /-- `const α` is the constant functor, mapping every type to `α`. When
 `α` has a monoid structure, `const α` has an `applicative` instance.
 (If `α` has an additive monoid structure, see `functor.add_const`.) -/
-def const (α : Type u_1) (β : Type u_2)  :=
+def const (α : Type u_1) (β : Type u_2) :=
   α
 
 /-- `const.mk` is the canonical map `α → const α β` (the identity), and
@@ -93,7 +93,7 @@ end const
 every type to `α`. When `α` has a additive monoid structure,
 `add_const α` has an `applicative` instance. (If `α` has a
 multiplicative monoid structure, see `functor.const`.) -/
-def add_const (α : Type u_1) (β : Type u_2)  :=
+def add_const (α : Type u_1) (β : Type u_2) :=
   const α
 
 /-- `add_const.mk` is the canonical map `α → add_const α β`, which is the identity,
@@ -117,7 +117,7 @@ protected instance add_const.inhabited {α : Type u_1} {β : Type u_2} [Inhabite
 /-- `functor.comp` is a wrapper around `function.comp` for types.
     It prevents Lean's type class resolution mechanism from trying
     a `functor (comp F id)` when `functor F` would do. -/
-def comp (F : Type u → Type w) (G : Type v → Type u) (α : Type v)  :=
+def comp (F : Type u → Type w) (G : Type v → Type u) (α : Type v) :=
   F (G α)
 
 /-- Construct a term of `comp F G α` from a term of `F (G α)`, which is the same type.
@@ -200,13 +200,13 @@ end comp
 
 /-- If we consider `x : F α` to, in some sense, contain values of type `α`, 
 predicate `liftp p x` holds iff every value contained by `x` satisfies `p`. -/
-def liftp {F : Type u → Type u} [Functor F] {α : Type u} (p : α → Prop) (x : F α)  :=
+def liftp {F : Type u → Type u} [Functor F] {α : Type u} (p : α → Prop) (x : F α) :=
   ∃ (u : F (Subtype p)), subtype.val <$> u = x
 
 /-- If we consider `x : F α` to, in some sense, contain values of type `α`, then
 `liftr r x y` relates `x` and `y` iff (1) `x` and `y` have the same shape and
 (2) we can pair values `a` from `x` and `b` from `y` so that `r a b` holds. -/
-def liftr {F : Type u → Type u} [Functor F] {α : Type u} (r : α → α → Prop) (x : F α) (y : F α)  :=
+def liftr {F : Type u → Type u} [Functor F] {α : Type u} (r : α → α → Prop) (x : F α) (y : F α) :=
   ∃ (u : F (Subtype fun (p : α × α) => r (prod.fst p) (prod.snd p))),
     (fun (t : Subtype fun (p : α × α) => r (prod.fst p) (prod.snd p)) => prod.fst (subtype.val t)) <$> u = x ∧
       (fun (t : Subtype fun (p : α × α) => r (prod.fst p) (prod.snd p)) => prod.snd (subtype.val t)) <$> u = y

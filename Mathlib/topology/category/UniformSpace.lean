@@ -24,7 +24,7 @@ TODO: show that uniform spaces actually have all limits!
 -/
 
 /-- A (bundled) uniform space. -/
-def UniformSpace  :=
+def UniformSpace :=
   category_theory.bundled uniform_space
 
 namespace UniformSpace

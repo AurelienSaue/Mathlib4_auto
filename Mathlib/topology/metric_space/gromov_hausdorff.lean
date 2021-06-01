@@ -60,7 +60,7 @@ protected instance isometry_rel.setoid : setoid (topological_space.nonempty_comp
   setoid.mk isometry_rel is_equivalence_isometry_rel
 
 /-- The Gromov-Hausdorff space -/
-def GH_space  :=
+def GH_space :=
   quotient isometry_rel.setoid
 
 /-- Map any nonempty compact type to `GH_space` -/
@@ -71,7 +71,7 @@ protected instance GH_space.inhabited : Inhabited GH_space :=
   { default := Quot.mk setoid.r { val := singleton 0, property := sorry } }
 
 /-- A metric space representative of any abstract point in `GH_space` -/
-def GH_space.rep (p : GH_space)  :=
+def GH_space.rep (p : GH_space) :=
   ↥(subtype.val (quot.out p))
 
 theorem eq_to_GH_space_iff {α : Type u} [metric_space α] [compact_space α] [Nonempty α] {p : topological_space.nonempty_compacts ℓ_infty_ℝ} : quotient.mk p = to_GH_space α ↔ ∃ (Ψ : α → ℓ_infty_ℝ), isometry Ψ ∧ set.range Ψ = subtype.val p := sorry

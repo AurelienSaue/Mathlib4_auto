@@ -24,11 +24,11 @@ namespace set
 
 /-- A set is finite if the subtype is a fintype, i.e. there is a
   list that enumerates its members. -/
-def finite {α : Type u} (s : set α)  :=
+def finite {α : Type u} (s : set α) :=
   Nonempty (fintype ↥s)
 
 /-- A set is infinite if it is not finite. -/
-def infinite {α : Type u} (s : set α)  :=
+def infinite {α : Type u} (s : set α) :=
   ¬finite s
 
 /-- The subtype corresponding to a finite set is a finite type. Note

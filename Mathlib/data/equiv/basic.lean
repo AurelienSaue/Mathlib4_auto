@@ -78,7 +78,7 @@ namespace equiv
 
 
 /-- `perm α` is the type of bijections from `α` to itself. -/
-def perm (α : Sort u_1)  :=
+def perm (α : Sort u_1) :=
   α ≃ α
 
 protected instance has_coe_to_fun {α : Sort u} {β : Sort v} : has_coe_to_fun (α ≃ β) :=

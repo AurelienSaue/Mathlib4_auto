@@ -69,7 +69,7 @@ theorem quotient_mk_maps_eq {R : Type u_1} [comm_ring R] (P : ideal (polynomial 
 /-- A ring is a Jacobson ring if for every radical ideal `I`,
  the Jacobson radical of `I` is equal to `I`.
  See `is_jacobson_iff_prime_eq` and `is_jacobson_iff_Inf_maximal` for equivalent definitions. -/
-def is_jacobson (R : Type u_1) [comm_ring R]  :=
+def is_jacobson (R : Type u_1) [comm_ring R] :=
   ∀ (I : ideal R), radical I = I → jacobson I = I
 
 /--  A ring is a Jacobson ring if and only if for all prime ideals `P`,

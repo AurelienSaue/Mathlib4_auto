@@ -162,12 +162,12 @@ where
 
 /-- Given a function `f : E → F` and a formal multilinear series `p`, we say that `f` has `p` as
 a power series around `x` if `f (x + y) = ∑' pₙ yⁿ` for all `y` in a neighborhood of `0`. -/
-def has_fpower_series_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (p : formal_multilinear_series 𝕜 E F) (x : E)  :=
+def has_fpower_series_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (p : formal_multilinear_series 𝕜 E F) (x : E) :=
   ∃ (r : ennreal), has_fpower_series_on_ball f p x r
 
 /-- Given a function `f : E → F`, we say that `f` is analytic at `x` if it admits a convergent power
 series expansion around `x`. -/
-def analytic_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (x : E)  :=
+def analytic_at (𝕜 : Type u_1) [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] (f : E → F) (x : E) :=
   ∃ (p : formal_multilinear_series 𝕜 E F), has_fpower_series_at f p x
 
 theorem has_fpower_series_on_ball.has_fpower_series_at {𝕜 : Type u_1} [nondiscrete_normed_field 𝕜] {E : Type u_2} [normed_group E] [normed_space 𝕜 E] {F : Type u_3} [normed_group F] [normed_space 𝕜 F] {f : E → F} {p : formal_multilinear_series 𝕜 E F} {x : E} {r : ennreal} (hf : has_fpower_series_on_ball f p x r) : has_fpower_series_at f p x :=

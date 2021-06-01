@@ -47,7 +47,7 @@ The main definitions are in the `adjoin_root` namespace.
 
 /-- Adjoin a root of a polynomial `f` to a commutative ring `R`. We define the new ring
 as the quotient of `R` by the principal ideal of `f`. -/
-def adjoin_root {R : Type u} [comm_ring R] (f : polynomial R)  :=
+def adjoin_root {R : Type u} [comm_ring R] (f : polynomial R) :=
   ideal.quotient (ideal.span (singleton f))
 
 namespace adjoin_root

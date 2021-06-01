@@ -92,7 +92,7 @@ See the explanations there.
 
 That is, `f x' = f x + (x' - x) • f' + o(x' - x)` where `x'` converges along the filter `L`.
 -/
-def has_deriv_at_filter {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Type v} [normed_group F] [normed_space 𝕜 F] (f : 𝕜 → F) (f' : F) (x : 𝕜) (L : filter 𝕜)  :=
+def has_deriv_at_filter {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Type v} [normed_group F] [normed_space 𝕜 F] (f : 𝕜 → F) (f' : F) (x : 𝕜) (L : filter 𝕜) :=
   has_fderiv_at_filter f (continuous_linear_map.smul_right 1 f') x L
 
 /--
@@ -100,7 +100,7 @@ def has_deriv_at_filter {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Typ
 
 That is, `f x' = f x + (x' - x) • f' + o(x' - x)` where `x'` converges to `x` inside `s`.
 -/
-def has_deriv_within_at {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Type v} [normed_group F] [normed_space 𝕜 F] (f : 𝕜 → F) (f' : F) (s : set 𝕜) (x : 𝕜)  :=
+def has_deriv_within_at {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Type v} [normed_group F] [normed_space 𝕜 F] (f : 𝕜 → F) (f' : F) (s : set 𝕜) (x : 𝕜) :=
   has_deriv_at_filter f f' x (nhds_within x s)
 
 /--
@@ -108,13 +108,13 @@ def has_deriv_within_at {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Typ
 
 That is, `f x' = f x + (x' - x) • f' + o(x' - x)` where `x'` converges to `x`.
 -/
-def has_deriv_at {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Type v} [normed_group F] [normed_space 𝕜 F] (f : 𝕜 → F) (f' : F) (x : 𝕜)  :=
+def has_deriv_at {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Type v} [normed_group F] [normed_space 𝕜 F] (f : 𝕜 → F) (f' : F) (x : 𝕜) :=
   has_deriv_at_filter f f' x (nhds x)
 
 /-- `f` has the derivative `f'` at the point `x` in the sense of strict differentiability.
 
 That is, `f y - f z = (y - z) • f' + o(y - z)` as `y, z → x`. -/
-def has_strict_deriv_at {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Type v} [normed_group F] [normed_space 𝕜 F] (f : 𝕜 → F) (f' : F) (x : 𝕜)  :=
+def has_strict_deriv_at {𝕜 : Type u} [nondiscrete_normed_field 𝕜] {F : Type v} [normed_group F] [normed_space 𝕜 F] (f : 𝕜 → F) (f' : F) (x : 𝕜) :=
   has_strict_fderiv_at f (continuous_linear_map.smul_right 1 f') x
 
 /--

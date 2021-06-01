@@ -47,7 +47,7 @@ meanings:
   (If Lean supported definitional eta equality for records, we could
   achieve the same goals using a structure with one field.)
 -/
-def opposite (α : Sort u)  :=
+def opposite (α : Sort u) :=
   α
 
 postfix:0 "ᵒᵖ" => Mathlib.opposite

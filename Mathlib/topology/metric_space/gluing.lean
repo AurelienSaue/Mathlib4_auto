@@ -121,7 +121,7 @@ theorem isometry_on_inr {α : Type u} {β : Type v} [metric_space α] [metric_sp
 def glue_premetric {α : Type u} {β : Type v} {γ : Type w} [Nonempty γ] [metric_space γ] [metric_space α] [metric_space β] {Φ : γ → α} {Ψ : γ → β} (hΦ : isometry Φ) (hΨ : isometry Ψ) : premetric_space (α ⊕ β) :=
   premetric_space.mk sorry sorry sorry
 
-def glue_space {α : Type u} {β : Type v} {γ : Type w} [Nonempty γ] [metric_space γ] [metric_space α] [metric_space β] {Φ : γ → α} {Ψ : γ → β} (hΦ : isometry Φ) (hΨ : isometry Ψ)  :=
+def glue_space {α : Type u} {β : Type v} {γ : Type w} [Nonempty γ] [metric_space γ] [metric_space α] [metric_space β] {Φ : γ → α} {Ψ : γ → β} (hΦ : isometry Φ) (hΨ : isometry Ψ) :=
   premetric.metric_quot (α ⊕ β)
 
 protected instance metric_space_glue_space {α : Type u} {β : Type v} {γ : Type w} [Nonempty γ] [metric_space γ] [metric_space α] [metric_space β] {Φ : γ → α} {Ψ : γ → β} (hΦ : isometry Φ) (hΨ : isometry Ψ) : metric_space (glue_space hΦ hΨ) :=
@@ -168,7 +168,7 @@ def inductive_premetric {X : ℕ → Type u} [(n : ℕ) → metric_space (X n)] 
   premetric_space.mk sorry sorry sorry
 
 /-- The type giving the inductive limit in a metric space context. -/
-def inductive_limit {X : ℕ → Type u} [(n : ℕ) → metric_space (X n)] {f : (n : ℕ) → X n → X (n + 1)} (I : ∀ (n : ℕ), isometry (f n))  :=
+def inductive_limit {X : ℕ → Type u} [(n : ℕ) → metric_space (X n)] {f : (n : ℕ) → X n → X (n + 1)} (I : ∀ (n : ℕ), isometry (f n)) :=
   premetric.metric_quot (sigma fun (n : ℕ) => X n)
 
 /-- Metric space structure on the inductive limit. -/

@@ -363,7 +363,7 @@ def sqrt_aux : ℕ → ℕ → ℕ → ℕ
 
 def sqrt (n : ℕ) : ℕ :=
 match size n with
-| 0      := 0
+| 0     := 0
 | succ s := sqrt_aux (shiftl 1 (bit0 (div2 s))) 0 n
 end
 -/

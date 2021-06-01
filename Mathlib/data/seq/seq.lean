@@ -24,17 +24,17 @@ coinductive seq (α : Type u) : Type u
 /--
 A stream `s : option α` is a sequence if `s.nth n = none` implies `s.nth (n + 1) = none`.
 -/
-def stream.is_seq {α : Type u} (s : stream (Option α))  :=
+def stream.is_seq {α : Type u} (s : stream (Option α)) :=
   ∀ {n : ℕ}, s n = none → s (n + 1) = none
 
 /-- `seq α` is the type of possibly infinite lists (referred here as sequences).
   It is encoded as an infinite stream of options such that if `f n = none`, then
   `f m = none` for all `m ≥ n`. -/
-def seq (α : Type u)  :=
+def seq (α : Type u) :=
   Subtype fun (f : stream (Option α)) => stream.is_seq f
 
 /-- `seq1 α` is the type of nonempty sequences. -/
-def seq1 (α : Type u_1)  :=
+def seq1 (α : Type u_1) :=
   α × seq α
 
 namespace seq
@@ -56,7 +56,7 @@ def nth {α : Type u} : seq α → ℕ → Option α :=
   subtype.val
 
 /-- A sequence has terminated at position `n` if the value at position `n` equals `none`. -/
-def terminated_at {α : Type u} (s : seq α) (n : ℕ)  :=
+def terminated_at {α : Type u} (s : seq α) (n : ℕ) :=
   nth s n = none
 
 /-- It is decidable whether a sequence terminates at a given position. -/
@@ -64,7 +64,7 @@ protected instance terminated_at_decidable {α : Type u} (s : seq α) (n : ℕ) 
   decidable_of_iff' ↥(option.is_none (nth s n)) sorry
 
 /-- A sequence terminates if there is some position `n` at which it has terminated. -/
-def terminates {α : Type u} (s : seq α)  :=
+def terminates {α : Type u} (s : seq α) :=
   ∃ (n : ℕ), terminated_at s n
 
 /-- Functorial action of the functor `option (α × _)` -/
@@ -79,7 +79,7 @@ def head {α : Type u} (s : seq α) : Option α :=
 def tail {α : Type u} : seq α → seq α :=
   sorry
 
-protected def mem {α : Type u} (a : α) (s : seq α)  :=
+protected def mem {α : Type u} (a : α) (s : seq α) :=
   some a ∈ subtype.val s
 
 protected instance has_mem {α : Type u} : has_mem α (seq α) :=
@@ -169,7 +169,7 @@ protected instance coe_list {α : Type u} : has_coe (List α) (seq α) :=
 @[simp] def bisim_o {α : Type u} (R : seq α → seq α → Prop) : Option (seq1 α) → Option (seq1 α) → Prop :=
   sorry
 
-def is_bisimulation {α : Type u} (R : seq α → seq α → Prop)  :=
+def is_bisimulation {α : Type u} (R : seq α → seq α → Prop) :=
   ∀ {s₁ s₂ : seq α}, R s₁ s₂ → bisim_o R (destruct s₁) (destruct s₂)
 
 theorem eq_of_bisim {α : Type u} (R : seq α → seq α → Prop) (bisim : is_bisimulation R) {s₁ : seq α} {s₂ : seq α} (r : R s₁ s₂) : s₁ = s₂ := sorry

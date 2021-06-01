@@ -29,17 +29,17 @@ In this file we define several notions of finiteness that are common in commutat
 -/
 
 /-- A module over a commutative ring is `finite` if it is finitely generated as a module. -/
-def module.finite (R : Type u_1) (M : Type u_4) [comm_ring R] [add_comm_group M] [module R M]  :=
+def module.finite (R : Type u_1) (M : Type u_4) [comm_ring R] [add_comm_group M] [module R M] :=
   submodule.fg ⊤
 
 /-- An algebra over a commutative ring is of `finite_type` if it is finitely generated
 over the base ring as algebra. -/
-def algebra.finite_type (R : Type u_1) (A : Type u_2) [comm_ring R] [comm_ring A] [algebra R A]  :=
+def algebra.finite_type (R : Type u_1) (A : Type u_2) [comm_ring R] [comm_ring A] [algebra R A] :=
   subalgebra.fg ⊤
 
 /-- An algebra over a commutative ring is `finitely_presented` if it is the quotient of a
 polynomial ring in `n` variables by a finitely generated ideal. -/
-def algebra.finitely_presented (R : Type u_1) (A : Type u_2) [comm_ring R] [comm_ring A] [algebra R A]  :=
+def algebra.finitely_presented (R : Type u_1) (A : Type u_2) [comm_ring R] [comm_ring A] [algebra R A] :=
   ∃ (n : ℕ),
     ∃ (f : alg_hom R (mv_polynomial (fin n) R) A),
       function.surjective ⇑f ∧ submodule.fg (ring_hom.ker (alg_hom.to_ring_hom f))
@@ -153,12 +153,12 @@ namespace ring_hom
 
 
 /-- A ring morphism `A →+* B` is `finite` if `B` is finitely generated as `A`-module. -/
-def finite {A : Type u_1} {B : Type u_2} [comm_ring A] [comm_ring B] (f : A →+* B)  :=
+def finite {A : Type u_1} {B : Type u_2} [comm_ring A] [comm_ring B] (f : A →+* B) :=
   let _inst : algebra A B := to_algebra f;
   module.finite A B
 
 /-- A ring morphism `A →+* B` is of `finite_type` if `B` is finitely generated as `A`-algebra. -/
-def finite_type {A : Type u_1} {B : Type u_2} [comm_ring A] [comm_ring B] (f : A →+* B)  :=
+def finite_type {A : Type u_1} {B : Type u_2} [comm_ring A] [comm_ring B] (f : A →+* B) :=
   algebra.finite_type A B
 
 namespace finite
@@ -207,12 +207,12 @@ namespace alg_hom
 
 /-- An algebra morphism `A →ₐ[R] B` is finite if it is finite as ring morphism.
 In other words, if `B` is finitely generated as `A`-module. -/
-def finite {R : Type u_1} {A : Type u_2} {B : Type u_3} [comm_ring R] [comm_ring A] [comm_ring B] [algebra R A] [algebra R B] (f : alg_hom R A B)  :=
+def finite {R : Type u_1} {A : Type u_2} {B : Type u_3} [comm_ring R] [comm_ring A] [comm_ring B] [algebra R A] [algebra R B] (f : alg_hom R A B) :=
   ring_hom.finite (to_ring_hom f)
 
 /-- An algebra morphism `A →ₐ[R] B` is of `finite_type` if it is of finite type as ring morphism.
 In other words, if `B` is finitely generated as `A`-algebra. -/
-def finite_type {R : Type u_1} {A : Type u_2} {B : Type u_3} [comm_ring R] [comm_ring A] [comm_ring B] [algebra R A] [algebra R B] (f : alg_hom R A B)  :=
+def finite_type {R : Type u_1} {A : Type u_2} {B : Type u_3} [comm_ring R] [comm_ring A] [comm_ring B] [algebra R A] [algebra R B] (f : alg_hom R A B) :=
   ring_hom.finite_type (to_ring_hom f)
 
 namespace finite

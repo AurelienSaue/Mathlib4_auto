@@ -375,7 +375,7 @@ protected instance ordinal.is_equivalent : setoid Well_order :=
   setoid.mk (fun (_x : Well_order) => sorry) sorry
 
 /-- `ordinal.{u}` is the type of well orders in `Type u`, up to order isomorphism. -/
-def ordinal  :=
+def ordinal :=
   quotient sorry
 
 namespace ordinal
@@ -408,7 +408,7 @@ theorem induction_on {C : ordinal → Prop} (o : ordinal) (H : ∀ (α : Type u_
 /-- Ordinal less-equal is defined such that
   well orders `r` and `s` satisfy `type r ≤ type s` if there exists
   a function embedding `r` as an initial segment of `s`. -/
-protected def le (a : ordinal) (b : ordinal)  :=
+protected def le (a : ordinal) (b : ordinal) :=
   quotient.lift_on₂ a b (fun (_x : Well_order) => sorry) sorry
 
 protected instance has_le : HasLessEq ordinal :=
@@ -422,7 +422,7 @@ theorem type_le' {α : Type u_1} {β : Type u_1} {r : α → α → Prop} {s : �
 /-- Ordinal less-than is defined such that
   well orders `r` and `s` satisfy `type r < type s` if there exists
   a function embedding `r` as a principal segment of `s`. -/
-def lt (a : ordinal) (b : ordinal)  :=
+def lt (a : ordinal) (b : ordinal) :=
   quotient.lift_on₂ a b (fun (_x : Well_order) => sorry) sorry
 
 protected instance has_lt : HasLess ordinal :=

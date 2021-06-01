@@ -40,7 +40,7 @@ protected instance inhabited : Inhabited pfunctor :=
   { default := mk Inhabited.default Inhabited.default }
 
 /-- Applying `P` to an object of `Type` -/
-def obj (P : pfunctor) (α : Type u_2)  :=
+def obj (P : pfunctor) (α : Type u_2) :=
   sigma fun (x : A P) => B P x → α
 
 /-- Applying `P` to a morphism of `Type` -/
@@ -65,7 +65,7 @@ protected instance obj.is_lawful_functor (P : pfunctor) : is_lawful_functor (obj
 
 /-- re-export existing definition of W-types and
 adapt it to a packaged definition of polynomial functor -/
-def W (P : pfunctor)  :=
+def W (P : pfunctor) :=
   W_type (B P)
 
 /- inhabitants of W types is awkward to encode as an instance
@@ -97,7 +97,7 @@ def W.mk {P : pfunctor} : obj P (W P) → W P :=
 /-- `Idx` identifies a location inside the application of a pfunctor.
 For `F : pfunctor`, `x : F.obj α` and `i : F.Idx`, `i` can designate
 one part of `x` or is invalid, if `i.1 ≠ x.1` -/
-def Idx (P : pfunctor)  :=
+def Idx (P : pfunctor) :=
   sigma fun (x : A P) => B P x
 
 protected instance Idx.inhabited (P : pfunctor) [Inhabited (A P)] [Inhabited (B P Inhabited.default)] : Inhabited (Idx P) :=

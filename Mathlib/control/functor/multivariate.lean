@@ -36,11 +36,11 @@ namespace mvfunctor
 
 
 /-- predicate lifting over multivariate functors -/
-def liftp {n : ℕ} {F : typevec n → Type v} [mvfunctor F] {α : typevec n} (p : (i : fin2 n) → α i → Prop) (x : F α)  :=
+def liftp {n : ℕ} {F : typevec n → Type v} [mvfunctor F] {α : typevec n} (p : (i : fin2 n) → α i → Prop) (x : F α) :=
   ∃ (u : F fun (i : fin2 n) => Subtype (p i)), map (fun (i : fin2 n) => subtype.val) u = x
 
 /-- relational lifting over multivariate functors -/
-def liftr {n : ℕ} {F : typevec n → Type v} [mvfunctor F] {α : typevec n} (r : {i : fin2 n} → α i → α i → Prop) (x : F α) (y : F α)  :=
+def liftr {n : ℕ} {F : typevec n → Type v} [mvfunctor F] {α : typevec n} (r : {i : fin2 n} → α i → α i → Prop) (x : F α) (y : F α) :=
   ∃ (u : F fun (i : fin2 n) => Subtype fun (p : α i × α i) => r (prod.fst p) (prod.snd p)),
     map (fun (i : fin2 n) (t : Subtype fun (p : α i × α i) => r (prod.fst p) (prod.snd p)) => prod.fst (subtype.val t))
           u =

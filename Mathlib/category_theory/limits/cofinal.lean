@@ -66,7 +66,7 @@ is connected.
 
 See https://stacks.math.columbia.edu/tag/04E6
 -/
-def cofinal {C : Type v} [small_category C] {D : Type v} [small_category D] (F : C ⥤ D)  :=
+def cofinal {C : Type v} [small_category C] {D : Type v} [small_category D] (F : C ⥤ D) :=
   ∀ (d : D), is_connected (comma (functor.from_punit d) F)
 
 protected instance comma.is_connected {C : Type v} [small_category C] {D : Type v} [small_category D] (F : C ⥤ D) [ℱ : cofinal F] (d : D) : is_connected (comma (functor.from_punit d) F) :=

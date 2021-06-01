@@ -23,7 +23,7 @@ end int
 
 
 /-- Alternate definition of `vector` based on `fin2`. -/
-def vector3 (α : Type u) (n : ℕ)  :=
+def vector3 (α : Type u) (n : ℕ) :=
   fin2 n → α
 
 namespace vector3
@@ -139,7 +139,7 @@ theorem vector_all_iff_forall {α : Type u_1} {n : ℕ} (f : vector3 α n → Pr
 
 /-- `vector_allp p v` is equivalent to `∀ i, p (v i)`, but unfolds directly to a conjunction,
   i.e. `vector_allp p [0, 1, 2] = p 0 ∧ p 1 ∧ p 2`. -/
-def vector_allp {α : Type u_1} (p : α → Prop) {n : ℕ} (v : vector3 α n)  :=
+def vector_allp {α : Type u_1} (p : α → Prop) {n : ℕ} (v : vector3 α n) :=
   vector3.rec_on v True
     fun (n : ℕ) (a : α) (v : vector3 α n) (IH : Prop) =>
       vector3.rec_on v (p a) fun (n : ℕ) (b : α) (v' : vector3 α n) (_x : Prop) => p a ∧ IH
@@ -194,7 +194,7 @@ where
 | mul : ∀ {f g : (α → ℕ) → ℤ}, is_poly f → is_poly g → is_poly fun (x : α → ℕ) => f x * g x
 
 /-- The type of multivariate integer polynomials -/
-def poly (α : Type u)  :=
+def poly (α : Type u) :=
   Subtype fun (f : (α → ℕ) → ℤ) => is_poly f
 
 namespace poly
@@ -342,7 +342,7 @@ end option
 
 /-- A set `S ⊆ ℕ^α` is diophantine if there exists a polynomial on
   `α ⊕ β` such that `v ∈ S` iff there exists `t : ℕ^β` with `p (v, t) = 0`. -/
-def dioph {α : Type u} (S : set (α → ℕ))  :=
+def dioph {α : Type u} (S : set (α → ℕ)) :=
   Exists fun {β : Type u} => ∃ (p : poly (α ⊕ β)), ∀ (v : α → ℕ), S v ↔ ∃ (t : β → ℕ), coe_fn p (sum.join v t) = 0
 
 namespace dioph
@@ -370,11 +370,11 @@ theorem and_dioph {α : Type u} {S : set (α → ℕ)} {S' : set (α → ℕ)} (
 theorem or_dioph {α : Type u} {S : set (α → ℕ)} {S' : set (α → ℕ)} (d : dioph S) (d' : dioph S') : dioph fun (v : α → ℕ) => S v ∨ S' v := sorry
 
 /-- A partial function is Diophantine if its graph is Diophantine. -/
-def dioph_pfun {α : Type u} (f : (α → ℕ) →. ℕ)  :=
+def dioph_pfun {α : Type u} (f : (α → ℕ) →. ℕ) :=
   dioph fun (v : Option α → ℕ) => pfun.graph f (v ∘ some, v none)
 
 /-- A function is Diophantine if its graph is Diophantine. -/
-def dioph_fn {α : Type u} (f : (α → ℕ) → ℕ)  :=
+def dioph_fn {α : Type u} (f : (α → ℕ) → ℕ) :=
   dioph fun (v : Option α → ℕ) => f (v ∘ some) = v none
 
 theorem reindex_dioph_fn {α : Type u} {β : Type u} {f : (α → ℕ) → ℕ} (d : dioph_fn f) (g : α → β) : dioph_fn fun (v : β → ℕ) => f (v ∘ g) :=

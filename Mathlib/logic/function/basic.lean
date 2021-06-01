@@ -105,7 +105,7 @@ theorem cantor_injective {α : Type u_1} (f : set α → α) : ¬injective f := 
 /-- `g` is a partial inverse to `f` (an injective but not necessarily
   surjective function) if `g y = some x` implies `f x = y`, and `g y = none`
   implies that `y` is not in the range of `f`. -/
-def is_partial_inv {α : Type u_1} {β : Sort u_2} (f : α → β) (g : β → Option α)  :=
+def is_partial_inv {α : Type u_1} {β : Sort u_2} (f : α → β) (g : β → Option α) :=
   ∀ (x : α) (y : β), g y = some x ↔ f x = y
 
 theorem is_partial_inv_left {α : Type u_1} {β : Sort u_2} {f : α → β} {g : β → Option α} (H : is_partial_inv f g) (x : α) : g (f x) = some x :=
@@ -351,7 +351,7 @@ protected instance has_uncurry_induction {α : Type u_1} {β : Type u_2} {γ : T
   has_uncurry.mk fun (f : α → β) (p : α × γ) => has_uncurry.uncurry (f (prod.fst p)) (prod.snd p)
 
 /-- A function is involutive, if `f ∘ f = id`. -/
-def involutive {α : Sort u_1} (f : α → α)  :=
+def involutive {α : Sort u_1} (f : α → α) :=
   ∀ (x : α), f (f x) = x
 
 theorem involutive_iff_iter_2_eq_id {α : Sort u_1} {f : α → α} : involutive f ↔ nat.iterate f (bit0 1) = id :=
@@ -387,7 +387,7 @@ end involutive
 /-- The property of a binary function `f : α → β → γ` being injective.
   Mathematically this should be thought of as the corresponding function `α × β → γ` being injective.
 -/
-def injective2 {α : Sort u_1} {β : Sort u_2} {γ : Sort u_3} (f : α → β → γ)  :=
+def injective2 {α : Sort u_1} {β : Sort u_2} {γ : Sort u_3} (f : α → β → γ) :=
   ∀ {a₁ a₂ : α} {b₁ b₂ : β}, f a₁ b₁ = f a₂ b₂ → a₁ = a₂ ∧ b₁ = b₂
 
 namespace injective2

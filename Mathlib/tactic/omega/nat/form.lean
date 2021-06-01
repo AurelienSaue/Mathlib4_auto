@@ -64,19 +64,19 @@ def fresh_index : preform → ℕ :=
 theorem holds_constant {v : ℕ → ℕ} {w : ℕ → ℕ} (p : preform) : (∀ (x : ℕ), x < fresh_index p → v x = w x) → (holds v p ↔ holds w p) := sorry
 
 /-- All valuations satisfy argument -/
-def valid (p : preform)  :=
+def valid (p : preform) :=
   ∀ (v : ℕ → ℕ), holds v p
 
 /-- There exists some valuation that satisfies argument -/
-def sat (p : preform)  :=
+def sat (p : preform) :=
   ∃ (v : ℕ → ℕ), holds v p
 
 /-- `implies p q` := under any valuation, `q` holds if `p` holds -/
-def implies (p : preform) (q : preform)  :=
+def implies (p : preform) (q : preform) :=
   ∀ (v : ℕ → ℕ), holds v p → holds v q
 
 /-- `equiv p q` := under any valuation, `p` holds iff `q` holds -/
-def equiv (p : preform) (q : preform)  :=
+def equiv (p : preform) (q : preform) :=
   ∀ (v : ℕ → ℕ), holds v p ↔ holds v q
 
 theorem sat_of_implies_of_sat {p : preform} {q : preform} : implies p q → sat p → sat q :=
@@ -85,7 +85,7 @@ theorem sat_of_implies_of_sat {p : preform} {q : preform} : implies p q → sat 
 theorem sat_or {p : preform} {q : preform} : sat (or p q) ↔ sat p ∨ sat q := sorry
 
 /-- There does not exist any valuation that satisfies argument -/
-def unsat (p : preform)  :=
+def unsat (p : preform) :=
   ¬sat p
 
 def repr : preform → string :=

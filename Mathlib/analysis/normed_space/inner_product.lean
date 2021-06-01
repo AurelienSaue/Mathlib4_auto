@@ -386,7 +386,7 @@ and orthogonal. -/
 theorem linear_independent_of_ne_zero_of_inner_eq_zero {𝕜 : Type u_1} {E : Type u_2} [is_R_or_C 𝕜] [inner_product_space 𝕜 E] {ι : Type u_3} {v : ι → E} (hz : ∀ (i : ι), v i ≠ 0) (ho : ∀ (i j : ι), i ≠ j → inner (v i) (v j) = 0) : linear_independent 𝕜 v := sorry
 
 /-- An orthonormal set of vectors in an `inner_product_space` -/
-def orthonormal (𝕜 : Type u_1) {E : Type u_2} [is_R_or_C 𝕜] [inner_product_space 𝕜 E] {ι : Type u_4} (v : ι → E)  :=
+def orthonormal (𝕜 : Type u_1) {E : Type u_2} [is_R_or_C 𝕜] [inner_product_space 𝕜 E] {ι : Type u_4} (v : ι → E) :=
   (∀ (i : ι), norm (v i) = 1) ∧ ∀ {i j : ι}, i ≠ j → inner (v i) (v j) = 0
 
 /-- `if ... then ... else` characterization of an indexed set of vectors being orthonormal.  (Inner
@@ -674,7 +674,7 @@ protected instance is_R_or_C.inner_product_space {𝕜 : Type u_1} [is_R_or_C �
 
 /-- The standard real/complex Euclidean space, functions on a finite type. For an `n`-dimensional
 space use `euclidean_space 𝕜 (fin n)`. -/
-def euclidean_space (𝕜 : Type u_1) [is_R_or_C 𝕜] (n : Type u_2) [fintype n]  :=
+def euclidean_space (𝕜 : Type u_1) [is_R_or_C 𝕜] (n : Type u_2) [fintype n] :=
   pi_Lp (bit0 1) one_le_two fun (i : n) => 𝕜
 
 /-! ### Inner product space structure on subspaces -/

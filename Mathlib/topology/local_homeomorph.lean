@@ -391,7 +391,7 @@ theorem restr_trans {α : Type u_1} {β : Type u_2} {γ : Type u_3} [topological
 
 /-- `eq_on_source e e'` means that `e` and `e'` have the same source, and coincide there. They
 should really be considered the same local equiv. -/
-def eq_on_source {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (e : local_homeomorph α β) (e' : local_homeomorph α β)  :=
+def eq_on_source {α : Type u_1} {β : Type u_2} [topological_space α] [topological_space β] (e : local_homeomorph α β) (e' : local_homeomorph α β) :=
   local_equiv.source (to_local_equiv e) = local_equiv.source (to_local_equiv e') ∧
     set.eq_on (⇑e) (⇑e') (local_equiv.source (to_local_equiv e))
 

@@ -115,7 +115,7 @@ theorem is_sheaf_of_representable {C : Type u} [category C] (P : Cᵒᵖ ⥤ Typ
 A subcanonical topology is a topology which is smaller than the canonical topology.
 Equivalently, a topology is subcanonical iff every representable is a sheaf.
 -/
-def subcanonical {C : Type u} [category C] (J : grothendieck_topology C)  :=
+def subcanonical {C : Type u} [category C] (J : grothendieck_topology C) :=
   J ≤ canonical_topology C
 
 namespace subcanonical

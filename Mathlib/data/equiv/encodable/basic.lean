@@ -213,7 +213,7 @@ end encodable
 /--
 `ulower α : Type 0` is an equivalent type in the lowest universe, given `encodable α`.
 -/
-def ulower (α : Type u_1) [encodable α]  :=
+def ulower (α : Type u_1) [encodable α] :=
   ↥(set.range encodable.encode)
 
 namespace ulower

@@ -36,7 +36,7 @@ namespace category_theory
 /-- A multiplicative action M ↻ X induces a category strucure on X, where a morphism
  from x to y is a scalar taking x to y. Due to implementation details, the object type
  of this category is not equal to X, but is in bijection with X. -/
-def action_category (M : Type u_1) [monoid M] (X : Type u) [mul_action M X]  :=
+def action_category (M : Type u_1) [monoid M] (X : Type u) [mul_action M X] :=
   functor.elements (action_as_functor M X)
 
 namespace action_category

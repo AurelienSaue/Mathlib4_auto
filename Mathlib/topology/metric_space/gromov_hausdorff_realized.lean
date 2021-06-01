@@ -95,7 +95,7 @@ def premetric_optimal_GH_dist (α : Type u) (β : Type v) [metric_space α] [com
   premetric_space.mk sorry sorry sorry
 
 /-- A metric space which realizes the optimal coupling between α and β -/
-def optimal_GH_coupling (α : Type u) (β : Type v) [metric_space α] [compact_space α] [Nonempty α] [metric_space β] [compact_space β] [Nonempty β]  :=
+def optimal_GH_coupling (α : Type u) (β : Type v) [metric_space α] [compact_space α] [Nonempty α] [metric_space β] [compact_space β] [Nonempty β] :=
   premetric.metric_quot (α ⊕ β)
 
 /-- Injection of α in the optimal coupling between α and β -/

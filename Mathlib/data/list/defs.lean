@@ -288,17 +288,17 @@ def count {α : Type u} [DecidableEq α] (a : α) : List α → ℕ :=
 
 /-- `is_prefix l₁ l₂`, or `l₁ <+: l₂`, means that `l₁` is a prefix of `l₂`,
   that is, `l₂` has the form `l₁ ++ t` for some `t`. -/
-def is_prefix {α : Type u} (l₁ : List α) (l₂ : List α)  :=
+def is_prefix {α : Type u} (l₁ : List α) (l₂ : List α) :=
   ∃ (t : List α), l₁ ++ t = l₂
 
 /-- `is_suffix l₁ l₂`, or `l₁ <:+ l₂`, means that `l₁` is a suffix of `l₂`,
   that is, `l₂` has the form `t ++ l₁` for some `t`. -/
-def is_suffix {α : Type u} (l₁ : List α) (l₂ : List α)  :=
+def is_suffix {α : Type u} (l₁ : List α) (l₂ : List α) :=
   ∃ (t : List α), t ++ l₁ = l₂
 
 /-- `is_infix l₁ l₂`, or `l₁ <:+: l₂`, means that `l₁` is a contiguous
   substring of `l₂`, that is, `l₂` has the form `s ++ l₁ ++ t` for some `s, t`. -/
-def is_infix {α : Type u} (l₁ : List α) (l₂ : List α)  :=
+def is_infix {α : Type u} (l₁ : List α) (l₂ : List α) :=
   ∃ (s : List α), ∃ (t : List α), s ++ l₁ ++ t = l₂
 
 infixl:50 " <+: " => Mathlib.list.is_prefix
@@ -435,7 +435,7 @@ def of_fn_nth_val {α : Type u} {n : ℕ} (f : fin n → α) (i : ℕ) : Option 
   dite (i < n) (fun (h : i < n) => some (f { val := i, property := h })) fun (h : ¬i < n) => none
 
 /-- `disjoint l₁ l₂` means that `l₁` and `l₂` have no elements in common. -/
-def disjoint {α : Type u} (l₁ : List α) (l₂ : List α)  :=
+def disjoint {α : Type u} (l₁ : List α) (l₂ : List α) :=
   ∀ {a : α}, a ∈ l₁ → a ∈ l₂ → False
 
 /-- `pairwise R l` means that all the elements with earlier indexes are

@@ -35,11 +35,11 @@ namespace category_theory.limits
 
 
 /-- A wide pullback shape for any type `J` can be written simply as `option J`. -/
-def wide_pullback_shape (J : Type v)  :=
+def wide_pullback_shape (J : Type v) :=
   Option J
 
 /-- A wide pushout shape for any type `J` can be written simply as `option J`. -/
-def wide_pushout_shape (J : Type v)  :=
+def wide_pushout_shape (J : Type v) :=
   Option J
 
 namespace wide_pullback_shape
@@ -145,10 +145,10 @@ end wide_pushout_shape
 
 
 /-- `has_wide_pullbacks` represents a choice of wide pullback for every collection of morphisms -/
-def has_wide_pullbacks (C : Type u) [category C]  :=
+def has_wide_pullbacks (C : Type u) [category C] :=
   ∀ (J : Type v), has_limits_of_shape (wide_pullback_shape J) C
 
 /-- `has_wide_pushouts` represents a choice of wide pushout for every collection of morphisms -/
-def has_wide_pushouts (C : Type u) [category C]  :=
+def has_wide_pushouts (C : Type u) [category C] :=
   ∀ (J : Type v), has_colimits_of_shape (wide_pushout_shape J) C
 
